@@ -83,6 +83,8 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
             <input type="hidden" value="<?php echo $_SESSION["perfil_Informe"]; ?>" id="perfilOcultoUsuario">
 
+            
+
         </div>
       
       </div>

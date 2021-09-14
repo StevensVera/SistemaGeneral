@@ -163,8 +163,9 @@
     <!-- AQUÍ PONEMOS LOS SCRIPT DE JAVASCRIPT -->
 
     <script src="vistas/js/plantilla.js"></script>
-    <script  src="vistas/js/usuarios.js" ></script>
+    <script src="vistas/js/usuarios.js" ></script>
     <script src="vistas/js/solicitudes_informacion.js"></script>
+    <script src="vistas/js/solicitudes_arco.js"></script>
 
 </body>
 </html>

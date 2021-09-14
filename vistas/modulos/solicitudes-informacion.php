@@ -12,6 +12,8 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 }
 
+
+
 ?>
 <div class="content-wrapper">
     
@@ -51,22 +53,27 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
         <div class="box-body">
 
-             <table class="table table-bordered table-striped dt-responsive tablasSolicitudesInformacion" with="100%">
+             <table class="table table-bordered table-striped dt-responsive tablasSolicitudesInformacion " with="100%">
 
                 <thead>
 
                     <tr>
 
                         <th>#</th>
-                        <th>Sujeto Obligado</th>
-                        <th>Total de Solicitudes Información</th>
-                        <th>Informe Presentado</th>
-                        <th>Fecha de Entrega</th>
-                        <th>Acciones</th>
+                        <th style="width: 300px">Sujeto Obligado</th>
+                        <th style="width: 150px">Informe Presentado</th>
+                        <th style="width: 80px">Año</th>
+                        <th style="width: 160px">Total de Solicitudes Información</th>
+                        <th style="width: 110px">Fecha de Entrega</th>
+                        <th style="width: 150px">Acciones</th>
   
                     </tr>
 
                 </thead>
+
+                <input type="hidden" value="<?php echo $_SESSION["perfil_Informe"]; ?>" id="perfilOcultoUsuario">
+
+                <input type="hidden" value="<?php echo $_SESSION["codigo"]; ?>" id="perfiCodigo">
 
             </table>
           
@@ -88,16 +95,17 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
         <div class="box-body">
 
-             <table class="table table-bordered table-striped dt-responsive tablasinformacionsolicitudes" with="100%">
+             <table class="table table-bordered table-striped dt-responsive tablasDetallesinformacionsolicitudes" with="100%">
 
                 <thead>
 
                     <tr>
 
                         <th>#</th>
-                        <th>Sujeto Obligado</th>
+                        <th >Sujeto Obligado</th>
                         <th>Titular SO</th>
                         <th>Informe Presentado</th>
+                        <th>Total de Solicitudes</th>
                         <th>Fecha de Entrega</th>
                         <th>Acciones</th>
   
@@ -112,7 +120,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
       </div>
 
     </section>
-    
 
   </div>
 

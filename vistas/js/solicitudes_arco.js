@@ -8,9 +8,9 @@ var perfiCodigo = $("#perfiCodigo").val();
 
 console.log("perfiCodigo", perfiCodigo);
 
-var table = $(".tablasSolicitudesInformacion").DataTable({
+var table = $(".tablasSolicitudesArco").DataTable({
    
-    "ajax":"ajax/datatable-adjuntosSolicitudesInformacion.php?perfilOcultoUsuario="+perfilOcultoUsuario+"perfiCodigo"+perfiCodigo,
+    "ajax":"ajax/datatable-adjuntosSolicitudesArco.php?perfilOcultoUsuario="+perfilOcultoUsuario+"perfiCodigo"+perfiCodigo,
     "deferRender": true,
     "retrieve": true,
     "processing": true,

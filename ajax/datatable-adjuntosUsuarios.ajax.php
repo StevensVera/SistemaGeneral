@@ -64,8 +64,7 @@ require_once "../modelos/usuarios.modelo.php";
                         "'.$estados.'",
                         "'.$adjunto[$i]["fecha_informe"].'",
                         "'.$botones.'"
-                        
-
+                    
                     ],';
                     
                 }// for
