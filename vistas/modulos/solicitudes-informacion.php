@@ -207,7 +207,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                    <input type="text" class="form-control input-lg" id="nuevoSI_MP_Total" name="nuevoSI_MP_Total" placeholder="Total de Solicitudes" require>
+                    <input type="text" class="form-control input-lg" id="nuevoSI_Total" name="nuevoSI_Total" placeholder="Total de Solicitudes" require>
 
               </div>
     
@@ -2697,7 +2697,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
     </div>
 
-     <!-- ================================== BOTON PARA AGREGAR USUARIO ======================================== -->
+     <!-- ================================== BOTON PARA AGREGAR SOLICITUD DE INFORMACION ======================================== -->
 
      <div class="modal-footer">
 
@@ -2707,10 +2707,10 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
      </div>
 
-     <?php
+     <?php    
 
-         $crearUsuario = new ControladorUsuariosInformes();
-         $crearUsuario -> ctrCrearUsuario();
+         $crearSolicitud = new ControladorSolicitudesInformes();
+         $crearSolicitud -> ctrAgregarSolicitudInformacion();    
 
      ?>
 

@@ -1305,7 +1305,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_No_Aclarada" name="nuevoSI_SR_No_Aclarada" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_No_Aclarada" name="nuevoSA_SR_No_Aclarada" require>
 
                             </div>
                          </th>
@@ -1323,7 +1323,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Orientada" name="nuevoSI_SR_Orientada" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_Orientada" name="nuevoSA_SR_Orientada" require>
 
                             </div>
                          </th>
@@ -1341,7 +1341,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_En_Tramite" name="nuevoSI_SR_En_Tramite" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_En_Tramite" name="nuevoSA_SR_En_Tramite" require>
 
                             </div>
                          </th>
@@ -1359,7 +1359,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Improcedente" name="nuevoSI_SR_Improcedente" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_Improcedente" name="nuevoSA_SR_Improcedente" require>
 
                             </div>
                          </th>
@@ -1377,7 +1377,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_No_Disponible" name="nuevoSI_SR_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_No_Disponible" name="nuevoSA_SR_No_Disponible" require >
 
                             </div>
                          </th>
@@ -1395,7 +1395,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Suma_Total" name="nuevoSI_SR_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_Suma_Total" name="nuevoSA_SR_Suma_Total" require >
 
                             </div>
                          </th>
@@ -1436,14 +1436,18 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-       <button type="submit" class="btn btn-primary">Guardar Solicitud de Información</button>
+       <button type="submit" class="btn btn-primary">Guardar Solicitud Arco</button>
 
      </div>
 
      <?php
 
+      /*
+
          $crearUsuario = new ControladorUsuariosInformes();
          $crearUsuario -> ctrCrearUsuario();
+
+      */   
 
      ?>
 

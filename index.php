@@ -1,5 +1,8 @@
 <?php   
 
+
+session_start();
+
 /*======================== CONTROLADORES DEL SISTEMA ================================*/
 
 require_once "controladores/plantilla.controlador.php";

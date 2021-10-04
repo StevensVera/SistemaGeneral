@@ -1,5 +1,6 @@
 <?php
 
+
     class ControladorSolicitudesInformes{
 
     /* =========== MOSTRAR DATOS TABLA - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
@@ -27,6 +28,69 @@
             //var_dump($respuesta);
 
           } // Mostrar Tablas SI
+
+     /* =========== AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */     
+
+          static public function ctrAgregarSolicitudInformacion(){
+            
+            if (isset($_POST["SI_Informe_Presentado"])) { 
+
+                // Agregado el SO a la Tabla, mediante su Sesión.
+                $SObligado = "H. Ayuntamiento de Acaponeta";
+
+                // Agregamos Tabla
+                $tablaSI = "solicitudes_informacion";
+
+                // Cocatenacion Codigo "InformePresentado + Año"
+
+                $espacio = " ";
+
+                //$Codigo = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
+
+                /* Datos - Array */
+                $datos = array(
+                                "SI_Nombre_Sujeto_Obligado" => $SObligado,
+                                "SI_Informe_Presentado" => $_POST["nuevoTipoInformeSI"],
+                                "SI_Anios" => $_POST["nuevoAnioSI"], 
+                                "SI_TOTAL_SOLICITUDES" => $_POST["nuevoSI_Total"]);
+                                
+                $respuesta = ModeloSolicitudesInformacion::MdlAgregarSI($tablaSI, $datos);
+
+                var_dump($respuesta);
+                
+              
+
+                if($respuesta == "ok"){
+
+                        echo '<script>
+
+                        swal({
+
+                            type: "success",
+                            title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar"
+
+                        }).then(function(result){
+
+                            if(result.value){
+                            
+                                window.location = "solicitudes-informacion";
+
+                            }
+
+                        });
+                    
+
+                        </script>';
+
+                } // if
+
+              
+
+            }// if   
+
+          } // Funcion Agregar Soliciud Informacion
 
     } //ControladorSolicitudesInformes
 
