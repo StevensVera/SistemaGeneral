@@ -12,8 +12,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 }
 
-
-
 ?>
 <div class="content-wrapper">
     

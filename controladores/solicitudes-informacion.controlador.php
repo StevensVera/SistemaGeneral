@@ -33,32 +33,35 @@
 
           static public function ctrAgregarSolicitudInformacion(){
             
-            if (isset($_POST["SI_Informe_Presentado"])) { 
+            if (isset($_POST["nuevoAnioSI"])) { 
 
                 // Agregado el SO a la Tabla, mediante su Sesión.
-                $SObligado = "H. Ayuntamiento de Acaponeta";
+                //$SObligado = "H. Ayuntamiento de Acaponeta";
+                $SObligado = $_SESSION["nombre_Informe"];
 
                 // Agregamos Tabla
                 $tablaSI = "solicitudes_informacion";
-
+                
                 // Cocatenacion Codigo "InformePresentado + Año"
-
                 $espacio = " ";
 
-                //$Codigo = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
+                $CodigoIPA = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
 
+                // Ingresamos el Codigo Unico del Sujeto Obligado
+                
+                //$Codigo = "A.1";
+
+                $Codigo = $_SESSION["codigo"];
+                
                 /* Datos - Array */
-                $datos = array(
+                $datos = array( "Si_Codigo_SO" => $Codigo, 
+                                "Si_Codigo_Informe_Anios" => $CodigoIPA,
                                 "SI_Nombre_Sujeto_Obligado" => $SObligado,
                                 "SI_Informe_Presentado" => $_POST["nuevoTipoInformeSI"],
                                 "SI_Anios" => $_POST["nuevoAnioSI"], 
                                 "SI_TOTAL_SOLICITUDES" => $_POST["nuevoSI_Total"]);
                                 
                 $respuesta = ModeloSolicitudesInformacion::MdlAgregarSI($tablaSI, $datos);
-
-                var_dump($respuesta);
-                
-              
 
                 if($respuesta == "ok"){
 
