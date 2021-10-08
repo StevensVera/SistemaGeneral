@@ -22,9 +22,6 @@
 
         }
 
-
-      
-
         static public function ctrMostrarTablaSINOUSABLE($item,$valor){
 
           /* Tabla Solicitudes de Informacion */

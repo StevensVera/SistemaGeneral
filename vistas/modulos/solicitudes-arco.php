@@ -1442,12 +1442,8 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
      <?php
 
-      /*
-
-         $crearUsuario = new ControladorUsuariosInformes();
-         $crearUsuario -> ctrCrearUsuario();
-
-      */   
+         $crearUsuario = new ControladorSolicitudesArco();
+         $crearUsuario -> ctrAgregarSolicitudesArco();
 
      ?>
 
