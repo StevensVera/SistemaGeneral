@@ -8,11 +8,11 @@
 
             $stmt = Conexion::conectar()->prepare("SELECT * FROM $tablaSI WHERE $item = :$item ORDER BY idSI DESC");
 
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+		      	$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
-			$stmt -> execute();
+		      	$stmt -> execute();
 
-			return $stmt -> fetch();
+		      	return $stmt -> fetch();
 
             $stmt -> close();
 
@@ -20,25 +20,38 @@
 
         } // End Funcion mdlSolicitudesInformacion
 
-      static public function MdlMostrarTablaSI($item,$valor,$tabla,$so, $ip, $ipa, $tsi, $fe, $tablaDSI, $tablaU){
+      static public function MdlMostrarTablaSI($itemCodigo, $valor, $tabla, $so, $ip, $ipa, $tsi, $fe ){
 
-					
-			$stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
+
+           $stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
+                                                   FROM $tabla 
+                                                   WHERE $tabla.$itemCodigo = :$itemCodigo" );
+
+			      $stmt -> bindParam(":".$itemCodigo, $valor, PDO::PARAM_STR);
+
+		      	$stmt -> execute();
+
+		      	return $stmt -> fetchAll();
+
+					/*
+		    	$stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
                                                    FROM $tabla 
                                                    INNER JOIN $tablaDSI ON $tablaDSI.idSI = $tabla.idSI 
                                                    INNER JOIN $tablaU ON $tablaU.id = $tablaDSI.idusuario 
                                                    WHERE $tablaU.$item = :$item" );
 
-			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+			      $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
-			$stmt -> execute();
+		      	$stmt -> execute();
 
-			return $stmt -> fetchAll();
+		      	return $stmt -> fetchAll();
 
-        } // End Funcion MdlMostrarTablaSI
+          */
+
+      } // End Funcion MdlMostrarTablaSI
 
 
-        static public function MdlAgregarSI($tablaSI, $datos){
+      static public function MdlAgregarSI($tablaSI, $datos){
             
           $stmt = Conexion::conectar()->prepare("INSERT INTO $tablaSI(Si_Codigo_SO, Si_Codigo_Informe_Anios, SI_Nombre_Sujeto_Obligado,SI_Informe_Presentado,SI_Anios,SI_TOTAL_SOLICITUDES) VALUES (:Si_Codigo_SO,:Si_Codigo_Informe_Anios, :SI_Nombre_Sujeto_Obligado,:SI_Informe_Presentado,:SI_Anios,:SI_TOTAL_SOLICITUDES)");
           

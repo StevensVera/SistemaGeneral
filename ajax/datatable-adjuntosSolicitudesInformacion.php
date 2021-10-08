@@ -14,11 +14,11 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
 
         static  public function MostrarTablaSolicitudesInformacion(){
 
-            $item = "codigo"; 
+            $itemCodigo = "Si_Codigo_SO"; 
             //$valor = "A.1";
             $valor =  $_SESSION["codigo"];
 
-            $adjunto = ControladorSolicitudesInformes::ctrMostrarTablaSI($item,$valor);
+            $adjunto = ControladorSolicitudesInformes::ctrMostrarTablaSI($itemCodigo,$valor);
 
             if(count($adjunto) == 0 ){
 
