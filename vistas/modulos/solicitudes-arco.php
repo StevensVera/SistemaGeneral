@@ -208,7 +208,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                    <input type="text" class="form-control input-lg" id="nuevoSA_MP_Total" name="nuevoSA_MP_Total" placeholder="Total de Solicitudes" require>
+                    <input type="text" class="form-control input-lg" id="nuevoSA_Total" name="nuevoSA_Total" placeholder="Total de Solicitudes" require>
 
               </div>
     

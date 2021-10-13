@@ -14,10 +14,10 @@ require_once "../modelos/solicitudes-arco.modelo.php";
 
         static public function MostrarTablaSolicitudesArco(){
         
-        $item = "codigo";
+        $itemCodigo = "SA_Codigo_SO";
         $valor = $_SESSION["codigo"];
 
-        $adjunto = ControladorSolicitudesArco::ctrMostrarTablaAR($item, $valor);
+        $adjunto = ControladorSolicitudesArco::ctrMostrarTablaAR($itemCodigo, $valor);
 
         if (count($adjunto) == 0) {
             
