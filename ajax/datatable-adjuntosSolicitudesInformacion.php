@@ -58,10 +58,9 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
 
             */
 
-            $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios'    data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button>";
+            $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button>";
 
 
-                
                 $datosJson .= '[
 
                     "'.($i+1).'",
