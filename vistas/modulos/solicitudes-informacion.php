@@ -167,8 +167,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                   <option value="3er Informe Bimestral">3er Informe Bimestral</option>
 
-                                  <option value="3to Informe Bimestral">3er Informe Bimestral</option>
-
                                   <option value="4to Informe Bimestral">4to Informe Bimestral</option>
 
                                   <option value="5to Informe Bimestral">5to Informe Bimestral</option>
@@ -276,7 +274,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Personal_Escrito" name="nuevoSI_MP_Personal_Escrito">
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Personal_Escrito" name="nuevoSI_MP_Personal_Escrito" require>
 
                             </div>
                         </th>
@@ -294,7 +292,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Correo_Electronico" name="nuevoSI_MP_Correo_Electronico">
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Correo_Electronico" name="nuevoSI_MP_Correo_Electronico" require>
 
                             </div>
                          </th>
@@ -312,7 +310,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Sistema_Informex" name="nuevoSI_MP_Sistema_Informex">
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Sistema_Informex" name="nuevoSI_MP_Sistema_Informex" require>
 
                             </div>
                          </th>
@@ -330,7 +328,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_PNT" name="nuevoSI_MP_PNT" >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_PNT" name="nuevoSI_MP_PNT" require >
 
                             </div>
                          </th>
@@ -348,7 +346,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_No_Disponible" name="nuevoSI_MP_No_Disponible" >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_No_Disponible" name="nuevoSI_MP_No_Disponible" require >
 
                             </div>
                          </th>
@@ -366,7 +364,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Suma_Total" name="nuevoSI_MP_Suma_Total" >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Suma_Total" name="nuevoSI_MP_Suma_Total" require >
 
                             </div>
                          </th>
@@ -565,43 +563,61 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                   
                   </thead>  
 
-                      <!-- Persona fisica - "Tipo de Solicitante" -->
+                      <!-- Persona fisica - "Genero del solicitante" -->
 
                       <tr>
 
                         <th>1</th>
-                        <th>Persona fisica</th>
+                        <th>Masculino</th>
                         <th> 
                           <div class="input-group">
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Persona_Fisica" name="nuevoSI_TS_Persona_Fisica" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Masculino" name="nuevoSI_Genero_Masculino" require>
 
                             </div>
                         </th>
                         
                       </tr>
 
-                      <!-- Persona moral - "Tipo de Solicitante"-->
+                      <!-- Persona moral - "Genero del solicitante"-->
 
                       <tr>
 
                         <th>2</th>
-                        <th>Persona moral</th>
+                        <th>Femenino</th>
                         <th> 
                           <div class="input-group">
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Personal_Moral" name="nuevoSI_TS_Personal_Moral" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Femenino" name="nuevoSI_Genero_Femenino" require>
 
                             </div>
                          </th>
                         
                       </tr>
 
-                      <!-- No disponible - "Tipo de Solicitante" -->
+                      <!-- Persona moral - "Genero del solicitante"-->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Anonimo</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Anonimo" name="nuevoSI_Genero_Anonimo" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponible - "Genero del solicitante" -->
 
                       <tr>
 
@@ -612,14 +628,14 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_No_Disponible" name="nuevoSI_TS_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_No_Disponible" name="nuevoSI_Genero_No_Disponible" require >
 
                             </div>
                          </th>
                         
                       </tr>
 
-                       <!-- Total - "Tipo de Solicitante" -->
+                       <!-- Total - "Genero del solicitante" -->
 
                       <tr>
 
@@ -630,7 +646,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Suma_Total" name="nuevoSI_TS_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Suma_Total" name="nuevoSI_Genero_Suma_Total" require >
 
                             </div>
                          </th>
