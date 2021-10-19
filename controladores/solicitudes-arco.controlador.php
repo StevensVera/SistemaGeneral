@@ -53,7 +53,18 @@
                                "SA_Nombre_Sujeto_Obligado" => $SObligado,
                                "SA_Informe_Presentado" => $_POST["nuevoTipoInformeSA"],
                                "SA_Anios" => $_POST["nuevoAnioSA"], 
-                               "SA_TOTAL_SOLICITUDES" => $_POST["nuevoSA_Total"]);
+                               "SA_TOTAL_SOLICITUDES" => $_POST["nuevoSA_Total"],
+                                //"** Medio de Presentación **",
+                               "SA_Medio_Presentacion_Personal_Escrito" => $_POST["nuevoSA_MP_Personal_Escrito"],
+                               "SA_Medio_Presentacion_Correo_Electronico" => $_POST["nuevoSA_MP_Correo_Electronico"],
+                               "SA_Medio_Presentacion_Sistema_Infomex" => $_POST["nuevoSA_MP_Sistema_Informex"],
+                               "SA_Medio_Presentacion_PNT" => $_POST["nuevoSA_MP_PNT"],
+                               "SA_Medio_Presentacion_No_disponible" => $_POST["nuevoSA_MP_No_Disponible"],
+                               "SA_Medio_Presentacion_Suma_Total" => $_POST["nuevoSA_MP_Suma_Total"]
+
+
+                            
+                            );
 
                $respuesta = ModeloSolicitudesArco::MdlAgregarSA($tablaSA, $datos);
 
