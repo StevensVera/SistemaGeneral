@@ -34,8 +34,51 @@
                       SA_Medio_Presentacion_Sistema_Infomex,
                       SA_Medio_Presentacion_PNT,
                       SA_Medio_Presentacion_No_disponible,
-                      SA_Medio_Presentacion_Suma_Total
+                      SA_Medio_Presentacion_Suma_Total,
 
+                      SA_Tipo_Solicitante_Persona_Fisica,
+                      SA_Tipo_Solicitante_Persona_Moral,
+                      SA_Tipo_Solicitante_No_Disponible,
+                      SA_Tipo_Solicitante_Suma_Total,
+                      
+                      SA_Genero_Solicitante_Femenino,
+                      SA_Genero_Solicitante_Masculino,
+                      SA_Genero_Solicitante_Anonimo,
+                      SA_Genero_Solicitante_No_Disponible,
+                      SA_Genero_Solicitante_Suma_Total,
+
+                      SA_Informacion_Solicitada_Acceso,
+                      SA_Informacion_Solicitada_Rectificacion,
+                      SA_Informacion_Solicitada_Oposicion,
+                      SA_Informacion_Solicitada_Cancelacion,
+                      SA_Informacion_Solicitada_Otro,
+                      SA_Informacion_Solicitada_No_Disponible,
+                      SA_Informacion_Solicitada_Suma_Total,
+
+                      SA_Tramites_Concluidas,
+                      SA_Tramites_Pendientes,
+                      SA_Tramites_No_Disponible,
+                      SA_Tramites_Suma_Total,
+
+                      SA_Modalidad_Respuesta_Medios_Electronicos,
+                      SA_Modalidad_Respuesta_Copia_Simple,
+                      SA_Modalidad_Respuesta_Consulta_Directa,
+                      SA_Modalidad_Respuesta_Copia_Certificada,
+                      SA_Modalidad_Respuesta_Otro,
+                      SA_Modalidad_Respuesta_No_Disponible,
+                      SA_Modalidad_Respuesta_Suma_Total,
+
+                      SA_Sentido_Respuesta_Informacion,
+                      SA_Sentido_Respuesta_Informacion_Parcial,
+                      SA_Sentido_Respuesta_Negada_Clasificacion,
+                      SA_Sentido_Respuesta_Inexistencia_Informacion,
+                      SA_Sentido_Respuesta_Mixta,
+                      SA_Sentido_Respuesta_No_Acalarada,
+                      SA_Sentido_Respuesta_Orientada,
+                      SA_Sentido_Respuesta_En_Tramite,
+                      SA_Sentido_Respuesta_Improcedente,
+                      SA_Sentido_Respuesta_Otros,
+                      SA_Sentido_Respuesta_Suma_Total
                       
                       )VALUES (
                          
@@ -51,8 +94,51 @@
                      :SA_Medio_Presentacion_Sistema_Infomex,
                      :SA_Medio_Presentacion_PNT,
                      :SA_Medio_Presentacion_No_disponible,
-                     :SA_Medio_Presentacion_Suma_Total
+                     :SA_Medio_Presentacion_Suma_Total,
 
+                     :SA_Tipo_Solicitante_Persona_Fisica,
+                     :SA_Tipo_Solicitante_Persona_Moral,
+                     :SA_Tipo_Solicitante_No_Disponible,
+                     :SA_Tipo_Solicitante_Suma_Total,
+
+                     :SA_Genero_Solicitante_Femenino,
+                     :SA_Genero_Solicitante_Masculino,
+                     :SA_Genero_Solicitante_Anonimo,
+                     :SA_Genero_Solicitante_No_Disponible,
+                     :SA_Genero_Solicitante_Suma_Total,
+
+                     :SA_Informacion_Solicitada_Acceso,
+                     :SA_Informacion_Solicitada_Rectificacion,
+                     :SA_Informacion_Solicitada_Oposicion,
+                     :SA_Informacion_Solicitada_Cancelacion,
+                     :SA_Informacion_Solicitada_Otro,
+                     :SA_Informacion_Solicitada_No_Disponible,
+                     :SA_Informacion_Solicitada_Suma_Total,
+
+                     :SA_Tramites_Concluidas,
+                     :SA_Tramites_Pendientes,
+                     :SA_Tramites_No_Disponible,
+                     :SA_Tramites_Suma_Total,
+
+                     :SA_Modalidad_Respuesta_Medios_Electronicos,
+                     :SA_Modalidad_Respuesta_Copia_Simple,
+                     :SA_Modalidad_Respuesta_Consulta_Directa,
+                     :SA_Modalidad_Respuesta_Copia_Certificada,
+                     :SA_Modalidad_Respuesta_Otro,
+                     :SA_Modalidad_Respuesta_No_Disponible,
+                     :SA_Modalidad_Respuesta_Suma_Total,
+
+                     :SA_Sentido_Respuesta_Informacion,
+                     :SA_Sentido_Respuesta_Informacion_Parcial,
+                     :SA_Sentido_Respuesta_Negada_Clasificacion,
+                     :SA_Sentido_Respuesta_Inexistencia_Informacion,
+                     :SA_Sentido_Respuesta_Mixta,
+                     :SA_Sentido_Respuesta_No_Acalarada,
+                     :SA_Sentido_Respuesta_Orientada,
+                     :SA_Sentido_Respuesta_En_Tramite,
+                     :SA_Sentido_Respuesta_Improcedente,
+                     :SA_Sentido_Respuesta_Otros,
+                     :SA_Sentido_Respuesta_Suma_Total
                      
                      )");
 
@@ -69,6 +155,51 @@
                 $stmt -> bindParam(":SA_Medio_Presentacion_PNT", $datos["SA_Medio_Presentacion_PNT"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Medio_Presentacion_No_disponible", $datos["SA_Medio_Presentacion_No_disponible"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Medio_Presentacion_Suma_Total", $datos["SA_Medio_Presentacion_Suma_Total"], PDO::PARAM_STR);
+                //"** Tipo_Solicitud **",
+                $stmt -> bindParam(":SA_Tipo_Solicitante_Persona_Fisica", $datos["SA_Tipo_Solicitante_Persona_Fisica"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Tipo_Solicitante_Persona_Moral", $datos["SA_Tipo_Solicitante_Persona_Moral"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Tipo_Solicitante_No_Disponible", $datos["SA_Tipo_Solicitante_No_Disponible"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Tipo_Solicitante_Suma_Total", $datos["SA_Tipo_Solicitante_Suma_Total"], PDO::PARAM_STR);
+                //"** Genero_Solicitante **",
+                $stmt -> bindParam(":SA_Genero_Solicitante_Femenino", $datos["SA_Genero_Solicitante_Femenino"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Genero_Solicitante_Masculino", $datos["SA_Genero_Solicitante_Masculino"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Genero_Solicitante_Anonimo", $datos["SA_Genero_Solicitante_Anonimo"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Genero_Solicitante_No_Disponible", $datos["SA_Genero_Solicitante_No_Disponible"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Genero_Solicitante_Suma_Total", $datos["SA_Genero_Solicitante_Suma_Total"], PDO::PARAM_STR);
+                //"** Informacion_Solicitada **",
+                $stmt -> bindParam(":SA_Informacion_Solicitada_Acceso", $datos["SA_Informacion_Solicitada_Acceso"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Informacion_Solicitada_Rectificacion", $datos["SA_Informacion_Solicitada_Rectificacion"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Informacion_Solicitada_Oposicion", $datos["SA_Informacion_Solicitada_Oposicion"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Informacion_Solicitada_Cancelacion", $datos["SA_Informacion_Solicitada_Cancelacion"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Informacion_Solicitada_Otro", $datos["SA_Informacion_Solicitada_Otro"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Informacion_Solicitada_No_Disponible", $datos["SA_Informacion_Solicitada_No_Disponible"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Informacion_Solicitada_Suma_Total", $datos["SA_Informacion_Solicitada_Suma_Total"], PDO::PARAM_STR);
+                //"** Tramites **",
+                $stmt -> bindParam(":SA_Tramites_Concluidas", $datos["SA_Tramites_Concluidas"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Tramites_Pendientes", $datos["SA_Tramites_Pendientes"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Tramites_No_Disponible", $datos["SA_Tramites_No_Disponible"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Tramites_Suma_Total", $datos["SA_Tramites_Suma_Total"], PDO::PARAM_STR);
+                //"** Modalidad_Respuesta **",
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_Medios_Electronicos", $datos["SA_Modalidad_Respuesta_Medios_Electronicos"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_Copia_Simple", $datos["SA_Modalidad_Respuesta_Copia_Simple"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_Consulta_Directa", $datos["SA_Modalidad_Respuesta_Consulta_Directa"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_Copia_Certificada", $datos["SA_Modalidad_Respuesta_Copia_Certificada"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_Otro", $datos["SA_Modalidad_Respuesta_Otro"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_No_Disponible", $datos["SA_Modalidad_Respuesta_No_Disponible"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Modalidad_Respuesta_Suma_Total", $datos["SA_Modalidad_Respuesta_Suma_Total"], PDO::PARAM_STR);
+                //"** Sentido_Respuesta **",
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Informacion", $datos["SA_Sentido_Respuesta_Informacion"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Informacion_Parcial", $datos["SA_Sentido_Respuesta_Informacion_Parcial"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Negada_Clasificacion", $datos["SA_Sentido_Respuesta_Negada_Clasificacion"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Inexistencia_Informacion", $datos["SA_Sentido_Respuesta_Inexistencia_Informacion"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Mixta", $datos["SA_Sentido_Respuesta_Mixta"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_No_Acalarada", $datos["SA_Sentido_Respuesta_No_Acalarada"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Orientada", $datos["SA_Sentido_Respuesta_Orientada"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_En_Tramite", $datos["SA_Sentido_Respuesta_En_Tramite"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Improcedente", $datos["SA_Sentido_Respuesta_Improcedente"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Otros", $datos["SA_Sentido_Respuesta_Otros"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Sentido_Respuesta_Suma_Total", $datos["SA_Sentido_Respuesta_Suma_Total"], PDO::PARAM_STR);
+
 
                 if ($stmt -> execute()) {
 	 

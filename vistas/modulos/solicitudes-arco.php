@@ -568,36 +568,54 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                   
                   </thead>  
 
-                      <!-- Persona fisica - "Tipo de Solicitante" -->
+                      <!-- Femenino - "Tipo de Solicitante" -->
 
                       <tr>
 
                         <th>1</th>
-                        <th>Persona fisica</th>
+                        <th>Femenino</th>
                         <th> 
                           <div class="input-group">
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSA_TS_Persona_Fisica" name="nuevoSA_TS_Persona_Fisica" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_GS_Femenino" name="nuevoSA_GS_Femenino" require>
 
                             </div>
                         </th>
                         
                       </tr>
 
-                      <!-- Persona moral - "Tipo de Solicitante"-->
+                      <!-- Masculino - "Tipo de Solicitante"-->
 
                       <tr>
 
                         <th>2</th>
-                        <th>Persona moral</th>
+                        <th>Masculino</th>
                         <th> 
                           <div class="input-group">
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSA_TS_Personal_Moral" name="nuevoSA_TS_Personal_Moral" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_GS_Masculino" name="nuevoSA_GS_Masculino" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Anonimo - "Tipo de Solicitante"-->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Anonimo</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="nuevoSA_GS_Anonimo" name="nuevoSA_GS_Anonimo" require>
 
                             </div>
                          </th>
@@ -615,7 +633,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSA_TS_No_Disponible" name="nuevoSA_TS_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSA_GS_No_Disponible" name="nuevoSA_GS_No_Disponible" require >
 
                             </div>
                          </th>
@@ -633,7 +651,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSA_TS_Suma_Total" name="nuevoSA_TS_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSA_GS_Suma_Total" name="nuevoSA_GS_Suma_Total" require >
 
                             </div>
                          </th>
@@ -729,7 +747,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSA_IS_Rectificación" name="nuevoSA_IS_Reservada" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSA_IS_Rectificación" name="nuevoSA_IS_Rectificación" require>
 
                             </div>
                          </th>
