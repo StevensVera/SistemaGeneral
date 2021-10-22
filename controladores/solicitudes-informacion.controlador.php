@@ -10,13 +10,13 @@
           /* Tabla Solicitudes */
           $tabla = "solicitudes_informacion";
           /* Campos Solicitudes de Información */
-          $so = "SI_Nombre_Sujeto_Obligado";
-          $ip = "SI_Informe_Presentado";
-          $ipa = "SI_Anios";
-          $tsi = "SI_TOTAL_SOLICITUDES";
-          $fe = "SI_Fecha";
+          //$so = "SI_Nombre_Sujeto_Obligado";
+          //$ip = "SI_Informe_Presentado";
+          //$ipa = "SI_Anios";
+          //$tsi = "SI_TOTAL_SOLICITUDES";
+          //$fe = "SI_Fecha";
 
-          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaSI($itemCodigo, $valor, $tabla, $so, $ip, $ipa, $tsi, $fe );
+          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaSI($itemCodigo, $valor, $tabla);
 
           return $respuesta;
 

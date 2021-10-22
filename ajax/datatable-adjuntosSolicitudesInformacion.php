@@ -32,34 +32,23 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
                            "data":[';
 
             for ($i=0; $i < count($adjunto); $i++) {
+                      
+                if ($adjunto[$i]["SI_Estatus"] != 0) {
 
-                /*                    
-
-                if ($adjunto[$i]["estado_Informe"] != 0) {
-
-                    $estados = "<button class='btn btn-success btn-xs btnActivar' idUsuario='".$adjunto[$i]["id"]."' estadoUsuario='0'>Activado</button>";
+                    $botones = "<button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
 
                 } else {
 
-                    $estados = "<button class='btn btn-danger btn-xs btnActivar' idUsuario='".$adjunto[$i]["id"]."' estadoUsuario='1'>Desactivado</button>";
+                    $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button> <button class='btn btn-success btnImprimerReportexUsuario'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
                 }
-                */
             
-            /*    
-            if(isset($_GET["perfilOcultoUsuario"]) && $_GET["perfilOcultoUsuario"] == "Administrador" ){
-
-                $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' idAdjuntosUsuarios='".$adjunto[$i]["id"]."' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario' idAdjuntosUsuarios='".$adjunto[$i]["id"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario' idUsuario='".$adjunto[$i]["id"]."' codigo= '".$adjunto[$i]["codigo"]."' usuario='".$adjunto[$i]["nombre_Informe"]."' fotoUsuario='".$adjunto[$i]["foto_Informe"]."' ><i class='fa fa-times'></i></button>";
-
-            } else {
-
-                $botones = "<button class='btn btn-primary btnImprimerReportexUsuario' idAdjuntosUsuarios='".$adjunto[$i]["id"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> ";
-
-            }
-
+            
+           
+            /*
+            $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button> ";
             */
 
-            $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button>";
-
+        
 
                 $datosJson .= '[
 

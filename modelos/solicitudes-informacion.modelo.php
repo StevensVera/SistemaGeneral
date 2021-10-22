@@ -20,10 +20,10 @@
 
         } // End Funcion mdlSolicitudesInformacion
 
-      static public function MdlMostrarTablaSI($itemCodigo, $valor, $tabla, $so, $ip, $ipa, $tsi, $fe ){
+      static public function MdlMostrarTablaSI($itemCodigo, $valor, $tabla ){
 
 
-           $stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
+           $stmt = Conexion::conectar()->prepare("SELECT *
                                                    FROM $tabla 
                                                    WHERE $tabla.$itemCodigo = :$itemCodigo" );
 
