@@ -180,6 +180,7 @@ var table = $(".tablasUsuariosSO").DataTable({
     })
 
   }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR
+  
 
 /* =================== ELIMINAR USUARIO ==================== */
 

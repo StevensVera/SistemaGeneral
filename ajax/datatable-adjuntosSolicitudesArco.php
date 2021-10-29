@@ -32,7 +32,14 @@ require_once "../modelos/solicitudes-arco.modelo.php";
 
         for ($i=0; $i < count($adjunto); $i++){
 
-            $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios'    data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button>";
+            if ($adjunto[$i]["SA_Estatus"] != 0) {
+
+                $botones = "<button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
+
+            } else {
+
+                $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button> <button class='btn btn-success btnImprimerReportexUsuario'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+            }
         
             
             $datosJson .= '[

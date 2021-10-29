@@ -9,13 +9,13 @@
         /* Tabla Solicitudes de Arco */
              $tabla = "solicitudes_arco";
         /* Campos Solicitudes de Arco */
-             $so = "SA_Nombre_Sujeto_Obligado";
-             $ip = "SA_Informe_Presentado";
-             $ipa = "SA_Anios";
-             $tsi = "SA_TOTAL_SOLICITUDES";
-             $fe = "SA_Fecha";
+            //$so = "SA_Nombre_Sujeto_Obligado";
+            //$ip = "SA_Informe_Presentado";
+            //$ipa = "SA_Anios";
+            //$tsi = "SA_TOTAL_SOLICITUDES";
+            //$fe = "SA_Fecha";
             
-            $respuesta = ModeloSolicitudesArco::ctrMostrarTablaAR($itemCodigo,$valor,$tabla,$so, $ip, $ipa, $tsi, $fe);
+            $respuesta = ModeloSolicitudesArco::ctrMostrarTablaAR($itemCodigo,$valor,$tabla);
         
             return $respuesta;
 
