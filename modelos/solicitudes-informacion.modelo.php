@@ -432,4 +432,28 @@
 
         } // End Funcion MdlAgregarSI
 
+    /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
+
+    static public function mdlBorrarAdjuntosPersonalesGeneralidades($tabla, $datos){
+
+      $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idSI = :idSI");
+  
+      $stmt -> bindParam(":idSI", $datos, PDO::PARAM_INT);
+  
+      if($stmt -> execute()){
+  
+        return "ok";
+      
+       }else{
+  
+        return "error";	
+  
+       }
+  
+      $stmt -> close();
+  
+      $stmt = null;
+  
+    }
+
      } // End class ModeloSolicitudesInformacion

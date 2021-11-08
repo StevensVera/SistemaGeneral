@@ -234,6 +234,46 @@
 
           } // Funcion Agregar Soliciud Informacion
 
+    /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */  
+
+     static public function ctrBorrarRegistroSolicitudInformacion(){
+
+      if(isset($_GET["idSI"])){
+
+        $tabla ="solicitudes_informacion";
+        $datos = $_GET["idSI"];
+  
+        $respuesta = ModeloSolicitudesInformacion::mdlBorrarAdjuntosPersonalesGeneralidades($tabla, $datos);
+  
+        if($respuesta == "ok"){
+  
+          echo'<script>
+  
+            swal({
+                type: "success",
+                title: "El Registro, ha sido borrada correctamente",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+                }).then(function(result){
+                    if (result.value) {
+  
+                    window.location = "solicitudes-informacion";
+  
+                    }
+                  })
+  
+            </script>';
+
+        } // if 
+
+      } // if 
+      
+    }// function
+
+
+
     } //ControladorSolicitudesInformes
+
+
 
 ?>

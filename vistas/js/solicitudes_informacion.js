@@ -46,20 +46,16 @@ var table = $(".tablasSolicitudesInformacion").DataTable({
   
   });
 
-  /* ============== MOSTRAR DATOS DE USUARIOS EN EL DATATABLE ================ */
+ /* ============== ELIMINAR REGISTRO - SOLICTUD DE INFORMACIÓN ================ */
 
-  $(".tablasAdjuntosInformatica").on("click", ".btnEliminarAdjuntosInformatica", function(){
+ $(".tablasSolicitudesInformacion").on("click", ".btnEliminarSolicitudInformacion", function(){
 
-    var idAdjuntos = $(this).attr("idAdjuntosInformatica");
-    var nombre = $(this).attr("nombre");
-    var anios = $(this).attr("anios");
-    //var correo = $(this).attr("correo");
-    var taller = $(this).attr("taller");
+  var idSI = $(this).attr("idSI");
 
-    swal({
+  swal({
 
-    title: '¿Está seguro de borrar el Usuario?',
-    text: "¡Realizar está Acción, Puede Perjudicar grave al Sistema!..¡Si no lo está puede cancelar la accíón!",
+    title: '¿Está seguro de borrar el Registro?',
+    text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
     type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -69,7 +65,7 @@ var table = $(".tablasSolicitudesInformacion").DataTable({
         }).then(function(result) {
         if (result.value) {
 
-          window.location = "index.php?ruta=taller-informatica-SISAI-2&idAdjuntosInformatica="+idAdjuntos+"&nombre="+nombre+"&anios="+anios+"&taller="+taller;
+          window.location = "index.php?ruta=solicitudes-informacion&idSI="+idSI;
 
         } // if 
 

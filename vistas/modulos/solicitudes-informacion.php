@@ -2752,6 +2752,19 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 </div>
 
+<?php
+ 
+ $EliminarSolicitudInformacion = new ControladorSolicitudesInformes();
+ $EliminarSolicitudInformacion -> ctrBorrarRegistroSolicitudInformacion();
+
+
+
+?>
+
+
+
+
+
 
   <!--============================ =============================== ==============================
   ================================ FORMULARIO PARA DETALLES DE SOLICITUD ==============================

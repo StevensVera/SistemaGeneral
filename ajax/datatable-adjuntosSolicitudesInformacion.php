@@ -39,7 +39,7 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
 
                 } else {
 
-                    $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarUsuario'  ><i class='fa fa-times'></i></button> <button class='btn btn-success btnImprimerReportexUsuario'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+                    $botones = "<button class='btn btn-warning btnEditarAdjuntosUsuarios' data-toggle='modal' data-target='#modalActualizarUsuario'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnImprimerReportexUsuario'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
                 }
             
             
