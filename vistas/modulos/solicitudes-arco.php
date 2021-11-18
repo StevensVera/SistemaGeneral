@@ -1474,6 +1474,16 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 </div>
 
 
+<?php
+ 
+ $EliminarSolicitudInformacion = new ControladorSolicitudesArco();
+ $EliminarSolicitudInformacion -> ctrBorrarRegistroSolicitudArco();
+
+
+
+?>
+
+
   <!--============================ =============================== ==============================
   ================================ FORMULARIO PARA DETALLES DE SOLICITUD ==============================
   ================================ =============================== ============================-->

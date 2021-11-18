@@ -141,9 +141,43 @@
 
         } // Funcion para agregar Solitud Arco
 
+        /* =========== MOSTRAR DATOS TABLA - SOLICITUDES ARCO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+
+        static public function ctrBorrarRegistroSolicitudArco(){
+
+            if(isset($_GET["idSAR"])){
+      
+              $tabla ="solicitudes_arco";
+              $datos = $_GET["idSAR"];
+        
+              $respuesta = ModeloSolicitudesArco::mdlBorrarRegistroArco($tabla, $datos);
+        
+              if($respuesta == "ok"){
+        
+                echo'<script>
+        
+                  swal({
+                      type: "success",
+                      title: "El Registro, ha sido borrada correctamente",
+                      showConfirmButton: true,
+                      confirmButtonText: "Cerrar"
+                      }).then(function(result){
+                          if (result.value) {
+        
+                          window.location = "solicitudes-arco";
+        
+                          }
+                        })
+        
+                  </script>';
+      
+              } // if 
+      
+            } // if 
+            
+          }// function
+
+
 } // ControladorSolicitudesArco
-
-
-
 
 ?>

@@ -214,6 +214,30 @@
 
            }// End Funciom Agregar SA
 
+       /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
+
+         static public function mdlBorrarRegistroArco($tabla, $datos){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idSAR = :idSAR");
+      
+            $stmt -> bindParam(":idSAR", $datos, PDO::PARAM_INT);
+      
+            if($stmt -> execute()){
+      
+            return "ok";
+            
+            }else{
+      
+            return "error";	
+      
+            }
+      
+            $stmt -> close();
+      
+            $stmt = null;
+      
+         }
+
 
         } // Modelo Solicitudes Arco
 

@@ -243,7 +243,7 @@
         $tabla ="solicitudes_informacion";
         $datos = $_GET["idSI"];
   
-        $respuesta = ModeloSolicitudesInformacion::mdlBorrarAdjuntosPersonalesGeneralidades($tabla, $datos);
+        $respuesta = ModeloSolicitudesInformacion::mdlBorrarRegistroInformacion($tabla, $datos);
   
         if($respuesta == "ok"){
   

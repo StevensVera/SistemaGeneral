@@ -434,7 +434,7 @@
 
     /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
 
-    static public function mdlBorrarAdjuntosPersonalesGeneralidades($tabla, $datos){
+    static public function mdlBorrarRegistroInformacion($tabla, $datos){
 
       $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idSI = :idSI");
   
