@@ -43,7 +43,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
         <div class="box-header with-border">
 
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarSolicitudesArcoLlenado"> 
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarSolicitudesArco"> 
 
             Agregar Nueva Solicitud ARCO
 
@@ -128,7 +128,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
   ======================= FORMULARIO PARA AGREGAR SOLICITUDES DE ARCO ===========================
   ================================ =============================== ============================-->
 
-<div id="modalAgregarSolicitudesArcoLlenado" class="modal fade" role="dialog">
+<div id="modalAgregarSolicitudesArco" class="modal fade" role="dialog">
 
 <div class="modal-dialog modal-lg" style="width: 85%">
 
@@ -608,7 +608,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>2</th>
+                        <th>3</th>
                         <th>Anonimo</th>
                         <th> 
                           <div class="input-group">
@@ -626,7 +626,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>3</th>
+                        <th>4</th>
                         <th>No disponible</th>
                         <th> 
                           <div class="input-group">
@@ -644,7 +644,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>4</th>
+                        <th>5</th>
                         <th>Suma Total - Genero del solicitante </th>
                         <th> 
                           <div class="input-group">
@@ -794,7 +794,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>4</th>
+                        <th>5</th>
                         <th>Otro</th>
                         <th> 
                           <div class="input-group">
@@ -813,7 +813,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>5</th>
+                        <th>6</th>
                         <th>No Disponible</th>
                         <th> 
                           <div class="input-group">
@@ -831,7 +831,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>6</th>
+                        <th>7</th>
                         <th>Suma Total - Informacion Solicitada </th>
                         <th> 
                           <div class="input-group">
@@ -1384,11 +1384,29 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                         
                       </tr>
 
-                      <!-- No disponibles - "Sentido en que se emite la respuesta" -->
+                        <!-- No disponibles - "Sentido en que se emite la respuesta" -->
 
                       <tr>
 
                         <th>10</th>
+                        <th>Otros</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="nuevoSA_SR_Otros" name="nuevoSA_SR_Otros" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponibles - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>11</th>
                         <th>No disponibles</th>
                         <th> 
                           <div class="input-group">
@@ -1406,7 +1424,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <tr>
 
-                        <th>11</th>
+                        <th>12</th>
                         <th>Suma Total - Sentido en que se emite la respuesta </th>
                         <th> 
                           <div class="input-group">
@@ -1482,6 +1500,1375 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 
 ?>
+
+
+ <!--============================ =============================== ==============================
+  ======================= FORMULARIO PARA ACTUALIZAR SOLICITUDES DE ARCO ===========================
+  ================================ =============================== ============================-->
+
+<div id="modalActualizareSolicitudesArco" class="modal fade" role="dialog">
+
+<div class="modal-dialog modal-lg" style="width: 85%">
+
+ <div class="modal-content">
+
+    <form role="form" method="post" enctype="multipart/form-data">
+
+     <div class="modal-header" style="background: #3c8dbc; color:white" >
+
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+       <h4 class="modal-title">Agregar Solicitud Arco</h4>
+
+     </div>
+
+     <div class="modal-body"> 
+
+        <div class="box-body">
+
+           <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
+
+                <!-- ========================== ENTRADA PARA EL NOMBRE DEl SUJETO OBLIGADO ========================= -->
+
+               <div class="col-xs-8">
+
+                      <div class="input-group">
+         
+                         <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span> 
+
+                               <select class="form-control input-lg" name="EditarTipoInformeSA">
+             
+                                  <option value="" id="EditarTipoInformeSA"></option>
+
+                                  <option value="Informe Anual">Informe Anual</option>
+
+                                  <option value="1er Informe Bimestral">1er Informe Bimestral</option>
+
+                                  <option value="2do Informe Bimestral">2do Informe Bimestral</option>
+
+                                  <option value="3er Informe Bimestral">3er Informe Bimestral</option>
+
+                                  <option value="3to Informe Bimestral">3er Informe Bimestral</option>
+
+                                  <option value="4to Informe Bimestral">4to Informe Bimestral</option>
+
+                                  <option value="5to Informe Bimestral">5to Informe Bimestral</option>
+
+                                  <option value="6to Informe Bimestral">6to Informe Bimestral</option>
+
+                               </select>
+
+                       </div>
+
+               </div>
+
+               <!-- ==================== ENTRADA PARA EL AÑO DEL INFORME =========================== -->
+
+               <div class="col-xs-4"> 
+     
+                   <div class="input-group">
+
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                          <input type="text" class="form-control input-lg" id="EditarAnioSA"  name="EditarAnioSA" placeholder="AÑO" required>
+
+                    </div>
+
+                 </div>
+
+           </div>
+
+           <!-- ===================== ENTRADA PARA EL TOTAL DE SOLICITUDES PRESENTADAS ==================== -->
+
+           <div class="form-group" style="width: 21%; margin: 0 auto; padding-bottom: 15px">
+                
+              <div class="input-group">
+
+                 <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                    <input type="text" class="form-control input-lg" id="EditarSA_Total" name="EditarSA_Total" placeholder="Total de Solicitudes" require>
+
+              </div>
+    
+          </div>
+
+          <hr>
+
+          <!-- =================================================================================================== 
+               ================================= BOTÓN DE "Medio de Presentación" ================================
+               =================================================================================================== -->
+
+          <style type="text/css">
+      
+              #btnSlideMPE{
+                width: 450px;
+                border: 0px;
+                font-size:25px;
+                padding: 2px;
+              }
+
+             .backColor, .backColor a{
+                background:#47bac1;
+                color: #FFFFFF;
+              } 
+    
+          </style>
+          
+
+          <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                  <button  type="button" id="btnSlideMPE" style="width: 100%;" class="backColor  btn btn-primary btn-lg">
+      
+                     <span> Medio de Presentación <i class="fa fa-angle-down"> </i> </span>
+
+                  </button>
+          
+          </div>
+
+          <!-- =================================================================================================== 
+               =========================== LLENADO DEL CRITERIO "Medio de Presentación" ===========================
+               =================================================================================================== -->
+
+            <div id="slideMPE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionArco" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Medio de Presentación" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  </thead>  
+
+                      <!-- Personal / Escrito - "Medio de Presentación" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Personal / Escrito</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MP_Personal_Escrito" name="EditarSA_MP_Personal_Escrito" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Correo Electrónico - "Medio de Presentación"-->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Correo Electrónico</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MP_Correo_Electronico" name="EditarSA_MP_Correo_Electronico" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Sistema Infomex - "Medio de Presentación" -->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>Sistema Infomex</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MP_Sistema_Informex" name="EditarSA_MP_Sistema_Informex" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- PNT - "Medio de Presentación" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Plataforma Nacional de Transparencia</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MP_PNT" name="EditarSA_MP_PNT" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponible - "Medio de Presentación" -->
+
+                      <tr>
+
+                        <th>5</th>
+                        <th>No disponible</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MP_No_Disponible" name="EditarSA_MP_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Medio de Presentación" -->
+
+                      <tr>
+
+                        <th>6</th>
+                        <th>Suma Total - Medio de Presentación </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MP_Suma_Total" name="EditarSA_MP_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div>
+
+            <!-- =======================================     LINEA     ============================================ -->
+
+            <hr>
+
+           <!-- =================================================================================================== 
+                ================================= BOTÓN DE "Tipo de Solicitante" ==================================
+                =================================================================================================== -->
+            
+            <style type="text/css">
+      
+                #btnSlideTSE{
+                  width: 450px;
+                  border: 0px;
+                  font-size:25px;
+                  padding: 2px;
+                }
+
+               .backColor, .backColor a{
+                  background:#47bac1;
+                  color: #FFFFFF;
+                } 
+    
+            </style>   
+
+            <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                <button  type="button" id="btnSlideTSE" style="width: 100%" class="backColor btn btn-primary btn-lg">
+
+                    <span> Tipo de Solicitante <i class="fa fa-angle-down"> </i> </span>
+
+                </button>
+  
+            </div>
+
+        <!-- =================================================================================================== 
+             =========================== LLENADO DEL CRITERIO "Tipo de Solicitante" =============================
+             =================================================================================================== -->
+
+            <div id="SlideTSE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionarco" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  
+                  </thead>  
+
+                      <!-- Persona fisica - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Persona fisica</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_TS_Persona_Fisica" name="EditarSA_TS_Persona_Fisica" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Persona moral - "Tipo de Solicitante"-->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Persona moral</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_TS_Personal_Moral" name="EditarSA_TS_Personal_Moral" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponible - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>No disponible</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_TS_No_Disponible" name="EditarSA_TS_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Suma Total - Tipo de Solicitante </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_TS_Suma_Total" name="EditarSA_TS_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div>
+
+              <!-- =======================================     LINEA     ============================================ -->
+
+            <hr>
+
+           <!-- ===================================================================================================== 
+                ================================= BOTÓN DE "Genero del solicitante" =================================
+                ===================================================================================================== -->
+            
+            <style type="text/css">
+      
+                #btnSlideGSE{
+                  width: 450px;
+                  border: 0px;
+                  font-size:25px;
+                  padding: 2px;
+                }
+
+               .backColor, .backColor a{
+                  background:#47bac1;
+                  color: #FFFFFF;
+                } 
+    
+            </style>   
+
+            <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                <button  type="button" id="btnSlideGSE" style="width: 100%" class="backColor btn btn-primary btn-lg">
+
+                    <span> Genero del solicitante <i class="fa fa-angle-down"> </i> </span>
+
+                </button>
+  
+            </div>
+
+        <!-- =================================================================================================== 
+             =========================== LLENADO DEL CRITERIO "Genero del solicitante" =============================
+             =================================================================================================== -->
+
+            <div id="SlideGSE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionarco" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Genero del solicitante" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  
+                  </thead>  
+
+                      <!-- Femenino - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Femenino</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_GS_Femenino" name="EditarSA_GS_Femenino" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Masculino - "Tipo de Solicitante"-->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Masculino</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_GS_Masculino" name="EditarSA_GS_Masculino" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Anonimo - "Tipo de Solicitante"-->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>Anonimo</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_GS_Anonimo" name="EditarSA_GS_Anonimo" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponible - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>No disponible</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_GS_No_Disponible" name="EditarSA_GS_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Tipo de Solicitante" -->
+
+                      <tr>
+
+                        <th>5</th>
+                        <th>Suma Total - Genero del solicitante </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_GS_Suma_Total" name="EditarSA_GS_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div>
+
+             <!-- =======================================     LINEA     ============================================ -->
+
+            <hr>
+
+            <!-- ===================================================================================================== 
+                ================================= BOTÓN DE "Informacion Solicitada" =================================
+                ===================================================================================================== -->
+            
+            <style type="text/css">
+      
+                #btnSlideISE{
+                  width: 450px;
+                  border: 0px;
+                  font-size:25px;
+                  padding: 2px;
+                }
+
+               .backColor, .backColor a{
+                  background:#47bac1;
+                  color: #FFFFFF;
+                } 
+    
+            </style>   
+
+            <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                <button  type="button" id="btnSlideISE" style="width: 100%" class="backColor btn btn-primary btn-lg">
+
+                    <span> Informacion Solicitada <i class="fa fa-angle-down"> </i> </span>
+
+                </button>
+  
+            </div>
+
+        <!-- =================================================================================================== 
+             =========================== LLENADO DEL CRITERIO "Informacion Solicitada" =============================
+             =================================================================================================== -->
+
+            <div id="SlideISE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionarco" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  
+                  </thead>  
+
+                      <!-- Acceso - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Acceso</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_Acceso" name="EditarSA_IS_Acceso" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Rectificación - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Rectificación</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_Rectificación" name="EditarSA_IS_Rectificación" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Oposición - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>Oposición</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_Oposición" name="EditarSA_IS_Oposición" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Cancelacion - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Cancelacion</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_Cancelacion" name="EditarSA_IS_Cancelacion" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- Otro - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>5</th>
+                        <th>Otro</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_Otro" name="EditarSA_IS_Otro" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+
+                      <!-- No Disponible - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>6</th>
+                        <th>No Disponible</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_No_Disponible" name="EditarSA_IS_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Informacion Solicitada" -->
+
+                      <tr>
+
+                        <th>7</th>
+                        <th>Suma Total - Informacion Solicitada </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_IS_Suma_Total" name="EditarSA_IS_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div>
+
+
+            <!-- =======================================     LINEA     ============================================ -->
+
+            <hr>
+
+           <!-- ===================================================================================================== 
+                ======================================== BOTÓN DE "Tramites" ========================================
+                ===================================================================================================== -->
+            
+            <style type="text/css">
+      
+                #btnSlideTE{
+                  width: 450px;
+                  border: 0px;
+                  font-size:25px;
+                  padding: 2px;
+                }
+
+               .backColor, .backColor a{
+                  background:#47bac1;
+                  color: #FFFFFF;
+                } 
+    
+            </style>   
+
+            <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                <button  type="button" id="btnSlideTE" style="width: 100%" class="backColor btn btn-primary btn-lg">
+
+                    <span> Tramites <i class="fa fa-angle-down"> </i> </span>
+
+                </button>
+  
+            </div>
+
+        <!-- =================================================================================================== 
+             ================================ LLENADO DEL CRITERIO "Tramites" ==================================
+             =================================================================================================== -->
+
+            <div id="SlideTE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionarco" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Tramites" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  
+                  </thead>  
+
+                      <!-- Solicitudes Concluidas - "Tramites" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Solicitudes Concluidas</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_T_Solicitudes_Concluidas" name="EditarSA_T_Solicitudes_Concluidas" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Solicitudes Pendientes - "Tramites" -->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Solicitudes Pendientes</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_T_Solicitudes_Pendientes" name="EditarSA_T_Solicitudes_Pendientes" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponibles - "Tramites" -->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>No disponibles</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_T_No_Disponible" name="EditarSA_T_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Tramites" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Suma Total - Tramites </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_T_Suma_Total" name="EditarSA_T_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div>
+
+             <!-- =======================================     LINEA     ============================================ -->
+
+            <hr>
+
+           <!-- ===================================================================================================== 
+                ================================== BOTÓN DE "Modalidad de Respuesta" ================================
+                ===================================================================================================== -->
+            
+            <style type="text/css">
+      
+                #btnSlideMRE{
+                  width: 450px;
+                  border: 0px;
+                  font-size:25px;
+                  padding: 2px;
+                }
+
+               .backColor, .backColor a{
+                  background:#47bac1;
+                  color: #FFFFFF;
+                } 
+    
+            </style>   
+
+            <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                <button  type="button" id="btnSlideMRE" style="width: 100%" class="backColor btn btn-primary btn-lg">
+
+                    <span> Modalidad de Respuesta <i class="fa fa-angle-down"> </i> </span>
+
+                </button>
+  
+            </div>
+
+        <!-- =================================================================================================== 
+             ========================== LLENADO DEL CRITERIO "Modalidad de Respuesta" ==========================
+             =================================================================================================== -->
+
+            <div id="SlideMRE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionsolicitudes" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Tramites" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  
+                  </thead>  
+
+                      <!-- Medios electrónicos - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Medios electrónicos</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MR_Medios_electronicos" name="EditarSA_MR_Medios_electronicos" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Copia simple - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Copia simple</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MR_Copia_Simple" name="EditarSA_MR_Copia_Simple" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Consulta Directa - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>Consulta Directa</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="SA_MR_Consulta_Directa" name="SA_MR_Consulta_Directa" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- Copia certificada - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Copia certificada</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="SA_MR_Copia_Certificada" name="SA_MR_Copia_Certificada" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Otro - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>5</th>
+                        <th>Otro</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MR_Otro" name="EditarSA_MR_Otro" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- No disponibles - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>6</th>
+                        <th>No disponibles</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MR_No_Disponible" name="EditarSA_MR_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Modalidad de Respuesta" -->
+
+                      <tr>
+
+                        <th>7</th>
+                        <th>Suma Total - Tramites </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_MR_Suma_Total" name="EditarSA_MR_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div> 
+
+            <hr>
+
+           <!-- ===================================================================================================== 
+                ========================= BOTÓN DE "Sentido en que se emite la respuesta" ===========================
+                ===================================================================================================== -->
+            
+            <style type="text/css">
+      
+                #btnSlideSRE{
+                  width: 450px;
+                  border: 0px;
+                  font-size:25px;
+                  padding: 2px;
+                }
+
+               .backColor, .backColor a{
+                  background:#47bac1;
+                  color: #FFFFFF;
+                } 
+    
+            </style>   
+
+            <div style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+
+                <button  type="button" id="btnSlideSRE" style="width: 100%" class="backColor btn btn-primary btn-lg">
+
+                    <span> Sentido en que se emite la respuesta <i class="fa fa-angle-down"> </i> </span>
+
+                </button>
+  
+            </div>
+
+        <!-- =================================================================================================== 
+             ================================ LLENADO DEL CRITERIO "Sentido en que se emite la respuesta" ==================================
+             =================================================================================================== -->
+
+            <div id="SlideSRE" class="form-group" style="display: none; width: 85%; margin: 0 auto; padding-bottom: 15px">
+                
+              <table class="table table-bordered table-striped dt-responsive tablasinformacionarco" with="100%">
+
+                  <thead>
+                      
+                      <!-- TITULOS - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th style="width: 20px">#</th>
+                        <th style="width: 300px" >CRITERIOS</th>
+                        <th style="width: 10px">CANTIDAD</th>
+
+                      </tr>
+                  
+                  </thead>  
+
+                      <!-- Informacion total - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>1</th>
+                        <th>Informacion total</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Informacion_Total" name="EditarSA_SR_Informacion_Total" require>
+
+                            </div>
+                        </th>
+                        
+                      </tr>
+
+                      <!-- Informacion parcial - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>2</th>
+                        <th>Informacion parcial</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Informacion_Parcial" name="EditarSA_SR_Informacion_Parcial" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- Negada por clasificación - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>3</th>
+                        <th>Negada por Clasificación</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Negada_Clasificación" name="EditarSA_SR_Negada_Clasificación" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- Inexistencia de la informacion - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Inexistencia de la Informacion</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Inexistencia_Informacion" name="EditarSA_SR_Inexistencia_Informacion" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- Mixta - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>5</th>
+                        <th>Mixta</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Mixta" name="EditarSA_SR_Mixta" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- No aclarada - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>6</th>
+                        <th>No Aclarada</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_No_Aclarada" name="EditarSA_SR_No_Aclarada" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- Orientada - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>7</th>
+                        <th>Orientada</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Orientada" name="EditarSA_SR_Orientada" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- En Tramite- "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>8</th>
+                        <th>En Tramite</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_En_Tramite" name="EditarSA_SR_En_Tramite" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                        <!-- Improcedente - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>9</th>
+                        <th>Improcedente</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Improcedente" name="EditarSA_SR_Improcedente" require>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+
+                      <!-- Otros - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>10</th>
+                        <th>Otros</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Otros" name="EditarSA_SR_Otros" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                      <!-- No disponibles - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>10</th>
+                        <th>No disponibles</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_No_Disponible" name="EditarSA_SR_No_Disponible" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+                       <!-- Total - "Sentido en que se emite la respuesta" -->
+
+                      <tr>
+
+                        <th>11</th>
+                        <th>Suma Total - Sentido en que se emite la respuesta </th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="text" class="form-control input-lg" id="EditarSA_SR_Suma_Total" name="EditarSA_SR_Suma_Total" require >
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
+              </table>
+        
+            </div>
+            
+       <!-- =======================================     LINEA     ============================================ -->
+
+       <hr>
+
+           <!-- ===================== ENTRADA PARA SUBIR EL ARCHIVO ============================ -->
+
+           <div class="form-group row">
+
+             <div class="col-xs-12">
+
+               <div class="panel">SUBIR ARCHIVO</div>
+
+                 <input type="file" id="nuevoArchivo" name="nuevoArchivo">
+
+                 <p class="help-block">Peso máximo de la foto 200 MB</p>
+
+             </div>   
+
+           </div>  
+
+         </div>
+
+    </div>
+
+     <!-- ================================== BOTON PARA AGREGAR USUARIO ======================================== -->
+
+     <div class="modal-footer">
+
+       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+       <button type="submit" class="btn btn-primary">Guardar Solicitud Arco</button>
+
+     </div>
+
+     <?php
+
+         $ActualizarSolicitud = new ControladorSolicitudesArco();
+         $ActualizarSolicitud -> ctrActualizarSolicitudArco(); 
+
+     ?>
+
+   </form>
+
+ </div>
+
+</div>
+
+</div>
 
 
   <!--============================ =============================== ==============================

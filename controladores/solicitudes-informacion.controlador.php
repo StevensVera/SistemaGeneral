@@ -234,6 +234,178 @@
 
           } // Funcion Agregar Soliciud Informacion
 
+    /* ================  EDITAR - MOSTRAR LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   ================= */ 
+    
+    static public function ctrMostrarSolicitudInformaticaEditar($item, $valor){
+
+      $tabla = "solicitudes_informacion";
+  
+      $respuesta = ModeloSolicitudesInformacion::mdlMostrarRegistroEditarSI($tabla, $item, $valor);
+  
+      return $respuesta;
+  
+  }
+
+
+  /* ================  EDITAR - LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   ================= */ 
+
+   static public function ctrActualizarSolicitudInformacion(){
+
+      if (isset($_POST["EditarSI_MP_Suma_Total"])) {
+
+        $tabla = "solicitudes_informacion";
+
+        $datos = array(
+                       "SI_Informe_Presentado"=> $_POST["EditarTipoInformeSI"],
+                       "SI_Anios"=> $_POST["EditarAnioSI"],
+                       "SI_TOTAL_SOLICITUDES"=> $_POST["EditarSI_Total"],
+                       "SI_Medio_Presentacion_Personal_Escrito"=> $_POST["EditarSI_MP_Personal_Escrito"],
+                       "SI_Medio_Presentacion_Correo_Electronico"=> $_POST["EditarSI_MP_Correo_Electronico"],
+                       "SI_Medio_Presentacion_Sistema_Infomex"=> $_POST["EditarSI_MP_Sistema_Informex"],
+                       "SI_Medio_Presentacion_PNT"=> $_POST["EditarSI_MP_PNT"],
+                       "SI_Medio_Presentacion_No_disponible"=> $_POST["EditarSI_MP_No_Disponible"],
+                       "SI_Medio_Presentacion_Suma_Total"=> $_POST["EditarSI_MP_Suma_Total"],
+                       "SI_Tipo_Solicitud_Persona_Fisica"=> $_POST["EditarSI_TS_Persona_Fisica"],
+                       "SI_Tipo_Solicitud_Persona_Moral"=> $_POST["EditarSI_TS_Personal_Moral"],
+                       "SI_Tipo_Solicitud_No_Disponible"=> $_POST["EditarSI_TS_No_Disponible"],
+                       "SI_Tipo_Solicitud_Suma_Total"=> $_POST["EditarSI_TS_Suma_Total"],
+                       "SI_Genero_Solicitante_Femenino"=> $_POST["EditarSI_Genero_Femenino"],
+                       "SI_Genero_Solicitante_Masculino"=> $_POST["EditarSI_Genero_Masculino"],
+                       "SI_Genero_Solicitante_Anonimo"=> $_POST["EditarSI_Genero_Anonimo"],
+                       "SI_Genero_Solicitante_No_Disponible"=> $_POST["EditarSI_Genero_No_Disponible"],
+                       "SI_Genero_Solicitante_Suma_Total"=> $_POST["EditarSI_Genero_Suma_Total"],
+                       "SI_Informacion_Solicitada_Obligacion_Transparencia"=> $_POST["EditarSI_IS_Obligaciones_Transparencia"],
+                       "SI_Informacion_Solicitada_Reservada"=> $_POST["EditarSI_IS_Reservada"],
+                       "SI_Informacion_Solicitada_Confidencial"=> $_POST["EditarSI_IS_Confidencial"],
+                       "SI_Informacion_Solicitada_Otro"=> $_POST["EditarSI_IS_Otro"],
+                       "SI_Informacion_Solicitada_No_Disponible"=> $_POST["EditarSI_IS_No_Disponible"],
+                       "SI_Informacion_Solicitada_Suma_Total"=> $_POST["EditarSI_IS_Suma_Total"],
+                       "SI_Tramites_Concluidas"=> $_POST["EditarSI_T_Solicitudes_Concluidas"],
+                       "SI_Tramites_Pendientes"=> $_POST["EditarSI_T_Solicitudes_Pendientes"],
+                       "SI_Tramites_No_Disponible"=> $_POST["EditarSI_T_No_Disponible"],
+                       "SI_Tramites_Suma_Total"=> $_POST["EditarSI_T_Suma_Total"],
+                       "SI_Modalidad_Respuesta_Medios_Electronicos"=> $_POST["EditarSI_MR_Medios_electronicos"],
+                       "SI_Modalidad_Respuesta_Copia_Simple"=> $_POST["EditarSI_MR_Copia_Simple"],
+                       "SI_Modalidad_Respuesta_Consulta_Directa"=> $_POST["EditarSI_MR_Consulta_Directa"],
+                       "SI_Modalidad_Respuesta_Copia_Certificada"=> $_POST["EditarSI_MR_Copia_Certificada"],
+                       "SI_Modalidad_Respuesta_Otro"=> $_POST["EditarSI_MR_Otro"],
+                       "SI_Modalidad_Respuesta_No_Disponible"=> $_POST["EditarSI_MR_No_Disponible"],
+                       "SI_Modalidad_Respuesta_Suma_Total"=> $_POST["EditarSI_MR_Suma_Total"],
+                       "SI_Obligaciones_Solicitadas_Marco_Normativo"=> $_POST["EditarSI_OS_Marco_Normativo"],
+                       "SI_Obligaciones_Solicitadas_Estructura_Organica"=> $_POST["EditarSI_OS_Estructura_Organica"],
+                       "SI_Obligaciones_Solicitadas_Funciones_Area"=> $_POST["EditarSI_OS_Funciones_Cada_Area"],
+                       "SI_Obligaciones_Solicitadas_Metas_Objetivos"=> $_POST["EditarSI_OS_Metas_Objetivos"],
+                       "SI_Obligaciones_Solicitadas_Indicadores_Relacionados"=> $_POST["EditarSI_OS_Indicadores_Relacionados"],
+                       "SI_Obligaciones_Solicitadas_Indicadores_Rendir_Cuentas"=> $_POST["EditarSI_OS_Indicadores_Rendir_Cuentas"],
+                       "SI_Obligaciones_Solicitadas_Directorio_Servidor_Publico"=> $_POST["EditarSI_OS_Servidores_Publicos"],
+                       "SI_Obligaciones_Solicitadas_Remuneraciones_Personal"=> $_POST["EditarSI_OS_Remuneraciones_Personal"],
+                       "SI_Obligaciones_Solicitadas_Gasto_Representacion_Viaticos"=> $_POST["EditarSI_OS_Gastos_Representacion_Viaticos"],
+                       "SI_Obligaciones_Solicitadas_Plazas_Bases_Confianza_Vacantes"=> $_POST["EditarSI_OS_Plazas_Vacantes"],
+                       "SI_Obligaciones_Solicitadas_Contratacion_Servicios"=> $_POST["EditarSI_OS_Contratacion_Servicios"],
+                       "SI_Obligaciones_Solicitadas_Versiones_Publicas"=> $_POST["EditarSI_OS_Versiones_Públicas"],
+                       "SI_Obligaciones_Solicitadas_Domicilio_Direccion_UT"=> $_POST["EditarSI_OS_Domicilio_Dirección"],
+                       "SI_Obligaciones_Solicitadas_Convocatoria_Concurso_Cargo"=> $_POST["EditarSI_OS_Convocatoria_Concursos"],
+                       "SI_Obligaciones_Solicitadas_Informacion_Programas_Subsidios"=> $_POST["EditarSI_OS_Informacion_Programas"],
+                       "SI_Obligaciones_Solicitadas_Condiciones_Trabajos"=> $_POST["EditarSI_OS_Condiciones_Generales_Trabajo"],
+                       "SI_Obligaciones_Solicitadas_Recursos_Publicos"=> $_POST["EditarSI_OS_Recursos_Publicos_Economicos"],
+                       "SI_Obligaciones_Solicitadas_Informacion_Curricular"=> $_POST["EditarSI_OS_Información_Curricular"],
+                       "SI_Obligaciones_Solicitadas_Servidores_Publicos_Sancionados"=> $_POST["EditarSI_OS_Servidores_Publicos_Sancionados"],
+                       "SI_Obligaciones_Solicitadas_Servicios_Ofrecen"=> $_POST["EditarSI_OS_Servicios_Ofrecen"],
+                       "SI_Obligaciones_Solicitadas_Tramites_Requisitos_Formatos"=> $_POST["EditarSI_OS_Tramites_Requisitos_Formatos"],
+                       "SI_Obligaciones_Solicitadas_Presupuesto_Asignado"=> $_POST["EditarSI_OS_Presupuesto_Asignado"],
+                       "SI_Obligaciones_Solicitadas_Informacion_Relativa"=> $_POST["EditarSI_OS_Informacion_Relativa"],
+                       "SI_Obligaciones_Solicitadas_Montos_Designados"=> $_POST["EditarSI_OS_Montos_Designados"],
+                       "SI_Obligaciones_Solicitadas_Informes_Resultados_Auditorias"=> $_POST["EditarSI_OS_Informes_Resultados_Auditorias"],
+                       "SI_Obligaciones_Solicitadas_Resultados_Dictaminacion"=> $_POST["EditarSI_OS_Resultados_Dictaminación"],
+                       "SI_Obligaciones_Solicitadas_Montos_Criterios_Convocatorias"=> $_POST["EditarSI_OS_Montos_Criterios_Convocatorias"],
+                       "SI_Obligaciones_Solicitadas_Concesiones_Contratos_Convenios"=> $_POST["EditarSI_OS_Concesiones_Contratos_Convenios"],
+                       "SI_Obligaciones_Solicitadas_Resultados_Procesos_Adjudicaciones"=> $_POST["EditarSI_OS_Resultados_Procesos"],
+                       "SI_Obligaciones_Solicitadas_Infomes_Generen_SO"=> $_POST["EditarSI_OS_Informes_Resultados"],
+                       "SI_Obligaciones_Solicitadas_Estadisticas_Generan_Cumplimiento"=> $_POST["EditarSI_OS_Estadisticas_Generen_Cumplimiento"],
+                       "SI_Obligaciones_Solicitadas_Avances_Programaticos"=> $_POST["EditarSI_OS_Avances_Programaticos"],
+                       "SI_Obligaciones_Solicitadas_Padron_Proveedores"=> $_POST["EditarSI_OS_Padrón_Proveedores"],
+                       "SI_Obligaciones_Solicitadas_Convenios_Coordinacion"=> $_POST["EditarSI_OS_Convenios_Coordinación"],
+                       "SI_Obligaciones_Solicitadas_Inventario_Muebles_Inmuebles"=> $_POST["EditarSI_OS_Inventario_Bienes"],
+                       "SI_Obligaciones_Solicitadas_Recomendaciones_Emitidas"=> $_POST["EditarSI_OS_Recomendaciones_Emitidas"],
+                       "SI_Obligaciones_Solicitadas_Resoluciones_Laudos"=> $_POST["EditarSI_OS_Resoluciones_Laudos"],
+                       "SI_Obligaciones_Solicitadas_Programas_Ofrecidos"=> $_POST["EditarSI_OS_Mecanismos_Participación"],
+                       "SI_Obligaciones_Solicitadas_Mecanismo_Participacion"=> $_POST["EditarSI_OS_Programas_Ofrecidoss"],
+                       "SI_Obligaciones_Solicitadas_Actas_Resoluciones"=> $_POST["EditarSI_OS_Actas_Resoluciones"],
+                       "SI_Obligaciones_Solicitadas_Evaluaciones_Encuestas"=> $_POST["EditarSI_OS_Evaluaciones_Encuentas"],
+                       "SI_Obligaciones_Solicitadas_Estudios_Financiados"=> $_POST["EditarSI_OS_Estudios_Financiados"],
+                       "SI_Obligaciones_Solicitadas_Listado_Jubilados_Pensionados"=> $_POST["EditarSI_OS_Listado_Jubilados"],
+                       "SI_Obligaciones_Solicitadas_Ingreso_Recibido"=> $_POST["EditarSI_OS_Gastos_Ingresos_Recibidos"],
+                       "SI_Obligaciones_Solicitadas_Donaciones_Hechas"=> $_POST["EditarSI_OS_Donaciones_Hechas"],
+                       "SI_Obligaciones_Solicitadas_Catalogos_Disposicion"=> $_POST["EditarSI_OS_Catalogos_Disposicion"],
+                       "SI_Obligaciones_Solicitadas_Actas_Sesiones_Ordinarias"=> $_POST["EditarSI_OS_Actas_Sesiones"],
+                       "SI_Obligaciones_Solicitadas_Listados_Solicitudes_Proveedores"=> $_POST["EditarSI_OS_Listado_Solicitudes"],
+                       "SI_Obligaciones_Solicitadas_Gacetas_Municipales"=> $_POST["EditarSI_OS_Gacetas_Municipales"],
+                       "SI_Obligaciones_Solicitadas_Plan_Desarrollo_Municipal"=> $_POST["EditarSI_OS_Plan_Desarrollo"],
+                       "SI_Obligaciones_Solicitadas_Condiciones_Generales_Trabajo"=> $_POST["EditarSI_OS_Condiciones_Generales_Trabajo_Relaciones"],
+                       "SI_Obligaciones_Solicitadas_Recursos_Publicos_Economicos"=> $_POST["EditarSI_OS_Recursos_Publicos_Economicos_Especies"],
+                       "SI_Obligaciones_Solicitadas_Plan_Desarrollo_Urbano"=> $_POST["EditarSI_OS_Plan_Desarrollo_Urbano"],
+                       "SI_Obligaciones_Solicitadas_Programa_Ordenamiento"=> $_POST["EditarSI_OS_Programa_Ordenamiento"],
+                       "SI_Obligaciones_Solicitadas_Programa_Uso_Suelo"=> $_POST["EditarSI_OS_Programa_Suelo"],
+                       "SI_Obligaciones_Solicitadas_Tipos_Uso_Suelo"=> $_POST["EditarSI_OS_Tipos_Suelo"],
+                       "SI_Obligaciones_Solicitadas_Licencia_Uso_Suelo"=> $_POST["EditarSI_OS_Licencia_Suelo"],
+                       "SI_Obligaciones_Solicitadas_Licencias_Construccion"=> $_POST["EditarSI_OS_Licencias_Construcción"],
+                       "SI_Obligaciones_Solicitadas_Monto_Designados"=> $_POST["EditarSI_OS_Montos_Designados_Social"],
+                       "SI_Obligaciones_Solicitadas_Actas_Cabildo"=> $_POST["EditarSI_OS_Actas_Cabildos"],
+                       "SI_Obligaciones_Solicitadas_Prosupuesto_Sostenible"=> $_POST["EditarSI_OS_Presupuesto_Sostenible"],
+                       "SI_Obligaciones_Solicitadas_Evaluaciones_LDF"=> $_POST["EditarSI_OS_Evaluaciones_LDF"],
+                       "SI_Obligaciones_Solicitadas_Subsidios"=> $_POST["EditarSI_OS_Subsidios"],
+                       "SI_Obligaciones_Solicitadas_Otros"=> $_POST["EditarSI_OS_Otro"],
+                       "SI_Obligaciones_Solicitadas_No_Disponibles"=> $_POST["EditarSI_OS_No_Disponible"],
+                       "SI_Obligaciones_Solicitadas_Suma_Total"=> $_POST["EditarSI_OS_Suma_Total"],
+                       "SI_Sentido_Respuesta_Informacion"=> $_POST["EditarSI_SR_Informacion_Total"],
+                       "SI_Sentido_Respuesta_Informacion_Parcial"=> $_POST["EditarSI_SR_Informacion_Parcial"],
+                       "SI_Sentido_Respuesta_Negada_Clasificacion"=> $_POST["EditarSI_SR_Negada_Clasificación"],
+                       "SI_Sentido_Respuesta_Inexistencia_Informacion"=> $_POST["EditarSI_SR_Inexistencia_Informacion"],
+                       "SI_Sentido_Respuesta_Mixta"=> $_POST["EditarSI_SR_Mixta"],
+                       "SI_Sentido_Respuesta_No_Aclarada"=> $_POST["EditarSI_SR_No_Aclarada"],
+                       "SI_Sentido_Respuesta_Orientada"=> $_POST["EditarSI_SR_Orientada"],
+                       "SI_Sentido_Respuesta_En_Tramite"=> $_POST["EditarSI_SR_En_Tramite"],
+                       "SI_Sentido_Respuesta_Improcedente"=> $_POST["EditarSI_SR_Improcedente"],
+                       "SI_Sentido_Respuesta_Otro"=> $_POST["EditarSI_SR_Otros"],
+                       "SI_Sentido_Respuesta_No_Disponible"=> $_POST["EditarSI_SR_No_Disponible"],
+                       "SI_Sentido_Respuesta_Suma_Total"=> $_POST["EditarSI_SR_Suma_Total"]);
+
+                       $respuesta = ModeloSolicitudesInformacion::mdlEditarSolicitudInformacion($tabla, $datos);
+
+                       if($respuesta == "ok"){
+            
+                            echo'<script>
+            
+                             swal({
+                               type: "success",
+                               title: "El Informe ha sido cambiado correctamente",
+                               showConfirmButton: true,
+                               confirmButtonText: "Cerrar"
+                               }).then(function(result){
+
+                                 if (result.value) {
+            
+                                   window.location = "solicitudes-informacion";
+            
+                              }
+
+                            })
+            
+                      </script>';
+            
+                    }
+
+
+
+      }
+
+
+
+
+   }
+
+
+
     /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */  
 
      static public function ctrBorrarRegistroSolicitudInformacion(){

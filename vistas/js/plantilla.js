@@ -6,8 +6,10 @@ $('.sidebar-menu').tree();
 
 
 /*=============================================
-ESCONDER SLIDE
+              ESCONDER SLIDE
 =============================================*/
+
+/*==========================  AGREGAR INFORMACION DE SOLICITUD Y ARCO  ==============================*/
 
 var toogle = true;
 //var select = $('#Terminado');
@@ -198,3 +200,192 @@ $("#btnSlide").click(function(){
     })
 
 
+  /*==========================  ACTUALIZAR INFORMACION DE SOLICITUD Y ARCO  ==============================*/
+
+/* --- SLIDE PARA MEDIOS DE PRESENTACION ---  */
+
+$("#btnSlideMPE").click(function(){
+
+  if(!toogle){
+
+    toogle = true;
+
+    $("#slideMPE").slideUp("fast");
+
+    $("#btnSlideMPE").html('<span> Medio de Presentación <i class="fa fa-angle-down"> </i> </span>')
+  
+  }else{
+
+    toogle = false;
+
+    $("#slideMPE").slideDown("fast");
+
+    $("#btnSlideMPE").html(' <span> Medio de Presentación <i class="fa fa-angle-up"> </i> </span>')
+
+  }
+
+})
+
+/* --- SLIDE PARA TIPO DE SOLICITANTE ---  */
+
+$("#btnSlideTSE").click(function(){
+
+  if(!toogle){
+
+    toogle = true;
+
+    $("#SlideTSE").slideUp("fast");
+
+    $("#btnSlideTSE").html('<span> Tipo de Solicitante <i class="fa fa-angle-down"> </i> </span>')
+  
+  }else{
+
+    toogle = false;
+
+    $("#SlideTSE").slideDown("fast");
+
+    $("#btnSlideTSE").html(' <span> Tipo de Solicitante <i class="fa fa-angle-up"> </i> </span>')
+  }
+
+})
+
+/* --- SLIDE PARA GENERO DEL SOLICITANTE ---  */
+
+$("#btnSlideGSE").click(function(){
+
+  if(!toogle){
+  
+      toogle = true;
+  
+      $("#SlideGSE").slideUp("fast");
+  
+      $("#btnSlideGSE").html('<span> Genero del Solicitante <i class="fa fa-angle-down"> </i> </span>')
+    
+  }else{
+  
+      toogle = false;
+
+      $("#SlideGSE").slideDown("fast");
+  
+      $("#btnSlideGSE").html('<span> Genero del Solicitante <i class="fa fa-angle-up"> </i> </span>')
+    }
+  
+  })
+
+/* --- SLIDE PARA INFORMACIÓN SOLICITADA ---  */
+
+ $("#btnSlideISE").click(function(){
+
+    if(!toogle){
+    
+      toogle = true;
+    
+      $("#SlideISE").slideUp("fast");
+    
+      $("#btnSlideISE").html('<span> Informacion Solicitada <i class="fa fa-angle-down"> </i> </span>')
+      
+    }else{
+    
+      toogle = false;
+  
+      $("#SlideISE").slideDown("fast");
+    
+      $("#btnSlideIES").html(' <span> Informacion Solicitada <i class="fa fa-angle-up"> </i> </span>')
+
+      }
+    
+    }) 
+  
+/* --- SLIDE PARA TRAMITES ---  */
+
+$("#btnSlideTE").click(function(){
+
+    if(!toogle){
+    
+      toogle = true;
+    
+      $("#SlideTE").slideUp("fast");
+    
+      $("#btnSlideTE").html('<span> Tramites <i class="fa fa-angle-down"> </i> </span>')
+      
+    }else{
+    
+      toogle = false;
+  
+      $("#SlideTE").slideDown("fast");
+    
+      $("#btnSlideTE").html(' <span> Tramites <i class="fa fa-angle-up"> </i> </span>')
+      }
+    
+    })
+
+/* --- SLIDE PARA MODALIDAD DE RESPUESTA ---  */
+
+$("#btnSlideMRE").click(function(){
+
+   if(!toogle){
+    
+      toogle = true;
+    
+      $("#SlideMRE").slideUp("fast");
+    
+      $("#btnSlideMRE").html('<span> Modalidad de Respuesta <i class="fa fa-angle-down"> </i> </span>')
+      
+  }else{
+    
+        toogle = false;
+  
+        $("#SlideMRE").slideDown("fast");
+    
+        $("#btnSlideMRE").html(' <span> Modalidad de Respuesta <i class="fa fa-angle-up"> </i> </span>')
+      }
+    
+  })
+
+/* --- SLIDE PARA OBLIGACIONES SOLICITADAS  ---  */ 
+
+  $("#btnSlideOSE").click(function(){
+
+    if(!toogle){
+    
+        toogle = true;
+    
+        $("#SlideOSE").slideUp("fast");
+    
+        $("#btnSlideOSE").html('<span> Obligaciones Solicitadas <i class="fa fa-angle-down"> </i> </span>')
+      
+    }else{
+    
+        toogle = false;
+  
+        $("#SlideOSE").slideDown("fast");
+    
+        $("#btnSlideOSE").html(' <span> Obligaciones Solicitadas <i class="fa fa-angle-up"> </i> </span>')
+
+      }
+    
+  })
+
+/* --- SLIDE PARA SENTIDO EN QUE SE EMITE LA RESPUESTA ---  */ 
+
+  $("#btnSlideSRE").click(function(){
+
+    if(!toogle){
+    
+      toogle = true;
+    
+      $("#SlideSRE").slideUp("fast");
+    
+      $("#btnSlideSRE").html('<span> Sentido en que se Emite la Respuesta <i class="fa fa-angle-down"> </i> </span>')
+      
+    }else{
+    
+      toogle = false;
+  
+      $("#SlideSRE").slideDown("fast");
+    
+      $("#btnSlideSRE").html(' <span> Sentido en que se Emite la Respuesta <i class="fa fa-angle-up"> </i> </span>')
+      
+    }
+    
+    })
