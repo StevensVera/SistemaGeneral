@@ -77,7 +77,7 @@ var table = $(".tablasSolicitudesArco").DataTable({
                          = MOSTRAR - EDITAR SOLICITUDES INFORMACION =
 ================================================================================================ */ 
 
-$(".tablasSolicitudesArco").on("click", ".btnEditarAdjuntosArchivosGestion", function(){
+$(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
 
   var idSolicitudesArco = $(this).attr("idSolicitudesArco");
 

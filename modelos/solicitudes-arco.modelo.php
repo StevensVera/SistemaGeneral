@@ -308,7 +308,8 @@
           SA_Sentido_Respuesta_Improcedente = :SA_Sentido_Respuesta_Improcedente,
           SA_Sentido_Respuesta_Otros = :SA_Sentido_Respuesta_Otros,
           SA_Sentido_Respuesta_No_Disponible = :SA_Sentido_Respuesta_No_Disponible,
-          SA_Sentido_Respuesta_Suma_Total = :SA_Sentido_Respuesta_Suma_Total");
+          SA_Sentido_Respuesta_Suma_Total = :SA_Sentido_Respuesta_Suma_Total
+          WHERE SI_Informe_Presentado = :SI_Informe_Presentado");
           
 
 

@@ -158,7 +158,7 @@
 
         static public function ctrActualizarSolicitudArco(){
 
-            if (isset($_POST["EditarSA_MP_Suma_Total"])) {
+            if (isset($_POST["EditarSA_MP_Sistema_Informex"])){
                 
                 $tabla = "solicitudes_arco";
 
@@ -213,6 +213,8 @@
                                 "SA_Sentido_Respuesta_Suma_Total"=> $_POST["EditarSA_SR_Suma_Total"]);
 
                 $respuesta = ModeloSolicitudesArco::mdlEditarSolicitudArco($tabla, $datos);
+
+                //var_dump($respuesta);
 
                 if($respuesta == "ok"){
             
