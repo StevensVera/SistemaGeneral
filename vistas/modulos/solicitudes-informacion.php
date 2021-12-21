@@ -2994,7 +2994,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_Suma_Total" name="EditarSI_MP_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="EditarSI_MP_Suma_Total" name="EditarSI_MP_Suma_Total" required >
 
                             </div>
                          </th>
@@ -5369,8 +5369,8 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
      <?php    
           
-         $ActulizarSolicitud = new ControladorSolicitudesInformes();
-         $ActulizarSolicitud -> ctrActualizarSolicitudInformacion();   
+        $ActulizarSolicitud = new ControladorSolicitudesInformes();
+        $ActulizarSolicitud -> ctrActualizarSolicitudInformacion();   
         
 
      ?>
