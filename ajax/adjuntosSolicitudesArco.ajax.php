@@ -23,7 +23,6 @@ class AjaxSolicitudesArco{
   
     echo json_encode($respuesta);
 
-
    }
 
 }

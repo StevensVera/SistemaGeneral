@@ -35,14 +35,13 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
                       
                 if ($adjunto[$i]["SI_Estatus"] != 0) {
 
-                    $botones = "<button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
+                    $botones = "<button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
 
                 } else {
 
-                    $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnImprimerReportexUsuario'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+                    $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1'><i class='fa fa-check'></i></button>";
                 }
            
-       
                 $datosJson .= '[
 
                     "'.($i+1).'",

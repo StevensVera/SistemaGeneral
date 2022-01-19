@@ -46,6 +46,16 @@ var table = $(".tablasSolicitudesInformacion").DataTable({
   
   });
 
+ /* ======================== MOSTRAR ARCHIVO PDF ============================== */ 
+
+ $(".tablasSolicitudesInformacion tbody").on('click', '.btnImprimerReportexSolicitudesInformacion', function() {
+
+  var idSolicitudesInformacion = $(this).attr("idSolicitudesInformacion");
+
+  window.open("extensiones/tcpdf/pdf/reporteSolicitudInformacion.php?idSI="+idSolicitudesInformacion,"_blank");
+  
+});
+
  /* ============== ELIMINAR REGISTRO - SOLICTUD DE INFORMACIÓN ================ */
 
  $(".tablasSolicitudesInformacion").on("click", ".btnEliminarSolicitudInformacion", function(){
@@ -224,3 +234,56 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
   }) //then
 
 }) // Evento
+
+  /* =========================== ACTIVAR ESTADO DEL USUARIO ==================== */
+
+  $(".tablasSolicitudesInformacion").on("click", ".btnActivarSolicitudInformacion", function() {
+
+    var idSI = $(this).attr("idSI");
+
+    var estadoSolicitudesInformacion = $(this).attr("estadoSolicitudesInformacion");
+
+    var datos = new FormData();
+
+    datos.append("activarId", idSI);
+    datos.append("activaroSolicitudesInformacion", estadoSolicitudesInformacion);
+
+    //console.log("activarId",idSI);
+  	//console.log("activarolicitudesInformacion",estadoSolicitudesInformacion);
+
+    $.ajax({
+
+      url:"ajax/SolicitudesInformacion.ajax.php",
+      method:"POST",
+      data:datos,
+      cache:false,
+      contentType:false,
+      processData: false,
+      success: function (respuesta) {
+      
+	      		 swal({
+
+                 title: '¿Está seguro de enviar el Registro?',
+                 text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
+                 type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  cancelButtonText: 'Cancelar',
+                  confirmButtonText: 'Confirmar Envio!'
+
+                  }).then(function(result) {
+
+                      if (result.value) {
+
+                        window.location = "solicitudes-informacion";
+
+                      }
+				});
+
+        
+       } // End Success
+       
+    }) // End Ajax
+
+  }) // End Function

@@ -729,6 +729,8 @@
       $stmt->close();
       $stmt = null;
     }
+
+  
     
 
     /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
@@ -755,4 +757,64 @@
   
     }
 
-     } // End class ModeloSolicitudesInformacion
+     /*=========== METODO PDF - MOSTRAR DATOS SOLICITUD DE INFORMACION =========*/
+
+     static public function mdlMostrarPDFSolicitudInformacion($tabla, $item, $valor){
+
+      if ($item != null) {
+  
+          $statement = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+      
+          $statement -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+      
+          $statement -> execute();
+      
+          return $statement -> fetch();
+                  
+      }else {
+      
+          $statement = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+      
+          $statement -> execute();
+      
+          return $statement -> fetchAll();
+      
+           }
+      
+          $statement -> close();
+      
+          $statement = null;
+  
+  
+      }
+
+      /* ===========================  ACTIVAR EL ESTADO DEL USUARIO  ================================== */
+
+      static public function mdlActualizarEstadoSolicitudesInformacion($tabla,$item1,$valor1,$item2,$valor2){
+            
+        $statement = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2" );
+
+        $statement -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+
+        $statement ->bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+        if ($statement ->execute()) {
+            
+            return "ok";
+
+        }else {
+
+            return "error";
+
+        }
+
+        $statement -> close();
+        
+        $statement = null;
+
+
+    } // End function mdlActualizarEstadoUsuario
+
+
+
+  } // End class ModeloSolicitudesInformacion

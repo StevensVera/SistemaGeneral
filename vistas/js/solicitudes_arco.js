@@ -45,6 +45,16 @@ var table = $(".tablasSolicitudesArco").DataTable({
     }
   
   });
+  
+  /* ======================== MOSTRAR ARCHIVO PDF ============================== */ 
+
+  $(".tablasSolicitudesArco tbody").on('click', '.btnImprimerReportexSolicitudesArco', function() {
+
+    var idSolicitudesArco = $(this).attr("idSolicitudesArco");
+  
+    window.open("extensiones/tcpdf/pdf/reporteSolicitudArco.php?idSAR="+idSolicitudesArco,"_blank");
+    
+  });
 
   /* ============== ELIMINAR REGISTRO - SOLICTUD ARCO ================ */
 
@@ -77,7 +87,8 @@ var table = $(".tablasSolicitudesArco").DataTable({
                          = MOSTRAR - EDITAR SOLICITUDES INFORMACION =
 ================================================================================================ */ 
 
-$(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
+/*
+$(".").on("click", ".btnEditarSolicitudesArco", function(){
 
   var idSolicitudesArco = $(this).attr("idSolicitudesArco");
 
@@ -158,3 +169,150 @@ $(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
   }) //then
 
 }) // Evento
+
+*/
+
+
+/*==============================================================================================
+                         = MOSTRAR - EDITAR SOLICITUDES INFORMACION = FUNCIONAL 
+================================================================================================ */ 
+
+$(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
+
+  var idSolicitudesArco = $(this).attr("idSolicitudesArco");
+
+  var datos = new FormData();
+  datos.append("idSolicitudesArco", idSolicitudesArco);
+  console.log("idSolicitudesArco",idSolicitudesArco);
+  $.ajax({
+    url: "ajax/adjuntosSolicitudesArco.ajax.php",
+    method: "POST",
+        data: datos,
+        cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json", 
+      success: function(respuesta){
+        console.log("respuesta",respuesta);
+
+        $("#EditarTipoInformeSolicitudesArco").html(respuesta["SA_Informe_Presentado"]);
+        $("#EditarTipoInformeSolicitudesArco").val(respuesta["SA_Informe_Presentado"]);
+        $("#EditarAnioSolicitudesArco").val(respuesta["SA_Anios"]);
+        $("#EditarSolicitudesArco_Total").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+
+        $("#EditarSolicitudesArco_MP_Personal_Escrito").val(respuesta["SA_Medio_Presentacion_Personal_Escrito"]);
+        $("#EditarSolicitudesArco_MP_Correo_Electronico").val(respuesta["SA_Medio_Presentacion_Correo_Electronico"]);
+        $("#EditarSolicitudesArco_MP_Sistema_Informex").val(respuesta["SA_Medio_Presentacion_Sistema_Infomex"]);
+        $("#EditarSolicitudesArco_MP_PNT").val(respuesta["SA_Medio_Presentacion_PNT"]);
+        $("#EditarSolicitudesArco_MP_No_Disponible").val(respuesta["SA_Medio_Presentacion_No_disponible"]);
+        $("#EditarSolicitudesArco_MP_Suma_Total").val(respuesta["SA_Medio_Presentacion_Suma_Total"]);
+
+        $("#EditarSolicitudesArco_TS_Persona_Fisica").val(respuesta["SA_Tipo_Solicitante_Persona_Fisica"]);
+        $("#EditarSolicitudesArco_TS_Personal_Moral").val(respuesta["SA_Tipo_Solicitante_Persona_Moral"]);
+        $("#EditarSolicitudesArco_TS_No_Disponible").val(respuesta["SA_Tipo_Solicitante_No_Disponible"]);
+        $("#EditarSolicitudesArco_TS_Suma_Total").val(respuesta["SA_Tipo_Solicitante_Suma_Total"]);
+
+        $("#EditarSolicitudesArco_GS_Femenino").val(respuesta["SA_Genero_Solicitante_Femenino"]);
+        $("#EditarSolicitudesArco_GS_Masculino").val(respuesta["SA_Genero_Solicitante_Masculino"]);
+        $("#EditarSolicitudesArco_GS_Anonimo").val(respuesta["SA_Genero_Solicitante_Anonimo"]);
+        $("#EditarSolicitudesArco_GS_No_Disponible").val(respuesta["SA_Genero_Solicitante_No_Disponible"]);
+        $("#EditarSolicitudesArco_GS_Suma_Total").val(respuesta["SA_Genero_Solicitante_Suma_Total"]);
+
+        $("#EditarSolicitudesArco_IS_Acceso").val(respuesta["SA_Informacion_Solicitada_Acceso"]);
+        $("#EditarSolicitudesArco_IS_Rectificación").val(respuesta["SA_Informacion_Solicitada_Rectificacion"]);
+        $("#EditarSolicitudesArco_IS_Oposición").val(respuesta["SA_Informacion_Solicitada_Oposicion"]);
+        $("#EditarSolicitudesArco_IS_Cancelacion").val(respuesta["SA_Informacion_Solicitada_Cancelacion"]);
+        $("#EditarSolicitudesArco_IS_Otro").val(respuesta["SA_Informacion_Solicitada_Otro"]);
+        $("#EditarSolicitudesArco_IS_No_Disponible").val(respuesta["SA_Informacion_Solicitada_No_Disponible"]);
+        $("#EditarSolicitudesArco_IS_Suma_Total").val(respuesta["SA_Informacion_Solicitada_Suma_Total"]);
+
+        $("#EditarSolicitudesArco_T_Solicitudes_Concluidas").val(respuesta["SA_Tramites_Concluidas"]);
+        $("#EditarSolicitudesArco_T_Solicitudes_Pendientes").val(respuesta["SA_Tramites_Pendientes"]);
+        $("#EditarSolicitudesArco_T_No_Disponible").val(respuesta["SA_Tramites_No_Disponible"]);
+        $("#EditarSolicitudesArco_T_Suma_Total").val(respuesta["SA_Tramites_Suma_Total"]);
+
+        $("#EditarSolicitudesArco_MR_Medios_electronicos").val(respuesta["SA_Modalidad_Respuesta_Medios_Electronicos"]);
+        $("#EditarSolicitudesArco_MR_Copia_Simple").val(respuesta["SA_Modalidad_Respuesta_Copia_Simple"]);
+        $("#EditarSolicitudesArco_MR_Consulta_Directa").val(respuesta["SA_Modalidad_Respuesta_Consulta_Directa"]);
+        $("#EditarSolicitudesArco_MR_Copia_Certificada").val(respuesta["SA_Modalidad_Respuesta_Copia_Certificada"]);
+        $("#EditarSolicitudesArco_MR_Otro").val(respuesta["SA_Modalidad_Respuesta_Otro"]);
+        $("#EditarSolicitudesArco_MR_No_Disponible").val(respuesta["SA_Modalidad_Respuesta_No_Disponible"]);
+        $("#EditarSolicitudesArco_MR_Suma_Total").val(respuesta["SA_Modalidad_Respuesta_Suma_Total"]);
+
+        $("#EditarSolicitudesArco_SR_Informacion_Total").val(respuesta["SA_Sentido_Respuesta_Informacion"]);
+        $("#EditarSolicitudesArco_SR_Informacion_Parcial").val(respuesta["SA_Sentido_Respuesta_Informacion_Parcial"]);
+        $("#EditarSolicitudesArco_SR_Negada_Clasificación").val(respuesta["SA_Sentido_Respuesta_Negada_Clasificacion"]);
+        $("#EditarSolicitudesArco_SR_Inexistencia_Informacion").val(respuesta["SA_Sentido_Respuesta_Inexistencia_Informacion"]);
+        $("#EditarSolicitudesArco_SR_Mixta").val(respuesta["SA_Sentido_Respuesta_Mixta"]);
+        $("#EditarSolicitudesArco_SR_No_Aclarada").val(respuesta["SA_Sentido_Respuesta_No_Aclarada"]);
+        $("#EditarSolicitudesArco_SR_Orientada").val(respuesta["SA_Sentido_Respuesta_Orientada"]);
+        $("#EditarSolicitudesArco_SR_En_Tramite").val(respuesta["SA_Sentido_Respuesta_En_Tramite"]);
+        $("#EditarSolicitudesArco_SR_Improcedente").val(respuesta["SA_Sentido_Respuesta_Improcedente"]);
+        $("#EditarSolicitudesArco_SR_Otros").val(respuesta["SA_Sentido_Respuesta_Otros"]);
+        $("#EditarSolicitudesArco_SR_No_Disponible").val(respuesta["SA_Sentido_Respuesta_No_Disponible"]);
+        $("#EditarSolicitudesArco_SR_Suma_Total").val(respuesta["SA_Sentido_Respuesta_Suma_Total"]);
+
+
+      } // if
+
+  }) //then
+
+}) // Evento
+
+  /* =========================== ACTIVAR ESTADO DEL USUARIO ==================== */
+
+
+$(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function(){
+
+  var idSAR = $(this).attr("idSAR");
+
+  var estadoSolicitudesArco = $(this).attr("estadoSolicitudesArco");
+
+  var datos = new FormData();
+
+  datos.append("activarId", idSAR);
+  datos.append("activarSolicitudesArco", estadoSolicitudesArco);
+
+  $.ajax({
+
+    url:"ajax/SolicitudesArco.ajax.php",
+    method:"POST",
+    data:datos,
+    cache:false,
+    contentType:false,
+    processData: false,
+    success: function (respuesta) {
+    
+           swal({
+
+               title: '¿Está seguro de enviar el Registro?',
+               text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
+               type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Confirmar Envio!'
+
+                }).then(function(result) {
+
+                    if (result.value) {
+
+                      window.location = "solicitudes-arco";
+
+                    }
+      });
+
+      
+     } // End Success
+
+
+
+
+
+   });
+
+
+
+}) // funcion
+

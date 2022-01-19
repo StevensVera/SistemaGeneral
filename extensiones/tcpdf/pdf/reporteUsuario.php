@@ -71,7 +71,6 @@ class MYPDF extends TCPDF {
 }
 
 
-
 class imprimirReporte{
 
 public $id;
@@ -85,8 +84,6 @@ $itemUsuario = "id";
 $valorUsuario = $this->id;
 
 $respuestaUsuario = ControladorUsuariosInformes::ctrMostrarPDFUsuario($itemUsuario,$valorUsuario);
-
-
 
 $fecha = substr($respuestaUsuario['fecha_informe'],0,20);
 $codigo = substr($respuestaUsuario['codigo'],0,14);

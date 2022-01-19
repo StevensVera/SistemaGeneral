@@ -52,7 +52,6 @@ require_once "../modelos/usuarios.modelo.php";
                 }
 
 
-                    
                     $datosJson .= '[
 
                         "'.($i+1).'",

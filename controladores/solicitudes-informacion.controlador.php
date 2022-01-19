@@ -405,7 +405,6 @@
    }
 
 
-
     /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */  
 
      static public function ctrBorrarRegistroSolicitudInformacion(){
@@ -442,7 +441,17 @@
       
     }// function
 
+    /* =================== METODO PDF - MOSTRAR DATOS INDIVUDALES REGISTRADOS POR USUARIO =============== */
 
+    static public function ctrMostrarPDFSolicitudInformacion($item, $valor){
+
+      $tabla = "solicitudes_informacion";
+
+      $respuesta = ModeloSolicitudesInformacion::mdlMostrarPDFSolicitudInformacion($tabla,$item,$valor);
+
+      return $respuesta;
+
+    }
 
     } //ControladorSolicitudesInformes
 

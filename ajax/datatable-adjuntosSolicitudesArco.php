@@ -34,11 +34,11 @@ require_once "../modelos/solicitudes-arco.modelo.php";
 
             if ($adjunto[$i]["SA_Estatus"] != 0) {
 
-                $botones = "<button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
+                $botones = "<button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
 
             } else {
 
-                $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexUsuario'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarSolicitudArco' idSAR='".$adjunto[$i]["idSAR"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnImprimerReportexUsuario'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+                $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarSolicitudArco' idSAR='".$adjunto[$i]["idSAR"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarSolicitudesArco' idSAR='".$adjunto[$i]["idSAR"]."' estadoSolicitudesArco='1'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
             }
         
             $datosJson .= '[

@@ -158,21 +158,20 @@
 
         static public function ctrActualizarSolicitudArco(){
 
-          if (isset($_POST["SA_Medio_Presentacion_Suma_Total"])) {
+          if(isset($_POST["EditarSA_MP_Personal_Escrito"])) {
 
             $tabla = "solicitudes_arco";
 
-            $datos = array(
-                            "SA_Informe_Presentado" => $_POST["EditarTipoInformeSA"],
-                            "SA_Anios" => $_POST["EditarAnioSA"],
-                            "SA_TOTAL_SOLICITUDES" => $_POST["EditarSA_Total"],
-                            "SA_Medio_Presentacion_Personal_Escrito" => $_POST["EditarSA_MP_Personal_Escrito"],
-                            "SA_Medio_Presentacion_Correo_Electronico" => $_POST["EditarSA_MP_Correo_Electronico"],
-                            "SA_Medio_Presentacion_Sistema_Infomex" => $_POST["EditarSA_MP_Sistema_Informex"],
-                            "SA_Medio_Presentacion_PNT" => $_POST["EditarSA_MP_PNT"],
+            $datos = array( 
+                            "SA_Informe_Presentado"=> $_POST["EditarTipoInformeSA"],
+                            "SA_Anios"=> $_POST["EditarAnioSA"],
+                            "SA_TOTAL_SOLICITUDES"=> $_POST["EditarSA_Total"],
+                            "SA_Medio_Presentacion_Personal_Escrito"=> $_POST["EditarSA_MP_Personal_Escrito"],
+                            "SA_Medio_Presentacion_Correo_Electronico"=> $_POST["EditarSA_MP_Correo_Electronico"],
+                            "SA_Medio_Presentacion_Sistema_Infomex"=> $_POST["EditarSA_MP_Sistema_Informex"],
+                            "SA_Medio_Presentacion_PNT"=> $_POST["EditarSA_MP_PNT"],
                             "SA_Medio_Presentacion_No_disponible" => $_POST["EditarSA_MP_No_Disponible"],
-                            "SA_Medio_Presentacion_Suma_Total" => $_POST["EditarSA_MP_Suma_Total"]
-                            );
+                            "SA_Medio_Presentacion_Suma_Total"=> $_POST["EditarSA_MP_Suma_Total"]);
 
                             $respuesta = ModeloSolicitudesArco::mdlEditarSolicitudArco($tabla, $datos);
 
@@ -202,7 +201,105 @@
 
           }
 
+          
         }
+          
+      /* ================  EDITAR - LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   ================= */ 
+
+        static public function ctrActualizarSolicitudArco2(){
+
+            if (isset($_POST["EditarAnioSolicitudesArco"])) {
+              
+            $tabla = "solicitudes_arco";
+
+            $datos = array("SA_Informe_Presentado" => $_POST["EditarTipoInformeSolicitudesArco"],
+                            "SA_Anios" => $_POST["EditarAnioSolicitudesArco"],
+                            "SA_TOTAL_SOLICITUDES" => $_POST["EditarSolicitudesArco_Total"],
+
+                            "SA_Medio_Presentacion_Personal_Escrito" => $_POST["EditarSolicitudesArco_MP_Personal_Escrito"],
+                            "SA_Medio_Presentacion_Correo_Electronico" => $_POST["EditarSolicitudesArco_MP_Correo_Electronico"],
+                            "SA_Medio_Presentacion_Sistema_Infomex" => $_POST["EditarSolicitudesArco_MP_Sistema_Informex"],
+                            "SA_Medio_Presentacion_PNT" => $_POST["EditarSolicitudesArco_MP_PNT"],
+                            "SA_Medio_Presentacion_No_disponible" => $_POST["EditarSolicitudesArco_MP_No_Disponible"],
+                            "SA_Medio_Presentacion_Suma_Total" => $_POST["EditarSolicitudesArco_MP_Suma_Total"],
+
+                            "SA_Tipo_Solicitante_Persona_Fisica" => $_POST["EditarSolicitudesArco_TS_Persona_Fisica"],
+                            "SA_Tipo_Solicitante_Persona_Moral" => $_POST["EditarSolicitudesArco_TS_Personal_Moral"],
+                            "SA_Tipo_Solicitante_No_Disponible" => $_POST["EditarSolicitudesArco_TS_No_Disponible"],
+                            "SA_Tipo_Solicitante_Suma_Total" => $_POST["EditarSolicitudesArco_TS_Suma_Total"],
+
+                            "SA_Genero_Solicitante_Femenino" => $_POST["EditarSolicitudesArco_GS_Femenino"],
+                            "SA_Genero_Solicitante_Masculino" => $_POST["EditarSolicitudesArco_GS_Masculino"],
+                            "SA_Genero_Solicitante_Anonimo" => $_POST["EditarSolicitudesArco_GS_Anonimo"],
+                            "SA_Genero_Solicitante_No_Disponible" => $_POST["EditarSolicitudesArco_GS_No_Disponible"],
+                            "SA_Genero_Solicitante_Suma_Total" => $_POST["EditarSolicitudesArco_GS_Suma_Total"],
+
+                            "SA_Informacion_Solicitada_Acceso" => $_POST["EditarSolicitudesArco_IS_Acceso"],
+                            "SA_Informacion_Solicitada_Rectificacion" => $_POST["EditarSolicitudesArco_IS_Rectificación"],
+                            "SA_Informacion_Solicitada_Oposicion" => $_POST["EditarSolicitudesArco_IS_Oposición"],
+                            "SA_Informacion_Solicitada_Cancelacion" => $_POST["EditarSolicitudesArco_IS_Cancelacion"],
+                            "SA_Informacion_Solicitada_Otro" => $_POST["EditarSolicitudesArco_IS_Otro"],
+                            "SA_Informacion_Solicitada_No_Disponible" => $_POST["EditarSolicitudesArco_IS_No_Disponible"],
+                            "SA_Informacion_Solicitada_Suma_Total" => $_POST["EditarSolicitudesArco_IS_Suma_Total"],
+
+                            "SA_Tramites_Concluidas" => $_POST["EditarSolicitudesArco_T_Solicitudes_Concluidas"],
+                            "SA_Tramites_Pendientes" => $_POST["EditarSolicitudesArco_T_Solicitudes_Pendientes"],
+                            "SA_Tramites_No_Disponible" => $_POST["EditarSolicitudesArco_T_No_Disponible"],
+                            "SA_Tramites_Suma_Total" => $_POST["EditarSolicitudesArco_T_Suma_Total"],
+
+                            "SA_Modalidad_Respuesta_Medios_Electronicos" => $_POST["EditarSolicitudesArco_MR_Medios_electronicos"],
+                            "SA_Modalidad_Respuesta_Copia_Simple" => $_POST["EditarSolicitudesArco_MR_Copia_Simple"],
+                            "SA_Modalidad_Respuesta_Consulta_Directa" => $_POST["EditarSolicitudesArco_MR_Consulta_Directa"],
+                            "SA_Modalidad_Respuesta_Copia_Certificada" => $_POST["EditarSolicitudesArco_MR_Copia_Certificada"],
+                            "SA_Modalidad_Respuesta_Otro" => $_POST["EditarSolicitudesArco_MR_Otro"],
+                            "SA_Modalidad_Respuesta_No_Disponible" => $_POST["EditarSolicitudesArco_MR_No_Disponible"],
+                            "SA_Modalidad_Respuesta_Suma_Total" => $_POST["EditarSolicitudesArco_MR_Suma_Total"],
+
+                            "SA_Sentido_Respuesta_Informacion" => $_POST["EditarSolicitudesArco_SR_Informacion_Total"],
+                            "SA_Sentido_Respuesta_Informacion_Parcial" => $_POST["EditarSolicitudesArco_SR_Informacion_Parcial"],
+                            "SA_Sentido_Respuesta_Negada_Clasificacion" => $_POST["EditarSolicitudesArco_SR_Negada_Clasificación"],
+                            "SA_Sentido_Respuesta_Inexistencia_Informacion" => $_POST["EditarSolicitudesArco_SR_Inexistencia_Informacion"],
+                            "SA_Sentido_Respuesta_Mixta" => $_POST["EditarSolicitudesArco_SR_Mixta"],
+                            "SA_Sentido_Respuesta_No_Aclarada" => $_POST["EditarSolicitudesArco_SR_No_Aclarada"],
+                            "SA_Sentido_Respuesta_Orientada" => $_POST["EditarSolicitudesArco_SR_Orientada"],
+                            "SA_Sentido_Respuesta_En_Tramite" => $_POST["EditarSolicitudesArco_SR_En_Tramite"],
+                            "SA_Sentido_Respuesta_Improcedente" => $_POST["EditarSolicitudesArco_SR_Improcedente"],
+                            "SA_Sentido_Respuesta_Otros" => $_POST["EditarSolicitudesArco_SR_Otros"],
+                            "SA_Sentido_Respuesta_No_Disponible" => $_POST["EditarSolicitudesArco_SR_No_Disponible"],
+                            "SA_Sentido_Respuesta_Suma_Total" => $_POST["EditarSolicitudesArco_SR_Suma_Total"]
+
+                          );
+
+                            $respuesta = ModeloSolicitudesArco::mdlEditarSolicitudArco2($tabla, $datos);
+
+                            if($respuesta == "ok"){
+                    
+                              echo'<script>
+              
+                              swal({
+                                type: "success",
+                                title: "El Informe ha sido cambiado correctamente",
+                                showConfirmButton: true,
+                                confirmButtonText: "Cerrar"
+                                }).then(function(result){
+
+                                  if (result.value) {
+              
+                                    window.location = "solicitudes-arco";
+              
+                                }
+
+                              })
+              
+                        </script>';
+              
+                      }
+            
+            }
+
+
+
+          }
 
         /* =========== MOSTRAR DATOS TABLA - SOLICITUDES ARCO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
@@ -239,6 +336,18 @@
             } // if 
             
           }// function
+
+    /* =================== METODO PDF - MOSTRAR DATOS INDIVUDALES REGISTRADOS POR USUARIO =============== */
+
+    static public function ctrMostrarPDFSolicitudesArco($item, $valor){
+
+      $tabla = "solicitudes_arco";
+
+      $respuesta = ModeloSolicitudesArco::mdlMostrarPDFSolicitudArco($tabla,$item,$valor);
+
+      return $respuesta;
+
+    }
 
 
 } // ControladorSolicitudesArco

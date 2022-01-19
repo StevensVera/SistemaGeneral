@@ -4,7 +4,7 @@
 
       <h1>
 
-        Página de Inicio
+        Administración General de Solicitudes y Capacitaciones
 
         <small>Panel de Control</small>
 
@@ -14,7 +14,7 @@
 
         <li><a href="inicio"><i class="fa fa-dashboard"></i>Inicio</a></li>
 
-        <li class="active">Tablero</li>
+        <li class="active">Administración General de Solicitudes y Capacitaciones</li>
         
       </ol>
        
@@ -37,34 +37,34 @@
           }
 
         ?>
-      
+
+      <div class="box-body">
+
+        <table class="table table-bordered table-striped dt-responsive tablasAdministracionGeneral " with="100%">
+
+        <thead>
+
+         <tr>
+
+           <th>#</th>
+           <th>Sujeto Obligado</th>
+           <th>Informe Presentado</th>
+           <th>Fecha de Entrega</th>
+           <th>Estatus</th>
+           <th>Documento</th>
+  
+         </tr>
+
+        </thead>
+
+          <input type="hidden" value="<?php echo $_SESSION["perfil_Informe"]; ?>" id="perfilOcultoUsuario">
+
+          <input type="hidden" value="<?php echo $_SESSION["codigo"]; ?>" id="perfiCodigo">
+
+        </table>
+          
+      </div>    
+
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-
-
-
-    </section>
-    <!-- /.content -->
   </div>
