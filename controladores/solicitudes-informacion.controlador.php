@@ -22,6 +22,20 @@
 
         }
 
+    /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+        
+        static public function ctrMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor){
+
+          $tabla = "solicitudes_informacion";
+
+          $tabla2 = "solicitudes_arco";
+
+          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor, $tabla, $tabla2);
+
+          return $respuesta;
+
+        }
+
         static public function ctrMostrarTablaSINOUSABLE($item,$valor){
 
           /* Tabla Solicitudes de Informacion */
@@ -229,7 +243,6 @@
                 } // if
 
               
-
             }// if   
 
           } // Funcion Agregar Soliciud Informacion
@@ -244,7 +257,7 @@
   
       return $respuesta;
   
-  }
+    }
 
 
   /* ================  EDITAR - LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   ================= */ 

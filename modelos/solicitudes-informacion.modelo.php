@@ -50,6 +50,40 @@
 
       } // End Funcion MdlMostrarTablaSI
 
+      /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+
+      static public function MdlMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor, $tabla, $tabla2){
+
+        $stmt = Conexion::conectar()->prepare("SELECT *
+                                                FROM $tabla SI
+                                                INNER JOIN $tabla2 SAR
+                                                ON SI.$itemCodigoSI = SAR.$itemCodigoSA
+                                                WHERE SI.$itemCodigoSI = :$itemCodigoSI and SAR.$itemCodigoSA = :$itemCodigoSA" );
+
+         $stmt -> bindParam(":".$itemCodigoSI, $valor, PDO::PARAM_STR);
+         $stmt -> bindParam(":".$itemCodigoSA, $valor, PDO::PARAM_STR);
+
+         $stmt -> execute();
+
+         return $stmt -> fetchAll();
+
+       /*
+       $stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
+                                                FROM $tabla 
+                                                INNER JOIN $tablaDSI ON $tablaDSI.idSI = $tabla.idSI 
+                                                INNER JOIN $tablaU ON $tablaU.id = $tablaDSI.idusuario 
+                                                WHERE $tablaU.$item = :$item" );
+
+         $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+         $stmt -> execute();
+
+         return $stmt -> fetchAll();
+
+       */
+
+   } // End Funcion MdlMostrarTablaSI
+
 
       static public function MdlAgregarSI($tablaSI, $datos){
             

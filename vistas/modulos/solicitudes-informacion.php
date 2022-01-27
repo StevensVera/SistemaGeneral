@@ -203,7 +203,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                    <input type="text" class="form-control input-lg" id="nuevoSI_Total" name="nuevoSI_Total" placeholder="Total de Solicitudes" require>
+                    <input type="text" class="form-control input-lg" id="nuevoSI_Total" name="nuevoSI_Total" placeholder="Total de Solicitudes" required>
 
               </div>
     
@@ -274,7 +274,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Personal_Escrito" name="nuevoSI_MP_Personal_Escrito" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Personal_Escrito" name="nuevoSI_MP_Personal_Escrito" required>
 
                             </div>
                         </th>
@@ -292,7 +292,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Correo_Electronico" name="nuevoSI_MP_Correo_Electronico" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Correo_Electronico" name="nuevoSI_MP_Correo_Electronico" required>
 
                             </div>
                          </th>
@@ -310,7 +310,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Sistema_Informex" name="nuevoSI_MP_Sistema_Informex" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Sistema_Informex" name="nuevoSI_MP_Sistema_Informex" required>
 
                             </div>
                          </th>
@@ -328,7 +328,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_PNT" name="nuevoSI_MP_PNT" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_PNT" name="nuevoSI_MP_PNT" required>
 
                             </div>
                          </th>
@@ -346,7 +346,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_No_Disponible" name="nuevoSI_MP_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_No_Disponible" name="nuevoSI_MP_No_Disponible" required>
 
                             </div>
                          </th>
@@ -364,7 +364,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Suma_Total" name="nuevoSI_MP_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MP_Suma_Total" name="nuevoSI_MP_Suma_Total" required>
 
                             </div>
                          </th>
@@ -442,7 +442,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Persona_Fisica" name="nuevoSI_TS_Persona_Fisica" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Persona_Fisica" name="nuevoSI_TS_Persona_Fisica" required>
 
                             </div>
                         </th>
@@ -460,7 +460,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Personal_Moral" name="nuevoSI_TS_Personal_Moral" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Personal_Moral" name="nuevoSI_TS_Personal_Moral" required>
 
                             </div>
                          </th>
@@ -478,7 +478,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_No_Disponible" name="nuevoSI_TS_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_No_Disponible" name="nuevoSI_TS_No_Disponible" required>
 
                             </div>
                          </th>
@@ -496,7 +496,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Suma_Total" name="nuevoSI_TS_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_TS_Suma_Total" name="nuevoSI_TS_Suma_Total" required>
 
                             </div>
                          </th>
@@ -574,7 +574,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Masculino" name="nuevoSI_Genero_Masculino" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Masculino" name="nuevoSI_Genero_Masculino" required>
 
                             </div>
                         </th>
@@ -592,7 +592,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Femenino" name="nuevoSI_Genero_Femenino" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Femenino" name="nuevoSI_Genero_Femenino" required>
 
                             </div>
                          </th>
@@ -610,7 +610,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Anonimo" name="nuevoSI_Genero_Anonimo" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Anonimo" name="nuevoSI_Genero_Anonimo" required>
 
                             </div>
                          </th>
@@ -628,7 +628,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_No_Disponible" name="nuevoSI_Genero_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_No_Disponible" name="nuevoSI_Genero_No_Disponible" required>
 
                             </div>
                          </th>
@@ -646,7 +646,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Suma_Total" name="nuevoSI_Genero_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_Genero_Suma_Total" name="nuevoSI_Genero_Suma_Total" required>
 
                             </div>
                          </th>
@@ -724,7 +724,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Obligaciones_Transparencia" name="nuevoSI_IS_Obligaciones_Transparencia" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Obligaciones_Transparencia" name="nuevoSI_IS_Obligaciones_Transparencia" required>
 
                             </div>
                         </th>
@@ -742,7 +742,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Reservada" name="nuevoSI_IS_Reservada" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Reservada" name="nuevoSI_IS_Reservada" required>
 
                             </div>
                          </th>
@@ -760,7 +760,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Confidencial" name="nuevoSI_IS_Confidencial" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Confidencial" name="nuevoSI_IS_Confidencial" required>
 
                             </div>
                          </th>
@@ -778,7 +778,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Otro" name="nuevoSI_IS_Otro" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Otro" name="nuevoSI_IS_Otro" required>
 
                             </div>
                          </th>
@@ -796,7 +796,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_No_Disponible" name="nuevoSI_IS_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_No_Disponible" name="nuevoSI_IS_No_Disponible" required>
 
                             </div>
                          </th>
@@ -814,7 +814,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Suma_Total" name="nuevoSI_IS_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_IS_Suma_Total" name="nuevoSI_IS_Suma_Total" required>
 
                             </div>
                          </th>
@@ -893,7 +893,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_T_Solicitudes_Concluidas" name="nuevoSI_T_Solicitudes_Concluidas" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_T_Solicitudes_Concluidas" name="nuevoSI_T_Solicitudes_Concluidas" required>
 
                             </div>
                         </th>
@@ -911,7 +911,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_T_Solicitudes_Pendientes" name="nuevoSI_T_Solicitudes_Pendientes" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_T_Solicitudes_Pendientes" name="nuevoSI_T_Solicitudes_Pendientes" required>
 
                             </div>
                          </th>
@@ -929,7 +929,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_T_No_Disponible" name="nuevoSI_T_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_T_No_Disponible" name="nuevoSI_T_No_Disponible" required>
 
                             </div>
                          </th>
@@ -947,7 +947,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_T_Suma_Total" name="nuevoSI_T_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_T_Suma_Total" name="nuevoSI_T_Suma_Total" required>
 
                             </div>
                          </th>
@@ -1025,7 +1025,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Medios_electronicos" name="nuevoSI_MR_Medios_electronicos" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Medios_electronicos" name="nuevoSI_MR_Medios_electronicos" required>
 
                             </div>
                         </th>
@@ -1043,7 +1043,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Copia_Simple" name="nuevoSI_MR_Copia_Simple" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Copia_Simple" name="nuevoSI_MR_Copia_Simple" required>
 
                             </div>
                          </th>
@@ -1061,7 +1061,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Consulta_Directa" name="nuevoSI_MR_Consulta_Directa" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Consulta_Directa" name="nuevoSI_MR_Consulta_Directa" required>
 
                             </div>
                          </th>
@@ -1079,7 +1079,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Copia_Certificada" name="nuevoSI_MR_Copia_Certificada" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Copia_Certificada" name="nuevoSI_MR_Copia_Certificada" required>
 
                             </div>
                          </th>
@@ -1097,7 +1097,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Otro" name="nuevoSI_MR_Otro" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Otro" name="nuevoSI_MR_Otro" required>
 
                             </div>
                          </th>
@@ -1115,7 +1115,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_No_Disponible" name="nuevoSI_MR_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_No_Disponible" name="nuevoSI_MR_No_Disponible" required>
 
                             </div>
                          </th>
@@ -1133,7 +1133,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Suma_Total" name="nuevoSI_MR_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_MR_Suma_Total" name="nuevoSI_MR_Suma_Total" required>
 
                             </div>
                          </th>
@@ -1218,7 +1218,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Marco_Normativo" name="nuevoSI_OS_Marco_Normativo" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Marco_Normativo" name="nuevoSI_OS_Marco_Normativo" required>
 
                                       </div>
                                   </th>
@@ -1236,7 +1236,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Estructura_Organica" name="nuevoSI_OS_Estructura_Organica" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Estructura_Organica" name="nuevoSI_OS_Estructura_Organica" required>
 
                                       </div>
                                   </th>
@@ -1254,7 +1254,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Funciones_Cada_Area" name="nuevoSI_OS_Funciones_Cada_Area" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Funciones_Cada_Area" name="nuevoSI_OS_Funciones_Cada_Area" required>
 
                                       </div>
                                   </th>
@@ -1272,7 +1272,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Metas_Objetivos" name="nuevoSI_OS_Metas_Objetivos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Metas_Objetivos" name="nuevoSI_OS_Metas_Objetivos" required>
 
                                       </div>
                                   </th>
@@ -1290,7 +1290,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Indicadores_Relacionados" name="nuevoSI_OS_Indicadores_Relacionados" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Indicadores_Relacionados" name="nuevoSI_OS_Indicadores_Relacionados" required>
 
                                       </div>
                                   </th>
@@ -1308,7 +1308,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Indicadores_Rendir_Cuentas" name="nuevoSI_OS_Indicadores_Rendir_Cuentas" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Indicadores_Rendir_Cuentas" name="nuevoSI_OS_Indicadores_Rendir_Cuentas" required>
 
                                       </div>
                                   </th>
@@ -1326,7 +1326,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Servidores_Publicos" name="nuevoSI_OS_Servidores_Publicos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Servidores_Publicos" name="nuevoSI_OS_Servidores_Publicos" required>
 
                                       </div>
                                   </th>
@@ -1344,7 +1344,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Remuneraciones_Personal" name="nuevoSI_OS_Remuneraciones_Personal" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Remuneraciones_Personal" name="nuevoSI_OS_Remuneraciones_Personal" required>
 
                                       </div>
                                   </th>
@@ -1362,7 +1362,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Gastos_Representacion_Viaticos" name="nuevoSI_OS_Gastos_Representacion_Viaticos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Gastos_Representacion_Viaticos" name="nuevoSI_OS_Gastos_Representacion_Viaticos" required>
 
                                       </div>
                                   </th>
@@ -1380,7 +1380,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Plazas_Vacantes" name="nuevoSI_OS_Plazas_Vacantes" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Plazas_Vacantes" name="nuevoSI_OS_Plazas_Vacantes" required>
 
                                       </div>
                                   </th>
@@ -1398,7 +1398,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Contratacion_Servicios" name="nuevoSI_OS_Contratacion_Servicios" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Contratacion_Servicios" name="nuevoSI_OS_Contratacion_Servicios" required>
 
                                       </div>
                                   </th>
@@ -1416,7 +1416,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Versiones_Públicas" name="nuevoSI_OS_Versiones_Públicas" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Versiones_Públicas" name="nuevoSI_OS_Versiones_Públicas" required>
 
                                       </div>
                                   </th>
@@ -1434,7 +1434,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Domicilio_Dirección" name="nuevoSI_OS_Domicilio_Dirección" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Domicilio_Dirección" name="nuevoSI_OS_Domicilio_Dirección" required>
 
                                       </div>
                                   </th>
@@ -1452,7 +1452,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Convocatoria_Concursos" name="nuevoSI_OS_Convocatoria_Concursos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Convocatoria_Concursos" name="nuevoSI_OS_Convocatoria_Concursos" required>
 
                                       </div>
                                   </th>
@@ -1470,7 +1470,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informacion_Programas" name="nuevoSI_OS_Informacion_Programas" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informacion_Programas" name="nuevoSI_OS_Informacion_Programas" required>
 
                                       </div>
                                   </th>
@@ -1488,7 +1488,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Condiciones_Generales_Trabajo" name="nuevoSI_OS_Condiciones_Generales_Trabajo" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Condiciones_Generales_Trabajo" name="nuevoSI_OS_Condiciones_Generales_Trabajo" required>
 
                                       </div>
                                   </th>
@@ -1506,7 +1506,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Recursos_Publicos_Economicos" name="nuevoSI_OS_Recursos_Publicos_Economicos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Recursos_Publicos_Economicos" name="nuevoSI_OS_Recursos_Publicos_Economicos" required>
 
                                       </div>
                                   </th>
@@ -1524,7 +1524,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Información_Curricular" name="nuevoSI_OS_Información_Curricular" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Información_Curricular" name="nuevoSI_OS_Información_Curricular" required>
 
                                       </div>
                                   </th>
@@ -1542,7 +1542,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Servidores_Publicos_Sancionados" name="nuevoSI_OS_Servidores_Publicos_Sancionados" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Servidores_Publicos_Sancionados" name="nuevoSI_OS_Servidores_Publicos_Sancionados" required>
 
                                       </div>
                                   </th>
@@ -1560,7 +1560,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Servicios_Ofrecen" name="nuevoSI_OS_Servicios_Ofrecen" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Servicios_Ofrecen" name="nuevoSI_OS_Servicios_Ofrecen" required>
 
                                       </div>
                                   </th>
@@ -1578,7 +1578,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Tramites_Requisitos_Formatos" name="nuevoSI_OS_Tramites_Requisitos_Formatos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Tramites_Requisitos_Formatos" name="nuevoSI_OS_Tramites_Requisitos_Formatos" required>
 
                                       </div>
                                   </th>
@@ -1596,7 +1596,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Presupuesto_Asignado" name="nuevoSI_OS_Presupuesto_Asignado" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Presupuesto_Asignado" name="nuevoSI_OS_Presupuesto_Asignado" required>
 
                                       </div>
                                   </th>
@@ -1614,7 +1614,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informacion_Relativa" name="nuevoSI_OS_Informacion_Relativa" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informacion_Relativa" name="nuevoSI_OS_Informacion_Relativa" required>
 
                                       </div>
                                   </th>
@@ -1632,7 +1632,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Montos_Designados" name="nuevoSI_OS_Montos_Designados" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Montos_Designados" name="nuevoSI_OS_Montos_Designados" required>
 
                                       </div>
                                   </th>
@@ -1650,7 +1650,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informes_Resultados_Auditorias" name="nuevoSI_OS_Informes_Resultados_Auditorias" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informes_Resultados_Auditorias" name="nuevoSI_OS_Informes_Resultados_Auditorias" required>
 
                                       </div>
                                   </th>
@@ -1668,7 +1668,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Resultados_Dictaminación" name="nuevoSI_OS_Resultados_Dictaminación" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Resultados_Dictaminación" name="nuevoSI_OS_Resultados_Dictaminación" required>
 
                                       </div>
                                   </th>
@@ -1686,7 +1686,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Montos_Criterios_Convocatorias" name="nuevoSI_OS_Montos_Criterios_Convocatorias" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Montos_Criterios_Convocatorias" name="nuevoSI_OS_Montos_Criterios_Convocatorias" required>
 
                                       </div>
                                   </th>
@@ -1704,7 +1704,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Concesiones_Contratos_Convenios" name="nuevoSI_OS_Concesiones_Contratos_Convenios" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Concesiones_Contratos_Convenios" name="nuevoSI_OS_Concesiones_Contratos_Convenios" required>
 
                                       </div>
                                   </th>
@@ -1722,7 +1722,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Resultados_Procesos" name="nuevoSI_OS_Resultados_Procesos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Resultados_Procesos" name="nuevoSI_OS_Resultados_Procesos" required>
 
                                       </div>
                                   </th>
@@ -1740,7 +1740,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informes_Resultados" name="nuevoSI_OS_Informes_Resultados" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Informes_Resultados" name="nuevoSI_OS_Informes_Resultados" required>
 
                                       </div>
                                   </th>
@@ -1758,7 +1758,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Estadisticas_Generen_Cumplimiento" name="nuevoSI_OS_Estadisticas_Generen_Cumplimiento" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Estadisticas_Generen_Cumplimiento" name="nuevoSI_OS_Estadisticas_Generen_Cumplimiento" required>
 
                                       </div>
                                   </th>
@@ -1776,7 +1776,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Avances_Programaticos" name="nuevoSI_OS_Avances_Programaticos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Avances_Programaticos" name="nuevoSI_OS_Avances_Programaticos" required>
 
                                       </div>
                                   </th>
@@ -1794,7 +1794,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Padrón_Proveedores" name="nuevoSI_OS_Padrón_Proveedores" require >
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Padrón_Proveedores" name="nuevoSI_OS_Padrón_Proveedores" required>
 
                                       </div>
                                   </th>
@@ -1812,7 +1812,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Convenios_Coordinación" name="nuevoSI_OS_Convenios_Coordinación" require >
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Convenios_Coordinación" name="nuevoSI_OS_Convenios_Coordinación" required>
 
                                       </div>
                                   </th>
@@ -1830,7 +1830,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Inventario_Bienes" name="nuevoSI_OS_Inventario_Bienes" require >
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Inventario_Bienes" name="nuevoSI_OS_Inventario_Bienes" required>
 
                                       </div>
                                   </th>
@@ -1872,7 +1872,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Recomendaciones_Emitidas" name="nuevoSI_OS_Recomendaciones_Emitidas" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Recomendaciones_Emitidas" name="nuevoSI_OS_Recomendaciones_Emitidas" required>
 
                                       </div>
                                   </th>
@@ -1890,7 +1890,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Resoluciones_Laudos" name="nuevoSI_OS_Resoluciones_Laudos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Resoluciones_Laudos" name="nuevoSI_OS_Resoluciones_Laudos" required>
 
                                       </div>
                                   </th>
@@ -1908,7 +1908,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Mecanismos_Participación" name="nuevoSI_OS_Mecanismos_Participación" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Mecanismos_Participación" name="nuevoSI_OS_Mecanismos_Participación" required>
 
                                       </div>
                                   </th>
@@ -1926,7 +1926,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Programas_Ofrecidoss" name="nuevoSI_OS_Programas_Ofrecidoss" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Programas_Ofrecidoss" name="nuevoSI_OS_Programas_Ofrecidoss" required>
 
                                       </div>
                                   </th>
@@ -1944,7 +1944,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Actas_Resoluciones" name="nuevoSI_OS_Actas_Resoluciones" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Actas_Resoluciones" name="nuevoSI_OS_Actas_Resoluciones" required>
 
                                       </div>
                                   </th>
@@ -1962,7 +1962,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Evaluaciones_Encuentas" name="nuevoSI_OS_Evaluaciones_Encuentas" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Evaluaciones_Encuentas" name="nuevoSI_OS_Evaluaciones_Encuentas" required>
 
                                       </div>
                                   </th>
@@ -1980,7 +1980,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Estudios_Financiados" name="nuevoSI_OS_Estudios_Financiados" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Estudios_Financiados" name="nuevoSI_OS_Estudios_Financiados" required>
 
                                       </div>
                                   </th>
@@ -1998,7 +1998,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Listado_Jubilados" name="nuevoSI_OS_Listado_Jubilados" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Listado_Jubilados" name="nuevoSI_OS_Listado_Jubilados" required>
 
                                       </div>
                                   </th>
@@ -2016,7 +2016,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Gastos_Ingresos_Recibidos" name="nuevoSI_OS_Gastos_Ingresos_Recibidos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Gastos_Ingresos_Recibidos" name="nuevoSI_OS_Gastos_Ingresos_Recibidos" required>
 
                                       </div>
                                   </th>
@@ -2034,7 +2034,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Donaciones_Hechas" name="nuevoSI_OS_Donaciones_Hechas" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Donaciones_Hechas" name="nuevoSI_OS_Donaciones_Hechas" required>
 
                                       </div>
                                   </th>
@@ -2052,7 +2052,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Catalogos_Disposicion" name="nuevoSI_OS_Catalogos_Disposicion" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Catalogos_Disposicion" name="nuevoSI_OS_Catalogos_Disposicion" required>
 
                                       </div>
                                   </th>
@@ -2070,7 +2070,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Actas_Sesiones" name="nuevoSI_OS_Actas_Sesiones" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Actas_Sesiones" name="nuevoSI_OS_Actas_Sesiones" required>
 
                                       </div>
                                   </th>
@@ -2088,7 +2088,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Listado_Solicitudes" name="nuevoSI_OS_Listado_Solicitudes" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Listado_Solicitudes" name="nuevoSI_OS_Listado_Solicitudes" required>
 
                                       </div>
                                   </th>
@@ -2106,7 +2106,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Gacetas_Municipales" name="nuevoSI_OS_Gacetas_Municipales" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Gacetas_Municipales" name="nuevoSI_OS_Gacetas_Municipales" required>
 
                                       </div>
                                   </th>
@@ -2124,7 +2124,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Plan_Desarrollo" name="nuevoSI_OS_Plan_Desarrollo" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Plan_Desarrollo" name="nuevoSI_OS_Plan_Desarrollo" required>
 
                                       </div>
                                   </th>
@@ -2142,7 +2142,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Condiciones_Generales_Trabajo_Relaciones" name="nuevoSI_OS_Condiciones_Generales_Trabajo_Relaciones" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Condiciones_Generales_Trabajo_Relaciones" name="nuevoSI_OS_Condiciones_Generales_Trabajo_Relaciones" required>
 
                                       </div>
                                   </th>
@@ -2160,7 +2160,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Recursos_Publicos_Economicos_Especies" name="nuevoSI_OS_Recursos_Publicos_Economicos_Especies" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Recursos_Publicos_Economicos_Especies" name="nuevoSI_OS_Recursos_Publicos_Economicos_Especies" required>
 
                                       </div>
                                   </th>
@@ -2178,7 +2178,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Plan_Desarrollo_Urbano" name="nuevoSI_OS_Plan_Desarrollo_Urbano" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Plan_Desarrollo_Urbano" name="nuevoSI_OS_Plan_Desarrollo_Urbano" required>
 
                                       </div>
                                   </th>
@@ -2196,7 +2196,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Programa_Ordenamiento" name="nuevoSI_OS_Programa_Ordenamiento" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Programa_Ordenamiento" name="nuevoSI_OS_Programa_Ordenamiento" required>
 
                                       </div>
                                   </th>
@@ -2214,7 +2214,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Programa_Suelo" name="nuevoSI_OS_Programa_Suelo" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Programa_Suelo" name="nuevoSI_OS_Programa_Suelo" required>
 
                                       </div>
                                   </th>
@@ -2232,7 +2232,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Tipos_Suelo" name="nuevoSI_OS_Tipos_Suelo" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Tipos_Suelo" name="nuevoSI_OS_Tipos_Suelo" required>
 
                                       </div>
                                   </th>
@@ -2250,7 +2250,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Licencia_Suelo" name="nuevoSI_OS_Licencia_Suelo" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Licencia_Suelo" name="nuevoSI_OS_Licencia_Suelo" required>
 
                                       </div>
                                   </th>
@@ -2268,7 +2268,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Licencias_Construcción" name="nuevoSI_OS_Licencias_Construcción" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Licencias_Construcción" name="nuevoSI_OS_Licencias_Construcción" required>
 
                                       </div>
                                   </th>
@@ -2286,7 +2286,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Montos_Designados_Social" name="nuevoSI_OS_Montos_Designados_Social" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Montos_Designados_Social" name="nuevoSI_OS_Montos_Designados_Social" required>
 
                                       </div>
                                   </th>
@@ -2304,7 +2304,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Actas_Cabildos" name="nuevoSI_OS_Actas_Cabildos" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Actas_Cabildos" name="nuevoSI_OS_Actas_Cabildos" required>
 
                                       </div>
                                   </th>
@@ -2322,7 +2322,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Presupuesto_Sostenible " name="nuevoSI_OS_Presupuesto_Sostenible" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Presupuesto_Sostenible " name="nuevoSI_OS_Presupuesto_Sostenible" required>
 
                                       </div>
                                   </th>
@@ -2340,7 +2340,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Evaluaciones_LDF" name="nuevoSI_OS_Evaluaciones_LDF" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Evaluaciones_LDF" name="nuevoSI_OS_Evaluaciones_LDF" required>
 
                                       </div>
                                   </th>
@@ -2358,7 +2358,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Subsidios" name="nuevoSI_OS_Subsidios" require>
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Subsidios" name="nuevoSI_OS_Subsidios" required>
 
                                       </div>
                                   </th>
@@ -2376,7 +2376,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Otro" name="nuevoSI_OS_Otro" require >
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Otro" name="nuevoSI_OS_Otro" required>
 
                                       </div>
                                   </th>
@@ -2394,7 +2394,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_No_Disponible" name="nuevoSI_OS_No_Disponible" require >
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_No_Disponible" name="nuevoSI_OS_No_Disponible" required>
 
                                       </div>
                                   </th>
@@ -2412,7 +2412,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Suma_Total" name="nuevoSI_OS_Suma_Total" require >
+                                          <input type="text" class="form-control input-lg" id="nuevoSI_OS_Suma_Total" name="nuevoSI_OS_Suma_Total" required>
 
                                       </div>
                                   </th>
@@ -2494,7 +2494,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Informacion_Total" name="nuevoSI_SR_Informacion_Total" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Informacion_Total" name="nuevoSI_SR_Informacion_Total" required>
 
                             </div>
                         </th>
@@ -2512,7 +2512,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Informacion_Parcial" name="nuevoSI_SR_Informacion_Parcial" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Informacion_Parcial" name="nuevoSI_SR_Informacion_Parcial" required>
 
                             </div>
                          </th>
@@ -2530,7 +2530,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Negada_Clasificación" name="nuevoSI_SR_Negada_Clasificación" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Negada_Clasificación" name="nuevoSI_SR_Negada_Clasificación" required>
 
                             </div>
                          </th>
@@ -2548,7 +2548,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Inexistencia_Informacion" name="nuevoSI_SR_Inexistencia_Informacion" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Inexistencia_Informacion" name="nuevoSI_SR_Inexistencia_Informacion" required>
 
                             </div>
                          </th>
@@ -2566,7 +2566,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Mixta" name="nuevoSI_SR_Mixta" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Mixta" name="nuevoSI_SR_Mixta" required>
 
                             </div>
                          </th>
@@ -2584,7 +2584,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_No_Aclarada" name="nuevoSI_SR_No_Aclarada" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_No_Aclarada" name="nuevoSI_SR_No_Aclarada" required>
 
                             </div>
                          </th>
@@ -2602,7 +2602,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Orientada" name="nuevoSI_SR_Orientada" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Orientada" name="nuevoSI_SR_Orientada" required>
 
                             </div>
                          </th>
@@ -2620,7 +2620,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_En_Tramite" name="nuevoSI_SR_En_Tramite" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_En_Tramite" name="nuevoSI_SR_En_Tramite" required>
 
                             </div>
                          </th>
@@ -2638,7 +2638,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Improcedente" name="nuevoSI_SR_Improcedente" require>
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Improcedente" name="nuevoSI_SR_Improcedente" required>
 
                             </div>
                          </th>
@@ -2656,7 +2656,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Otros" name="nuevoSI_SR_Otros" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Otros" name="nuevoSI_SR_Otros" required>
 
                             </div>
                          </th>
@@ -2674,7 +2674,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_No_Disponible" name="nuevoSI_SR_No_Disponible" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_No_Disponible" name="nuevoSI_SR_No_Disponible" required>
 
                             </div>
                          </th>
@@ -2692,7 +2692,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Suma_Total" name="nuevoSI_SR_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="nuevoSI_SR_Suma_Total" name="nuevoSI_SR_Suma_Total" required>
 
                             </div>
                          </th>
@@ -2817,7 +2817,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarAnioSI" name="EditarAnioSI"  required>
+                          <input type="text" class="form-control input-lg" id="EditarAnioSI" name="EditarAnioSI" readonly required>
 
                     </div>
 
@@ -5372,7 +5372,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
         $ActulizarSolicitud = new ControladorSolicitudesInformes();
         $ActulizarSolicitud -> ctrActualizarSolicitudInformacion();   
         
-
      ?>
 
    </form>

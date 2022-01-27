@@ -1,7 +1,6 @@
-SELECT SAR.SA_Nombre_Sujeto_Obligado, SAR.SA_Informe_Presentado, SAR.SA_Anios, SAR.SA_Fecha ,SAR.SA_TOTAL_SOLICITUDES 
-FROM solicitudes_arco SAR
-INNER JOIN detalle_usuario_sa DSA
-ON  DSA.idSAR = SAR.idSAR
-INNER JOIN usuarios U
-ON U.id  = DSA.idusuario
-WHERE U.codigo = "A.1"
+SELECT * 
+FROM solicitudes_informacion SI
+INNER JOIN solicitudes_arco SAR
+ON  SI.Si_Codigo_SO = SAR.Sa_Codigo_SO
+WHERE SI.Si_Codigo_SO = "A.1" AND SAR.SA_Codigo_SO = "A.1" AND SI.Si_Codigo_Informe_Anios = "1er Informe Bimestral 2022"
+AND SAR.SA_Codigo_Informe_Anios = "2do Informe Bimestral 2022"

@@ -1,4 +1,4 @@
-<?php 
+  <?php 
 //================== CONTROLADORES =============================
 
 // CONTROLADOR - INFORMACION DE SOLICITUDES
@@ -22,7 +22,6 @@ class AjaxSolicitudesInformacion{
     $respuesta = ControladorSolicitudesInformes::ctrMostrarSolicitudInformaticaEditar($item, $valor);
   
     echo json_encode($respuesta);
-
 
    }
 

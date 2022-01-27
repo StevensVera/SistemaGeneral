@@ -40,18 +40,18 @@
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablasAdministracionGeneral " with="100%">
+        <table class="table table-bordered table-striped dt-responsive tablasAdministracionSO " with="100%">
 
         <thead>
 
          <tr>
 
            <th>#</th>
-           <th>Sujeto Obligado</th>
-           <th>Informe Presentado</th>
-           <th>Fecha de Entrega</th>
-           <th>Estatus</th>
-           <th>Documento</th>
+           <th style="width: 300px">Sujeto Obligado</th>
+           <th style="width: 200px">Informe Presentado</th>
+           <th style="width: 150px">Fecha de Entrega</th>
+           <th style="width: 190px">Estatus</th>
+           <th style="width: 150px">Documento</th>
   
          </tr>
 

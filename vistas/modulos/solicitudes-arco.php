@@ -85,7 +85,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
     
   </div>
 
-  <!--============================ =============================== ==============================
+<!--============================ =============================== ==============================
   ======================= FORMULARIO PARA AGREGAR SOLICITUDES DE ARCO ===========================
   ================================ =============================== ============================-->
 
@@ -153,7 +153,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" name="nuevoAnioSA" placeholder="AÑO" requiredd>
+                          <input type="text" class="form-control input-lg" id="nuevoAnioSA" name="nuevoAnioSA" placeholder="AÑO" requiredd>
 
                     </div>
 
@@ -1515,7 +1515,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarAnioSolicitudesArco" name="EditarAnioSolicitudesArco"  >
+                          <input type="text" class="form-control input-lg" id="EditarAnioSolicitudesArco" name="EditarAnioSolicitudesArco"  readonly>
 
                     </div>
 

@@ -2,11 +2,11 @@
 
 var perfilOcultoUsuario = $("#perfilOcultoUsuario").val();
 
-console.log("perfilOcultoUsuario", perfilOcultoUsuario);
+//console.log("perfilOcultoUsuario", perfilOcultoUsuario);
 
 var perfiCodigo = $("#perfiCodigo").val();
 
-console.log("perfiCodigo", perfiCodigo);
+//console.log("perfiCodigo", perfiCodigo);
 
 var table = $(".tablasSolicitudesInformacion").DataTable({
    
@@ -97,12 +97,12 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
   $.ajax({
     url: "ajax/adjuntosSolicitudesInformacion.ajax.php",
     method: "POST",
-        data: datos,
-        cache: false,
-      contentType: false,
-      processData: false,
-      dataType:"json", 
-      success: function(respuesta){
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType:"json", 
+     success: function(respuesta){
         console.log("respuesta",respuesta);
      
         $("#EditarTipoInformeSI").html(respuesta["SI_Informe_Presentado"]);
@@ -260,28 +260,27 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
       contentType:false,
       processData: false,
       success: function (respuesta) {
+
+        swal({
+
+          title: '¿Está seguro de enviar el Registro?',
+          text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
+          type: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           cancelButtonText: 'Cancelar',
+           confirmButtonText: 'Confirmar Envio!'
       
-	      		 swal({
-
-                 title: '¿Está seguro de enviar el Registro?',
-                 text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
-                 type: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  cancelButtonText: 'Cancelar',
-                  confirmButtonText: 'Confirmar Envio!'
-
-                  }).then(function(result) {
-
-                      if (result.value) {
-
-                        window.location = "solicitudes-informacion";
-
-                      }
-				});
-
-        
+           }).then(function(result) {
+      
+               if (result.value) {
+      
+                 window.location = "solicitudes-informacion";
+      
+               }
+         });
+         
        } // End Success
        
     }) // End Ajax

@@ -389,3 +389,54 @@ $("#btnSlideMRE").click(function(){
     }
     
     })
+
+
+    /*==========================  AGREGAR INFORMACION DE CAPACITACIONES  ==============================*/
+
+    /* --- SLIDE PARA MEDIOS DE PRESENTACION ---  */
+
+  $("#btnSlideCapacitacion").click(function(){
+
+  if(!toogle){
+
+    toogle = true;
+
+    $("#slideCapacitacion").slideUp("fast");
+
+    $("#btnSlideCapacitacion").html('<span> Capacitaciones <i class="fa fa-angle-down"> </i> </span>')
+  
+  }else{
+
+    toogle = false;
+
+    $("#slideCapacitacion").slideDown("fast");
+
+    $("#btnSlideCapacitacion").html(' <span> Capacitaciones <i class="fa fa-angle-up"> </i> </span>')
+
+   }
+
+  })
+
+   /* --- SLIDE PARA MEDIOS DE PRESENTACION ---  */
+
+  $("#btnSlideCapacitacionA").click(function(){
+
+    if(!toogle){
+  
+      toogle = true;
+  
+      $("#slideCapacitacionA").slideUp("fast");
+  
+      $("#btnSlideCapacitacionA").html('<span> Capacitaciones <i class="fa fa-angle-down"> </i> </span>')
+    
+    }else{
+  
+      toogle = false;
+  
+      $("#slideCapacitacionA").slideDown("fast");
+  
+      $("#btnSlideCapacitacionA").html(' <span> Capacitaciones <i class="fa fa-angle-up"> </i> </span>')
+  
+     }
+  
+    })
