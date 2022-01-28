@@ -40,7 +40,7 @@
                 } else {
 
                     $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <button class='btn btn-danger btnEliminarCapacitacion'  idCA='".$adjunto[$i]["idCA"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1'><i class='fa fa-check'></i></button>";
-                }
+                } 
            
                 $datosJson .= '[
 

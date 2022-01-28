@@ -44,10 +44,10 @@ var table = $(".tablasCapacitaciones").DataTable({
 
   /*=====================  MOSTRAR ARCHIVO PDF ======================= */
 
-  $(".tablasCapacitacion").on('click', '.btnImprimirReportexCapacitaciones', function() {
+  $(".tablasCapacitaciones tbody").on('click', '.btnImprimirReportexCapacitaciones', function() {
 
     var idCapacitaciones = $(this).attr("idCapacitaciones");
-
+  
     window.open("extensiones/tcpdf/pdf/reporteCapacitaciones.php?idCA="+idCapacitaciones,"_blank");
     
   });
