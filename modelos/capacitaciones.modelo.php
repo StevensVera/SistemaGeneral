@@ -186,6 +186,37 @@
         
             }
 
+            /*=========== METODO PDF - MOSTRAR DATOS SOLICITUD DE INFORMACION =========*/
+
+          static public function mdlMostrarPDFCapacitaciones($tabla, $item, $valor){
+
+           if ($item != null) {
+  
+               $statement = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+      
+               $statement -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+      
+               $statement -> execute();
+      
+               return $statement -> fetch();
+                  
+           }else {
+      
+               $statement = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+      
+               $statement -> execute();
+      
+               return $statement -> fetchAll();
+      
+                }
+      
+               $statement -> close();
+      
+               $statement = null;
+  
+  
+           }     
+
           /* ===========================  ACTIVAR EL ESTADO DEL USUARIO  ================================== */
 
           static public function mdlActualizarEstadoCapacitaciones($tabla,$item1,$valor1,$item2,$valor2){

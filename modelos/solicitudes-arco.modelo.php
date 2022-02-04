@@ -79,7 +79,8 @@
                       SA_Sentido_Respuesta_Improcedente,
                       SA_Sentido_Respuesta_Otros,
                       SA_Sentido_Respuesta_No_Disponible,
-                      SA_Sentido_Respuesta_Suma_Total
+                      SA_Sentido_Respuesta_Suma_Total,
+                      SA_Archivo
                       
                       )VALUES (
                          
@@ -140,7 +141,8 @@
                      :SA_Sentido_Respuesta_Improcedente,
                      :SA_Sentido_Respuesta_Otros,
                      :SA_Sentido_Respuesta_No_Disponible,
-                     :SA_Sentido_Respuesta_Suma_Total
+                     :SA_Sentido_Respuesta_Suma_Total,
+                     :SA_Archivo
                      
                      )");
 
@@ -202,6 +204,7 @@
                 $stmt -> bindParam(":SA_Sentido_Respuesta_Otros", $datos["SA_Sentido_Respuesta_Otros"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Sentido_Respuesta_No_Disponible", $datos["SA_Sentido_Respuesta_No_Disponible"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Sentido_Respuesta_Suma_Total", $datos["SA_Sentido_Respuesta_Suma_Total"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Archivo", $datos["SA_Archivo"], PDO::PARAM_STR);
 
 
                 if ($stmt -> execute()) {
@@ -342,12 +345,8 @@
              SA_Sentido_Respuesta_Improcedente = :SA_Sentido_Respuesta_Improcedente,
              SA_Sentido_Respuesta_Otros = :SA_Sentido_Respuesta_Otros,
              SA_Sentido_Respuesta_No_Disponible = :SA_Sentido_Respuesta_No_Disponible,
-             SA_Sentido_Respuesta_Suma_Total = :SA_Sentido_Respuesta_Suma_Total
-
-
-
-
-
+             SA_Sentido_Respuesta_Suma_Total = :SA_Sentido_Respuesta_Suma_Total,
+             SA_Archivo = :SA_Archivo
              WHERE SA_Informe_Presentado = :SA_Informe_Presentado");
 
             $stmt -> bindParam(":SA_Informe_Presentado", $datos["SA_Informe_Presentado"], PDO::PARAM_STR);
@@ -405,7 +404,7 @@
             $stmt -> bindParam(":SA_Sentido_Respuesta_Otros", $datos["SA_Sentido_Respuesta_Otros"], PDO::PARAM_STR);
             $stmt -> bindParam(":SA_Sentido_Respuesta_No_Disponible", $datos["SA_Sentido_Respuesta_No_Disponible"], PDO::PARAM_STR);
             $stmt -> bindParam(":SA_Sentido_Respuesta_Suma_Total", $datos["SA_Sentido_Respuesta_Suma_Total"], PDO::PARAM_STR);
-
+            $stmt -> bindParam(":SA_Archivo", $datos["SA_Archivo"], PDO::PARAM_STR);
 
             if($stmt->execute()){
   

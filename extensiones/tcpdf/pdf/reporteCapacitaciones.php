@@ -80,24 +80,21 @@ public function traerImpresionReporte(){
 //TRAEMOS LA INFORMACION DE LA REVISION
 
 
-$itemSolicitudArco = "idCA";
-$valorSolicitudArco = $this->idCA;
+$itemCapacitaciones = "idCA";
+$valorCapacitaciones = $this->idCA;
 
-//$respuestaSolicitudesArco = ControladorSolicitudesArco::ctrMostrarPDFSolicitudesArco($itemSolicitudArco,$valorSolicitudArco);
+$respuestaCapacitaciones = ControladorCapacitaciones::ctrMostrarPDFCapacitaciones($itemCapacitaciones,$valorCapacitaciones);
 
+/* =============================== PARTE SUPERIOR ==================================== */
+$sujetoObligado = substr($respuestaCapacitaciones["CA_Nombre_Sujeto_Obligado"],0,150);
+$InformeEntrega = substr($respuestaCapacitaciones["CA_Informe_Presentado"],0,50);
+$Año = substr($respuestaCapacitaciones["CA_Anios"],0,50);
+$Capacitaciones = substr($respuestaCapacitaciones["CA_Total_Capacitacion"],0,50);
+/* ==================  Solicitudes de Acceso a la Información  ======================= */
+$CapacitacionesRecibidas = substr($respuestaCapacitaciones["CA_Capacitaciones_Recibidas"],0,50);
+$CapacitacionesOrtogadas = substr($respuestaCapacitaciones["CA_Capacitaciones_Ortogadas"],0,50);
+$CapacitacionesServidoresPublicos = substr($respuestaCapacitaciones["CA_Total_Servidores_Publicos"],0,50);
 
-
-
-/*
-
-$fecha = substr($respuestaUsuario['fecha_informe'],0,20);
-$codigo = substr($respuestaUsuario['codigo'],0,14);
-$tipoSujetoObligado = substr($respuestaUsuario['tipo_so'],0,80);
-$sujetoObligado = substr($respuestaUsuario['nombre_Informe'],0,150);
-$titularSO = substr($respuestaUsuario['titular_Informe'],0,50);
-$UsuarioUT = substr($respuestaUsuario['usuario_Informe'],0,30);
-
-*/
 
 // create new PDF document
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -147,17 +144,44 @@ $pdf->AddPage();
   <table cellspacing="0" cellpadding="1" border="1">
     <tr>
       <td style="background-color:#DADADA;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">Sujeto Obligados</span> </td>
-      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;"></span></td>
+      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;">$sujetoObligado</span></td>
     </tr>
     <tr>
       <td style="background-color:#DADADA;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">Entrega</span> </td>
-      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;"></span></td>
+      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;">$InformeEntrega</span></td>
     </tr>
     <tr>
       <td style="background-color:#DADADA;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">Año</span> </td>
-      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;"></span></td>
+      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;">$Año</span></td>
     </tr>
-  </table>
+    <tr>
+      <td style="background-color:#DADADA;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">Total de Capacitaciones</span> </td>
+      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;">$Capacitaciones</span></td>
+   </tr>
+  </table>  
+
+  EOD;
+
+  $pdf->writeHTML($tbl, true, false, false, false, '');
+
+  $tbl = <<<EOD
+  <table cellspacing="0" cellpadding="1" border="1">
+    <tr>
+      <td colspan="2" style="background-color:#787878;color:#000000;"  HEIGHT="50" align="center"> <span style="font: size 8px;pt;font-weight:bold;"><br />CAPACITACIONES</span> </td>
+    </tr>
+    <tr>
+      <td rowspan="1"> <span style="font: size 8px;pt;">Capacitaciones Recibidas</span> </td>
+      <td rowspan="1" align="center"> <span style="font: size 8px;pt;">$CapacitacionesRecibidas</span></td>
+    </tr>
+    <tr>
+      <td rowspan="1"> <span style="font: size 8px;pt;">Capacitaciones Ortogadas</span> </td>
+      <td rowspan="1" align="center"> <span style="font: size 8px;pt;">$CapacitacionesOrtogadas</span></td>
+    </tr>
+    <tr>
+      <td rowspan="1"> <span style="font: size 8px;pt;">Total Servidores Publicos</span> </td>
+      <td rowspan="1" align="center"> <span style="font: size 8px;pt;">$CapacitacionesServidoresPublicos</span></td>
+    </tr>
+  </table>  
 
   EOD;
   
@@ -166,6 +190,7 @@ $pdf->AddPage();
 
 // SALIDA DEL ARCHIVO 
 
+ob_end_clean();
 $pdf->Output('reporteUsuario.pdf', 'I');
 
 }

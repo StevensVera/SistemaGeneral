@@ -37,7 +37,7 @@
             // Cocatenacion Codigo "InformePresentado + Año"
             $espacio = " ";
 
-            $CodigoIPA = $_POST["nuevoTipoCapacitaciones"].$espacio.$_POST["nuevoAnioCapacitaciones"];
+            $CodigoIPACA = $_POST["nuevoTipoCapacitaciones"].$espacio.$_POST["nuevoAnioCapacitaciones"];
 
             // Ingresamos el Codigo Unico del Sujeto Obligado
                 
@@ -45,9 +45,48 @@
 
             $Codigo = $_SESSION["codigo"];
 
+            $rutaCA = "";
+
+            $Anios = $_POST["nombre_Informe"];
+
+            $CarpetaCA = "Capacitaciones";
+
+            /* ================= VALIDAR ARCHIVO PDF =================*/
+
+            if (isset($_FILES["nuevoArchivoSI"]["tmp_name"])) {
+
+              /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
+            
+        
+              $directorioArchivo = "vistas/pdfs/informes/".$Codigo;
+
+              mkdir($directorioArchivo, 0755);
+
+              $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
+
+              mkdir($directorioArchivo2, 0755);
+
+              $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA;
+
+              mkdir($directorioArchivo3, 0755);
+
+              /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+              $aletorio = mt_rand(100,999);
+
+              if ($_FILES["nuevoArchivoSI"]["type"] == "application/pdf") {
+                    
+                $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".pdf";
+
+                move_uploaded_file ($_FILES["nuevoArchivoSI"]["tmp_name"], $rutaCA);
+
+                }
+
+            }
+
                             /* Datos - Array */
             $datos = array( "CA_Codigo_SO" => $Codigo, 
-                            "CA_Codigo_Informe_Anios" => $CodigoIPA,
+                            "CA_Codigo_Informe_Anios" => $$CodigoIPACA,
                             "CA_Nombre_Sujeto_Obligado" => $SObligado,
                             "CA_Informe_Presentado" => $_POST["nuevoTipoCapacitaciones"],
                             "CA_Anios" => $_POST["nuevoAnioCapacitaciones"], 
@@ -57,6 +96,7 @@
                             "CA_Capacitaciones_Ortogadas" => $_POST["nuevoCapacitaciones_Ortogadas"],
                             "CA_Total_Servidores_Publicos" => $_POST["nuevoCapacitaciones_Total_Servidores_Publicos"],
                             "CA_Acciones_Realizadas_Transparencia" => $_POST["nuevoCapacitaciones_Acciones_Realizadas_Transparencia"],
+                            "CA_Archivo" => $rutaCA
                         );
 
                 $respuesta = ModeloCapacitacion::mdlagregarCA($tablaCA, $datos);
@@ -188,5 +228,17 @@
           } // End Function
 
         }// End Function
+
+      /* =================== METODO PDF - MOSTRAR DATOS INDIVUDALES REGISTRADOS POR USUARIO =============== */
+
+      static public function ctrMostrarPDFCapacitaciones($item, $valor){
+
+      $tabla = "capacitaciones";
+
+      $respuesta = ModeloCapacitacion::mdlMostrarPDFCapacitaciones($tabla,$item,$valor);
+
+      return $respuesta;
+
+      } // End Function
         
     } // End Class

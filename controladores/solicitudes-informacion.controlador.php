@@ -67,6 +67,53 @@
             
             if (isset($_POST["nuevoAnioSI"])) { 
 
+                /* ================= VALIDAR ARCHIVO PDF =================*/
+
+                $rutaSI = "";
+
+                $espacio = " ";
+
+                $Codigo2 = $_SESSION["codigo"];
+
+                $SObligado2 = $_SESSION["nombre_Informe"];
+
+                $Anios = $_POST["nuevoAnioSI"];
+
+                $CodigoIPA2 = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
+
+                $CarpetaSI = "SolicitudesInformacion";
+                
+                if (isset($_FILES["nuevoArchivoSI"]["tmp_name"])) {
+
+                  /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
+                
+            
+                  $directorioArchivo = "vistas/pdfs/informes/".$Codigo2;
+
+                  mkdir($directorioArchivo, 0755);
+
+                  $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo2."/".$Anios;
+
+                  mkdir($directorioArchivo2, 0755);
+
+                  $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo2."/".$Anios."/".$CarpetaSI;
+
+                  mkdir($directorioArchivo3, 0755);
+
+                  /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                  $aletorio = mt_rand(100,999);
+
+                  if ($_FILES["nuevoArchivoSI"]["type"] == "application/pdf") {
+                        
+                    $rutaSI = "vistas/pdfs/informes/".$Codigo2."/".$Anios."/".$CarpetaSI."/".$CodigoIPA2.$espacio.$SObligado2.".pdf";
+
+                    move_uploaded_file ($_FILES["nuevoArchivoSI"]["tmp_name"], $rutaSI);
+
+                    }
+
+                }
+
                 // Agregado el SO a la Tabla, mediante su Sesión.
                 //$SObligado = "H. Ayuntamiento de Acaponeta";
                 $SObligado = $_SESSION["nombre_Informe"];
@@ -209,7 +256,9 @@
                                 "SI_Sentido_Respuesta_Improcedente" => $_POST["nuevoSI_SR_Improcedente"],
                                 "SI_Sentido_Respuesta_Otro" => $_POST["nuevoSI_SR_Otros"],
                                 "SI_Sentido_Respuesta_No_Disponible" => $_POST["nuevoSI_SR_No_Disponible"],
-                                "SI_Sentido_Respuesta_Suma_Total" => $_POST["nuevoSI_SR_Suma_Total"] 
+                                "SI_Sentido_Respuesta_Suma_Total" => $_POST["nuevoSI_SR_Suma_Total"],
+                                "SI_Archivo" => $rutaSI 
+
                             );
                                 
                 $respuesta = ModeloSolicitudesInformacion::MdlAgregarSI($tablaSI, $datos);
@@ -267,6 +316,55 @@
       if (isset($_POST["EditarSI_MP_Suma_Total"])) {
 
         $tabla = "solicitudes_informacion";
+
+        $SObligadoA = $_SESSION["nombre_Informe"];
+
+        $CodigoA = $_SESSION["codigo"];
+
+        $AniosA = $_POST["EditarAnioSI"];
+
+        $espacio = " ";
+
+        $CarpetaSA = "SolicitudesInformacion";
+
+        $CodigoIPAA = $_POST["EditarTipoInformeSI"].$espacio.$_POST["EditarAnioSI"];
+
+        /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
+
+        $rutaArchivoA = $_POST["archivoActualSI"];
+
+        if (isset($_FILES["editarArchivoSI"]["tmp_name"]) && !empty($_FILES["editarArchivoSI"]["tmp_name"])){
+
+            /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+            
+            
+            $directorioArchivo = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA;
+
+            /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+
+            if(!empty($_POST["archivoActualSI"])){
+                
+                unlink($_POST["archivoActualSI"]);
+
+            } else {
+                
+                mkdir($directorioArchivo, 0775);
+
+            }
+
+            /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+            $aletorio = mt_rand(100,999);
+
+            if ($_FILES["editarArchivoSI"]["type"] == "application/pdf") {
+                
+                $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".pdf";
+
+                move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
+
+            }
+
+        } 
 
         $datos = array(
                        "SI_Informe_Presentado"=> $_POST["EditarTipoInformeSI"],
@@ -381,7 +479,8 @@
                        "SI_Sentido_Respuesta_Improcedente"=> $_POST["EditarSI_SR_Improcedente"],
                        "SI_Sentido_Respuesta_Otro"=> $_POST["EditarSI_SR_Otros"],
                        "SI_Sentido_Respuesta_No_Disponible"=> $_POST["EditarSI_SR_No_Disponible"],
-                       "SI_Sentido_Respuesta_Suma_Total"=> $_POST["EditarSI_SR_Suma_Total"]);
+                       "SI_Sentido_Respuesta_Suma_Total"=> $_POST["EditarSI_SR_Suma_Total"],
+                       "SI_Archivo" => $rutaArchivoA );
 
                        $respuesta = ModeloSolicitudesInformacion::mdlEditarSolicitudInformacion($tabla, $datos);
 
@@ -425,7 +524,22 @@
       if(isset($_GET["idSI"])){
 
         $tabla ="solicitudes_informacion";
+
+        $CarpetaSI = "SolicitudesInformacion";
+
+        $espacio = " ";
+
         $datos = $_GET["idSI"];
+
+        if($_GET["archivoSI"] != ""){
+
+          unlink($_GET["archivoSI"]);
+
+          rmdir('vistas/pdfs/informes/'.$_GET["codigo"]."/".$_GET["anios"]."/".$CarpetaSI);
+
+          rmdir('vistas/pdfs/informes/'.$_GET["codigo"]."/".$_GET["anios"]);
+  
+        }
   
         $respuesta = ModeloSolicitudesInformacion::mdlBorrarRegistroInformacion($tabla, $datos);
   

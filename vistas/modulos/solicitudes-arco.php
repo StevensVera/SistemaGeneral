@@ -12,9 +12,9 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 }
 
-
-
 ?>
+
+
 <div class="content-wrapper">
     
     <section class="content-header">
@@ -91,83 +91,83 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 <div id="modalAgregarSolicitudesArco" class="modal fade" role="dialog">
 
-<div class="modal-dialog modal-lg" style="width: 85%">
+  <div class="modal-dialog modal-lg" style="width: 85%"> 
 
- <div class="modal-content">
+    <div class="modal-content">
 
-    <form role="form" method="post" enctype="multipart/form-data">
+        <form role="form" method="post" enctype="multipart/form-data">
 
-     <div class="modal-header" style="background: #3c8dbc; color:white" >
+            <div class="modal-header" style="background: #3c8dbc; color:white" >
 
-       <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-       <h4 class="modal-title">Agregar Solicitud Arco</h4>
+              <h4 class="modal-title">Agregar Solicitud Arco</h4>
 
-     </div>
+            </div>
 
-     <div class="modal-body"> 
+            <div class="modal-body"> 
 
-        <div class="box-body">
+            <div class="box-body">
 
-           <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
+              <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
 
                 <!-- ========================== ENTRADA PARA EL NOMBRE DEl SUJETO OBLIGADO ========================= -->
 
-               <div class="col-xs-8">
+                <div class="col-xs-8">
 
-                      <div class="input-group">
+                  <div class="input-group">
          
-                         <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span> 
+                    <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span> 
 
-                               <select class="form-control input-lg" name="nuevoTipoInformeSA">
+                    <select class="form-control input-lg" name="nuevoTipoInformeSA">
              
-                                  <option value="">Selecionar el Infome a Entregar</option>
+                      <option value="">Selecionar el Infome a Entregar</option>
 
-                                  <option value="Informe Anual">Informe Anual</option>
+                     <option value="Informe Anual">Informe Anual</option>
 
-                                  <option value="1er Informe Bimestral">1er Informe Bimestral</option>
+                      <option value="1er Informe Bimestral">1er Informe Bimestral</option>
 
-                                  <option value="2do Informe Bimestral">2do Informe Bimestral</option>
+                      <option value="2do Informe Bimestral">2do Informe Bimestral</option>
 
-                                  <option value="3er Informe Bimestral">3er Informe Bimestral</option>
+                      <option value="3er Informe Bimestral">3er Informe Bimestral</option>
 
-                                  <option value="3to Informe Bimestral">3er Informe Bimestral</option>
+                      <option value="3to Informe Bimestral">3er Informe Bimestral</option>
 
-                                  <option value="4to Informe Bimestral">4to Informe Bimestral</option>
+                      <option value="4to Informe Bimestral">4to Informe Bimestral</option>
 
-                                  <option value="5to Informe Bimestral">5to Informe Bimestral</option>
+                      <option value="5to Informe Bimestral">5to Informe Bimestral</option>
 
-                                  <option value="6to Informe Bimestral">6to Informe Bimestral</option>
+                      <option value="6to Informe Bimestral">6to Informe Bimestral</option>
 
-                               </select>
+                    </select>
 
-                       </div>
+                  </div>
 
-               </div>
+                </div>
 
-               <!-- ==================== ENTRADA PARA EL AÑO DEL INFORME =========================== -->
+                 <!-- ==================== ENTRADA PARA EL AÑO DEL INFORME =========================== -->
 
-               <div class="col-xs-4"> 
+                <div class="col-xs-4"> 
      
-                   <div class="input-group">
+                  <div class="input-group">
 
-                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="nuevoAnioSA" name="nuevoAnioSA" placeholder="AÑO" requiredd>
+                    <input type="text" class="form-control input-lg" id="nuevoAnioSA" name="nuevoAnioSA" placeholder="AÑO" requiredd>
 
-                    </div>
+                   </div>
 
-                 </div>
+                  </div>
 
-           </div>
+              </div>
 
-           <!-- ===================== ENTRADA PARA EL TOTAL DE SOLICITUDES PRESENTADAS ==================== -->
+              <!-- ===================== ENTRADA PARA EL TOTAL DE SOLICITUDES PRESENTADAS ==================== -->
 
-           <div class="form-group" style="width: 21%; margin: 0 auto; padding-bottom: 15px">
+              <div class="form-group" style="width: 21%; margin: 0 auto; padding-bottom: 15px">
                 
-              <div class="input-group">
+                <div class="input-group">
 
-                 <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
                     <input type="text" class="form-control input-lg" id="nuevoSA_Total" name="nuevoSA_Total" placeholder="Total de Solicitudes" required>
 
@@ -1415,7 +1415,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                <div class="panel">SUBIR ARCHIVO</div>
 
-                 <input type="file" id="nuevoArchivo" name="nuevoArchivo">
+                 <input type="file" class="nuevoArchivoSA" name="nuevoArchivoSA">
 
                  <p class="help-block">Peso máximo de la foto 200 MB</p>
 
@@ -1448,7 +1448,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
  </div>
 
-</div>
+  </div>
 
 </div>
 
@@ -1468,23 +1468,23 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 <div id="modalActualizareSolicitudesArco" class="modal fade" role="dialog">
 
-<div class="modal-dialog modal-lg" style="width: 85%">
+    <div class="modal-dialog modal-lg" style="width: 85%">
 
- <div class="modal-content">
+      <div class="modal-content">
 
-    <form role="form" method="post" enctype="multipart/form-data">
+        <form role="form" method="post" enctype="multipart/form-data">
 
-     <div class="modal-header" style="background: #3c8dbc; color:white" >
+          <div class="modal-header" style="background: #3c8dbc; color:white" >
 
-       <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-       <h4 class="modal-title">Actualizar Solicitudes de ARCO</h4>
+              <h4 class="modal-title">Actualizar Solicitudes de ARCO</h4>
 
-     </div>
+          </div>
 
-     <div class="modal-body"> 
+          <div class="modal-body"> 
 
-        <div class="box-body">
+            <div class="box-body">
 
            <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
 
@@ -1536,10 +1536,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
               </div>
     
           </div>
-
-          </div>
-
-     </div>
      
      
      <!-- =================================================================================================== 
@@ -2767,28 +2763,53 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                          </th>
                         
                       </tr>
-
+                      
               </table>
         
             </div> 
 
-     <!-- ================================== BOTON PARA ACTUALIZAR SOLICITUD DE INFORMACION ======================================== -->
+                   <hr>
 
-     <div class="modal-footer">
+           <!-- ===================== ENTRADA PARA SUBIR EL ARCHIVO ============================ -->
 
-       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+           <div class="form-group row">
 
-       <button type="submit" class="btn btn-primary">Actualizar Solicitud Arco</button>
+             <div class="col-xs-12">
 
-     </div>
+               <div class="panel">SUBIR ARCHIVO</div>
 
-     <?php    
+                 <input type="file" class="nuevoArchivoSA"  name="editarArchivoSA">
+
+                 <p class="help-block">Peso máximo de la foto 200 MB</p>
+
+                 <input type="hidden" name="archivoActualSA" id="archivoActualSA">
+
+             </div>   
+
+           </div>  
+
+         </div>
+
+        </div>
+
+     
+            <!-- ================================== BOTON PARA ACTUALIZAR SOLICITUD DE INFORMACION ======================================== -->
+
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+               <button type="submit" class="btn btn-primary">Actualizar Solicitud Arco</button>
+
+           </div>
+
+        <?php    
           
-        $ActulizarSolicitud = new ControladorSolicitudesArco();
-        $ActulizarSolicitud -> ctrActualizarSolicitudArco2();   
+           $ActulizarSolicitud = new ControladorSolicitudesArco();
+           $ActulizarSolicitud -> ctrActualizarSolicitudArco2();   
         
 
-     ?>
+        ?>
 
    </form>
 

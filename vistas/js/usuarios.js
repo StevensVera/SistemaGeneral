@@ -344,7 +344,6 @@ $(".nuevoArchivo").change(function() {
          confirmButtonText: "¡Cerrar!"
        });
 
-
     }
   
 })

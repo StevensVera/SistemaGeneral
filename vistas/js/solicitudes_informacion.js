@@ -62,6 +62,16 @@ var table = $(".tablasSolicitudesInformacion").DataTable({
 
   var idSI = $(this).attr("idSI");
 
+  var archivoSI = $(this).attr("archivoSI");
+
+  var codigo = $(this).attr("codigo");
+
+  var anios = $(this).attr("anios");
+
+  var InformeAnios = $(this).attr("InformeAnios");
+
+  var sujetoObligado = $(this).attr("sujetoObligado");
+
   swal({
 
     title: '¿Está seguro de borrar el Registro?',
@@ -75,7 +85,7 @@ var table = $(".tablasSolicitudesInformacion").DataTable({
         }).then(function(result) {
         if (result.value) {
 
-          window.location = "index.php?ruta=solicitudes-informacion&idSI="+idSI;
+          window.location = "index.php?ruta=solicitudes-informacion&idSI="+idSI+"&codigo="+codigo+"&anios="+anios+"&InformeAnios="+InformeAnios+"&sujetoObligado="+sujetoObligado+"&archivoSI="+archivoSI;
 
         } // if 
 
@@ -227,7 +237,13 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
         $("#EditarSI_SR_Otros").val(respuesta["SI_Sentido_Respuesta_Otro"]);
         $("#EditarSI_SR_No_Disponible").val(respuesta["SI_Sentido_Respuesta_No_Disponible"]);
         $("#EditarSI_SR_Suma_Total").val(respuesta["SI_Sentido_Respuesta_Suma_Total"]);
+        $("#nuevoArchivoSI").val(respuesta["SI_Archivo"]);
   
+        if (respuesta["SI_Archivo"] != "") {
+          
+          $(".nuevoArchivoSI").attr("src", respuesta["SI_Archivo"]);
+
+        }
         
       } // if
 
@@ -286,3 +302,36 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
     }) // End Ajax
 
   }) // End Function
+
+  /* =================== SUBIR ARCHIVO USUARIO ==================== */
+
+  $(".nuevoArchivoSI").change(function() {
+
+    var archivo = this.files[0];
+
+
+    /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
+
+      if (archivo["type"] != "application/pdf") {
+        
+        $(".nuevoArchivoSI").val("");
+
+        swal({
+          title: "Error al subir el archivo",
+          text: "¡La archivo debe estar en formato PDF!",
+          type: "error",
+          confirmButtonText: "¡Cerrar!"
+        });
+
+      } else if(archivo["size"] > 50000000 ){
+   
+        swal({
+          title: "Error al subir el archivo",
+          text: "¡El archivo no debe pesar más de 20MB!",
+           type: "error",
+           confirmButtonText: "¡Cerrar!"
+      });
+
+    }
+      
+  })

@@ -61,6 +61,17 @@ var table = $(".tablasSolicitudesArco").DataTable({
   $(".tablasSolicitudesArco").on("click", ".btnEliminarSolicitudArco", function(){
 
     var idSAR = $(this).attr("idSAR");
+
+    var archivoSA = $(this).attr("archivoSA");
+
+    var codigo = $(this).attr("codigo");
+
+    var anios = $(this).attr("anios");
+
+    var InformeAnios = $(this).attr("InformeAnios");
+
+    var sujetoObligado = $(this).attr("sujetoObligado");
+    
   
     swal({
   
@@ -75,7 +86,7 @@ var table = $(".tablasSolicitudesArco").DataTable({
           }).then(function(result) {
           if (result.value) {
   
-            window.location = "index.php?ruta=solicitudes-arco&idSAR="+idSAR;
+            window.location = "index.php?ruta=solicitudes-arco&idSAR="+idSAR+"&codigo="+codigo+"&anios="+anios+"&InformeAnios="+InformeAnios+"&sujetoObligado="+sujetoObligado+"&archivoSA="+archivoSA;
   
           } // if 
   
@@ -259,8 +270,7 @@ $(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
 
 }) // Evento
 
-  /* =========================== ACTIVAR ESTADO DEL USUARIO ==================== */
-
+/* =========================== ACTIVAR ESTADO DEL USUARIO ==================== */
 
 $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function(){
 
@@ -301,18 +311,45 @@ $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function()
                       window.location = "solicitudes-arco";
 
                     }
-      });
+       });
 
       
      } // End Success
 
-
-
-
-
    });
 
-
-
 }) // funcion
+
+
+/* ================= SUBIR ARCHIVO - SOLICITUDES ARCO ====================== */
+
+$(".nuevoArchivoSA").change(function() {
+
+  var archivo = this.files[0];
+
+  /* ================== VALIDAD QUE SEA ARCHIVO PDF ================================= */
+
+  if (archivo["type"] != "application/pdf" ){
+
+    $(".nuevoArchivoSA").val("");
+
+    swal({
+      title: "Error al subir el archivo",
+      text: "¡La archivo debe estar en formato PDF!",
+      type: "error",
+      confirmButtonText: "¡Cerrar!"
+    });
+
+  } else if(archivo["size"] > 50000000 ){
+
+    swal({
+      title: "Error al subir el archivo",
+      text: "¡El archivo no debe pesar más de 20MB!",
+      type: "error",
+      confirmButtonText: "¡Cerrar!"
+    });
+    
+  }
+
+})
 

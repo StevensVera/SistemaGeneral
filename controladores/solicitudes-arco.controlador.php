@@ -46,6 +46,50 @@
 
                 $Codigo = $_SESSION["codigo"];
 
+                // Ingresamos carpeta de Solicitudes Arco
+
+                $CarpataSA = "SolicitudesArco";
+
+              /* ================= VALIDAR ARCHIVO PDF =================*/
+
+                 $rutaSA = "";
+
+                 $espacio = " ";
+
+                 $Anios = $_POST["nuevoAnioSA"];
+
+                 if (isset($_FILES["nuevoArchivoSA"]["tmp_name"])) {
+
+                  /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
+                
+            
+                  $directorioArchivo = "vistas/pdfs/informes/".$Codigo;
+
+                  mkdir($directorioArchivo, 0755);
+
+                  $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
+
+                  mkdir($directorioArchivo2, 0755);  
+
+                  $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA;
+
+                  mkdir($directorioArchivo3, 0755);
+
+
+                  /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                  $aletorio = mt_rand(100,999);
+
+                  if ($_FILES["nuevoArchivoSA"]["type"] == "application/pdf") {
+                        
+                    $rutaSA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA."/".$CodigoIPA.$espacio.$SObligado.".pdf";
+
+                    move_uploaded_file ($_FILES["nuevoArchivoSA"]["tmp_name"], $rutaSA);
+
+                    }
+
+                }
+
                 /* datos - Array */
 
                $datos = array ("SA_Codigo_SO" => $Codigo,
@@ -105,12 +149,12 @@
                                "SA_Sentido_Respuesta_Improcedente" => $_POST["nuevoSA_SR_Improcedente"],
                                "SA_Sentido_Respuesta_Otros" => $_POST["nuevoSA_SR_Otros"],
                                "SA_Sentido_Respuesta_No_Disponible" => $_POST["nuevoSA_SR_No_Disponible"],
-                               "SA_Sentido_Respuesta_Suma_Total" => $_POST["nuevoSA_SR_Suma_Total"]
+                               "SA_Sentido_Respuesta_Suma_Total" => $_POST["nuevoSA_SR_Suma_Total"],
+                               "SA_Archivo" => $rutaSA
                             
                             );
 
                $respuesta = ModeloSolicitudesArco::MdlAgregarSA($tablaSA, $datos);
-
 
                if($respuesta == "ok"){
 
@@ -119,7 +163,7 @@
                         swal({
 
                             type: "success",
-                            title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
+                            title: "¡La Solicitud de Informes ARCO, ha sido guardado correctamente!",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
 
@@ -181,7 +225,7 @@
                     
                                     swal({
                                       type: "success",
-                                      title: "El Informe ha sido cambiado correctamente",
+                                      title: "El Informe ARCO, ha sido cambiado correctamente",
                                       showConfirmButton: true,
                                       confirmButtonText: "Cerrar"
                                       }).then(function(result){
@@ -207,10 +251,60 @@
       /* ================  EDITAR - LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   ================= */ 
 
         static public function ctrActualizarSolicitudArco2(){
+ 
+         if (isset($_POST["EditarAnioSolicitudesArco"])) {
 
-            if (isset($_POST["EditarAnioSolicitudesArco"])) {
-              
-            $tabla = "solicitudes_arco";
+          $tabla = "solicitudes_arco";
+          
+          /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
+
+          $SObligadoA = $_SESSION["nombre_Informe"];
+
+          $CodigoA = $_SESSION["codigo"];
+  
+          $AniosA = $_POST["EditarAnioSolicitudesArco"];
+  
+          $espacio = " ";
+  
+          $CodigoIPAA = $_POST["EditarTipoInformeSolicitudesArco"].$espacio.$_POST["EditarAnioSolicitudesArco"];
+
+          $CarpataSAA = "SolicitudesArco";
+
+          /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
+
+          $rutaArchivoSAA = $_POST["archivoActualSA"];
+
+          if (isset($_FILES["editarArchivoSA"]["tmp_name"]) && !empty($_FILES["editarArchivoSA"]["tmp_name"])){
+
+            /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+            
+            $directorioArchivoSA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA;
+
+            /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+
+            if(!empty($_POST["archivoActualSA"])){
+                
+                unlink($_POST["archivoActualSA"]);
+
+            } else {
+                
+                mkdir($directorioArchivoSA, 0775);
+
+            }
+
+            /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+            $aletorio = mt_rand(100,999);
+
+            if ($_FILES["editarArchivoSA"]["type"] == "application/pdf") {
+                
+                $rutaArchivoSAA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA."/".$CodigoIPAA.$espacio.$SObligadoA.".pdf";
+
+                move_uploaded_file ($_FILES["editarArchivoSA"]["tmp_name"], $rutaArchivoSAA);
+
+            }
+
+        }
 
             $datos = array("SA_Informe_Presentado" => $_POST["EditarTipoInformeSolicitudesArco"],
                             "SA_Anios" => $_POST["EditarAnioSolicitudesArco"],
@@ -266,7 +360,8 @@
                             "SA_Sentido_Respuesta_Improcedente" => $_POST["EditarSolicitudesArco_SR_Improcedente"],
                             "SA_Sentido_Respuesta_Otros" => $_POST["EditarSolicitudesArco_SR_Otros"],
                             "SA_Sentido_Respuesta_No_Disponible" => $_POST["EditarSolicitudesArco_SR_No_Disponible"],
-                            "SA_Sentido_Respuesta_Suma_Total" => $_POST["EditarSolicitudesArco_SR_Suma_Total"]
+                            "SA_Sentido_Respuesta_Suma_Total" => $_POST["EditarSolicitudesArco_SR_Suma_Total"],
+                            "SA_Archivo" => $rutaArchivoSAA
 
                           );
 
@@ -278,7 +373,7 @@
               
                               swal({
                                 type: "success",
-                                title: "El Informe ha sido cambiado correctamente",
+                                title: "El Informe ARCO, ha sido cambiado correctamente",
                                 showConfirmButton: true,
                                 confirmButtonText: "Cerrar"
                                 }).then(function(result){
@@ -308,8 +403,23 @@
             if(isset($_GET["idSAR"])){
       
               $tabla ="solicitudes_arco";
+
+              $espacio = " ";
+
+              $CarpataSAB = "SolicitudesArco";
+
               $datos = $_GET["idSAR"];
+
+              if($_GET["archivoSA"] != ""){
+
+                unlink($_GET["archivoSA"]);
+      
+                rmdir('vistas/pdfs/informes/'.$_GET["codigo"]."/".$_GET["anios"]."/".$CarpataSAB);
+
+                rmdir('vistas/pdfs/informes/'.$_GET["codigo"]."/".$_GET["anios"]);
         
+              }
+
               $respuesta = ModeloSolicitudesArco::mdlBorrarRegistroArco($tabla, $datos);
         
               if($respuesta == "ok"){

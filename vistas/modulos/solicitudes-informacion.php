@@ -2715,9 +2715,11 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                <div class="panel">SUBIR ARCHIVO</div>
 
-                 <input type="file" id="nuevoArchivo" name="nuevoArchivo">
+                 <input type="file" class="nuevoArchivoSI" name="nuevoArchivoSI">
 
-                 <p class="help-block">Peso máximo de la foto 200 MB</p>
+                 <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                 <input type="hidden" name="archivoActualSI" id="archivoActualSI">
 
              </div>   
 
@@ -2725,24 +2727,24 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
          </div>
 
-    </div>
+        </div>
 
-     <!-- ================================== BOTON PARA AGREGAR SOLICITUD DE INFORMACION ======================================== -->
+        <!-- ================================== BOTON PARA AGREGAR SOLICITUD DE INFORMACION ======================================== -->
 
-     <div class="modal-footer">
+        <div class="modal-footer">
 
-       <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-       <button type="submit" class="btn btn-primary">Guardar Solicitud de Información</button>
+          <button type="submit" class="btn btn-primary">Guardar Solicitud de Información</button>
 
-     </div>
+        </div>
 
-     <?php    
+        <?php    
 
-         $crearSolicitud = new ControladorSolicitudesInformes();
-         $crearSolicitud -> ctrAgregarSolicitudInformacion();    
+            $crearSolicitud = new ControladorSolicitudesInformes();
+            $crearSolicitud -> ctrAgregarSolicitudInformacion();    
 
-     ?>
+        ?>
 
    </form>
 
@@ -5345,9 +5347,11 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                <div class="panel">SUBIR ARCHIVO</div>
 
-                 <input type="file" id="nuevoArchivo" name="nuevoArchivo">
+                 <input type="file" class="nuevoArchivoSI"  name="editarArchivoSI">
 
                  <p class="help-block">Peso máximo de la foto 200 MB</p>
+
+                 <input type="hidden" name="archivoActualSI" id="archivoActualSI">
 
              </div>   
 

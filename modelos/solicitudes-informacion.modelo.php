@@ -204,7 +204,8 @@
              SI_Sentido_Respuesta_Improcedente,
              SI_Sentido_Respuesta_Otro,
              SI_Sentido_Respuesta_No_Disponible,
-             SI_Sentido_Respuesta_Suma_Total
+             SI_Sentido_Respuesta_Suma_Total,
+             SI_Archivo
 
              ) 
              
@@ -324,7 +325,8 @@
              :SI_Sentido_Respuesta_Improcedente,
              :SI_Sentido_Respuesta_Otro,
              :SI_Sentido_Respuesta_No_Disponible,
-             :SI_Sentido_Respuesta_Suma_Total
+             :SI_Sentido_Respuesta_Suma_Total,
+             :SI_Archivo
             
 
              )");
@@ -453,6 +455,7 @@
           $stmt -> bindParam(":SI_Sentido_Respuesta_Otro", $datos["SI_Sentido_Respuesta_Otro"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Sentido_Respuesta_No_Disponible", $datos["SI_Sentido_Respuesta_No_Disponible"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Sentido_Respuesta_Suma_Total", $datos["SI_Sentido_Respuesta_Suma_Total"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Archivo", $datos["SI_Archivo"], PDO::PARAM_STR);
 
           if ($stmt -> execute()) {
 	 
@@ -463,6 +466,9 @@
             return "error";
 
           } // else
+
+          $stmt->close();
+          $stmt = null;
 
         } // End Funcion MdlAgregarSI
 
@@ -624,7 +630,8 @@
          SI_Sentido_Respuesta_Improcedente = :SI_Sentido_Respuesta_Improcedente,
          SI_Sentido_Respuesta_Otro = :SI_Sentido_Respuesta_Otro,
          SI_Sentido_Respuesta_No_Disponible = :SI_Sentido_Respuesta_No_Disponible,
-         SI_Sentido_Respuesta_Suma_Total = :SI_Sentido_Respuesta_Suma_Total
+         SI_Sentido_Respuesta_Suma_Total = :SI_Sentido_Respuesta_Suma_Total,
+         SI_Archivo = :SI_Archivo
          WHERE SI_Informe_Presentado = :SI_Informe_Presentado");
 
 
@@ -749,6 +756,7 @@
           $stmt -> bindParam(":SI_Sentido_Respuesta_Otro", $datos["SI_Sentido_Respuesta_Otro"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Sentido_Respuesta_No_Disponible", $datos["SI_Sentido_Respuesta_No_Disponible"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Sentido_Respuesta_Suma_Total", $datos["SI_Sentido_Respuesta_Suma_Total"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Archivo", $datos["SI_Archivo"], PDO::PARAM_STR);
   
       if($stmt->execute()){
   

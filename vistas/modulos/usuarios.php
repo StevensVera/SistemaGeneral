@@ -531,8 +531,6 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                   <input type="hidden" name="archivoActual" id="archivoActual">
 
-
-
               </div>
 
            </div>  
