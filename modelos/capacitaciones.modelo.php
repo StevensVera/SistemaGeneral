@@ -49,7 +49,8 @@
                         CA_Capacitaciones_Recibidas,
                         CA_Capacitaciones_Ortogadas,
                         CA_Total_Servidores_Publicos,
-                        CA_Acciones_Realizadas_Transparencia
+                        CA_Acciones_Realizadas_Transparencia,
+                        CA_Archivo
                         )
                         VALUES(
                         :CA_Codigo_SO,
@@ -61,7 +62,8 @@
                         :CA_Capacitaciones_Recibidas,
                         :CA_Capacitaciones_Ortogadas,
                         :CA_Total_Servidores_Publicos,
-                        :CA_Acciones_Realizadas_Transparencia
+                        :CA_Acciones_Realizadas_Transparencia,
+                        :CA_Archivo
 
                         )");
 
@@ -75,6 +77,7 @@
                         $stmt -> bindParam(":CA_Capacitaciones_Ortogadas", $datos["CA_Capacitaciones_Ortogadas"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Total_Servidores_Publicos", $datos["CA_Total_Servidores_Publicos"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Acciones_Realizadas_Transparencia", $datos["CA_Acciones_Realizadas_Transparencia"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Archivo", $datos["CA_Archivo"], PDO::PARAM_STR);
 
                         if ($stmt -> execute()) {
 	 

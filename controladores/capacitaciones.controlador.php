@@ -47,38 +47,38 @@
 
             $rutaCA = "";
 
-            $Anios = $_POST["nombre_Informe"];
+            $Anios = $_POST["nuevoAnioCapacitaciones"];
 
             $CarpetaCA = "Capacitaciones";
 
             /* ================= VALIDAR ARCHIVO PDF =================*/
 
-            if (isset($_FILES["nuevoArchivoSI"]["tmp_name"])) {
+            if (isset($_FILES["nuevoArchivoCA"]["tmp_name"])) {
 
               /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
             
         
-              $directorioArchivo = "vistas/pdfs/informes/".$Codigo;
+              $directorioArchivoCA = "vistas/pdfs/informes/".$Codigo;
 
-              mkdir($directorioArchivo, 0755);
+              mkdir($directorioArchivoCA, 0755);
 
-              $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
+              $directorioArchivoCA2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
 
-              mkdir($directorioArchivo2, 0755);
+              mkdir($directorioArchivoCA2, 0755);
 
-              $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA;
+              $directorioArchivoCA3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA;
 
-              mkdir($directorioArchivo3, 0755);
+              mkdir($directorioArchivoCA3, 0755);
 
               /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
 
               $aletorio = mt_rand(100,999);
 
-              if ($_FILES["nuevoArchivoSI"]["type"] == "application/pdf") {
+              if ($_FILES["nuevoArchivoCA"]["type"] == "application/pdf") {
                     
                 $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".pdf";
 
-                move_uploaded_file ($_FILES["nuevoArchivoSI"]["tmp_name"], $rutaCA);
+                move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
 
                 }
 
@@ -86,7 +86,7 @@
 
                             /* Datos - Array */
             $datos = array( "CA_Codigo_SO" => $Codigo, 
-                            "CA_Codigo_Informe_Anios" => $$CodigoIPACA,
+                            "CA_Codigo_Informe_Anios" => $CodigoIPACA,
                             "CA_Nombre_Sujeto_Obligado" => $SObligado,
                             "CA_Informe_Presentado" => $_POST["nuevoTipoCapacitaciones"],
                             "CA_Anios" => $_POST["nuevoAnioCapacitaciones"], 

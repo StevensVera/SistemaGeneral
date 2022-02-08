@@ -739,7 +739,7 @@ $pdf->AddPage();
 
 
 // SALIDA DEL ARCHIVO 
-
+ob_end_clean();
 $pdf->Output('reporteUsuario.pdf', 'I');
 
 }

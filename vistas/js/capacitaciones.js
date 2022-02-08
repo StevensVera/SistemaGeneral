@@ -163,3 +163,36 @@ $(".tablasCapacitaciones").on("click", ".btnActivarCapacitaciones", function() {
   }) // End Ajax
 
 }) // End Function
+
+  /* =================== SUBIR ARCHIVO USUARIO ==================== */
+
+  $(".nuevoArchivoCA").change(function() {
+
+    var archivo = this.files[0];
+
+
+    /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
+
+      if (archivo["type"] != "application/pdf") {
+        
+        $(".nuevoArchivoCA").val("");
+
+        swal({
+          title: "Error al subir el archivo",
+          text: "¡La archivo debe estar en formato PDF!",
+          type: "error",
+          confirmButtonText: "¡Cerrar!"
+        });
+
+      } else if(archivo["size"] > 50000000 ){
+   
+        swal({
+          title: "Error al subir el archivo",
+          text: "¡El archivo no debe pesar más de 20MB!",
+           type: "error",
+           confirmButtonText: "¡Cerrar!"
+      });
+
+    }
+      
+  })

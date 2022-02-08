@@ -315,7 +315,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                <div class="panel">SUBIR ARCHIVO</div>
 
-                 <input type="file" id="nuevoArchivo" name="nuevoArchivo">
+                 <input type="file" class="nuevoArchivoCA" name="nuevoArchivoCA">
 
                  <p class="help-block">Peso máximo de la foto 200 MB</p>
 
