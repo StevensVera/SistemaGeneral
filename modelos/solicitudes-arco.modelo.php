@@ -23,7 +23,10 @@
                 $stmt = Conexion::conectar()->prepare(
                    "INSERT INTO $tablaSA (
                       
-                      SA_Codigo_SO, SA_Codigo_Informe_Anios,
+                      SA_Codigo_SO, 
+                      SA_Codigo_UnicoInforme_Anios,
+                      SA_Codigo_Tipo_Informe_Anios,
+                      SA_Codigo_Informe_Anios,
                       SA_Nombre_Sujeto_Obligado,
                       SA_Informe_Presentado,
                       SA_Anios,
@@ -85,6 +88,8 @@
                       )VALUES (
                          
                      :SA_Codigo_SO,
+                     :SA_Codigo_UnicoInforme_Anios,
+                     :SA_Codigo_Tipo_Informe_Anios,
                      :SA_Codigo_Informe_Anios,
                      :SA_Nombre_Sujeto_Obligado,
                      :SA_Informe_Presentado,
@@ -147,6 +152,8 @@
                      )");
 
                 $stmt -> bindParam(":SA_Codigo_SO", $datos["SA_Codigo_SO"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Codigo_UnicoInforme_Anios", $datos["SA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                $stmt -> bindParam(":SA_Codigo_Tipo_Informe_Anios", $datos["SA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Codigo_Informe_Anios", $datos["SA_Codigo_Informe_Anios"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Nombre_Sujeto_Obligado", $datos["SA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
                 $stmt -> bindParam(":SA_Informe_Presentado", $datos["SA_Informe_Presentado"], PDO::PARAM_STR);

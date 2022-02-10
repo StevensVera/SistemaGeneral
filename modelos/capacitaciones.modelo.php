@@ -41,6 +41,8 @@
                 $stmt = Conexion::conectar()->prepare(
                     "INSERT INTO $tablaCA( 
                         CA_Codigo_SO,
+                        CA_Codigo_UnicoInforme_Anios,
+                        CA_Codigo_Tipo_Informe_Anios,
                         CA_Codigo_Informe_Anios,
                         CA_Nombre_Sujeto_Obligado,
                         CA_Informe_Presentado,
@@ -54,6 +56,8 @@
                         )
                         VALUES(
                         :CA_Codigo_SO,
+                        :CA_Codigo_UnicoInforme_Anios,
+                        :CA_Codigo_Tipo_Informe_Anios,
                         :CA_Codigo_Informe_Anios,
                         :CA_Nombre_Sujeto_Obligado,
                         :CA_Informe_Presentado,
@@ -68,6 +72,8 @@
                         )");
 
                         $stmt -> bindParam(":CA_Codigo_SO", $datos["CA_Codigo_SO"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_UnicoInforme_Anios", $datos["CA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_Tipo_Informe_Anios", $datos["CA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_Informe_Anios", $datos["CA_Codigo_Informe_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Nombre_Sujeto_Obligado", $datos["CA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Informe_Presentado", $datos["CA_Informe_Presentado"], PDO::PARAM_STR);
@@ -136,7 +142,8 @@
                CA_Capacitaciones_Recibidas = :CA_Capacitaciones_Recibidas,
                CA_Capacitaciones_Ortogadas = :CA_Capacitaciones_Ortogadas,
                CA_Total_Servidores_Publicos = :CA_Total_Servidores_Publicos,
-               CA_Acciones_Realizadas_Transparencia = :CA_Acciones_Realizadas_Transparencia
+               CA_Acciones_Realizadas_Transparencia = :CA_Acciones_Realizadas_Transparencia,
+               CA_Archivo = :CA_Archivo
                WHERE CA_Informe_Presentado = :CA_Informe_Presentado ");
 
 
@@ -148,6 +155,7 @@
               $stmt -> bindParam(":CA_Capacitaciones_Ortogadas", $datos["CA_Capacitaciones_Ortogadas"], PDO::PARAM_STR);
               $stmt -> bindParam(":CA_Total_Servidores_Publicos", $datos["CA_Total_Servidores_Publicos"], PDO::PARAM_STR);
               $stmt -> bindParam(":CA_Acciones_Realizadas_Transparencia", $datos["CA_Acciones_Realizadas_Transparencia"], PDO::PARAM_STR);
+              $stmt -> bindParam(":CA_Archivo", $datos["CA_Archivo"], PDO::PARAM_STR);
                   
               if($stmt->execute()){
   

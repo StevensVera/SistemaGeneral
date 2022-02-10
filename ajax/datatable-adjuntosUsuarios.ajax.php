@@ -16,6 +16,7 @@ require_once "../modelos/usuarios.modelo.php";
                 $valor = null;
                 $orden = "tipo_so";
 
+            
                 $adjunto = ControladorUsuariosInformes::ctrMostrarTablaUsuario($item,$valor,$orden);
 
                 if(count($adjunto) == 0 ){

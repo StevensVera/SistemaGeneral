@@ -50,6 +50,18 @@
 
                 $CarpataSA = "SolicitudesArco";
 
+                // Ingresamos carpeta de Solicitudes Arco
+
+                $CarpataAdicionalSA = "Solicitudes Arco";
+
+                 // Se inserta EJEMPLO A.1 1er Informe Bimestral 2022
+
+                $CodigoTipoInformeAniosSA = $Codigo.$espacio.$CodigoIPA;
+
+                // Se inserta EJEMPLO A.1 1er Informe Bimestral Solicitudes ARco 2022
+
+                $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSA"].$espacio.$CarpataAdicionalSA.$espacio.$_POST["nuevoAnioSA"];
+
               /* ================= VALIDAR ARCHIVO PDF =================*/
 
                  $rutaSA = "";
@@ -93,6 +105,8 @@
                 /* datos - Array */
 
                $datos = array ("SA_Codigo_SO" => $Codigo,
+                               "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
+                               "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSA,
                                "SA_Codigo_Informe_Anios" => $CodigoIPA,
                                "SA_Nombre_Sujeto_Obligado" => $SObligado,
                                "SA_Informe_Presentado" => $_POST["nuevoTipoInformeSA"],

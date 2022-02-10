@@ -14,18 +14,23 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
 
         static public function MostrarTablaAdmnistracionSO(){
 
-            $itemCodigoSI = "Si_Codigo_SO";
-            $itemCodigoSA = "SA_Codigo_SO";
+            // Mandamos el codigo de la Sesión Inicializada           
+            $valor = $_SESSION["codigo"];  
+            // Dato para tener el Siguiente dato "A.1 1er Informe Bimestral 2022" TABLA SOLICITUD DE INFORMACIÓN
+            $ObtenerCodigoInformeSI = "SI_Codigo_Tipo_Informe_Anios";
+            // Dato para tener el Siguiente dato "A.1 1er Informe Bimestral 2022" TABLA SOLICITUD DE ARCO
+            $ObtenerCodigoInformeSA = "SA_Codigo_Tipo_Informe_Anios";
+            // Dato para tener el Siguiente dato "A.1 1er Informe Bimestral 2022" TABLA CAPACITACIONES
+            $ObtenerCodigoInformeCA = "CA_Codigo_Tipo_Informe_Anios";
+            // Dato para tener el Siguiente dato "A.1" TABLA SOLICITUD DE INFORMACIÓN
+            $ObtenerCodigoSI = "Si_Codigo_SO";
+            // Dato para tener el Siguiente dato "A.1" TABLA SOLICITUD DE ARCO
+            $ObtenerCodigoSA = "SA_Codigo_SO";
+            // Dato para tener el Siguiente dato "A.1" TABLA SOLICITUD DE ARCO
+            $ObtenerCodigoCA = "CA_Codigo_SO";
+
             
-            $valor = $_SESSION["codigo"];
-
-           //$InformeSO_SI = $_GET["Si_Codigo_Informe_Anios"];
-
-           //$InformeSO_SA = $_GET["SA_Codigo_Informe_Anios"];
-
-            
-
-            $adjunto = ControladorSolicitudesInformes::ctrMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor);
+            $adjunto = ControladorSolicitudesInformes::ctrMostrarTablaAdministracionSO($valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA);
 
             if (count($adjunto) == 0) {
                 

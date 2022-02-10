@@ -24,6 +24,45 @@
             $respuesta = ModeloSolicitudesInformacion::mdlActualizarEstadoSolicitudesInformacion($tabla, $item1, $valor1, $item2, $valor2);
 
         }
+         /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
+
+        public $validarAnios;
+
+        public $validarInforme;
+
+        //public $validarinformeanios;
+
+        public function ajaxValidarIP(){
+
+        $item1 = "SI_Anios";
+
+        $valor1 = $this -> validarAnios;
+
+        $item2 = "SI_Informe_Presentado";
+        
+        $valor2 = $this -> validarInforme;
+
+        $item3 = "Si_Codigo_Informe_Anios";
+
+        $valor3 = $this -> validarinformeanios;
+
+        $respuesta = ControladorSolicitudesInformes::ctrValidarSolicitudInformacionExitente($item1, $valor1, $item2, $valor2, $item3, $valor3);
+
+        echo json_encode($respuesta);
+
+        }
+    
+
+    }
+
+
+    /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
+
+    if(isset( $_POST["validarinformeanios"])){
+
+	    $valida = new AjaxSolicitudesInformacion();
+	    $valida -> validarinformeanios = $_POST["validarinformeanios"];
+	    $valida -> ajaxValidarIP();
 
     }
 
@@ -36,3 +75,5 @@
         $activaroSolicitudesInformacion -> activarId = $_POST["activarId"];
         $activaroSolicitudesInformacion -> AjaxActivarSolicitudesInformacion();
     }    
+
+

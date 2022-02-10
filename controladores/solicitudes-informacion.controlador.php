@@ -24,13 +24,15 @@
 
     /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
         
-        static public function ctrMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor){
+        static public function ctrMostrarTablaAdministracionSO($valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA){
 
-          $tabla = "solicitudes_informacion";
+          $tablaSI = "solicitudes_informacion";
 
-          $tabla2 = "solicitudes_arco";
+          $tablaSA = "solicitudes_arco";
 
-          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor, $tabla, $tabla2);
+          $TablaCA = "Capacitaciones";
+
+          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA);
 
           return $respuesta;
 
@@ -64,7 +66,7 @@
      /* =========== AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */     
 
           static public function ctrAgregarSolicitudInformacion(){
-            
+
             if (isset($_POST["nuevoAnioSI"])) { 
 
                 /* ================= VALIDAR ARCHIVO PDF =================*/
@@ -132,8 +134,22 @@
 
                 $Codigo = $_SESSION["codigo"];
 
+                // Se inserta EJEMPLO A.1 1er Informe Bimestral 2022
+
+                $CodigoTipoInformeAniosSI = $Codigo.$espacio.$CodigoIPA;
+
+                // Carpeta Solicitudes de Informacion
+
+                $CarpetaAdcionalSI = "Solicitudes Informacion";
+
+                // Se insert EJEMPLO A.1 Informe Bimestral SolicitudesInformacion 2022
+
+                $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSI"].$espacio.$CarpetaAdcionalSI.$espacio.$_POST["nuevoAnioSI"];
+
                 /* Datos - Array */
-                $datos = array( "Si_Codigo_SO" => $Codigo, 
+                $datos = array( "Si_Codigo_SO" => $Codigo,
+                                "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
+                                "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSI,
                                 "Si_Codigo_Informe_Anios" => $CodigoIPA,
                                 "SI_Nombre_Sujeto_Obligado" => $SObligado,
                                 "SI_Informe_Presentado" => $_POST["nuevoTipoInformeSI"],
@@ -567,6 +583,18 @@
       } // if 
       
     }// function
+
+        /* ============ AQUI VALIDAMOS TODA LA INFORMACION QUE PUDIERA ESTA EXISTENTE  ================= */
+       // 1.- VALIDAR CODIGO 
+       
+       static public function ctrValidarSolicitudInformacionExitente($item1, $valor1, $item2, $valor2,  $item3, $valor3){
+
+        $tabla = "solicitudes_informacion";
+    
+        $respuesta = ModeloSolicitudesInformacion::mdlValidarSolicitudesInformacionExitente($tabla, $item1, $valor1, $item2, $valor2,  $item3, $valor3);
+    
+        return $respuesta;
+      }
 
     /* =================== METODO PDF - MOSTRAR DATOS INDIVUDALES REGISTRADOS POR USUARIO =============== */
 

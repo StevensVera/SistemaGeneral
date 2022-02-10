@@ -335,3 +335,55 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
     }
       
   })
+
+  /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
+
+$("#nuevoTipoInformeSI").add("#nuevoAnioSI").change(function() {
+
+  $(".alert").remove();
+
+  var informe = $(this).val();
+
+  var anios = $(this).val();
+
+  var datos = new FormData();
+
+  var informeanios = informe;
+
+  var informeanios2 = informe + " " + anios;
+
+  datos.append("validarinformeanios", informeanios2)
+
+    $.ajax({
+      url:"ajax/SolicitudesInformacion.ajax.php",
+      method:"POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success:function(respuesta){
+        
+        if(respuesta){
+
+          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").parent().after('<div class="alert alert-warning">Codigo ya Existente</div>');
+
+          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").val("");
+
+         // $("#nuevoAnioSI").parent().after('<div class="alert alert-warning">Codigo ya Existente</div>');
+          
+          //$("#nuevoAnioSI").val("");
+
+        } else {
+
+          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").parent().after('<div class="alert alert-warning"> Todo bien, mal :( </div>');
+
+          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").val("");
+
+        }
+
+      }
+
+  })
+  
+})

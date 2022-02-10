@@ -155,7 +155,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
          
                          <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span> 
 
-                               <select class="form-control input-lg" name="nuevoTipoInformeSI">
+                               <select class="form-control input-lg" id="nuevoTipoInformeSI" name="nuevoTipoInformeSI">
              
                                   <option value="">Selecionar el Infome a Entregar</option>
 
@@ -187,7 +187,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" name="nuevoAnioSI" placeholder="AÑO" required>
+                          <input type="text" class="form-control input-lg" id="nuevoAnioSI" name="nuevoAnioSI" placeholder="AÑO" required>
 
                     </div>
 

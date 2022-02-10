@@ -58,6 +58,16 @@ var table = $(".tablasCapacitaciones").DataTable({
 
     var idCA = $(this).attr("idCA");
 
+    var archivoCA = $(this).attr("archivoCA");
+
+    var codigo = $(this).attr("codigo");
+
+    var anios = $(this).attr("anios");
+  
+    //var InformeAnios = $(this).attr("InformeAnios");
+  
+    //var sujetoObligado = $(this).attr("sujetoObligado");
+
     swal({
   
       title: '¿Está seguro de borrar el Registro?',
@@ -71,7 +81,7 @@ var table = $(".tablasCapacitaciones").DataTable({
           }).then(function(result) {
           if (result.value) {
   
-            window.location = "index.php?ruta=capacitaciones&idCA="+idCA;
+            window.location = "index.php?ruta=capacitaciones&idCA="+idCA+"&codigo="+codigo+"&anios="+anios+"&archivoCA="+archivoCA;
   
           } // if 
   

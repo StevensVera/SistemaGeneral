@@ -52,16 +52,19 @@
 
       /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
-      static public function MdlMostrarTablaAdministracionSO($itemCodigoSI, $itemCodigoSA, $valor, $tabla, $tabla2){
+      static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA){
 
-        $stmt = Conexion::conectar()->prepare("SELECT *
-                                                FROM $tabla SI
-                                                INNER JOIN $tabla2 SAR
-                                                ON SI.$itemCodigoSI = SAR.$itemCodigoSA
-                                                WHERE SI.$itemCodigoSI = :$itemCodigoSI and SAR.$itemCodigoSA = :$itemCodigoSA" );
+        $stmt = Conexion::conectar()->prepare("SELECT DISTINCT *
+                                                FROM $tablaSI SI
+                                                INNER JOIN $tablaSA SA
+                                                ON SI.$ObtenerCodigoInformeSI = SA.$ObtenerCodigoInformeSA
+                                                INNER JOIN $TablaCA CA
+                                                ON SI.$ObtenerCodigoInformeSI = CA.$ObtenerCodigoInformeCA
+                                                WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA" );
 
-         $stmt -> bindParam(":".$itemCodigoSI, $valor, PDO::PARAM_STR);
-         $stmt -> bindParam(":".$itemCodigoSA, $valor, PDO::PARAM_STR);
+         $stmt -> bindParam(":".$ObtenerCodigoSI, $valor, PDO::PARAM_STR);
+         $stmt -> bindParam(":".$ObtenerCodigoSA, $valor, PDO::PARAM_STR);
+         $stmt -> bindParam(":".$ObtenerCodigoCA, $valor, PDO::PARAM_STR);
 
          $stmt -> execute();
 
@@ -89,7 +92,9 @@
             
           $stmt = Conexion::conectar()->prepare(
             "INSERT INTO $tablaSI
-            (Si_Codigo_SO, 
+            (Si_Codigo_SO,
+             SI_Codigo_UnicoInforme_Anios,
+             SI_Codigo_Tipo_Informe_Anios,
              Si_Codigo_Informe_Anios, 
              SI_Nombre_Sujeto_Obligado,
              SI_Informe_Presentado,
@@ -211,6 +216,8 @@
              
             VALUES(
              :Si_Codigo_SO,
+             :SI_Codigo_UnicoInforme_Anios,
+             :SI_Codigo_Tipo_Informe_Anios,
              :Si_Codigo_Informe_Anios, 
              :SI_Nombre_Sujeto_Obligado,
              :SI_Informe_Presentado,
@@ -332,6 +339,8 @@
              )");
           
           $stmt -> bindParam(":Si_Codigo_SO", $datos["Si_Codigo_SO"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Codigo_UnicoInforme_Anios", $datos["SI_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Codigo_Tipo_Informe_Anios", $datos["SI_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":Si_Codigo_Informe_Anios", $datos["Si_Codigo_Informe_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Nombre_Sujeto_Obligado", $datos["SI_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Informe_Presentado", $datos["SI_Informe_Presentado"], PDO::PARAM_STR);
@@ -829,6 +838,29 @@
   
   
       }
+
+             /* ============ AQUI VALIDAMOS TODA LA INFORMACION QUE PUDIERA ESTA EXISTENTE  ================= */
+       // 1.- VALIDAR CODIGO 
+
+       static public function mdlValidarSolicitudesInformacionExitente($tabla, $item1, $valor1, $item2, $valor2, $item3, $valor3){
+
+          $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item1, $valor1 and $item2, $valor2 and $item3, $valor3");
+
+          $stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+
+          $stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+          $stmt -> bindParam(":".$item3, $valor3, PDO::PARAM_STR);
+
+          $stmt -> execute();
+
+          return $stmt -> fetch();
+
+      $stmt -> close();
+
+      $stmt = null;
+
+    }
 
       /* ===========================  ACTIVAR EL ESTADO DEL USUARIO  ================================== */
 
