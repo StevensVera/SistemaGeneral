@@ -29,6 +29,10 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
             // Dato para tener el Siguiente dato "A.1" TABLA SOLICITUD DE ARCO
             $ObtenerCodigoCA = "CA_Codigo_SO";
 
+            // Dato para Establecer el tipo de datos. 
+
+            $TipoEstado = "EN REVISIÓN";
+
             
             $adjunto = ControladorSolicitudesInformes::ctrMostrarTablaAdministracionSO($valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA);
 
@@ -55,7 +59,7 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
                     "'.$adjunto[$i]["SI_Nombre_Sujeto_Obligado"].'",
                     "'.$adjunto[$i]["Si_Codigo_Informe_Anios"].'",
                     "'.$adjunto[$i]["SI_Fecha"].'",
-                    "'.$adjunto[$i]["SI_TOTAL_SOLICITUDES"].'",
+                    "'.$TipoEstado.'",
                     "'.$botones.'"
                 
                 ],';
