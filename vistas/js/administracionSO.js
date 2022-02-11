@@ -45,3 +45,13 @@ var table = $(".tablasAdministracionSO").DataTable({
     }
   
   });
+
+ /* ======================== MOSTRAR ARCHIVO PDF ============================== */ 
+
+ $(".tablasAdministracionSO tbody").on('click', '.btnImprimerReporteAdministaciónSO', function() {
+
+  var idAdminstracionSO = $(this).attr("idAdminstracionSO");
+
+  window.open("extensiones/tcpdf/pdf/reporteAdministracionSO.php?idSI="+idAdminstracionSO,"_blank");
+  
+});
