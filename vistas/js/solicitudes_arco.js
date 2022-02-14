@@ -327,7 +327,7 @@ $(".nuevoArchivoSA").change(function() {
 
   var archivo = this.files[0];
 
-  /* ================== VALIDAD QUE SEA ARCHIVO PDF ================================= */
+  /* ============ === VALIDAD QUE SEA ARCHIVO PDF ================== */
 
   if (archivo["type"] != "application/pdf" ){
 
@@ -352,4 +352,108 @@ $(".nuevoArchivoSA").change(function() {
   }
 
 })
+
+/*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS ===============================*/
+
+ // Funcion para estableces la suma Solicitudes ARCO - Medios de Presentacion
+
+ function sumarSAMP()
+ {
+   const $total = document.getElementById('nuevoSA_MP_Suma_Total');
+   let subtotal = 0;
+   [ ...document.getElementsByClassName( "montoSAMP" ) ].forEach( function ( element ) {
+     if(element.value !== '') {
+       subtotal += parseFloat(element.value);
+     }
+   });
+   $total.value = subtotal;
+ }
+ 
+ // Funcion para estableces la suma Solicitudes de Informacion - Tipo de Solicitante
+
+ function sumarSATS()
+  {
+   const $total = document.getElementById('nuevoSA_TS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSATS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+ // Funcion para estableces la suma Solicitudes de Informacion - Genero del Solicitante
+
+  function sumarSAGS()
+  {
+    const $total = document.getElementById('nuevoSA_GS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAGS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Información Solicitada
+
+  function sumarSAIS()
+  {
+    const $total = document.getElementById('nuevoSA_IS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAIS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Tramites
+
+  function sumarSAT()
+  {
+    const $total = document.getElementById('nuevoSA_T_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAT" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Modalidad de Respuesta
+
+  function sumarSAMR()
+  {
+    const $total = document.getElementById('nuevoSA_MR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAMR" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Sentido que emite la Respuesta
+
+  function sumarSASR()
+  {
+    const $total = document.getElementById('nuevoSA_SR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSASR" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+ 
+
+
 

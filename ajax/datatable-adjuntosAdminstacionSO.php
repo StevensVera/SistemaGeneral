@@ -51,7 +51,7 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
 
             for ($i=0; $i < count($adjunto) ; $i++) { 
 
-                $botones = "<button class='btn btn-primary btnImprimerReporteAdministaciónSO' idAdminstracionSO='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
+                $botones = "<button class='btn btn-primary btnImprimerReporteAdministaciónSO' idAdminstracionSOSI='".$adjunto[$i]["idSI"]."' idAdminstracionSOSA='".$adjunto[$i]["idSAR"]."' idAdminstracionSOCA='".$adjunto[$i]["idCA"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
 
                 $datosJson .= '[
 

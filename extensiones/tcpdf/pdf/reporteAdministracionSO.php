@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 /* ==============================  CONTROLADOR INFORMACIÓN DE SOLICITUD  ============================================*/
 /* == controlador INFORMACIÓN DE SOLICITUD == */
 require_once "../../../controladores/solicitudes-informacion.controlador.php";
@@ -62,26 +64,50 @@ class MYPDF extends TCPDF {
     }
 }
 
+
+
 class imprimirReporte{
 
 public $idSI;
+public $idSAR;
+public $idCA;
 
 public function traerImpresionReporte(){
+  
+$SujetoObligado = $_SESSION["nombre_Informe"];
+$UnidadTransparencia = $_SESSION["titular_Informe"];
 
-//TRAEMOS LA INFORMACION DE LA REVISION
+//======================= INFORMACION PARA SOLICITUDES DE INFORMACIÓN ===============================
 
 $itemSolicitudInformacion = "idSI";
 $valorSolicitudInformacion = $this->idSI;
 
+$respuestaSolicitudInformacion = ControladorSolicitudesInformes::ctrMostrarPDFSolicitudInformacion($itemSolicitudInformacion,$valorSolicitudInformacion);
+
+$fecha = substr($respuestaSolicitudInformacion["SI_Fecha"],0,50);
+$SI_Codigo_UnicoInforme_Anios = substr($respuestaSolicitudInformacion["SI_Codigo_UnicoInforme_Anios"],0,80);
+$Si_Codigo_Informe_Anios = substr($respuestaSolicitudInformacion["Si_Codigo_Informe_Anios"],0,80);
+$SI_TOTAL_SOLICITUDES = substr($respuestaSolicitudInformacion["SI_TOTAL_SOLICITUDES"],0,80);
+
+//============================ INFORMACIÓN DE SOLICITUDES ARCO =======================================
+
 $itemSolicitudArco = "idSAR";
 $valorSolicitudArco = $this->idSAR;
+
+$respuestaSolicitudesArco = ControladorSolicitudesArco::ctrMostrarPDFSolicitudesArco($itemSolicitudArco,$valorSolicitudArco);
+
+$SA_Codigo_UnicoInforme_Anios = substr($respuestaSolicitudesArco["SA_Codigo_UnicoInforme_Anios"],0,50);
+$SA_TOTAL_SOLICITUDES = substr($respuestaSolicitudesArco["SA_TOTAL_SOLICITUDES"],0,50);
+
+//============================== INFORMACIÓN DE CAPACITACIÓN ========================================
 
 $itemCapacitaciones = "idCA";
 $valorCapacitaciones = $this->idCA;
 
+$respuestaCapacitaciones = ControladorCapacitaciones::ctrMostrarPDFCapacitaciones($itemCapacitaciones,$valorCapacitaciones);
 
-
-
+$CA_Codigo_UnicoInforme_Anios = substr($respuestaCapacitaciones["CA_Codigo_UnicoInforme_Anios"],0,50);
+$CA_Total_Capacitacion = substr($respuestaCapacitaciones["CA_Total_Capacitacion"],0,50);
 
 /* =============================== PARTE SUPERIOR ==================================== */
 
@@ -130,13 +156,10 @@ $pdf->AddPage();
  /*=============================================
     =            LUGAR Y FECHA            =
   =============================================*/
+  
   $datos = <<<EOF
 
 	<table style="font-family: Arial;font-size:12px;padding-top: 5px;">
-		<tr>
-      		<td style="width:425px;"></td>
-      		<td style="width:280px;"><span style="font-weight:bold">TEPIC NAYARIT, MÉXICO</span></td>
-       </tr>
 		<tr>
       		<td style="width:425px;"></td>
       		<td style="width:280px;"><span style="font-weight:bold">FECHA:</span> $fecha</td>
@@ -152,24 +175,192 @@ EOF;
 
 $pdf->writeHTML($datos,false, false, false, false, '');
 
+//NOMBRE DEL COMISIONADO EN TURNO
+
 $bloque1 = <<<EOF
 
-  <table style="font-family: Arial;font-size:12px; padding-top: 25px; padding-left: 30px;">
+  <table style="font-family: Arial;font-size:12px; padding-top: 25px; ">
 
 		<tr>
-      <td ><span style="Arial;font-size:14px;font-weight:bold">$sujetoObligado1</span>  </td>
-    </tr>
-    <tr>
-      <td ><span style="Arial;font-size:14px;font-weight:bold">$sujetoObligado2</span>  </td>
+
+      <td ><span style="Arial;font-size:14px;font-weight:bold">LIC. RAMÓN ALEJANDRO MARTINEZ ÁLVAREZ</span>  </td>
     </tr>
 
 	</table>
 
-  
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+
+$bloque1 = <<<EOF
+
+  <table style="font-family: Arial;font-size:12px; padding-top: 5px; ">
+
+		<tr>
+
+      <td ><span style="Arial;font-size:14px;font-weight:bold">COMISIONADO PRESIDENTE DEL ITAI NAYARIT </span>  </td>
+    </tr>
+
+	</table>
 
 EOF;
 
 $pdf->writeHTML($bloque1,false, false, false, false, '');
+
+$bloque1 = <<<EOF
+
+  <table style="font-family: Arial;font-size:12px; padding-top: 5px; ">
+
+		<tr>
+
+      <td ><span style="Arial;font-size:14px;font-weight:bold">P R E S E N T E </span>  </td>
+    </tr>
+
+	</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+
+$bloque1 = <<<EOF
+
+  <table style="font-family: Arial;font-size:14px; padding-top: 35px;" >
+
+		<tr>
+
+      <td style="line-height:20pt; text-align: justify;" >     El Sujeto Obligado <span style="Arial;font-size:14px;font-weight:bold">$SujetoObligado</span> hace entrega del <span style="Arial;font-size:14px;font-weight:bold">$Si_Codigo_Informe_Anios</span> al Instituto de Transparencia y Acceso a la Información Pública del Estado de Nayarit. Dando constancia su participacion y llenado de la Información respectiva, en el portal web <span style="Arial;font-size:14px;font-weight:bold">http://www.itainayarit.gob/SistemaGeneral</span>. Asi cumpliendo con las Obligaciónes de Transparencia ante el Organismo Garante de la entidad.     </td>
+
+    </tr>
+
+	</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+
+$bloque1 = <<<EOF
+
+  <table style="font-family: Arial;font-size:12px; padding-top: 10px;">
+
+		<tr>
+
+      <td ><span style="Arial;font-size:14px;">En la siguiente tabla se muestra los datos de entrega: </span>  </td>
+      
+    </tr>
+    
+	</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+$bloque1 = <<<EOF
+
+  <table style="font-family: Arial;font-size:12px; padding-top: 5px;">
+
+		<tr>
+
+      <td ><span style="Arial;font-size:14px;"></span>  </td>
+      
+    </tr>
+    
+	</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+
+  $bloque1 = <<<EOD
+  <table cellspacing="0" cellpadding="1" border="1">
+        <tr>
+        <td style="background-color:#787878;color:#000000;" WIDTH="70%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">INFORME</span> </td>
+        <td style="background-color:#787878;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">CANTIDAD</span></td>
+      </tr>
+      <tr>
+        <td style="background-color:#DADADA;color:#000000;" WIDTH="70%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">$SI_Codigo_UnicoInforme_Anios</span> </td>
+        <td WIDTH="30%" align="center"> <span style="font: size 8px;pt;">$SI_TOTAL_SOLICITUDES</span></td>
+      </tr>
+      <tr>
+        <td style="background-color:#DADADA;color:#000000;" WIDTH="70%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">$SA_Codigo_UnicoInforme_Anios</span></td>
+        <td WIDTH="30%" align="center"> <span style="font: size 8px;pt;">$SA_TOTAL_SOLICITUDES</span></td>
+      </tr>
+      <tr>
+      <td style="background-color:#DADADA;color:#000000;" WIDTH="70%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">$CA_Codigo_UnicoInforme_Anios</span> </td>
+       <td WIDTH="30%" align="center"> <span style="font: size 8px;pt;">$CA_Total_Capacitacion</span></td>
+    </tr>
+  </table>
+  EOD;
+  
+  $pdf->writeHTML($bloque1, true, false, false, false, '');
+
+  $bloque1 = <<<EOF
+
+  <table style="font-family: Arial;font-size:14px; padding-top: 90px;" >
+
+		<tr>
+
+      <td style="line-height:20pt; text-align: centrer;" ></td>
+
+    </tr>
+
+	</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+$bloque1 = <<<EOF
+
+<table style="font-family: Arial;font-size:14px; padding-top: 100px;" >
+
+  <tr>
+
+    <td style="line-height:20pt; text-align: centrer;" >_______________________________________</td>
+
+  </tr>
+
+</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+$bloque1 = <<<EOF
+
+<table style="font-family: Arial;font-size:14px;" >
+
+  <tr>
+
+    <td style="line-height:20pt; text-align: centrer;" >$UnidadTransparencia</td>
+
+  </tr>
+
+</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
+$bloque1 = <<<EOF
+
+<table style="font-family: Arial;font-size:14px;" >
+
+  <tr>
+
+    <td style="line-height:20pt; text-align: centrer;" >Unidad de Transparencia $SujetoObligado </td>
+
+  </tr>
+
+</table>
+
+EOF;
+
+$pdf->writeHTML($bloque1,false, false, false, false, '');
+
 
 // SALIDA DEL ARCHIVO 
 ob_end_clean();

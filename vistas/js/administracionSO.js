@@ -50,8 +50,12 @@ var table = $(".tablasAdministracionSO").DataTable({
 
  $(".tablasAdministracionSO tbody").on('click', '.btnImprimerReporteAdministaciónSO', function() {
 
-  var idAdminstracionSO = $(this).attr("idAdminstracionSO");
+  var idAdminstracionSOSI = $(this).attr("idAdminstracionSOSI");
 
-  window.open("extensiones/tcpdf/pdf/reporteAdministracionSO.php?idSI="+idAdminstracionSO,"_blank");
+  var idAdminstracionSOSA = $(this).attr("idAdminstracionSOSA");
+
+  var idAdminstracionSOCA = $(this).attr("idAdminstracionSOCA");
+
+  window.open("extensiones/tcpdf/pdf/reporteAdministracionSO.php?idSI="+idAdminstracionSOSI+"&idSAR="+idAdminstracionSOSA+"&idCA="+idAdminstracionSOCA,"_blank");
   
 });

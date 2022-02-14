@@ -336,6 +336,123 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
       
   })
 
+  /*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS ===============================*/
+
+ // Funcion para estableces la suma Solicitudes de Informacion - Medios de Presentacion
+
+  function sumarSIMP()
+  {
+    const $total = document.getElementById('nuevoSI_MP_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIMP" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Tipo de Solicitante
+
+  function sumarSITS()
+  {
+    const $total = document.getElementById('nuevoSI_TS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSITS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Genero del Solicitante
+
+  function sumarSIGS()
+  {
+    const $total = document.getElementById('nuevoSI_Genero_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIGS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Información Solicitada
+
+  function sumarSIIS()
+  {
+    const $total = document.getElementById('nuevoSI_IS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIIS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Tramites
+
+  function sumarSIT()
+  {
+    const $total = document.getElementById('nuevoSI_T_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIT" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Modalidad de Respuesta
+
+  function sumarSIMR()
+  {
+    const $total = document.getElementById('nuevoSI_MR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIMR" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Obligaciones Solicitadas
+
+  function sumarSIOS()
+  {
+    const $total = document.getElementById('nuevoSI_OS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIOS" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Sentido que emite la Respuesta
+
+  function sumarSISR()
+  {
+    const $total = document.getElementById('nuevoSI_SR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSISR" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+
+
   /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 
 $("#nuevoTipoInformeSI").add("#nuevoAnioSI").change(function() {

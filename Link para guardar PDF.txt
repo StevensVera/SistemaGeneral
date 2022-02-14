@@ -1,5 +1,0 @@
-https://es.stackoverflow.com/questions/329054/almacenar-ruta-de-un-archivo-pdf-en-mysql?rq=1
-
-https://datoweb.com/post/2885/subir-archivos-pdf-desde-formulario-con-php
-
-https://es.stackoverflow.com/questions/281996/por-que-no-funciona-la-funcion-move-uploaded-file-de-php

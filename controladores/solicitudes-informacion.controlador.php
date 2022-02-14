@@ -67,247 +67,362 @@
 
           static public function ctrAgregarSolicitudInformacion(){
 
-            if (isset($_POST["nuevoAnioSI"])) { 
+            if (isset($_POST["nuevoAnioSI"])) {
 
-                /* ================= VALIDAR ARCHIVO PDF =================*/
+              // MEDIOS DE PRESENTACIÓN
+              
+              if($_POST["nuevoSI_Total"] == $_POST["nuevoSI_MP_Suma_Total"]){
 
-                $rutaSI = "";
-
-                $espacio = " ";
-
-                $Codigo2 = $_SESSION["codigo"];
-
-                $SObligado2 = $_SESSION["nombre_Informe"];
-
-                $Anios = $_POST["nuevoAnioSI"];
-
-                $CodigoIPA2 = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
-
-                $CarpetaSI = "SolicitudesInformacion";
+                // MEDIOS TIPO DE SOLICITANTE
                 
-                if (isset($_FILES["nuevoArchivoSI"]["tmp_name"])) {
+                if($_POST["nuevoSI_Total"] == $_POST["nuevoSI_TS_Suma_Total"]){
 
-                  /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
+                  // MEDIOS GENERO DEL SOLICITANTE
                 
-            
-                  $directorioArchivo = "vistas/pdfs/informes/".$Codigo2;
+                  if($_POST["nuevoSI_Total"] == $_POST["nuevoSI_Genero_Suma_Total"]){
 
-                  mkdir($directorioArchivo, 0755);
+                    // MEDIOS INFORMACIÓN SOLICITADA
+                
+                    if($_POST["nuevoSI_Total"] == $_POST["nuevoSI_IS_Suma_Total"]){
+                
+                        /* ================= VALIDAR ARCHIVO PDF =================*/
 
-                  $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo2."/".$Anios;
+                        $rutaSI = "";
 
-                  mkdir($directorioArchivo2, 0755);
+                        $espacio = " ";
 
-                  $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo2."/".$Anios."/".$CarpetaSI;
+                        $Codigo2 = $_SESSION["codigo"];
 
-                  mkdir($directorioArchivo3, 0755);
+                        $SObligado2 = $_SESSION["nombre_Informe"];
 
-                  /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+                        $Anios = $_POST["nuevoAnioSI"];
 
-                  $aletorio = mt_rand(100,999);
+                        $CodigoIPA2 = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
 
-                  if ($_FILES["nuevoArchivoSI"]["type"] == "application/pdf") {
+                        $CarpetaSI = "SolicitudesInformacion";
                         
-                    $rutaSI = "vistas/pdfs/informes/".$Codigo2."/".$Anios."/".$CarpetaSI."/".$CodigoIPA2.$espacio.$SObligado2.".pdf";
+                        if (isset($_FILES["nuevoArchivoSI"]["tmp_name"])) {
 
-                    move_uploaded_file ($_FILES["nuevoArchivoSI"]["tmp_name"], $rutaSI);
+                          /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
+                        
+                    
+                          $directorioArchivo = "vistas/pdfs/informes/".$Codigo2;
 
-                    }
+                          mkdir($directorioArchivo, 0755);
 
-                }
+                          $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo2."/".$Anios;
 
-                // Agregado el SO a la Tabla, mediante su Sesión.
-                //$SObligado = "H. Ayuntamiento de Acaponeta";
-                $SObligado = $_SESSION["nombre_Informe"];
+                          mkdir($directorioArchivo2, 0755);
 
-                // Agregamos Tabla
-                $tablaSI = "solicitudes_informacion";
-                
-                // Cocatenacion Codigo "InformePresentado + Año"
-                $espacio = " ";
+                          $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo2."/".$Anios."/".$CarpetaSI;
 
-                $CodigoIPA = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
+                          mkdir($directorioArchivo3, 0755);
 
-                // Ingresamos el Codigo Unico del Sujeto Obligado
-                
-                //$Codigo = "A.1";
+                          /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
 
-                $Codigo = $_SESSION["codigo"];
+                          $aletorio = mt_rand(100,999);
 
-                // Se inserta EJEMPLO A.1 1er Informe Bimestral 2022
-
-                $CodigoTipoInformeAniosSI = $Codigo.$espacio.$CodigoIPA;
-
-                // Carpeta Solicitudes de Informacion
-
-                $CarpetaAdcionalSI = "Solicitudes Informacion";
-
-                // Se insert EJEMPLO A.1 Informe Bimestral SolicitudesInformacion 2022
-
-                $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSI"].$espacio.$CarpetaAdcionalSI.$espacio.$_POST["nuevoAnioSI"];
-
-                /* Datos - Array */
-                $datos = array( "Si_Codigo_SO" => $Codigo,
-                                "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
-                                "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSI,
-                                "Si_Codigo_Informe_Anios" => $CodigoIPA,
-                                "SI_Nombre_Sujeto_Obligado" => $SObligado,
-                                "SI_Informe_Presentado" => $_POST["nuevoTipoInformeSI"],
-                                "SI_Anios" => $_POST["nuevoAnioSI"], 
-                                "SI_TOTAL_SOLICITUDES" => $_POST["nuevoSI_Total"],
-                                //"** Medio de Presentación **",
-                                "SI_Medio_Presentacion_Personal_Escrito" => $_POST["nuevoSI_MP_Personal_Escrito"],
-                                "SI_Medio_Presentacion_Correo_Electronico" => $_POST["nuevoSI_MP_Correo_Electronico"],
-                                "SI_Medio_Presentacion_Sistema_Infomex" => $_POST["nuevoSI_MP_Sistema_Informex"],
-                                "SI_Medio_Presentacion_PNT" => $_POST["nuevoSI_MP_PNT"],
-                                "SI_Medio_Presentacion_No_disponible" => $_POST["nuevoSI_MP_No_Disponible"],
-                                "SI_Medio_Presentacion_Suma_Total" => $_POST["nuevoSI_MP_Suma_Total"],
-                                //"** Tipo_Solicitud **",
-                                "SI_Tipo_Solicitud_Persona_Fisica" => $_POST["nuevoSI_TS_Persona_Fisica"],
-                                "SI_Tipo_Solicitud_Persona_Moral" => $_POST["nuevoSI_TS_Personal_Moral"],
-                                "SI_Tipo_Solicitud_No_Disponible" => $_POST["nuevoSI_TS_No_Disponible"],
-                                "SI_Tipo_Solicitud_Suma_Total" => $_POST["nuevoSI_TS_Suma_Total"],
-                                //"** Genero_Solicitante **",
-                                "SI_Genero_Solicitante_Femenino" => $_POST["nuevoSI_Genero_Femenino"],
-                                "SI_Genero_Solicitante_Masculino" => $_POST["nuevoSI_Genero_Masculino"],
-                                "SI_Genero_Solicitante_Anonimo" => $_POST["nuevoSI_Genero_Anonimo"],
-                                "SI_Genero_Solicitante_No_Disponible" => $_POST["nuevoSI_Genero_No_Disponible"],
-                                "SI_Genero_Solicitante_Suma_Total" => $_POST["nuevoSI_Genero_Suma_Total"],
-                                //"** Informacion_Solicitada **",
-                                "SI_Informacion_Solicitada_Obligacion_Transparencia" => $_POST["nuevoSI_IS_Obligaciones_Transparencia"],
-                                "SI_Informacion_Solicitada_Reservada" => $_POST["nuevoSI_IS_Reservada"],
-                                "SI_Informacion_Solicitada_Confidencial" => $_POST["nuevoSI_IS_Confidencial"],
-                                "SI_Informacion_Solicitada_Otro" => $_POST["nuevoSI_IS_Otro"],
-                                "SI_Informacion_Solicitada_No_Disponible" => $_POST["nuevoSI_IS_No_Disponible"],
-                                "SI_Informacion_Solicitada_Suma_Total" => $_POST["nuevoSI_IS_Suma_Total"],
-                                //"** Tramites **",
-                                "SI_Tramites_Concluidas" => $_POST["nuevoSI_T_Solicitudes_Concluidas"],
-                                "SI_Tramites_Pendientes" => $_POST["nuevoSI_T_Solicitudes_Pendientes"],
-                                "SI_Tramites_No_Disponible" => $_POST["nuevoSI_T_No_Disponible"],
-                                "SI_Tramites_Suma_Total" => $_POST["nuevoSI_T_Suma_Total"],
-                                //"** Modalidad_Respuesta **",
-                                "SI_Modalidad_Respuesta_Medios_Electronicos" => $_POST["nuevoSI_MR_Medios_electronicos"],
-                                "SI_Modalidad_Respuesta_Copia_Simple" => $_POST["nuevoSI_MR_Copia_Simple"],
-                                "SI_Modalidad_Respuesta_Consulta_Directa" => $_POST["nuevoSI_MR_Consulta_Directa"],
-                                "SI_Modalidad_Respuesta_Copia_Certificada" => $_POST["nuevoSI_MR_Copia_Certificada"],
-                                "SI_Modalidad_Respuesta_Otro" => $_POST["nuevoSI_MR_Otro"],
-                                "SI_Modalidad_Respuesta_No_Disponible" => $_POST["nuevoSI_MR_No_Disponible"],
-                                "SI_Modalidad_Respuesta_Suma_Total" => $_POST["nuevoSI_MR_Suma_Total"],
-                                //"** Obligaciones_Solicitadas **",
-                                "SI_Obligaciones_Solicitadas_Marco_Normativo" => $_POST["nuevoSI_OS_Marco_Normativo"],
-                                "SI_Obligaciones_Solicitadas_Estructura_Organica" => $_POST["nuevoSI_OS_Estructura_Organica"],
-                                "SI_Obligaciones_Solicitadas_Funciones_Area" => $_POST["nuevoSI_OS_Funciones_Cada_Area"],
-                                "SI_Obligaciones_Solicitadas_Metas_Objetivos" => $_POST["nuevoSI_OS_Metas_Objetivos"],
-                                "SI_Obligaciones_Solicitadas_Indicadores_Relacionados" => $_POST["nuevoSI_OS_Indicadores_Relacionados"],
-                                "SI_Obligaciones_Solicitadas_Indicadores_Rendir_Cuentas" => $_POST["nuevoSI_OS_Indicadores_Rendir_Cuentas"],
-                                "SI_Obligaciones_Solicitadas_Directorio_Servidor_Publico" => $_POST["nuevoSI_OS_Servidores_Publicos"],
-                                "SI_Obligaciones_Solicitadas_Remuneraciones_Personal" => $_POST["nuevoSI_OS_Remuneraciones_Personal"],
-                                "SI_Obligaciones_Solicitadas_Gasto_Representacion_Viaticos" => $_POST["nuevoSI_OS_Gastos_Representacion_Viaticos"],
-                                "SI_Obligaciones_Solicitadas_Plazas_Bases_Confianza_Vacantes" => $_POST["nuevoSI_OS_Plazas_Vacantes"],
-                                "SI_Obligaciones_Solicitadas_Contratacion_Servicios" => $_POST["nuevoSI_OS_Contratacion_Servicios"],
-                                "SI_Obligaciones_Solicitadas_Versiones_Publicas" => $_POST["nuevoSI_OS_Versiones_Públicas"],
-                                "SI_Obligaciones_Solicitadas_Domicilio_Direccion_UT" => $_POST["nuevoSI_OS_Domicilio_Dirección"],
-                                "SI_Obligaciones_Solicitadas_Convocatoria_Concurso_Cargo" => $_POST["nuevoSI_OS_Convocatoria_Concursos"],
-                                "SI_Obligaciones_Solicitadas_Informacion_Programas_Subsidios" => $_POST["nuevoSI_OS_Informacion_Programas"],
-                                "SI_Obligaciones_Solicitadas_Condiciones_Trabajos" => $_POST["nuevoSI_OS_Condiciones_Generales_Trabajo"],
-                                "SI_Obligaciones_Solicitadas_Recursos_Publicos" => $_POST["nuevoSI_OS_Recursos_Publicos_Economicos"],
-                                "SI_Obligaciones_Solicitadas_Informacion_Curricular" => $_POST["nuevoSI_OS_Información_Curricular"],
-                                "SI_Obligaciones_Solicitadas_Servidores_Publicos_Sancionados" => $_POST["nuevoSI_OS_Servidores_Publicos_Sancionados"],
-                                "SI_Obligaciones_Solicitadas_Servicios_Ofrecen" => $_POST["nuevoSI_OS_Servicios_Ofrecen"],
-                                "SI_Obligaciones_Solicitadas_Tramites_Requisitos_Formatos" => $_POST["nuevoSI_OS_Tramites_Requisitos_Formatos"],
-                                "SI_Obligaciones_Solicitadas_Presupuesto_Asignado" => $_POST["nuevoSI_OS_Presupuesto_Asignado"],
-                                "SI_Obligaciones_Solicitadas_Informacion_Relativa" => $_POST["nuevoSI_OS_Informacion_Relativa"],
-                                "SI_Obligaciones_Solicitadas_Montos_Designados" => $_POST["nuevoSI_OS_Montos_Designados"],
-                                "SI_Obligaciones_Solicitadas_Informes_Resultados_Auditorias" => $_POST["nuevoSI_OS_Informes_Resultados_Auditorias"],
-                                "SI_Obligaciones_Solicitadas_Resultados_Dictaminacion" => $_POST["nuevoSI_OS_Resultados_Dictaminación"],
-                                "SI_Obligaciones_Solicitadas_Montos_Criterios_Convocatorias" => $_POST["nuevoSI_OS_Montos_Criterios_Convocatorias"],
-                                "SI_Obligaciones_Solicitadas_Concesiones_Contratos_Convenios" => $_POST["nuevoSI_OS_Concesiones_Contratos_Convenios"],
-                                "SI_Obligaciones_Solicitadas_Resultados_Procesos_Adjudicaciones" => $_POST["nuevoSI_OS_Resultados_Procesos"],
-                                "SI_Obligaciones_Solicitadas_Infomes_Generen_SO" => $_POST["nuevoSI_OS_Informes_Resultados"],
-                                "SI_Obligaciones_Solicitadas_Estadisticas_Generan_Cumplimiento" => $_POST["nuevoSI_OS_Estadisticas_Generen_Cumplimiento"],
-                                "SI_Obligaciones_Solicitadas_Avances_Programaticos" => $_POST["nuevoSI_OS_Avances_Programaticos"],
-                                "SI_Obligaciones_Solicitadas_Padron_Proveedores" => $_POST["nuevoSI_OS_Padrón_Proveedores"],
-                                "SI_Obligaciones_Solicitadas_Convenios_Coordinacion" => $_POST["nuevoSI_OS_Convenios_Coordinación"], 
-                                "SI_Obligaciones_Solicitadas_Inventario_Muebles_Inmuebles" => $_POST["nuevoSI_OS_Inventario_Bienes"],
-                                "SI_Obligaciones_Solicitadas_Recomendaciones_Emitidas" => $_POST["nuevoSI_OS_Recomendaciones_Emitidas"],
-                                "SI_Obligaciones_Solicitadas_Resoluciones_Laudos" => $_POST["nuevoSI_OS_Resoluciones_Laudos"],
-                                "SI_Obligaciones_Solicitadas_Mecanismo_Participacion" => $_POST["nuevoSI_OS_Mecanismos_Participación"],
-                                "SI_Obligaciones_Solicitadas_Programas_Ofrecidos" => $_POST["nuevoSI_OS_Programas_Ofrecidoss"],
-                                "SI_Obligaciones_Solicitadas_Actas_Resoluciones" => $_POST["nuevoSI_OS_Actas_Resoluciones"],
-                                "SI_Obligaciones_Solicitadas_Evaluaciones_Encuestas" => $_POST["nuevoSI_OS_Evaluaciones_Encuentas"],
-                                "SI_Obligaciones_Solicitadas_Estudios_Financiados" => $_POST["nuevoSI_OS_Estudios_Financiados"],
-                                "SI_Obligaciones_Solicitadas_Listado_Jubilados_Pensionados" => $_POST["nuevoSI_OS_Listado_Jubilados"],
-                                "SI_Obligaciones_Solicitadas_Ingreso_Recibido" => $_POST["nuevoSI_OS_Gastos_Ingresos_Recibidos"],
-                                "SI_Obligaciones_Solicitadas_Donaciones_Hechas" => $_POST["nuevoSI_OS_Donaciones_Hechas"],
-                                "SI_Obligaciones_Solicitadas_Catalogos_Disposicion" => $_POST["nuevoSI_OS_Catalogos_Disposicion"],
-                                "SI_Obligaciones_Solicitadas_Actas_Sesiones_Ordinarias" => $_POST["nuevoSI_OS_Actas_Sesiones"], //--
-                                "SI_Obligaciones_Solicitadas_Listados_Solicitudes_Proveedores" => $_POST["nuevoSI_OS_Listado_Solicitudes"],
-                                "SI_Obligaciones_Solicitadas_Gacetas_Municipales" => $_POST["nuevoSI_OS_Gacetas_Municipales"],
-                                "SI_Obligaciones_Solicitadas_Plan_Desarrollo_Municipal" => $_POST["nuevoSI_OS_Plan_Desarrollo"],
-                                "SI_Obligaciones_Solicitadas_Condiciones_Generales_Trabajo" => $_POST["nuevoSI_OS_Condiciones_Generales_Trabajo_Relaciones"], //--
-                                "SI_Obligaciones_Solicitadas_Recursos_Publicos_Economicos" => $_POST["nuevoSI_OS_Recursos_Publicos_Economicos_Especies"], //--
-                                "SI_Obligaciones_Solicitadas_Plan_Desarrollo_Urbano" => $_POST["nuevoSI_OS_Plan_Desarrollo_Urbano"], 
-                                "SI_Obligaciones_Solicitadas_Programa_Ordenamiento" => $_POST["nuevoSI_OS_Programa_Ordenamiento"],
-                                "SI_Obligaciones_Solicitadas_Programa_Uso_Suelo" => $_POST["nuevoSI_OS_Programa_Suelo"],
-                                "SI_Obligaciones_Solicitadas_Tipos_Uso_Suelo" => $_POST["nuevoSI_OS_Tipos_Suelo"],
-                                "SI_Obligaciones_Solicitadas_Licencia_Uso_Suelo" => $_POST["nuevoSI_OS_Licencia_Suelo"],
-                                "SI_Obligaciones_Solicitadas_Licencias_Construccion" => $_POST["nuevoSI_OS_Licencias_Construcción"],
-                                "SI_Obligaciones_Solicitadas_Monto_Designados" => $_POST["nuevoSI_OS_Montos_Designados_Social"], //--  
-                                "SI_Obligaciones_Solicitadas_Actas_Cabildo" => $_POST["nuevoSI_OS_Actas_Cabildos"],
-                                "SI_Obligaciones_Solicitadas_Prosupuesto_Sostenible" => $_POST["nuevoSI_OS_Presupuesto_Sostenible"],
-                                "SI_Obligaciones_Solicitadas_Evaluaciones_LDF" => $_POST["nuevoSI_OS_Evaluaciones_LDF"],
-                                "SI_Obligaciones_Solicitadas_Subsidios" => $_POST["nuevoSI_OS_Subsidios"],
-                                "SI_Obligaciones_Solicitadas_Otros" => $_POST["nuevoSI_OS_Otro"],
-                                "SI_Obligaciones_Solicitadas_No_Disponibles" => $_POST["nuevoSI_OS_No_Disponible"],
-                                "SI_Obligaciones_Solicitadas_Suma_Total" => $_POST["nuevoSI_OS_Suma_Total"],
-                                //"** Sentido_Respuesta **",
-                                "SI_Sentido_Respuesta_Informacion" => $_POST["nuevoSI_SR_Informacion_Total"],
-                                "SI_Sentido_Respuesta_Informacion_Parcial" => $_POST["nuevoSI_SR_Informacion_Parcial"],
-                                "SI_Sentido_Respuesta_Negada_Clasificacion" => $_POST["nuevoSI_SR_Negada_Clasificación"],
-                                "SI_Sentido_Respuesta_Inexistencia_Informacion" => $_POST["nuevoSI_SR_Inexistencia_Informacion"],
-                                "SI_Sentido_Respuesta_Mixta" => $_POST["nuevoSI_SR_Mixta"],
-                                "SI_Sentido_Respuesta_No_Aclarada" => $_POST["nuevoSI_SR_No_Aclarada"],
-                                "SI_Sentido_Respuesta_Orientada" => $_POST["nuevoSI_SR_Orientada"],
-                                "SI_Sentido_Respuesta_En_Tramite" => $_POST["nuevoSI_SR_En_Tramite"],
-                                "SI_Sentido_Respuesta_Improcedente" => $_POST["nuevoSI_SR_Improcedente"],
-                                "SI_Sentido_Respuesta_Otro" => $_POST["nuevoSI_SR_Otros"],
-                                "SI_Sentido_Respuesta_No_Disponible" => $_POST["nuevoSI_SR_No_Disponible"],
-                                "SI_Sentido_Respuesta_Suma_Total" => $_POST["nuevoSI_SR_Suma_Total"],
-                                "SI_Archivo" => $rutaSI 
-
-                            );
+                          if ($_FILES["nuevoArchivoSI"]["type"] == "application/pdf") {
                                 
-                $respuesta = ModeloSolicitudesInformacion::MdlAgregarSI($tablaSI, $datos);
+                            $rutaSI = "vistas/pdfs/informes/".$Codigo2."/".$Anios."/".$CarpetaSI."/".$CodigoIPA2.$espacio.$SObligado2.".pdf";
 
-                var_dump($respuesta);
+                            move_uploaded_file ($_FILES["nuevoArchivoSI"]["tmp_name"], $rutaSI);
 
-                if($respuesta == "ok"){
+                            }
+
+                        }
+
+                        // Agregado el SO a la Tabla, mediante su Sesión.
+                        //$SObligado = "H. Ayuntamiento de Acaponeta";
+                        $SObligado = $_SESSION["nombre_Informe"];
+
+                        // Agregamos Tabla
+                        $tablaSI = "solicitudes_informacion";
+                        
+                        // Cocatenacion Codigo "InformePresentado + Año"
+                        $espacio = " ";
+
+                        $CodigoIPA = $_POST["nuevoTipoInformeSI"].$espacio.$_POST["nuevoAnioSI"];
+
+                        // Ingresamos el Codigo Unico del Sujeto Obligado
+                        
+                        //$Codigo = "A.1";
+
+                        $Codigo = $_SESSION["codigo"];
+
+                        // Se inserta EJEMPLO A.1 1er Informe Bimestral 2022
+
+                        $CodigoTipoInformeAniosSI = $Codigo.$espacio.$CodigoIPA;
+
+                        // Carpeta Solicitudes de Informacion
+
+                        $CarpetaAdcionalSI = "Solicitudes Informacion";
+
+                        // Se insert EJEMPLO A.1 Informe Bimestral SolicitudesInformacion 2022
+
+                        $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSI"].$espacio.$CarpetaAdcionalSI.$espacio.$_POST["nuevoAnioSI"];
+
+                        /* Datos - Array */
+                        $datos = array( "Si_Codigo_SO" => $Codigo,
+                                        "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
+                                        "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSI,
+                                        "Si_Codigo_Informe_Anios" => $CodigoIPA,
+                                        "SI_Nombre_Sujeto_Obligado" => $SObligado,
+                                        "SI_Informe_Presentado" => $_POST["nuevoTipoInformeSI"],
+                                        "SI_Anios" => $_POST["nuevoAnioSI"], 
+                                        "SI_TOTAL_SOLICITUDES" => $_POST["nuevoSI_Total"],
+                                        //"** Medio de Presentación **",
+                                        "SI_Medio_Presentacion_Personal_Escrito" => $_POST["nuevoSI_MP_Personal_Escrito"],
+                                        "SI_Medio_Presentacion_Correo_Electronico" => $_POST["nuevoSI_MP_Correo_Electronico"],
+                                        "SI_Medio_Presentacion_Sistema_Infomex" => $_POST["nuevoSI_MP_Sistema_Informex"],
+                                        "SI_Medio_Presentacion_PNT" => $_POST["nuevoSI_MP_PNT"],
+                                        "SI_Medio_Presentacion_No_disponible" => $_POST["nuevoSI_MP_No_Disponible"],
+                                        "SI_Medio_Presentacion_Suma_Total" => $_POST["nuevoSI_MP_Suma_Total"],
+                                        //"** Tipo_Solicitud **",
+                                        "SI_Tipo_Solicitud_Persona_Fisica" => $_POST["nuevoSI_TS_Persona_Fisica"],
+                                        "SI_Tipo_Solicitud_Persona_Moral" => $_POST["nuevoSI_TS_Personal_Moral"],
+                                        "SI_Tipo_Solicitud_No_Disponible" => $_POST["nuevoSI_TS_No_Disponible"],
+                                        "SI_Tipo_Solicitud_Suma_Total" => $_POST["nuevoSI_TS_Suma_Total"],
+                                        //"** Genero_Solicitante **",
+                                        "SI_Genero_Solicitante_Femenino" => $_POST["nuevoSI_Genero_Femenino"],
+                                        "SI_Genero_Solicitante_Masculino" => $_POST["nuevoSI_Genero_Masculino"],
+                                        "SI_Genero_Solicitante_Anonimo" => $_POST["nuevoSI_Genero_Anonimo"],
+                                        "SI_Genero_Solicitante_No_Disponible" => $_POST["nuevoSI_Genero_No_Disponible"],
+                                        "SI_Genero_Solicitante_Suma_Total" => $_POST["nuevoSI_Genero_Suma_Total"],
+                                        //"** Informacion_Solicitada **",
+                                        "SI_Informacion_Solicitada_Obligacion_Transparencia" => $_POST["nuevoSI_IS_Obligaciones_Transparencia"],
+                                        "SI_Informacion_Solicitada_Reservada" => $_POST["nuevoSI_IS_Reservada"],
+                                        "SI_Informacion_Solicitada_Confidencial" => $_POST["nuevoSI_IS_Confidencial"],
+                                        "SI_Informacion_Solicitada_Otro" => $_POST["nuevoSI_IS_Otro"],
+                                        "SI_Informacion_Solicitada_No_Disponible" => $_POST["nuevoSI_IS_No_Disponible"],
+                                        "SI_Informacion_Solicitada_Suma_Total" => $_POST["nuevoSI_IS_Suma_Total"],
+                                        //"** Tramites **",
+                                        "SI_Tramites_Concluidas" => $_POST["nuevoSI_T_Solicitudes_Concluidas"],
+                                        "SI_Tramites_Pendientes" => $_POST["nuevoSI_T_Solicitudes_Pendientes"],
+                                        "SI_Tramites_No_Disponible" => $_POST["nuevoSI_T_No_Disponible"],
+                                        "SI_Tramites_Suma_Total" => $_POST["nuevoSI_T_Suma_Total"],
+                                        //"** Modalidad_Respuesta **",
+                                        "SI_Modalidad_Respuesta_Medios_Electronicos" => $_POST["nuevoSI_MR_Medios_electronicos"],
+                                        "SI_Modalidad_Respuesta_Copia_Simple" => $_POST["nuevoSI_MR_Copia_Simple"],
+                                        "SI_Modalidad_Respuesta_Consulta_Directa" => $_POST["nuevoSI_MR_Consulta_Directa"],
+                                        "SI_Modalidad_Respuesta_Copia_Certificada" => $_POST["nuevoSI_MR_Copia_Certificada"],
+                                        "SI_Modalidad_Respuesta_Otro" => $_POST["nuevoSI_MR_Otro"],
+                                        "SI_Modalidad_Respuesta_No_Disponible" => $_POST["nuevoSI_MR_No_Disponible"],
+                                        "SI_Modalidad_Respuesta_Suma_Total" => $_POST["nuevoSI_MR_Suma_Total"],
+                                        //"** Obligaciones_Solicitadas **",
+                                        "SI_Obligaciones_Solicitadas_Marco_Normativo" => $_POST["nuevoSI_OS_Marco_Normativo"],
+                                        "SI_Obligaciones_Solicitadas_Estructura_Organica" => $_POST["nuevoSI_OS_Estructura_Organica"],
+                                        "SI_Obligaciones_Solicitadas_Funciones_Area" => $_POST["nuevoSI_OS_Funciones_Cada_Area"],
+                                        "SI_Obligaciones_Solicitadas_Metas_Objetivos" => $_POST["nuevoSI_OS_Metas_Objetivos"],
+                                        "SI_Obligaciones_Solicitadas_Indicadores_Relacionados" => $_POST["nuevoSI_OS_Indicadores_Relacionados"],
+                                        "SI_Obligaciones_Solicitadas_Indicadores_Rendir_Cuentas" => $_POST["nuevoSI_OS_Indicadores_Rendir_Cuentas"],
+                                        "SI_Obligaciones_Solicitadas_Directorio_Servidor_Publico" => $_POST["nuevoSI_OS_Servidores_Publicos"],
+                                        "SI_Obligaciones_Solicitadas_Remuneraciones_Personal" => $_POST["nuevoSI_OS_Remuneraciones_Personal"],
+                                        "SI_Obligaciones_Solicitadas_Gasto_Representacion_Viaticos" => $_POST["nuevoSI_OS_Gastos_Representacion_Viaticos"],
+                                        "SI_Obligaciones_Solicitadas_Plazas_Bases_Confianza_Vacantes" => $_POST["nuevoSI_OS_Plazas_Vacantes"],
+                                        "SI_Obligaciones_Solicitadas_Contratacion_Servicios" => $_POST["nuevoSI_OS_Contratacion_Servicios"],
+                                        "SI_Obligaciones_Solicitadas_Versiones_Publicas" => $_POST["nuevoSI_OS_Versiones_Públicas"],
+                                        "SI_Obligaciones_Solicitadas_Domicilio_Direccion_UT" => $_POST["nuevoSI_OS_Domicilio_Dirección"],
+                                        "SI_Obligaciones_Solicitadas_Convocatoria_Concurso_Cargo" => $_POST["nuevoSI_OS_Convocatoria_Concursos"],
+                                        "SI_Obligaciones_Solicitadas_Informacion_Programas_Subsidios" => $_POST["nuevoSI_OS_Informacion_Programas"],
+                                        "SI_Obligaciones_Solicitadas_Condiciones_Trabajos" => $_POST["nuevoSI_OS_Condiciones_Generales_Trabajo"],
+                                        "SI_Obligaciones_Solicitadas_Recursos_Publicos" => $_POST["nuevoSI_OS_Recursos_Publicos_Economicos"],
+                                        "SI_Obligaciones_Solicitadas_Informacion_Curricular" => $_POST["nuevoSI_OS_Información_Curricular"],
+                                        "SI_Obligaciones_Solicitadas_Servidores_Publicos_Sancionados" => $_POST["nuevoSI_OS_Servidores_Publicos_Sancionados"],
+                                        "SI_Obligaciones_Solicitadas_Servicios_Ofrecen" => $_POST["nuevoSI_OS_Servicios_Ofrecen"],
+                                        "SI_Obligaciones_Solicitadas_Tramites_Requisitos_Formatos" => $_POST["nuevoSI_OS_Tramites_Requisitos_Formatos"],
+                                        "SI_Obligaciones_Solicitadas_Presupuesto_Asignado" => $_POST["nuevoSI_OS_Presupuesto_Asignado"],
+                                        "SI_Obligaciones_Solicitadas_Informacion_Relativa" => $_POST["nuevoSI_OS_Informacion_Relativa"],
+                                        "SI_Obligaciones_Solicitadas_Montos_Designados" => $_POST["nuevoSI_OS_Montos_Designados"],
+                                        "SI_Obligaciones_Solicitadas_Informes_Resultados_Auditorias" => $_POST["nuevoSI_OS_Informes_Resultados_Auditorias"],
+                                        "SI_Obligaciones_Solicitadas_Resultados_Dictaminacion" => $_POST["nuevoSI_OS_Resultados_Dictaminación"],
+                                        "SI_Obligaciones_Solicitadas_Montos_Criterios_Convocatorias" => $_POST["nuevoSI_OS_Montos_Criterios_Convocatorias"],
+                                        "SI_Obligaciones_Solicitadas_Concesiones_Contratos_Convenios" => $_POST["nuevoSI_OS_Concesiones_Contratos_Convenios"],
+                                        "SI_Obligaciones_Solicitadas_Resultados_Procesos_Adjudicaciones" => $_POST["nuevoSI_OS_Resultados_Procesos"],
+                                        "SI_Obligaciones_Solicitadas_Infomes_Generen_SO" => $_POST["nuevoSI_OS_Informes_Resultados"],
+                                        "SI_Obligaciones_Solicitadas_Estadisticas_Generan_Cumplimiento" => $_POST["nuevoSI_OS_Estadisticas_Generen_Cumplimiento"],
+                                        "SI_Obligaciones_Solicitadas_Avances_Programaticos" => $_POST["nuevoSI_OS_Avances_Programaticos"],
+                                        "SI_Obligaciones_Solicitadas_Padron_Proveedores" => $_POST["nuevoSI_OS_Padrón_Proveedores"],
+                                        "SI_Obligaciones_Solicitadas_Convenios_Coordinacion" => $_POST["nuevoSI_OS_Convenios_Coordinación"], 
+                                        "SI_Obligaciones_Solicitadas_Inventario_Muebles_Inmuebles" => $_POST["nuevoSI_OS_Inventario_Bienes"],
+                                        "SI_Obligaciones_Solicitadas_Recomendaciones_Emitidas" => $_POST["nuevoSI_OS_Recomendaciones_Emitidas"],
+                                        "SI_Obligaciones_Solicitadas_Resoluciones_Laudos" => $_POST["nuevoSI_OS_Resoluciones_Laudos"],
+                                        "SI_Obligaciones_Solicitadas_Mecanismo_Participacion" => $_POST["nuevoSI_OS_Mecanismos_Participación"],
+                                        "SI_Obligaciones_Solicitadas_Programas_Ofrecidos" => $_POST["nuevoSI_OS_Programas_Ofrecidoss"],
+                                        "SI_Obligaciones_Solicitadas_Actas_Resoluciones" => $_POST["nuevoSI_OS_Actas_Resoluciones"],
+                                        "SI_Obligaciones_Solicitadas_Evaluaciones_Encuestas" => $_POST["nuevoSI_OS_Evaluaciones_Encuentas"],
+                                        "SI_Obligaciones_Solicitadas_Estudios_Financiados" => $_POST["nuevoSI_OS_Estudios_Financiados"],
+                                        "SI_Obligaciones_Solicitadas_Listado_Jubilados_Pensionados" => $_POST["nuevoSI_OS_Listado_Jubilados"],
+                                        "SI_Obligaciones_Solicitadas_Ingreso_Recibido" => $_POST["nuevoSI_OS_Gastos_Ingresos_Recibidos"],
+                                        "SI_Obligaciones_Solicitadas_Donaciones_Hechas" => $_POST["nuevoSI_OS_Donaciones_Hechas"],
+                                        "SI_Obligaciones_Solicitadas_Catalogos_Disposicion" => $_POST["nuevoSI_OS_Catalogos_Disposicion"],
+                                        "SI_Obligaciones_Solicitadas_Actas_Sesiones_Ordinarias" => $_POST["nuevoSI_OS_Actas_Sesiones"], //--
+                                        "SI_Obligaciones_Solicitadas_Listados_Solicitudes_Proveedores" => $_POST["nuevoSI_OS_Listado_Solicitudes"],
+                                        "SI_Obligaciones_Solicitadas_Gacetas_Municipales" => $_POST["nuevoSI_OS_Gacetas_Municipales"],
+                                        "SI_Obligaciones_Solicitadas_Plan_Desarrollo_Municipal" => $_POST["nuevoSI_OS_Plan_Desarrollo"],
+                                        "SI_Obligaciones_Solicitadas_Condiciones_Generales_Trabajo" => $_POST["nuevoSI_OS_Condiciones_Generales_Trabajo_Relaciones"], //--
+                                        "SI_Obligaciones_Solicitadas_Recursos_Publicos_Economicos" => $_POST["nuevoSI_OS_Recursos_Publicos_Economicos_Especies"], //--
+                                        "SI_Obligaciones_Solicitadas_Plan_Desarrollo_Urbano" => $_POST["nuevoSI_OS_Plan_Desarrollo_Urbano"], 
+                                        "SI_Obligaciones_Solicitadas_Programa_Ordenamiento" => $_POST["nuevoSI_OS_Programa_Ordenamiento"],
+                                        "SI_Obligaciones_Solicitadas_Programa_Uso_Suelo" => $_POST["nuevoSI_OS_Programa_Suelo"],
+                                        "SI_Obligaciones_Solicitadas_Tipos_Uso_Suelo" => $_POST["nuevoSI_OS_Tipos_Suelo"],
+                                        "SI_Obligaciones_Solicitadas_Licencia_Uso_Suelo" => $_POST["nuevoSI_OS_Licencia_Suelo"],
+                                        "SI_Obligaciones_Solicitadas_Licencias_Construccion" => $_POST["nuevoSI_OS_Licencias_Construcción"],
+                                        "SI_Obligaciones_Solicitadas_Monto_Designados" => $_POST["nuevoSI_OS_Montos_Designados_Social"], //--  
+                                        "SI_Obligaciones_Solicitadas_Actas_Cabildo" => $_POST["nuevoSI_OS_Actas_Cabildos"],
+                                        "SI_Obligaciones_Solicitadas_Prosupuesto_Sostenible" => $_POST["nuevoSI_OS_Presupuesto_Sostenible"],
+                                        "SI_Obligaciones_Solicitadas_Evaluaciones_LDF" => $_POST["nuevoSI_OS_Evaluaciones_LDF"],
+                                        "SI_Obligaciones_Solicitadas_Subsidios" => $_POST["nuevoSI_OS_Subsidios"],
+                                        "SI_Obligaciones_Solicitadas_Otros" => $_POST["nuevoSI_OS_Otro"],
+                                        "SI_Obligaciones_Solicitadas_No_Disponibles" => $_POST["nuevoSI_OS_No_Disponible"],
+                                        "SI_Obligaciones_Solicitadas_Suma_Total" => $_POST["nuevoSI_OS_Suma_Total"],
+                                        //"** Sentido_Respuesta **",
+                                        "SI_Sentido_Respuesta_Informacion" => $_POST["nuevoSI_SR_Informacion_Total"],
+                                        "SI_Sentido_Respuesta_Informacion_Parcial" => $_POST["nuevoSI_SR_Informacion_Parcial"],
+                                        "SI_Sentido_Respuesta_Negada_Clasificacion" => $_POST["nuevoSI_SR_Negada_Clasificación"],
+                                        "SI_Sentido_Respuesta_Inexistencia_Informacion" => $_POST["nuevoSI_SR_Inexistencia_Informacion"],
+                                        "SI_Sentido_Respuesta_Mixta" => $_POST["nuevoSI_SR_Mixta"],
+                                        "SI_Sentido_Respuesta_No_Aclarada" => $_POST["nuevoSI_SR_No_Aclarada"],
+                                        "SI_Sentido_Respuesta_Orientada" => $_POST["nuevoSI_SR_Orientada"],
+                                        "SI_Sentido_Respuesta_En_Tramite" => $_POST["nuevoSI_SR_En_Tramite"],
+                                        "SI_Sentido_Respuesta_Improcedente" => $_POST["nuevoSI_SR_Improcedente"],
+                                        "SI_Sentido_Respuesta_Otro" => $_POST["nuevoSI_SR_Otros"],
+                                        "SI_Sentido_Respuesta_No_Disponible" => $_POST["nuevoSI_SR_No_Disponible"],
+                                        "SI_Sentido_Respuesta_Suma_Total" => $_POST["nuevoSI_SR_Suma_Total"],
+                                        "SI_Archivo" => $rutaSI 
+
+                                    );
+                                        
+                        $respuesta = ModeloSolicitudesInformacion::MdlAgregarSI($tablaSI, $datos);
+
+                        var_dump($respuesta);
+
+                        if($respuesta == "ok"){
+
+                                echo '<script>
+
+                                swal({
+
+                                    type: "success",
+                                    title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
+                                    showConfirmButton: true,
+                                    confirmButtonText: "Cerrar"
+
+                                }).then(function(result){
+
+                                    if(result.value){
+                                    
+                                        window.location = "solicitudes-informacion";
+
+                                    }
+
+                                });
+                            
+
+                                </script>';
+
+                        } // if
+                        
+                    }else{
 
                         echo '<script>
 
                         swal({
 
-                            type: "success",
-                            title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
-                            showConfirmButton: true,
-                            confirmButtonText: "Cerrar"
+                          title: "Error en Información Solicitada",
+                          text: "¡Verifique sus Valores con el Total de Solicitudes Reportadas!",
+                          type: "error",
+                          confirmButtonText: "¡Cerrar!"
 
                         }).then(function(result){
 
-                            if(result.value){
-                            
-                                window.location = "solicitudes-informacion";
+                          if(result.value){
+                          
+                              window.location = "solicitudes-informacion";
 
-                            }
+                          }
 
                         });
-                    
+            
+                      </script>';
 
-                        </script>';
+                    }    
+                  
+                  }else{
+                      
+                      echo '<script>
 
-                } // if
+                        swal({
 
-              
+                          title: "Error en Genero del Solicitante",
+                          text: "¡Verifique sus Valores con el Total de Solicitudes Reportadas!",
+                          type: "error",
+                          confirmButtonText: "¡Cerrar!"
+
+                        }).then(function(result){
+
+                          if(result.value){
+                          
+                              window.location = "solicitudes-informacion";
+
+                          }
+
+                        });
+            
+                      </script>';
+
+                  }
+
+                }else{
+
+                   echo '<script>
+
+                      swal({
+
+                        title: "Error en Tipo de Solicitante",
+                        text: "¡Verifique sus Valores con el Total de Solicitudes Reportadas!",
+                        type: "error",
+                        confirmButtonText: "¡Cerrar!"
+
+                      }).then(function(result){
+
+                        if(result.value){
+                        
+                            window.location = "solicitudes-informacion";
+
+                        }
+
+                      });
+            
+                  </script>';
+
+                }
+
+              } else{
+
+                  echo '<script>
+
+                      swal({
+
+                        title: "Error en Medios de Presentación",
+                        text: "¡Verifique sus Valores con el Total de Solicitudes Reportadas!",
+                        type: "error",
+                        confirmButtonText: "¡Cerrar!"
+
+                      }).then(function(result){
+
+                        if(result.value){
+                        
+                            window.location = "solicitudes-informacion";
+
+                        }
+
+                      });
+                
+                      </script>';
+
+                } // END ELSE MEDIOS DE PRESENTACIÓN
+               
             }// if   
 
           } // Funcion Agregar Soliciud Informacion

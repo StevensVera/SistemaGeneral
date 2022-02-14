@@ -1,2 +1,0 @@
-SELECT * FROM usuarios
-ORDER BY TIPO_SO ASC
