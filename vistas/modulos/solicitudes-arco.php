@@ -131,8 +131,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <option value="3er Informe Bimestral">3er Informe Bimestral</option>
 
-                      <option value="3to Informe Bimestral">3er Informe Bimestral</option>
-
                       <option value="4to Informe Bimestral">4to Informe Bimestral</option>
 
                       <option value="5to Informe Bimestral">5to Informe Bimestral</option>
@@ -1531,7 +1529,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                    <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_Total" name="EditarSolicitudesArco_Total" >
+                    <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_Total" name="EditarSolicitudesArco_Total" >
 
               </div>
     
@@ -1603,7 +1601,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                     <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                        <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MP_Personal_Escrito" name="EditarSolicitudesArco_MP_Personal_Escrito" >
+                        <input type="number" class="form-control input-lg montoSAMPA" onchange="sumarSAMPA();" id="EditarSolicitudesArco_MP_Personal_Escrito" name="EditarSolicitudesArco_MP_Personal_Escrito" >
 
                     </div>
                 </th>
@@ -1621,7 +1619,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                     <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                        <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MP_Correo_Electronico" name="EditarSolicitudesArco_MP_Correo_Electronico" required>
+                        <input type="number" class="form-control input-lg montoSAMPA" onchange="sumarSAMPA();" id="EditarSolicitudesArco_MP_Correo_Electronico" name="EditarSolicitudesArco_MP_Correo_Electronico" required>
 
                     </div>
                  </th>
@@ -1639,7 +1637,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                     <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                        <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MP_Sistema_Informex" name="EditarSolicitudesArco_MP_Sistema_Informex" required>
+                        <input type="number" class="form-control input-lg montoSAMPA" onchange="sumarSAMPA();" id="EditarSolicitudesArco_MP_Sistema_Informex" name="EditarSolicitudesArco_MP_Sistema_Informex" required>
 
                     </div>
                  </th>
@@ -1657,7 +1655,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                     <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                        <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MP_PNT" name="EditarSolicitudesArco_MP_PNT" required>
+                        <input type="number" class="form-control input-lg montoSAMPA" onchange="sumarSAMPA();" id="EditarSolicitudesArco_MP_PNT" name="EditarSolicitudesArco_MP_PNT" required>
 
                     </div>
                  </th>
@@ -1675,7 +1673,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                     <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                        <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MP_No_Disponible" name="EditarSolicitudesArco_MP_No_Disponible" required >
+                        <input type="number" class="form-control input-lg montoSAMPA" onchange="sumarSAMPA();" id="EditarSolicitudesArco_MP_No_Disponible" name="EditarSolicitudesArco_MP_No_Disponible" required >
 
                     </div>
                  </th>
@@ -1693,7 +1691,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                     <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                        <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MP_Suma_Total" name="EditarSolicitudesArco_MP_Suma_Total" required >
+                        <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_MP_Suma_Total" value="0" name="EditarSolicitudesArco_MP_Suma_Total" readonly >
 
                     </div>
                  </th>
@@ -1771,7 +1769,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_TS_Persona_Fisica" name="EditarSolicitudesArco_TS_Persona_Fisica" required>
+                          <input type="number" class="form-control input-lg montoSATSA" onchange="sumarSATSA();" id="EditarSolicitudesArco_TS_Persona_Fisica" name="EditarSolicitudesArco_TS_Persona_Fisica" required>
 
                       </div>
                   </th>
@@ -1789,7 +1787,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_TS_Personal_Moral" name="EditarSolicitudesArco_TS_Personal_Moral" required>
+                          <input type="number" class="form-control input-lg montoSATSA" onchange="sumarSATSA();" id="EditarSolicitudesArco_TS_Personal_Moral" name="EditarSolicitudesArco_TS_Personal_Moral" required>
 
                       </div>
                   </th>
@@ -1807,7 +1805,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_TS_No_Disponible" name="EditarSolicitudesArco_TS_No_Disponible" required >
+                          <input type="number" class="form-control input-lg montoSATSA" onchange="sumarSATSA();" id="EditarSolicitudesArco_TS_No_Disponible" name="EditarSolicitudesArco_TS_No_Disponible" required >
 
                       </div>
                   </th>
@@ -1825,7 +1823,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_TS_Suma_Total" name="EditarSolicitudesArco_TS_Suma_Total" required >
+                          <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_TS_Suma_Total" value="0" name="EditarSolicitudesArco_TS_Suma_Total" readonly >
 
                       </div>
                   </th>
@@ -1904,7 +1902,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                         <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                            <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_GS_Femenino" name="EditarSolicitudesArco_GS_Femenino" required>
+                            <input type="number" class="form-control input-lg montoSAGSA" onchange="sumarSAGSA();" id="EditarSolicitudesArco_GS_Femenino" name="EditarSolicitudesArco_GS_Femenino" required>
 
                         </div>
                     </th>
@@ -1922,7 +1920,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                         <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                            <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_GS_Masculino" name="EditarSolicitudesArco_GS_Masculino" required>
+                            <input type="number" class="form-control input-lg montoSAGSA" onchange="sumarSAGSA();" id="EditarSolicitudesArco_GS_Masculino" name="EditarSolicitudesArco_GS_Masculino" required>
 
                         </div>
                     </th>
@@ -1940,7 +1938,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                         <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                            <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_GS_Anonimo" name="EditarSolicitudesArco_GS_Anonimo" required>
+                            <input type="number" class="form-control input-lg montoSAGSA" onchange="sumarSAGSA();" id="EditarSolicitudesArco_GS_Anonimo" name="EditarSolicitudesArco_GS_Anonimo" required>
 
                         </div>
                     </th>
@@ -1958,7 +1956,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                         <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                            <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_GS_No_Disponible" name="EditarSolicitudesArco_GS_No_Disponible" required >
+                            <input type="number" class="form-control input-lg montoSAGSA" onchange="sumarSAGSA();" id="EditarSolicitudesArco_GS_No_Disponible" name="EditarSolicitudesArco_GS_No_Disponible" required >
 
                         </div>
                     </th>
@@ -1976,7 +1974,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                         <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                            <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_GS_Suma_Total" name="EditarSolicitudesArco_GS_Suma_Total" required >
+                            <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_GS_Suma_Total" value="0" name="EditarSolicitudesArco_GS_Suma_Total" readonly >
 
                         </div>
                     </th>
@@ -2054,7 +2052,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_Acceso" name="EditarSolicitudesArco_IS_Acceso" required>
+                          <input type="number" class="form-control input-lg montoSAISA" onchange="sumarSAISA();" id="EditarSolicitudesArco_IS_Acceso" name="EditarSolicitudesArco_IS_Acceso" required>
 
                       </div>
                   </th>
@@ -2072,7 +2070,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_Rectificación" name="EditarSolicitudesArco_IS_Rectificación" required>
+                          <input type="number" class="form-control input-lg montoSAISA" onchange="sumarSAISA();" id="EditarSolicitudesArco_IS_Rectificación" name="EditarSolicitudesArco_IS_Rectificación" required>
 
                       </div>
                   </th>
@@ -2090,7 +2088,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_Oposición" name="EditarSolicitudesArco_IS_Oposición" required >
+                          <input type="number" class="form-control input-lg montoSAISA" onchange="sumarSAISA();" id="EditarSolicitudesArco_IS_Oposición" name="EditarSolicitudesArco_IS_Oposición" required >
 
                       </div>
                   </th>
@@ -2108,7 +2106,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_Cancelacion" name="EditarSolicitudesArco_IS_Cancelacion" required >
+                          <input type="number" class="form-control input-lg montoSAISA" onchange="sumarSAISA();" id="EditarSolicitudesArco_IS_Cancelacion" name="EditarSolicitudesArco_IS_Cancelacion" required >
 
                       </div>
                   </th>
@@ -2126,7 +2124,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_Otro" name="EditarSolicitudesArco_IS_Otro" required >
+                          <input type="number" class="form-control input-lg montoSAISA" onchange="sumarSAISA();" id="EditarSolicitudesArco_IS_Otro" name="EditarSolicitudesArco_IS_Otro" required >
 
                       </div>
                   </th>
@@ -2145,7 +2143,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_No_Disponible" name="EditarSolicitudesArco_IS_No_Disponible" required >
+                          <input type="number" class="form-control input-lg montoSAISA" onchange="sumarSAISA();" id="EditarSolicitudesArco_IS_No_Disponible" name="EditarSolicitudesArco_IS_No_Disponible" required >
 
                       </div>
                   </th>
@@ -2163,7 +2161,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_IS_Suma_Total" name="EditarSolicitudesArco_IS_Suma_Total" required >
+                          <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_IS_Suma_Total" value="0" name="EditarSolicitudesArco_IS_Suma_Total" readonly >
 
                       </div>
                   </th>
@@ -2242,7 +2240,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_T_Solicitudes_Concluidas" name="EditarSolicitudesArco_T_Solicitudes_Concluidas" required>
+                          <input type="number" class="form-control input-lg montoSATA" onchange="sumarSATA();" id="EditarSolicitudesArco_T_Solicitudes_Concluidas" name="EditarSolicitudesArco_T_Solicitudes_Concluidas" required>
 
                       </div>
                   </th>
@@ -2260,7 +2258,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_T_Solicitudes_Pendientes" name="EditarSolicitudesArco_T_Solicitudes_Pendientes" required>
+                          <input type="number" class="form-control input-lg montoSATA" onchange="sumarSATA();" id="EditarSolicitudesArco_T_Solicitudes_Pendientes" name="EditarSolicitudesArco_T_Solicitudes_Pendientes" required>
 
                       </div>
                   </th>
@@ -2278,7 +2276,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_T_No_Disponible" name="EditarSolicitudesArco_T_No_Disponible" required >
+                          <input type="number" class="form-control input-lg montoSATA" onchange="sumarSATA();" id="EditarSolicitudesArco_T_No_Disponible" name="EditarSolicitudesArco_T_No_Disponible" required >
 
                       </div>
                   </th>
@@ -2296,7 +2294,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_T_Suma_Total" name="EditarSolicitudesArco_T_Suma_Total" required >
+                          <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_T_Suma_Total" name="EditarSolicitudesArco_T_Suma_Total" readonly >
 
                       </div>
                   </th>
@@ -2374,7 +2372,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_Medios_electronicos" name="EditarSolicitudesArco_MR_Medios_electronicos" required>
+                          <input type="number" class="form-control input-lg montoSAMRA" onchange="sumarSAMRA();" id="EditarSolicitudesArco_MR_Medios_electronicos" name="EditarSolicitudesArco_MR_Medios_electronicos" required>
 
                       </div>
                   </th>
@@ -2392,7 +2390,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_Copia_Simple" name="EditarSolicitudesArco_MR_Copia_Simple" required>
+                          <input type="number" class="form-control input-lg montoSAMRA" onchange="sumarSAMRA();" id="EditarSolicitudesArco_MR_Copia_Simple" name="EditarSolicitudesArco_MR_Copia_Simple" required>
 
                       </div>
                   </th>
@@ -2410,7 +2408,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_Consulta_Directa" name="EditarSolicitudesArco_MR_Consulta_Directa" required >
+                          <input type="number" class="form-control input-lg montoSAMRA" onchange="sumarSAMRA();" id="EditarSolicitudesArco_MR_Consulta_Directa" name="EditarSolicitudesArco_MR_Consulta_Directa" required >
 
                       </div>
                   </th>
@@ -2428,7 +2426,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_Copia_Certificada" name="EditarSolicitudesArco_MR_Copia_Certificada" required >
+                          <input type="number" class="form-control input-lg montoSAMRA" onchange="sumarSAMRA();" id="EditarSolicitudesArco_MR_Copia_Certificada" name="EditarSolicitudesArco_MR_Copia_Certificada" required >
 
                       </div>
                   </th>
@@ -2446,7 +2444,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_Otro" name="EditarSolicitudesArco_MR_Otro" required >
+                          <input type="number" class="form-control input-lg montoSAMRA" onchange="sumarSAMRA();" id="EditarSolicitudesArco_MR_Otro" name="EditarSolicitudesArco_MR_Otro" required >
 
                       </div>
                   </th>
@@ -2464,7 +2462,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_No_Disponible" name="EditarSolicitudesArco_MR_No_Disponible" required >
+                          <input type="number" class="form-control input-lg montoSAMRA" onchange="sumarSAMRA();" id="EditarSolicitudesArco_MR_No_Disponible" name="EditarSolicitudesArco_MR_No_Disponible" required >
 
                       </div>
                   </th>
@@ -2482,7 +2480,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_MR_Suma_Total" name="EditarSolicitudesArco_MR_Suma_Total" required >
+                          <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_MR_Suma_Total" value="0" name="EditarSolicitudesArco_MR_Suma_Total" readonly >
 
                       </div>
                   </th>
@@ -2558,7 +2556,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Informacion_Total" name="EditarSolicitudesArco_SR_Informacion_Total" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Informacion_Total" name="EditarSolicitudesArco_SR_Informacion_Total" required>
 
                             </div>
                         </th>
@@ -2576,7 +2574,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Informacion_Parcial" name="EditarSolicitudesArco_SR_Informacion_Parcial" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Informacion_Parcial" name="EditarSolicitudesArco_SR_Informacion_Parcial" required>
 
                             </div>
                          </th>
@@ -2594,7 +2592,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Negada_Clasificación" name="EditarSolicitudesArco_SR_Negada_Clasificación" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Negada_Clasificación" name="EditarSolicitudesArco_SR_Negada_Clasificación" required>
 
                             </div>
                          </th>
@@ -2612,7 +2610,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Inexistencia_Informacion" name="EditarSolicitudesArco_SR_Inexistencia_Informacion" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Inexistencia_Informacion" name="EditarSolicitudesArco_SR_Inexistencia_Informacion" required>
 
                             </div>
                          </th>
@@ -2630,7 +2628,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Mixta" name="EditarSolicitudesArco_SR_Mixta" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Mixta" name="EditarSolicitudesArco_SR_Mixta" required>
 
                             </div>
                          </th>
@@ -2648,7 +2646,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_No_Aclarada" name="EditarSolicitudesArco_SR_No_Aclarada" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_No_Aclarada" name="EditarSolicitudesArco_SR_No_Aclarada" required>
 
                             </div>
                          </th>
@@ -2666,7 +2664,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Orientada" name="EditarSolicitudesArco_SR_Orientada" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Orientada" name="EditarSolicitudesArco_SR_Orientada" required>
 
                             </div>
                          </th>
@@ -2684,7 +2682,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_En_Tramite" name="EditarSolicitudesArco_SR_En_Tramite" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_En_Tramite" name="EditarSolicitudesArco_SR_En_Tramite" required>
 
                             </div>
                          </th>
@@ -2702,7 +2700,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Improcedente" name="EditarSolicitudesArco_SR_Improcedente" required>
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Improcedente" name="EditarSolicitudesArco_SR_Improcedente" required>
 
                             </div>
                          </th>
@@ -2721,7 +2719,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Otros" name="EditarSolicitudesArco_SR_Otros" required >
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_Otros" name="EditarSolicitudesArco_SR_Otros" required >
 
                             </div>
                          </th>
@@ -2739,7 +2737,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_No_Disponible" name="EditarSolicitudesArco_SR_No_Disponible" required >
+                                <input type="number" class="form-control input-lg montoSASRA" onchange="sumarSASRA();" id="EditarSolicitudesArco_SR_No_Disponible" name="EditarSolicitudesArco_SR_No_Disponible" required >
 
                             </div>
                          </th>
@@ -2757,7 +2755,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSolicitudesArco_SR_Suma_Total" name="EditarSolicitudesArco_SR_Suma_Total" required >
+                                <input type="number" class="form-control input-lg" id="EditarSolicitudesArco_SR_Suma_Total" value="0" name="EditarSolicitudesArco_SR_Suma_Total" readonly>
 
                             </div>
                          </th>

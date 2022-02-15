@@ -238,7 +238,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoCapacitaciones_Recibidas" name="nuevoCapacitaciones_Recibidas" required>
+                                <input type="number" class="form-control input-lg montoCA" onchange="sumarCA();"  id="nuevoCapacitaciones_Recibidas" name="nuevoCapacitaciones_Recibidas" required>
 
                             </div>
                         </th>
@@ -256,7 +256,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoCapacitaciones_Ortogadas" name="nuevoCapacitaciones_Ortogadas" required>
+                                <input type="number" class="form-control input-lg montoCA" onchange="sumarCA();"  id="nuevoCapacitaciones_Ortogadas" name="nuevoCapacitaciones_Ortogadas" required>
 
                             </div>
                          </th>
@@ -274,7 +274,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="nuevoCapacitaciones_Total_Servidores_Publicos" name="nuevoCapacitaciones_Total_Servidores_Publicos" required>
+                                <input type="number" class="form-control input-lg" id="nuevoCapacitaciones_Total_Servidores_Publicos" name="nuevoCapacitaciones_Total_Servidores_Publicos" required>
 
                             </div>
                          </th>
@@ -282,7 +282,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                       </tr>
 
                       <!-- "Demas acciones realizadas en Transparencia, Acceso a la Información y de Interés Público que se Realicen" -->
-
+                      <!--
                       <tr>
 
                         <th>4</th>
@@ -298,6 +298,23 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                          </th>
                         
                       </tr>
+                      <tr>
+                      -->
+                      <!-- "SUMA TOTAL DE CAPACITACIONES" -->
+                        <th>4</th>
+                        <th>Suma Total</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="number" class="form-control input-lg" id="nuevoCapacitaciones_Suma_Total" value="0" name="nuevoCapacitaciones_Suma_Total" readonly>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+
 
               </table>
         
@@ -499,7 +516,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarCapacitaciones_Recibidas" name="EditarCapacitaciones_Recibidas" required>
+                                <input type="number" class="form-control input-lg montoCAA" onchange="sumarCAA();" id="EditarCapacitaciones_Recibidas" name="EditarCapacitaciones_Recibidas" required>
 
                             </div>
                         </th>
@@ -517,7 +534,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarCapacitaciones_Ortogadas" name="EditarCapacitaciones_Ortogadas" required>
+                                <input type="number" class="form-control input-lg montoCAA" onchange="sumarCAA();" id="EditarCapacitaciones_Ortogadas" name="EditarCapacitaciones_Ortogadas" required>
 
                             </div>
                          </th>
@@ -543,7 +560,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                       </tr>
 
                       <!-- "Demas acciones realizadas en Transparencia, Acceso a la Información y de Interés Público que se Realicen" -->
-
+                      <!--
                       <tr>
 
                         <th>4</th>
@@ -554,6 +571,25 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
                                 <input type="text" class="form-control input-lg" id="EditarCapacitaciones_Acciones_Realizadas_Transparencia" name="EditarCapacitaciones_Acciones_Realizadas_Transparencia" required>
+
+                            </div>
+                         </th>
+                        
+                      </tr>
+                      -->
+
+                      <!-- Sistema Infomex - "Total Servidores Publicos" -->
+
+                      <tr>
+
+                        <th>4</th>
+                        <th>Suma Total</th>
+                        <th> 
+                          <div class="input-group">
+
+                            <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                                <input type="number" class="form-control input-lg" id="EditarCapacitaciones_Suma_Total" value="0" name="EditarCapacitaciones_Suma_Total" readonly>
 
                             </div>
                          </th>

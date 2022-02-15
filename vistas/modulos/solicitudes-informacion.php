@@ -187,7 +187,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="nuevoAnioSI" name="nuevoAnioSI" placeholder="AÑO" required>
+                          <input type="number" class="form-control input-lg" id="nuevoAnioSI" name="nuevoAnioSI" placeholder="AÑO" required>
 
                     </div>
 
@@ -2819,7 +2819,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                       <span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-                          <input type="text" class="form-control input-lg" id="EditarAnioSI" name="EditarAnioSI" readonly required>
+                          <input type="number" class="form-control input-lg" id="EditarAnioSI" name="EditarAnioSI" readonly>
 
                     </div>
 
@@ -2835,7 +2835,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                    <input type="text" class="form-control input-lg" id="EditarSI_Total" name="EditarSI_Total" require>
+                    <input type="number" class="form-control input-lg" id="EditarSI_Total" name="EditarSI_Total" require>
 
               </div>
     
@@ -2906,7 +2906,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_Personal_Escrito" name="EditarSI_MP_Personal_Escrito" require>
+                                <input type="number" class="form-control input-lg montoSIMPA" onchange="sumarSIMPA();" id="EditarSI_MP_Personal_Escrito" name="EditarSI_MP_Personal_Escrito" require>
 
                             </div>
                         </th>
@@ -2924,7 +2924,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_Correo_Electronico" name="EditarSI_MP_Correo_Electronico" require>
+                                <input type="number" class="form-control input-lg montoSIMPA" onchange="sumarSIMPA();" id="EditarSI_MP_Correo_Electronico" name="EditarSI_MP_Correo_Electronico" require>
 
                             </div>
                          </th>
@@ -2942,7 +2942,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_Sistema_Informex" name="EditarSI_MP_Sistema_Informex" require>
+                                <input type="number" class="form-control input-lg montoSIMPA" onchange="sumarSIMPA();" id="EditarSI_MP_Sistema_Informex" name="EditarSI_MP_Sistema_Informex" require>
 
                             </div>
                          </th>
@@ -2960,7 +2960,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_PNT" name="EditarSI_MP_PNT" require >
+                                <input type="number" class="form-control input-lg montoSIMPA" onchange="sumarSIMPA();" id="EditarSI_MP_PNT" name="EditarSI_MP_PNT" require >
 
                             </div>
                          </th>
@@ -2978,7 +2978,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_No_Disponible" name="EditarSI_MP_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSIMPA" onchange="sumarSIMPA();" id="EditarSI_MP_No_Disponible" name="EditarSI_MP_No_Disponible" require >
 
                             </div>
                          </th>
@@ -2996,7 +2996,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MP_Suma_Total" name="EditarSI_MP_Suma_Total" required >
+                                <input type="number" class="form-control input-lg" id="EditarSI_MP_Suma_Total" value="0" name="EditarSI_MP_Suma_Total" readonly >
 
                             </div>
                          </th>
@@ -3074,7 +3074,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_TS_Persona_Fisica" name="EditarSI_TS_Persona_Fisica" require>
+                                <input type="number" class="form-control input-lg montoSITSA" onchange="sumarSITSA();" id="EditarSI_TS_Persona_Fisica" name="EditarSI_TS_Persona_Fisica" require>
 
                             </div>
                         </th>
@@ -3092,7 +3092,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_TS_Personal_Moral" name="EditarSI_TS_Personal_Moral" require>
+                                <input type="number" class="form-control input-lg montoSITSA" onchange="sumarSITSA();" id="EditarSI_TS_Personal_Moral" name="EditarSI_TS_Personal_Moral" require>
 
                             </div>
                          </th>
@@ -3110,7 +3110,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_TS_No_Disponible" name="EditarSI_TS_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSITSA" onchange="sumarSITSA();" id="EditarSI_TS_No_Disponible" name="EditarSI_TS_No_Disponible" require >
 
                             </div>
                          </th>
@@ -3128,7 +3128,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_TS_Suma_Total" name="EditarSI_TS_Suma_Total" require >
+                                <input type="number" class="form-control input-lg" id="EditarSI_TS_Suma_Total" value="0" name="EditarSI_TS_Suma_Total" readonly >
 
                             </div>
                          </th>
@@ -3206,7 +3206,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_Genero_Masculino" name="EditarSI_Genero_Masculino" require>
+                                <input type="number" class="form-control input-lg montoSIGSA" onchange="sumarSIGSA();" id="EditarSI_Genero_Masculino" name="EditarSI_Genero_Masculino" require>
 
                             </div>
                         </th>
@@ -3224,7 +3224,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_Genero_Femenino" name="EditarSI_Genero_Femenino" require>
+                                <input type="number" class="form-control input-lg montoSIGSA" onchange="sumarSIGSA();" id="EditarSI_Genero_Femenino" name="EditarSI_Genero_Femenino" require>
 
                             </div>
                          </th>
@@ -3242,7 +3242,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_Genero_Anonimo" name="EditarSI_Genero_Anonimo" require>
+                                <input type="number" class="form-control input-lg montoSIGSA" onchange="sumarSIGSA();" id="EditarSI_Genero_Anonimo" name="EditarSI_Genero_Anonimo" require>
 
                             </div>
                          </th>
@@ -3260,7 +3260,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_Genero_No_Disponible" name="EditarSI_Genero_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSIGSA" onchange="sumarSIGSA();" id="EditarSI_Genero_No_Disponible" name="EditarSI_Genero_No_Disponible" require >
 
                             </div>
                          </th>
@@ -3278,7 +3278,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_Genero_Suma_Total" name="EditarSI_Genero_Suma_Total" require >
+                                <input type="number" class="form-control input-lg" id="EditarSI_Genero_Suma_Total" value="0" name="EditarSI_Genero_Suma_Total" readonly >
 
                             </div>
                          </th>
@@ -3356,7 +3356,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_IS_Obligaciones_Transparencia" name="EditarSI_IS_Obligaciones_Transparencia" require>
+                                <input type="number" class="form-control input-lg montoSIISA" onchange="sumarSIISA();" id="EditarSI_IS_Obligaciones_Transparencia" name="EditarSI_IS_Obligaciones_Transparencia" require>
 
                             </div>
                         </th>
@@ -3374,7 +3374,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_IS_Reservada" name="EditarSI_IS_Reservada" require>
+                                <input type="number" class="form-control input-lg montoSIISA" onchange="sumarSIISA();" id="EditarSI_IS_Reservada" name="EditarSI_IS_Reservada" require>
 
                             </div>
                          </th>
@@ -3392,7 +3392,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_IS_Confidencial" name="EditarSI_IS_Confidencial" require >
+                                <input type="number" class="form-control input-lg montoSIISA" onchange="sumarSIISA();" id="EditarSI_IS_Confidencial" name="EditarSI_IS_Confidencial" require >
 
                             </div>
                          </th>
@@ -3410,7 +3410,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_IS_Otro" name="EditarSI_IS_Otro" require >
+                                <input type="number" class="form-control input-lg montoSIISA" onchange="sumarSIISA();" id="EditarSI_IS_Otro" name="EditarSI_IS_Otro" require >
 
                             </div>
                          </th>
@@ -3428,7 +3428,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_IS_No_Disponible" name="EditarSI_IS_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSIISA" onchange="sumarSIISA();" id="EditarSI_IS_No_Disponible" name="EditarSI_IS_No_Disponible" require >
 
                             </div>
                          </th>
@@ -3446,7 +3446,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_IS_Suma_Total" name="EditarSI_IS_Suma_Total" require >
+                                <input type="number" class="form-control input-lg" id="EditarSI_IS_Suma_Total" value="0" name="EditarSI_IS_Suma_Total" readonly >
 
                             </div>
                          </th>
@@ -3525,7 +3525,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_T_Solicitudes_Concluidas" name="EditarSI_T_Solicitudes_Concluidas" require>
+                                <input type="number" class="form-control input-lg montoSITA" onchange="sumarSITA();" id="EditarSI_T_Solicitudes_Concluidas" name="EditarSI_T_Solicitudes_Concluidas" require>
 
                             </div>
                         </th>
@@ -3543,7 +3543,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_T_Solicitudes_Pendientes" name="EditarSI_T_Solicitudes_Pendientes" require>
+                                <input type="number" class="form-control input-lg montoSITA" onchange="sumarSITA();" id="EditarSI_T_Solicitudes_Pendientes" name="EditarSI_T_Solicitudes_Pendientes" require>
 
                             </div>
                          </th>
@@ -3561,7 +3561,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_T_No_Disponible" name="EditarSI_T_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSITA" onchange="sumarSITA();" id="EditarSI_T_No_Disponible" name="EditarSI_T_No_Disponible" require >
 
                             </div>
                          </th>
@@ -3579,7 +3579,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_T_Suma_Total" name="EditarSI_T_Suma_Total" require >
+                                <input type="text" class="form-control input-lg" id="EditarSI_T_Suma_Total" value="0" name="EditarSI_T_Suma_Total" readonly >
 
                             </div>
                          </th>
@@ -3657,7 +3657,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_Medios_electronicos" name="EditarSI_MR_Medios_electronicos" require>
+                                <input type="number" class="form-control input-lg montoSIMRA" onchange="sumarSIMRA();" id="EditarSI_MR_Medios_electronicos" name="EditarSI_MR_Medios_electronicos" require>
 
                             </div>
                         </th>
@@ -3675,7 +3675,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_Copia_Simple" name="EditarSI_MR_Copia_Simple" require>
+                                <input type="number" class="form-control input-lg montoSIMRA" onchange="sumarSIMRA();" id="EditarSI_MR_Copia_Simple" name="EditarSI_MR_Copia_Simple" require>
 
                             </div>
                          </th>
@@ -3693,7 +3693,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_Consulta_Directa" name="EditarSI_MR_Consulta_Directa" require >
+                                <input type="number" class="form-control input-lg montoSIMRA" onchange="sumarSIMRA();" id="EditarSI_MR_Consulta_Directa" name="EditarSI_MR_Consulta_Directa" require >
 
                             </div>
                          </th>
@@ -3711,7 +3711,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_Copia_Certificada" name="EditarSI_MR_Copia_Certificada" require >
+                                <input type="number" class="form-control input-lg montoSIMRA" onchange="sumarSIMRA();" id="EditarSI_MR_Copia_Certificada" name="EditarSI_MR_Copia_Certificada" require >
 
                             </div>
                          </th>
@@ -3729,7 +3729,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_Otro" name="EditarSI_MR_Otro" require >
+                                <input type="number" class="form-control input-lg montoSIMRA" onchange="sumarSIMRA();" id="EditarSI_MR_Otro" name="EditarSI_MR_Otro" require >
 
                             </div>
                          </th>
@@ -3747,7 +3747,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_No_Disponible" name="EditarSI_MR_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSIMRA" onchange="sumarSIMRA();" id="EditarSI_MR_No_Disponible" name="EditarSI_MR_No_Disponible" require >
 
                             </div>
                          </th>
@@ -3765,7 +3765,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_MR_Suma_Total" name="EditarSI_MR_Suma_Total" require >
+                                <input type="number" class="form-control input-lg" id="EditarSI_MR_Suma_Total" value="0" name="EditarSI_MR_Suma_Total" readonly >
 
                             </div>
                          </th>
@@ -3850,7 +3850,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Marco_Normativo" name="EditarSI_OS_Marco_Normativo" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Marco_Normativo" name="EditarSI_OS_Marco_Normativo" require>
 
                                       </div>
                                   </th>
@@ -3868,7 +3868,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Estructura_Organica" name="EditarSI_OS_Estructura_Organica" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Estructura_Organica" name="EditarSI_OS_Estructura_Organica" require>
 
                                       </div>
                                   </th>
@@ -3886,7 +3886,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Funciones_Cada_Area" name="EditarSI_OS_Funciones_Cada_Area" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Funciones_Cada_Area" name="EditarSI_OS_Funciones_Cada_Area" require>
 
                                       </div>
                                   </th>
@@ -3904,7 +3904,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Metas_Objetivos" name="EditarSI_OS_Metas_Objetivos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Metas_Objetivos" name="EditarSI_OS_Metas_Objetivos" require>
 
                                       </div>
                                   </th>
@@ -3922,7 +3922,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Indicadores_Relacionados" name="EditarSI_OS_Indicadores_Relacionados" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Indicadores_Relacionados" name="EditarSI_OS_Indicadores_Relacionados" require>
 
                                       </div>
                                   </th>
@@ -3940,7 +3940,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Indicadores_Rendir_Cuentas" name="EditarSI_OS_Indicadores_Rendir_Cuentas" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Indicadores_Rendir_Cuentas" name="EditarSI_OS_Indicadores_Rendir_Cuentas" require>
 
                                       </div>
                                   </th>
@@ -3958,7 +3958,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Servidores_Publicos" name="EditarSI_OS_Servidores_Publicos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Servidores_Publicos" name="EditarSI_OS_Servidores_Publicos" require>
 
                                       </div>
                                   </th>
@@ -3976,7 +3976,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Remuneraciones_Personal" name="EditarSI_OS_Remuneraciones_Personal" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Remuneraciones_Personal" name="EditarSI_OS_Remuneraciones_Personal" require>
 
                                       </div>
                                   </th>
@@ -3994,7 +3994,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Gastos_Representacion_Viaticos" name="EditarSI_OS_Gastos_Representacion_Viaticos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Gastos_Representacion_Viaticos" name="EditarSI_OS_Gastos_Representacion_Viaticos" require>
 
                                       </div>
                                   </th>
@@ -4012,7 +4012,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Plazas_Vacantes" name="EditarSI_OS_Plazas_Vacantes" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Plazas_Vacantes" name="EditarSI_OS_Plazas_Vacantes" require>
 
                                       </div>
                                   </th>
@@ -4030,7 +4030,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Contratacion_Servicios" name="EditarSI_OS_Contratacion_Servicios" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Contratacion_Servicios" name="EditarSI_OS_Contratacion_Servicios" require>
 
                                       </div>
                                   </th>
@@ -4048,7 +4048,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Versiones_Públicas" name="EditarSI_OS_Versiones_Públicas" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Versiones_Públicas" name="EditarSI_OS_Versiones_Públicas" require>
 
                                       </div>
                                   </th>
@@ -4066,7 +4066,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Domicilio_Dirección" name="EditarSI_OS_Domicilio_Dirección" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Domicilio_Dirección" name="EditarSI_OS_Domicilio_Dirección" require>
 
                                       </div>
                                   </th>
@@ -4084,7 +4084,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Convocatoria_Concursos" name="EditarSI_OS_Convocatoria_Concursos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Convocatoria_Concursos" name="EditarSI_OS_Convocatoria_Concursos" require>
 
                                       </div>
                                   </th>
@@ -4102,7 +4102,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Informacion_Programas" name="EditarSI_OS_Informacion_Programas" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Informacion_Programas" name="EditarSI_OS_Informacion_Programas" require>
 
                                       </div>
                                   </th>
@@ -4120,7 +4120,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Condiciones_Generales_Trabajo" name="EditarSI_OS_Condiciones_Generales_Trabajo" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Condiciones_Generales_Trabajo" name="EditarSI_OS_Condiciones_Generales_Trabajo" require>
 
                                       </div>
                                   </th>
@@ -4138,7 +4138,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Recursos_Publicos_Economicos" name="EditarSI_OS_Recursos_Publicos_Economicos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Recursos_Publicos_Economicos" name="EditarSI_OS_Recursos_Publicos_Economicos" require>
 
                                       </div>
                                   </th>
@@ -4156,7 +4156,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Información_Curricular" name="EditarSI_OS_Información_Curricular" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Información_Curricular" name="EditarSI_OS_Información_Curricular" require>
 
                                       </div>
                                   </th>
@@ -4174,7 +4174,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Servidores_Publicos_Sancionados" name="EditarSI_OS_Servidores_Publicos_Sancionados" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Servidores_Publicos_Sancionados" name="EditarSI_OS_Servidores_Publicos_Sancionados" require>
 
                                       </div>
                                   </th>
@@ -4192,7 +4192,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Servicios_Ofrecen" name="EditarSI_OS_Servicios_Ofrecen" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Servicios_Ofrecen" name="EditarSI_OS_Servicios_Ofrecen" require>
 
                                       </div>
                                   </th>
@@ -4210,7 +4210,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Tramites_Requisitos_Formatos" name="EditarSI_OS_Tramites_Requisitos_Formatos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Tramites_Requisitos_Formatos" name="EditarSI_OS_Tramites_Requisitos_Formatos" require>
 
                                       </div>
                                   </th>
@@ -4228,7 +4228,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Presupuesto_Asignado" name="EditarSI_OS_Presupuesto_Asignado" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Presupuesto_Asignado" name="EditarSI_OS_Presupuesto_Asignado" require>
 
                                       </div>
                                   </th>
@@ -4246,7 +4246,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Informacion_Relativa" name="EditarSI_OS_Informacion_Relativa" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Informacion_Relativa" name="EditarSI_OS_Informacion_Relativa" require>
 
                                       </div>
                                   </th>
@@ -4264,7 +4264,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Montos_Designados" name="EditarSI_OS_Montos_Designados" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Montos_Designados" name="EditarSI_OS_Montos_Designados" require>
 
                                       </div>
                                   </th>
@@ -4282,7 +4282,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Informes_Resultados_Auditorias" name="EditarSI_OS_Informes_Resultados_Auditorias" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Informes_Resultados_Auditorias" name="EditarSI_OS_Informes_Resultados_Auditorias" require>
 
                                       </div>
                                   </th>
@@ -4300,7 +4300,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Resultados_Dictaminación" name="EditarSI_OS_Resultados_Dictaminación" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Resultados_Dictaminación" name="EditarSI_OS_Resultados_Dictaminación" require>
 
                                       </div>
                                   </th>
@@ -4318,7 +4318,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Montos_Criterios_Convocatorias" name="EditarSI_OS_Montos_Criterios_Convocatorias" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Montos_Criterios_Convocatorias" name="EditarSI_OS_Montos_Criterios_Convocatorias" require>
 
                                       </div>
                                   </th>
@@ -4336,7 +4336,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Concesiones_Contratos_Convenios" name="EditarSI_OS_Concesiones_Contratos_Convenios" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Concesiones_Contratos_Convenios" name="EditarSI_OS_Concesiones_Contratos_Convenios" require>
 
                                       </div>
                                   </th>
@@ -4354,7 +4354,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Resultados_Procesos" name="EditarSI_OS_Resultados_Procesos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Resultados_Procesos" name="EditarSI_OS_Resultados_Procesos" require>
 
                                       </div>
                                   </th>
@@ -4372,7 +4372,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Informes_Resultados" name="EditarSI_OS_Informes_Resultados" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Informes_Resultados" name="EditarSI_OS_Informes_Resultados" require>
 
                                       </div>
                                   </th>
@@ -4390,7 +4390,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Estadisticas_Generen_Cumplimiento" name="EditarSI_OS_Estadisticas_Generen_Cumplimiento" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Estadisticas_Generen_Cumplimiento" name="EditarSI_OS_Estadisticas_Generen_Cumplimiento" require>
 
                                       </div>
                                   </th>
@@ -4408,7 +4408,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Avances_Programaticos" name="EditarSI_OS_Avances_Programaticos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Avances_Programaticos" name="EditarSI_OS_Avances_Programaticos" require>
 
                                       </div>
                                   </th>
@@ -4426,7 +4426,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Padrón_Proveedores" name="EditarSI_OS_Padrón_Proveedores" require >
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Padrón_Proveedores" name="EditarSI_OS_Padrón_Proveedores" require >
 
                                       </div>
                                   </th>
@@ -4444,7 +4444,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Convenios_Coordinación" name="EditarSI_OS_Convenios_Coordinación" require >
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Convenios_Coordinación" name="EditarSI_OS_Convenios_Coordinación" require >
 
                                       </div>
                                   </th>
@@ -4462,7 +4462,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Inventario_Bienes" name="EditarSI_OS_Inventario_Bienes" require >
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Inventario_Bienes" name="EditarSI_OS_Inventario_Bienes" require >
 
                                       </div>
                                   </th>
@@ -4504,7 +4504,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Recomendaciones_Emitidas" name="EditarSI_OS_Recomendaciones_Emitidas" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Recomendaciones_Emitidas" name="EditarSI_OS_Recomendaciones_Emitidas" require>
 
                                       </div>
                                   </th>
@@ -4522,7 +4522,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Resoluciones_Laudos" name="EditarSI_OS_Resoluciones_Laudos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Resoluciones_Laudos" name="EditarSI_OS_Resoluciones_Laudos" require>
 
                                       </div>
                                   </th>
@@ -4540,7 +4540,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Mecanismos_Participación" name="EditarSI_OS_Mecanismos_Participación" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Mecanismos_Participación" name="EditarSI_OS_Mecanismos_Participación" require>
 
                                       </div>
                                   </th>
@@ -4558,7 +4558,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Programas_Ofrecidoss" name="EditarSI_OS_Programas_Ofrecidoss" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Programas_Ofrecidoss" name="EditarSI_OS_Programas_Ofrecidoss" require>
 
                                       </div>
                                   </th>
@@ -4576,7 +4576,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Actas_Resoluciones" name="EditarSI_OS_Actas_Resoluciones" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Actas_Resoluciones" name="EditarSI_OS_Actas_Resoluciones" require>
 
                                       </div>
                                   </th>
@@ -4594,7 +4594,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Evaluaciones_Encuentas" name="EditarSI_OS_Evaluaciones_Encuentas" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Evaluaciones_Encuentas" name="EditarSI_OS_Evaluaciones_Encuentas" require>
 
                                       </div>
                                   </th>
@@ -4612,7 +4612,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Estudios_Financiados" name="EditarSI_OS_Estudios_Financiados" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Estudios_Financiados" name="EditarSI_OS_Estudios_Financiados" require>
 
                                       </div>
                                   </th>
@@ -4630,7 +4630,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Listado_Jubilados" name="EditarSI_OS_Listado_Jubilados" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Listado_Jubilados" name="EditarSI_OS_Listado_Jubilados" require>
 
                                       </div>
                                   </th>
@@ -4648,7 +4648,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Gastos_Ingresos_Recibidos" name="EditarSI_OS_Gastos_Ingresos_Recibidos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Gastos_Ingresos_Recibidos" name="EditarSI_OS_Gastos_Ingresos_Recibidos" require>
 
                                       </div>
                                   </th>
@@ -4666,7 +4666,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Donaciones_Hechas" name="EditarSI_OS_Donaciones_Hechas" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Donaciones_Hechas" name="EditarSI_OS_Donaciones_Hechas" require>
 
                                       </div>
                                   </th>
@@ -4684,7 +4684,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Catalogos_Disposicion" name="EditarSI_OS_Catalogos_Disposicion" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Catalogos_Disposicion" name="EditarSI_OS_Catalogos_Disposicion" require>
 
                                       </div>
                                   </th>
@@ -4702,7 +4702,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Actas_Sesiones" name="EditarSI_OS_Actas_Sesiones" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Actas_Sesiones" name="EditarSI_OS_Actas_Sesiones" require>
 
                                       </div>
                                   </th>
@@ -4720,7 +4720,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Listado_Solicitudes" name="EditarSI_OS_Listado_Solicitudes" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Listado_Solicitudes" name="EditarSI_OS_Listado_Solicitudes" require>
 
                                       </div>
                                   </th>
@@ -4738,7 +4738,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Gacetas_Municipales" name="EditarSI_OS_Gacetas_Municipales" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Gacetas_Municipales" name="EditarSI_OS_Gacetas_Municipales" require>
 
                                       </div>
                                   </th>
@@ -4756,7 +4756,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Plan_Desarrollo" name="EditarSI_OS_Plan_Desarrollo" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Plan_Desarrollo" name="EditarSI_OS_Plan_Desarrollo" require>
 
                                       </div>
                                   </th>
@@ -4774,7 +4774,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Condiciones_Generales_Trabajo_Relaciones" name="EditarSI_OS_Condiciones_Generales_Trabajo_Relaciones" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Condiciones_Generales_Trabajo_Relaciones" name="EditarSI_OS_Condiciones_Generales_Trabajo_Relaciones" require>
 
                                       </div>
                                   </th>
@@ -4792,7 +4792,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Recursos_Publicos_Economicos_Especies" name="EditarSI_OS_Recursos_Publicos_Economicos_Especies" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Recursos_Publicos_Economicos_Especies" name="EditarSI_OS_Recursos_Publicos_Economicos_Especies" require>
 
                                       </div>
                                   </th>
@@ -4810,7 +4810,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Plan_Desarrollo_Urbano" name="EditarSI_OS_Plan_Desarrollo_Urbano" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Plan_Desarrollo_Urbano" name="EditarSI_OS_Plan_Desarrollo_Urbano" require>
 
                                       </div>
                                   </th>
@@ -4828,7 +4828,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Programa_Ordenamiento" name="EditarSI_OS_Programa_Ordenamiento" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Programa_Ordenamiento" name="EditarSI_OS_Programa_Ordenamiento" require>
 
                                       </div>
                                   </th>
@@ -4846,7 +4846,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Programa_Suelo" name="EditarSI_OS_Programa_Suelo" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Programa_Suelo" name="EditarSI_OS_Programa_Suelo" require>
 
                                       </div>
                                   </th>
@@ -4864,7 +4864,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Tipos_Suelo" name="EditarSI_OS_Tipos_Suelo" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Tipos_Suelo" name="EditarSI_OS_Tipos_Suelo" require>
 
                                       </div>
                                   </th>
@@ -4882,7 +4882,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Licencia_Suelo" name="EditarSI_OS_Licencia_Suelo" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Licencia_Suelo" name="EditarSI_OS_Licencia_Suelo" require>
 
                                       </div>
                                   </th>
@@ -4900,7 +4900,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Licencias_Construcción" name="EditarSI_OS_Licencias_Construcción" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Licencias_Construcción" name="EditarSI_OS_Licencias_Construcción" require>
 
                                       </div>
                                   </th>
@@ -4918,7 +4918,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Montos_Designados_Social" name="EditarSI_OS_Montos_Designados_Social" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Montos_Designados_Social" name="EditarSI_OS_Montos_Designados_Social" require>
 
                                       </div>
                                   </th>
@@ -4936,7 +4936,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Actas_Cabildos" name="EditarSI_OS_Actas_Cabildos" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Actas_Cabildos" name="EditarSI_OS_Actas_Cabildos" require>
 
                                       </div>
                                   </th>
@@ -4954,7 +4954,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Presupuesto_Sostenible" name="EditarSI_OS_Presupuesto_Sostenible" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Presupuesto_Sostenible" name="EditarSI_OS_Presupuesto_Sostenible" require>
 
                                       </div>
                                   </th>
@@ -4972,7 +4972,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Evaluaciones_LDF" name="EditarSI_OS_Evaluaciones_LDF" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Evaluaciones_LDF" name="EditarSI_OS_Evaluaciones_LDF" require>
 
                                       </div>
                                   </th>
@@ -4990,7 +4990,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Subsidios" name="EditarSI_OS_Subsidios" require>
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Subsidios" name="EditarSI_OS_Subsidios" require>
 
                                       </div>
                                   </th>
@@ -5008,7 +5008,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Otro" name="EditarSI_OS_Otro" require >
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_Otro" name="EditarSI_OS_Otro" require >
 
                                       </div>
                                   </th>
@@ -5026,7 +5026,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_No_Disponible" name="EditarSI_OS_No_Disponible" require >
+                                          <input type="number" class="form-control input-lg montoSIOSA" onchange="sumarSIOSA();" id="EditarSI_OS_No_Disponible" name="EditarSI_OS_No_Disponible" require >
 
                                       </div>
                                   </th>
@@ -5044,7 +5044,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                       <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                          <input type="text" class="form-control input-lg" id="EditarSI_OS_Suma_Total" name="EditarSI_OS_Suma_Total" require >
+                                          <input type="number" class="form-control input-lg" id="EditarSI_OS_Suma_Total" value="0" name="EditarSI_OS_Suma_Total" readonly >
 
                                       </div>
                                   </th>
@@ -5126,7 +5126,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Informacion_Total" name="EditarSI_SR_Informacion_Total" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Informacion_Total" name="EditarSI_SR_Informacion_Total" require>
 
                             </div>
                         </th>
@@ -5144,7 +5144,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Informacion_Parcial" name="EditarSI_SR_Informacion_Parcial" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Informacion_Parcial" name="EditarSI_SR_Informacion_Parcial" require>
 
                             </div>
                          </th>
@@ -5162,7 +5162,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Negada_Clasificación" name="EditarSI_SR_Negada_Clasificación" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Negada_Clasificación" name="EditarSI_SR_Negada_Clasificación" require>
 
                             </div>
                          </th>
@@ -5180,7 +5180,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Inexistencia_Informacion" name="EditarSI_SR_Inexistencia_Informacion" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Inexistencia_Informacion" name="EditarSI_SR_Inexistencia_Informacion" require>
 
                             </div>
                          </th>
@@ -5198,7 +5198,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Mixta" name="EditarSI_SR_Mixta" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Mixta" name="EditarSI_SR_Mixta" require>
 
                             </div>
                          </th>
@@ -5216,7 +5216,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_No_Aclarada" name="EditarSI_SR_No_Aclarada" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_No_Aclarada" name="EditarSI_SR_No_Aclarada" require>
 
                             </div>
                          </th>
@@ -5234,7 +5234,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Orientada" name="EditarSI_SR_Orientada" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Orientada" name="EditarSI_SR_Orientada" require>
 
                             </div>
                          </th>
@@ -5252,7 +5252,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_En_Tramite" name="EditarSI_SR_En_Tramite" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_En_Tramite" name="EditarSI_SR_En_Tramite" require>
 
                             </div>
                          </th>
@@ -5270,7 +5270,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Improcedente" name="EditarSI_SR_Improcedente" require>
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Improcedente" name="EditarSI_SR_Improcedente" require>
 
                             </div>
                          </th>
@@ -5288,7 +5288,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Otros" name="EditarSI_SR_Otros" require >
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_Otros" name="EditarSI_SR_Otros" require >
 
                             </div>
                          </th>
@@ -5306,7 +5306,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_No_Disponible" name="EditarSI_SR_No_Disponible" require >
+                                <input type="number" class="form-control input-lg montoSISRA" onchange="sumarSISRA();" id="EditarSI_SR_No_Disponible" name="EditarSI_SR_No_Disponible" require >
 
                             </div>
                          </th>
@@ -5324,7 +5324,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
-                                <input type="text" class="form-control input-lg" id="EditarSI_SR_Suma_Total" name="EditarSI_SR_Suma_Total" require >
+                                <input type="number" class="form-control input-lg" id="EditarSI_SR_Suma_Total" value="0" name="EditarSI_SR_Suma_Total" readonly >
 
                             </div>
                          </th>

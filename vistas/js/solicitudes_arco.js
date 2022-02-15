@@ -324,18 +324,19 @@ $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function()
 /* ================= SUBIR ARCHIVO - SOLICITUDES ARCO ====================== */
 
 $(".nuevoArchivoSA").change(function() {
+  
 
   var archivo = this.files[0];
 
   /* ============ === VALIDAD QUE SEA ARCHIVO PDF ================== */
 
-  if (archivo["type"] != "application/pdf" ){
+  if (archivo["type"] != "application/pdf" && archivo["type"] != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" && archivo["type"] != "application/vnd.ms-excel" ){
 
     $(".nuevoArchivoSA").val("");
 
     swal({
       title: "Error al subir el archivo",
-      text: "¡La archivo debe estar en formato PDF!",
+      text: "¡La archivo debe estar en formato .PDF, .XLSX, .XLS!",
       type: "error",
       confirmButtonText: "¡Cerrar!"
     });
@@ -353,7 +354,7 @@ $(".nuevoArchivoSA").change(function() {
 
 })
 
-/*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS ===============================*/
+/*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS - AGREGAR LA SOLICITUD - ===============================*/
 
  // Funcion para estableces la suma Solicitudes ARCO - Medios de Presentacion
 
@@ -447,6 +448,107 @@ $(".nuevoArchivoSA").change(function() {
     const $total = document.getElementById('nuevoSA_SR_Suma_Total');
     let subtotal = 0;
     [ ...document.getElementsByClassName( "montoSASR" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+ 
+/*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS - ACTUALIZAR LA SOLICITUD - ===============================*/
+
+ // Funcion para estableces la suma Solicitudes ARCO - Medios de Presentacion
+
+ function sumarSAMPA()
+ {
+   const $total = document.getElementById('EditarSolicitudesArco_MP_Suma_Total');
+   let subtotal = 0;
+   [ ...document.getElementsByClassName( "montoSAMPA" ) ].forEach( function ( element ) {
+     if(element.value !== '') {
+       subtotal += parseFloat(element.value);
+     }
+   });
+   $total.value = subtotal;
+ }
+ 
+ // Funcion para estableces la suma Solicitudes de Informacion - Tipo de Solicitante
+
+ function sumarSATSA()
+  {
+   const $total = document.getElementById('EditarSolicitudesArco_TS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSATSA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+ // Funcion para estableces la suma Solicitudes de Informacion - Genero del Solicitante
+
+  function sumarSAGSA()
+  {
+    const $total = document.getElementById('EditarSolicitudesArco_GS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAGSA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Información Solicitada
+
+  function sumarSAISA()
+  {
+    const $total = document.getElementById('EditarSolicitudesArco_IS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAISA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Tramites
+
+  function sumarSATA()
+  {
+    const $total = document.getElementById('EditarSolicitudesArco_T_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSATA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Modalidad de Respuesta
+
+  function sumarSAMRA()
+  {
+    const $total = document.getElementById('EditarSolicitudesArco_MR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSAMRA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Sentido que emite la Respuesta
+
+  function sumarSASRA()
+  {
+    const $total = document.getElementById('EditarSolicitudesArco_SR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSASRA" ) ].forEach( function ( element ) {
       if(element.value !== '') {
         subtotal += parseFloat(element.value);
       }

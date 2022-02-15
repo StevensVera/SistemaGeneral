@@ -7,14 +7,14 @@ session_start();
 require_once "../../../controladores/solicitudes-informacion.controlador.php";
 require_once "../../../controladores/solicitudes-arco.controlador.php";
 require_once "../../../controladores/capacitaciones.controlador.php";
-//require_once "../../../controladores/administracionSO.controlador.php";
+require_once "../../../controladores/administracionSO.controlador.php";
 
 /* ===============================  MODELO INFORMACIÓN DE SOLICITUD  ================================================*/
 /* === Modelo INFORMACIÓN DE SOLICITUD === */
 require_once "../../../modelos/solicitudes-informacion.modelo.php";
 require_once "../../../modelos/solicitudes-arco.modelo.php";
 require_once "../../../modelos/capacitaciones.modelo.php";
-//require_once "../../../modelos/administracionSO.modelo.php";
+require_once "../../../modelos/administracionSO.modelo.php";
 
 // Include the main TCPDF library (search for installation path).
 require_once('tcpdf_include.php');

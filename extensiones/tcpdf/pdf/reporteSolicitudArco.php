@@ -89,6 +89,7 @@ $respuestaSolicitudesArco = ControladorSolicitudesArco::ctrMostrarPDFSolicitudes
 $sujetoObligado = substr($respuestaSolicitudesArco["SA_Nombre_Sujeto_Obligado"],0,150);
 $InformeEntrega = substr($respuestaSolicitudesArco["SA_Informe_Presentado"],0,50);
 $Año = substr($respuestaSolicitudesArco["SA_Anios"],0,50);
+$TotalSolicitudes = substr($respuestaSolicitudesArco["SA_TOTAL_SOLICITUDES"],0,50);
 /* ==================  Solicitudes de Acceso a la Información  ====================== */
                // ----------- Medio de Presentación -----------//
 $PersonalEscrito = substr($respuestaSolicitudesArco["SA_Medio_Presentacion_Personal_Escrito"],0,50);
@@ -212,6 +213,10 @@ $pdf->AddPage();
     <tr>
       <td style="background-color:#DADADA;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">Año</span> </td>
       <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;">$Año</span></td>
+    </tr>
+    <tr>
+      <td style="background-color:#DADADA;color:#000000;" WIDTH="30%" align="center"> <span style="font: size 8px;pt;font-weight:bold;">Total de Solicitudes</span> </td>
+      <td WIDTH="70%" align="center"> <span style="font: size 8px;pt;">$TotalSolicitudes</span></td>
     </tr>
   </table>
 

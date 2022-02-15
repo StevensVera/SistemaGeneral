@@ -51,7 +51,7 @@
                         CA_Capacitaciones_Recibidas,
                         CA_Capacitaciones_Ortogadas,
                         CA_Total_Servidores_Publicos,
-                        CA_Acciones_Realizadas_Transparencia,
+                        CA_Suma_Total,
                         CA_Archivo
                         )
                         VALUES(
@@ -66,7 +66,7 @@
                         :CA_Capacitaciones_Recibidas,
                         :CA_Capacitaciones_Ortogadas,
                         :CA_Total_Servidores_Publicos,
-                        :CA_Acciones_Realizadas_Transparencia,
+                        :CA_Suma_Total,
                         :CA_Archivo
 
                         )");
@@ -82,7 +82,7 @@
                         $stmt -> bindParam(":CA_Capacitaciones_Recibidas", $datos["CA_Capacitaciones_Recibidas"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Capacitaciones_Ortogadas", $datos["CA_Capacitaciones_Ortogadas"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Total_Servidores_Publicos", $datos["CA_Total_Servidores_Publicos"], PDO::PARAM_STR);
-                        $stmt -> bindParam(":CA_Acciones_Realizadas_Transparencia", $datos["CA_Acciones_Realizadas_Transparencia"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Suma_Total", $datos["CA_Suma_Total"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Archivo", $datos["CA_Archivo"], PDO::PARAM_STR);
 
                         if ($stmt -> execute()) {
@@ -142,7 +142,7 @@
                CA_Capacitaciones_Recibidas = :CA_Capacitaciones_Recibidas,
                CA_Capacitaciones_Ortogadas = :CA_Capacitaciones_Ortogadas,
                CA_Total_Servidores_Publicos = :CA_Total_Servidores_Publicos,
-               CA_Acciones_Realizadas_Transparencia = :CA_Acciones_Realizadas_Transparencia,
+               CA_Suma_Total = :CA_Suma_Total,
                CA_Archivo = :CA_Archivo
                WHERE CA_Informe_Presentado = :CA_Informe_Presentado ");
 
@@ -154,7 +154,7 @@
               $stmt -> bindParam(":CA_Capacitaciones_Recibidas", $datos["CA_Capacitaciones_Recibidas"], PDO::PARAM_STR);
               $stmt -> bindParam(":CA_Capacitaciones_Ortogadas", $datos["CA_Capacitaciones_Ortogadas"], PDO::PARAM_STR);
               $stmt -> bindParam(":CA_Total_Servidores_Publicos", $datos["CA_Total_Servidores_Publicos"], PDO::PARAM_STR);
-              $stmt -> bindParam(":CA_Acciones_Realizadas_Transparencia", $datos["CA_Acciones_Realizadas_Transparencia"], PDO::PARAM_STR);
+              $stmt -> bindParam(":CA_Suma_Total", $datos["CA_Suma_Total"], PDO::PARAM_STR);
               $stmt -> bindParam(":CA_Archivo", $datos["CA_Archivo"], PDO::PARAM_STR);
                   
               if($stmt->execute()){

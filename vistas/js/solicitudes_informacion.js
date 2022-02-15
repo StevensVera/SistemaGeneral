@@ -312,13 +312,13 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
 
     /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
 
-      if (archivo["type"] != "application/pdf") {
+      if (archivo["type"] != "application/pdf" && archivo["type"] != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" && archivo["type"] != "application/vnd.ms-excel" ) {
         
         $(".nuevoArchivoSI").val("");
 
         swal({
           title: "Error al subir el archivo",
-          text: "¡La archivo debe estar en formato PDF!",
+          text: "¡La archivo debe estar en formato PDF, .XLSX, .XLS!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
         });
@@ -336,7 +336,7 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
       
   })
 
-  /*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS ===============================*/
+  /*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS - AGREGAR LA SOLICITUD - ===============================*/
 
  // Funcion para estableces la suma Solicitudes de Informacion - Medios de Presentacion
 
@@ -451,7 +451,118 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
     $total.value = subtotal;
   }
 
+  /*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS - ACTUALIZAR LA SOLICITUD - ===============================*/
 
+  function sumarSIMPA()
+  {
+    const $total = document.getElementById('EditarSI_MP_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIMPA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Tipo de Solicitante
+
+  function sumarSITSA()
+  {
+    const $total = document.getElementById('EditarSI_TS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSITSA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Genero del Solicitante
+
+  function sumarSIGSA()
+  {
+    const $total = document.getElementById('EditarSI_Genero_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIGSA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Información Solicitada
+
+  function sumarSIISA()
+  {
+    const $total = document.getElementById('EditarSI_IS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIISA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Tramites
+
+  function sumarSITA()
+  {
+    const $total = document.getElementById('EditarSI_T_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSITA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Modalidad de Respuesta
+
+  function sumarSIMRA()
+  {
+    const $total = document.getElementById('EditarSI_MR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIMRA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Obligaciones Solicitadas
+
+  function sumarSIOSA()
+  {
+    const $total = document.getElementById('EditarSI_OS_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSIOSA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+
+  // Funcion para estableces la suma Solicitudes de Informacion - Sentido que emite la Respuesta
+
+  function sumarSISRA()
+  {
+    const $total = document.getElementById('EditarSI_SR_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoSISRA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
 
   /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 

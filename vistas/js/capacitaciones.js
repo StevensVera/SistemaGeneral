@@ -119,7 +119,7 @@ $(".tablasCapacitaciones").on("click", ".btnEditarCapacitaciones", function() {
         $("#EditarCapacitaciones_Recibidas").val(respuesta["CA_Capacitaciones_Recibidas"]);
         $("#EditarCapacitaciones_Ortogadas").val(respuesta["CA_Capacitaciones_Ortogadas"]);
         $("#EditarCapacitaciones_Total_Servidores_Publicos").val(respuesta["CA_Total_Servidores_Publicos"]);
-        $("#EditarCapacitaciones_Acciones_Realizadas_Transparencia").val(respuesta["CA_Acciones_Realizadas_Transparencia"]);
+        $("#EditarCapacitaciones_Suma_Total").val(respuesta["CA_Suma_Total"]);
 
         }
 
@@ -183,13 +183,13 @@ $(".tablasCapacitaciones").on("click", ".btnActivarCapacitaciones", function() {
 
     /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
 
-      if (archivo["type"] != "application/pdf") {
+      if (archivo["type"] != "application/pdf" && archivo["type"] != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" && archivo["type"] != "application/vnd.ms-excel") {
         
         $(".nuevoArchivoCA").val("");
 
         swal({
           title: "Error al subir el archivo",
-          text: "¡La archivo debe estar en formato PDF!",
+          text: "¡La archivo debe estar en formato .PDF, .XLSX, .XLS!",
           type: "error",
           confirmButtonText: "¡Cerrar!"
         });
@@ -206,3 +206,34 @@ $(".tablasCapacitaciones").on("click", ".btnActivarCapacitaciones", function() {
     }
       
   })
+
+/*======================= APLICAR LA SUMA, PARA VALIDAD LOS INPUTS - AGREGAR LA SOLICITUD - ===============================*/
+
+ // Funcion para estableces la suma Capacitaciones Agregar
+
+ function sumarCA()
+ {
+   const $total = document.getElementById('nuevoCapacitaciones_Suma_Total');
+   let subtotal = 0;
+   [ ...document.getElementsByClassName( "montoCA" ) ].forEach( function ( element ) {
+     if(element.value !== '') {
+       subtotal += parseFloat(element.value);
+     }
+   });
+   $total.value = subtotal;
+ }
+
+  // Funcion para estableces la suma Capacitaciones Actualizar
+
+  function sumarCAA()
+  {
+    const $total = document.getElementById('EditarCapacitaciones_Suma_Total');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "montoCAA" ) ].forEach( function ( element ) {
+      if(element.value !== '') {
+        subtotal += parseFloat(element.value);
+      }
+    });
+    $total.value = subtotal;
+  }
+ 
