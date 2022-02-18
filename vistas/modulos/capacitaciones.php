@@ -129,8 +129,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                                   <option value="3er Informe Bimestral">3er Informe Bimestral</option>
 
-                                  <option value="3to Informe Bimestral">3er Informe Bimestral</option>
-
                                   <option value="4to Informe Bimestral">4to Informe Bimestral</option>
 
                                   <option value="5to Informe Bimestral">5to Informe Bimestral</option>
@@ -172,6 +170,19 @@ if($_SESSION["perfil_Informe"] == "Observador"){
               </div>
     
           </div>
+
+
+          <div class="form-group" style="width: 50%; margin: 0 auto; padding-bottom: 15px">
+                
+                <div class="input-group">
+  
+                   <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+  
+                      <input type="text" class="form-control input-lg" id="nuevoCapacitaciones_Total" name="nuevoCapacitaciones_Total" placeholder="Total Capacitaciones" required>
+  
+                </div>
+      
+            </div>
 
           <hr>
 
@@ -616,7 +627,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <p class="help-block">Peso máximo de la foto 200 MB</p>
 
-                 <input type="hidden" name="archivoActualCA" id="archivoActualCA">
+                 <input type="hidden" id="archivoActualCA" name="archivoActualCA" >
 
 
              </div>   

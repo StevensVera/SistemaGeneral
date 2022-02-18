@@ -262,7 +262,7 @@ $(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
         $("#EditarSolicitudesArco_SR_Otros").val(respuesta["SA_Sentido_Respuesta_Otros"]);
         $("#EditarSolicitudesArco_SR_No_Disponible").val(respuesta["SA_Sentido_Respuesta_No_Disponible"]);
         $("#EditarSolicitudesArco_SR_Suma_Total").val(respuesta["SA_Sentido_Respuesta_Suma_Total"]);
-
+        $("#archivoActualSA").val(respuesta["SA_Archivo"]);
 
       } // if
 
@@ -270,7 +270,7 @@ $(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
 
 }) // Evento
 
-/* =========================== ACTIVAR ESTADO DEL USUARIO ==================== */
+/* =========================== ACTIVAR ESTADO DE LA SOLICTUD ARCO ==================== */
 
 $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function(){
 
@@ -295,14 +295,9 @@ $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function()
     
            swal({
 
-               title: '¿Está seguro de enviar el Registro?',
-               text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
-               type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText: 'Cancelar',
-                confirmButtonText: 'Confirmar Envio!'
+            title: "El Registro ha sido enviado para Revisión",
+            type: "success",
+            confirmButtonText: "¡Cerrar!"
 
                 }).then(function(result) {
 

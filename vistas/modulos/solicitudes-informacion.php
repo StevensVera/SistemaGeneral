@@ -2719,7 +2719,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <p class="help-block">Peso máximo de la foto 20 MB</p>
 
-                 <input type="hidden" name="archivoActualSI" id="archivoActualSI">
+
 
              </div>   
 
@@ -5351,7 +5351,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <p class="help-block">Peso máximo de la foto 200 MB</p>
 
-                 <input type="hidden" name="archivoActualSI" id="archivoActualSI">
+                 <input type="hidden" id="archivoActualSI" name="archivoActualSI" >
 
              </div>   
 

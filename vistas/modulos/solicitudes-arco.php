@@ -2780,7 +2780,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                  <p class="help-block">Peso máximo de la foto 200 MB</p>
 
-                 <input type="hidden" name="archivoActualSA" id="archivoActualSA">
+                 <input type="hidden" id="archivoActualSA" name="archivoActualSA" >
 
              </div>   
 

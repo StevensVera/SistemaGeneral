@@ -120,6 +120,9 @@ $(".tablasCapacitaciones").on("click", ".btnEditarCapacitaciones", function() {
         $("#EditarCapacitaciones_Ortogadas").val(respuesta["CA_Capacitaciones_Ortogadas"]);
         $("#EditarCapacitaciones_Total_Servidores_Publicos").val(respuesta["CA_Total_Servidores_Publicos"]);
         $("#EditarCapacitaciones_Suma_Total").val(respuesta["CA_Suma_Total"]);
+        $("#EditarCapacitaciones_Suma_Total").val(respuesta["CA_Suma_Total"]);
+        $("#archivoActualCA").val(respuesta["CA_Archivo"]);
+
 
         }
 
@@ -237,3 +240,18 @@ $(".tablasCapacitaciones").on("click", ".btnActivarCapacitaciones", function() {
     $total.value = subtotal;
   }
  
+    /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
+
+  $(document).ready(function (){
+    
+    var perfiCodigo = $("#perfiCodigo").val();
+
+    var InformeA
+    
+    var anios
+
+
+
+
+  });
+  

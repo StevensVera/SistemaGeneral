@@ -52,7 +52,7 @@
 
       /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
-      static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA){
+      static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA,$valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA){
 
         $stmt = Conexion::conectar()->prepare("SELECT DISTINCT *
                                                 FROM $tablaSI SI
@@ -60,11 +60,15 @@
                                                 ON SI.$ObtenerCodigoInformeSI = SA.$ObtenerCodigoInformeSA
                                                 INNER JOIN $TablaCA CA
                                                 ON SI.$ObtenerCodigoInformeSI = CA.$ObtenerCodigoInformeCA
-                                                WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA" );
+                                                WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SI.$ObtenerEstatusSI = :$ObtenerEstatusSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND SA.$ObtenerEstatusSA = :$ObtenerEstatusSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA AND CA.$ObtenerEstatusCA = :$ObtenerEstatusCA" );
 
          $stmt -> bindParam(":".$ObtenerCodigoSI, $valor, PDO::PARAM_STR);
          $stmt -> bindParam(":".$ObtenerCodigoSA, $valor, PDO::PARAM_STR);
          $stmt -> bindParam(":".$ObtenerCodigoCA, $valor, PDO::PARAM_STR);
+
+         $stmt -> bindParam(":".$ObtenerEstatusSI, $valor2, PDO::PARAM_STR);
+         $stmt -> bindParam(":".$ObtenerEstatusSA, $valor2, PDO::PARAM_STR);
+         $stmt -> bindParam(":".$ObtenerEstatusCA, $valor2, PDO::PARAM_STR);
 
          $stmt -> execute();
 
@@ -92,7 +96,9 @@
             
           $stmt = Conexion::conectar()->prepare(
             "INSERT INTO $tablaSI
-            (Si_Codigo_SO,
+            (
+             SI_Estatus,
+             Si_Codigo_SO,
              SI_Codigo_UnicoInforme_Anios,
              SI_Codigo_Tipo_Informe_Anios,
              Si_Codigo_Informe_Anios, 
@@ -215,6 +221,7 @@
              ) 
              
             VALUES(
+             :SI_Estatus, 
              :Si_Codigo_SO,
              :SI_Codigo_UnicoInforme_Anios,
              :SI_Codigo_Tipo_Informe_Anios,
@@ -337,7 +344,7 @@
             
 
              )");
-          
+          $stmt -> bindParam(":SI_Estatus", $datos["SI_Estatus"], PDO::PARAM_STR);
           $stmt -> bindParam(":Si_Codigo_SO", $datos["Si_Codigo_SO"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Codigo_UnicoInforme_Anios", $datos["SI_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Codigo_Tipo_Informe_Anios", $datos["SI_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);

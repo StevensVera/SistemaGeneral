@@ -24,7 +24,7 @@
 
     /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
         
-        static public function ctrMostrarTablaAdministracionSO($valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA){
+        static public function ctrMostrarTablaAdministracionSO($valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA){
 
           $tablaSI = "solicitudes_informacion";
 
@@ -32,7 +32,7 @@
 
           $TablaCA = "Capacitaciones";
 
-          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA);
+          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA);
 
           return $respuesta;
 
@@ -197,7 +197,9 @@
                                 $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSI"].$espacio.$CarpetaAdcionalSI.$espacio.$_POST["nuevoAnioSI"];
 
                                 /* Datos - Array */
-                                $datos = array( "Si_Codigo_SO" => $Codigo,
+                                $datos = array( 
+                                                "SI_Estatus" => 0,
+                                                "Si_Codigo_SO" => $Codigo,
                                                 "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
                                                 "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSI,
                                                 "Si_Codigo_Informe_Anios" => $CodigoIPA,
@@ -626,58 +628,66 @@
 
                                 $CodigoIPAA = $_POST["EditarTipoInformeSI"].$espacio.$_POST["EditarAnioSI"];
 
-                                /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
+                                    if ($_FILES["editarArchivoSI"] != "") {
 
-                                $rutaArchivoA = $_POST["archivoActualSI"];
+                                      /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
 
-                                if (isset($_FILES["editarArchivoSI"]["tmp_name"]) && !empty($_FILES["editarArchivoSI"]["tmp_name"])){
+                                      $rutaArchivoA = $_POST["archivoActualSI"];
 
-                                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
-                                    
-                                    
-                                    $directorioArchivo = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA;
+                                      if (isset($_FILES["editarArchivoSI"]["tmp_name"]) && !empty($_FILES["editarArchivoSI"]["tmp_name"])){
 
-                                    /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+                                          /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+                                          
+                                          
+                                          $directorioArchivo = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA;
 
-                                    if(!empty($_POST["archivoActualSI"])){
-                                        
-                                        unlink($_POST["archivoActualSI"]);
+                                          /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
 
-                                    } else {
-                                        
-                                        mkdir($directorioArchivo, 0775);
+                                          if(!empty($_POST["archivoActualSI"])){
+                                              
+                                              unlink($_POST["archivoActualSI"]);
 
-                                    }
+                                          } else {
+                                              
+                                              mkdir($directorioArchivo, 0775);
 
-                                    /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+                                          }
 
-                                    $aletorio = mt_rand(100,999);
+                                          /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
 
-                                    if ($_FILES["editarArchivoSI"]["type"] == "application/pdf") {
-                                        
-                                        $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".pdf";
+                                          $aletorio = mt_rand(100,999);
 
-                                        move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
+                                          if ($_FILES["editarArchivoSI"]["type"] == "application/pdf") {
+                                              
+                                              $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".pdf";
 
-                                    }
+                                              move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
 
-                                    if ($_FILES["editarArchivoSI"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
-                                        
-                                        $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".xlsx";
+                                          }
 
-                                        move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
+                                          if ($_FILES["editarArchivoSI"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                              
+                                              $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".xlsx";
 
-                                    }
+                                              move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
 
-                                    if ($_FILES["editarArchivoSI"]["type"] == "application/vnd.ms-excel") {
-                                        
-                                        $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".xls";
+                                          }
 
-                                        move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
+                                          if ($_FILES["editarArchivoSI"]["type"] == "application/vnd.ms-excel") {
+                                              
+                                              $rutaArchivoA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpetaSA."/".$CodigoIPAA.$espacio.$SObligadoA.".xls";
 
-                                }
+                                              move_uploaded_file ($_FILES["editarArchivoSI"]["tmp_name"], $rutaArchivoA);
 
-                                } 
+                                          }
+
+                                      }     
+
+                                    } else{
+
+                                      $rutaArchivoA = $_POST["archivoActualSI"];
+
+                                    }  
 
                                 $datos = array(
                                               "SI_Informe_Presentado"=> $_POST["EditarTipoInformeSI"],

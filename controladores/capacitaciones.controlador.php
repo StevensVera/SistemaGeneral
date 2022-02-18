@@ -118,7 +118,8 @@
                         
                     }
                                     /* Datos - Array */
-                    $datos = array( "CA_Codigo_SO" => $Codigo, 
+                    $datos = array( "CA_Estatus" => 0,
+                                    "CA_Codigo_SO" => $Codigo, 
                                     "CA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioCA,
                                     "CA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosCA,
                                     "CA_Codigo_Informe_Anios" => $CodigoIPACA,
@@ -204,7 +205,7 @@
 
         }
 
-      /* ===============  EDITAR - LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   =================*/
+      /*===============  EDITAR - LOS DATOS REGISTRADOS - DESDE LA UNIDAD DE TRANSPARENCIA   =================*/
       
       static public function ctrActualizarCapacitaciones(){
 
@@ -228,40 +229,64 @@
 
                 $CodigoIPACA = $_POST["EditarTipoCapacitaciones"].$espacio.$_POST["EditarAnioCapacitaciones"];
 
-                $rutaArchivoCA = $_POST["archivoActualCA"];
+                if ($_FILES["editarArchivoCA"] != "") {
 
-                if (isset($_FILES["editarArchivoCA"]["tmp_name"]) && !empty($_FILES["editarArchivoCA"]["tmp_name"])){
+                    $rutaArchivoCA = $_POST["archivoActualCA"];
 
-                  /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
-                  
-                  
-                  $directorioArchivo = "vistas/pdfs/informes/".$CodigoCA."/".$Anios."/".$CarpetaCA;
+                    if (isset($_FILES["editarArchivoCA"]["tmp_name"]) && !empty($_FILES["editarArchivoCA"]["tmp_name"])){
 
-                  /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
-
-                  if(!empty($_POST["archivoActualCA"])){
+                      /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
                       
-                      unlink($_POST["archivoActualCA"]);
-
-                  } else {
                       
-                      mkdir($directorioArchivo, 0775);
+                      $directorioArchivo = "vistas/pdfs/informes/".$CodigoCA."/".$Anios."/".$CarpetaCA;
 
-                  }
+                      /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
 
-                  /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+                      if(!empty($_POST["archivoActualCA"])){
+                          
+                          unlink($_POST["archivoActualCA"]);
 
-                  $aletorio = mt_rand(100,999);
+                      } else {
+                          
+                          mkdir($directorioArchivo, 0775);
 
-                  if ($_FILES["editarArchivoCA"]["type"] == "application/pdf") {
-                      
-                      $rutaArchivoCA = "vistas/pdfs/informes/".$CodigoCA."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligadoCA.".pdf";
+                      }
+
+                      /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                      $aletorio = mt_rand(100,999);
+
+                      if ($_FILES["editarArchivoCA"]["type"] == "application/pdf") {
+                          
+                          $rutaArchivoCA = "vistas/pdfs/informes/".$CodigoCA."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligadoCA.".pdf";
+
+                          move_uploaded_file ($_FILES["editarArchivoCA"]["tmp_name"], $rutaArchivoCA);
+
+                      }
+
+                      if ($_FILES["editarArchivoCA"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                          
+                        $rutaArchivoCA = "vistas/pdfs/informes/".$CodigoCA."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligadoCA.".xlsx";
+
+                        move_uploaded_file ($_FILES["editarArchivoCA"]["tmp_name"], $rutaArchivoCA);
+
+                      }
+
+                    if ($_FILES["editarArchivoCA"]["type"] == "application/vnd.ms-excel") {
+                          
+                    $rutaArchivoCA = "vistas/pdfs/informes/".$CodigoCA."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligadoCA.".xls";
 
                       move_uploaded_file ($_FILES["editarArchivoCA"]["tmp_name"], $rutaArchivoCA);
 
-                  }
+                    }
 
-              } 
+                  } 
+
+                } else{
+
+                  $rutaArchivoCA = $_POST["archivoActualCA"];
+
+                }    
 
                 /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
 

@@ -39,7 +39,8 @@
             static public function mdlagregarCA($tablaCA, $datos){
 
                 $stmt = Conexion::conectar()->prepare(
-                    "INSERT INTO $tablaCA( 
+                    "INSERT INTO $tablaCA(
+                        CA_Estatus, 
                         CA_Codigo_SO,
                         CA_Codigo_UnicoInforme_Anios,
                         CA_Codigo_Tipo_Informe_Anios,
@@ -55,6 +56,7 @@
                         CA_Archivo
                         )
                         VALUES(
+                        :CA_Estatus,  
                         :CA_Codigo_SO,
                         :CA_Codigo_UnicoInforme_Anios,
                         :CA_Codigo_Tipo_Informe_Anios,
@@ -70,7 +72,7 @@
                         :CA_Archivo
 
                         )");
-
+                        $stmt -> bindParam(":CA_Estatus", $datos["CA_Estatus"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_SO", $datos["CA_Codigo_SO"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_UnicoInforme_Anios", $datos["CA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_Tipo_Informe_Anios", $datos["CA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);

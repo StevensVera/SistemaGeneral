@@ -91,48 +91,67 @@
                                 $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSA"].$espacio.$CarpataAdicionalSA.$espacio.$_POST["nuevoAnioSA"];
 
                               /* ================= VALIDAR ARCHIVO PDF =================*/
+                                      
+                                      $rutaSA = "";
 
-                                $rutaSA = "";
+                                      $espacio = " ";
 
-                                $espacio = " ";
+                                      $Anios = $_POST["nuevoAnioSA"];
 
-                                $Anios = $_POST["nuevoAnioSA"];
+                                      if (isset($_FILES["nuevoArchivoSA"]["tmp_name"])) {
 
-                                if (isset($_FILES["nuevoArchivoSA"]["tmp_name"])) {
+                                        /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
+                                      
+                                  
+                                        $directorioArchivo = "vistas/pdfs/informes/".$Codigo;
 
-                                  /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
-                                
-                            
-                                  $directorioArchivo = "vistas/pdfs/informes/".$Codigo;
+                                        mkdir($directorioArchivo, 0755);
 
-                                  mkdir($directorioArchivo, 0755);
+                                        $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
 
-                                  $directorioArchivo2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
+                                        mkdir($directorioArchivo2, 0755);  
 
-                                  mkdir($directorioArchivo2, 0755);  
+                                        $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA;
 
-                                  $directorioArchivo3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA;
-
-                                  mkdir($directorioArchivo3, 0755);
+                                        mkdir($directorioArchivo3, 0755);
 
 
-                                  /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+                                        /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
 
-                                  $aletorio = mt_rand(100,999);
+                                        $aletorio = mt_rand(100,999);
 
-                                  if ($_FILES["nuevoArchivoSA"]["type"] == "application/pdf") {
+                                        if ($_FILES["nuevoArchivoSA"]["type"] == "application/pdf") {
+                                              
+                                          $rutaSA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA."/".$CodigoIPA.$espacio.$SObligado.".pdf";
+
+                                          move_uploaded_file ($_FILES["nuevoArchivoSA"]["tmp_name"], $rutaSA);
+
+                                          }
+
+                                        if ($_FILES["nuevoArchivoSA"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                              
+                                          $rutaSA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA."/".$CodigoIPA.$espacio.$SObligado.".xlsx";
+
+                                          move_uploaded_file ($_FILES["nuevoArchivoSA"]["tmp_name"], $rutaSA);
+
+                                          }
                                         
-                                    $rutaSA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA."/".$CodigoIPA.$espacio.$SObligado.".pdf";
+                                        
+                                        if ($_FILES["nuevoArchivoSA"]["type"] == "application/vnd.ms-excel") {
+                                              
+                                          $rutaSA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpataSA."/".$CodigoIPA.$espacio.$SObligado.".xls";
 
-                                    move_uploaded_file ($_FILES["nuevoArchivoSA"]["tmp_name"], $rutaSA);
+                                          move_uploaded_file ($_FILES["nuevoArchivoSA"]["tmp_name"], $rutaSA);
 
-                                    }
-
-                                }
+                                          }  
+        
+                                      }
 
                                 /* datos - Array */
 
-                              $datos = array ("SA_Codigo_SO" => $Codigo,
+                              $datos = array (
+                                              "SA_Estatus" => 0,
+                                              "SA_Codigo_SO" => $Codigo,
                                               "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
                                               "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSA,
                                               "SA_Codigo_Informe_Anios" => $CodigoIPA,
@@ -517,39 +536,64 @@
 
                                   /*================ VALIDAR ARCHIVO PDF PARA ACTUALIZAR ===================== */
 
-                                  $rutaArchivoSAA = $_POST["archivoActualSA"];
+                                      if ($_FILES["editarArchivoSA"] != "") {
+                                  
+                                          $rutaArchivoSAA = $_POST["archivoActualSA"];
 
-                                  if (isset($_FILES["editarArchivoSA"]["tmp_name"]) && !empty($_FILES["editarArchivoSA"]["tmp_name"])){
+                                          if (isset($_FILES["editarArchivoSA"]["tmp_name"]) && !empty($_FILES["editarArchivoSA"]["tmp_name"])){
 
-                                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
-                                    
-                                    $directorioArchivoSA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA;
+                                            /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+                                            
+                                            $directorioArchivoSA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA;
 
-                                    /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+                                            /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
 
-                                    if(!empty($_POST["archivoActualSA"])){
-                                        
-                                        unlink($_POST["archivoActualSA"]);
+                                            if(!empty($_POST["archivoActualSA"])){
+                                                
+                                                unlink($_POST["archivoActualSA"]);
 
-                                    } else {
-                                        
-                                        mkdir($directorioArchivoSA, 0775);
+                                            } else {
+                                                
+                                                mkdir($directorioArchivoSA, 0775);
 
-                                    }
+                                            }
 
-                                    /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+                                            /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
 
-                                    $aletorio = mt_rand(100,999);
+                                            $aletorio = mt_rand(100,999);
 
-                                    if ($_FILES["editarArchivoSA"]["type"] == "application/pdf") {
-                                        
-                                        $rutaArchivoSAA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA."/".$CodigoIPAA.$espacio.$SObligadoA.".pdf";
+                                            if ($_FILES["editarArchivoSA"]["type"] == "application/pdf") {
+                                                
+                                                $rutaArchivoSAA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA."/".$CodigoIPAA.$espacio.$SObligadoA.".pdf";
 
-                                        move_uploaded_file ($_FILES["editarArchivoSA"]["tmp_name"], $rutaArchivoSAA);
+                                                move_uploaded_file ($_FILES["editarArchivoSA"]["tmp_name"], $rutaArchivoSAA);
 
-                                    }
+                                            }
 
-                                }
+                                            if ($_FILES["editarArchivoSA"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                                
+                                                $rutaArchivoSAA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA."/".$CodigoIPAA.$espacio.$SObligadoA.".xlsx";
+
+                                                move_uploaded_file ($_FILES["editarArchivoSA"]["tmp_name"], $rutaArchivoSAA);
+
+                                            }
+
+                                            if ($_FILES["editarArchivoSA"]["type"] == "application/vnd.ms-excel") {
+                                                
+                                                $rutaArchivoSAA = "vistas/pdfs/informes/".$CodigoA."/".$AniosA."/".$CarpataSAA."/".$CodigoIPAA.$espacio.$SObligadoA.".xls";
+
+                                                move_uploaded_file ($_FILES["editarArchivoSA"]["tmp_name"], $rutaArchivoSAA);
+
+                                            }
+
+                                        }
+
+                                      } else{
+
+                                        $rutaArchivoSAA = $_POST["archivoActualSA"];
+  
+                                      }      
+
 
                                     $datos = array("SA_Informe_Presentado" => $_POST["EditarTipoInformeSolicitudesArco"],
                                                     "SA_Anios" => $_POST["EditarAnioSolicitudesArco"],

@@ -237,13 +237,17 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
         $("#EditarSI_SR_Otros").val(respuesta["SI_Sentido_Respuesta_Otro"]);
         $("#EditarSI_SR_No_Disponible").val(respuesta["SI_Sentido_Respuesta_No_Disponible"]);
         $("#EditarSI_SR_Suma_Total").val(respuesta["SI_Sentido_Respuesta_Suma_Total"]);
-        $("#nuevoArchivoSI").val(respuesta["SI_Archivo"]);
-  
+        //$("#archivoActualSI").attr("src", respuesta["SI_Archivo"]);
+        $("#archivoActualSI").val(respuesta["SI_Archivo"]);
+
+        /*
         if (respuesta["SI_Archivo"] != "") {
           
-          $(".nuevoArchivoSI").attr("src", respuesta["SI_Archivo"]);
+          $(".previsualizarEditar").attr("src", respuesta["SI_Archivo"]);
 
         }
+
+        */
         
       } // if
 
@@ -251,7 +255,7 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
 
 }) // Evento
 
-  /* =========================== ACTIVAR ESTADO DEL USUARIO ==================== */
+  /* =========================== ACTIVAR ESTADO DEL SOLICITUD DE INFORMACION ==================== */
 
   $(".tablasSolicitudesInformacion").on("click", ".btnActivarSolicitudInformacion", function() {
 
@@ -279,14 +283,9 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
 
         swal({
 
-          title: '¿Está seguro de enviar el Registro?',
-          text: "¡Realizar está Acción!..¡Si no lo está puede cancelar la accíón!",
-          type: 'warning',
-           showCancelButton: true,
-           confirmButtonColor: '#3085d6',
-           cancelButtonColor: '#d33',
-           cancelButtonText: 'Cancelar',
-           confirmButtonText: 'Confirmar Envio!'
+          title: "El Registro ha sido enviado para Revisión",
+          type: "success",
+          confirmButtonText: "¡Cerrar!"
       
            }).then(function(result) {
       
@@ -563,6 +562,17 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
     });
     $total.value = subtotal;
   }
+
+  /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
+
+  $(document).ready(function (){
+
+      
+
+
+
+
+  });
 
   /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 
