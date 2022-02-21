@@ -117,7 +117,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
          
                          <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span> 
 
-                               <select class="form-control input-lg" name="nuevoTipoCapacitaciones">
+                               <select class="form-control input-lg" id="nuevoTipoCapacitaciones" name="nuevoTipoCapacitaciones">
              
                                   <option value="">Selecionar el Infome a Entregar</option>
 
@@ -175,10 +175,9 @@ if($_SESSION["perfil_Informe"] == "Observador"){
           <div class="form-group" style="width: 50%; margin: 0 auto; padding-bottom: 15px">
                 
                 <div class="input-group">
+
   
-                   <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
-  
-                      <input type="text" class="form-control input-lg" id="nuevoCapacitaciones_Total" name="nuevoCapacitaciones_Total" placeholder="Total Capacitaciones" required>
+                      <input type="hidden" class="form-control input-lg" id="InformeAnios" name="InformeAnios" placeholder="Total Capacitaciones" required>
   
                 </div>
       

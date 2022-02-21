@@ -246,12 +246,27 @@ $(".tablasCapacitaciones").on("click", ".btnActivarCapacitaciones", function() {
     
     var perfiCodigo = $("#perfiCodigo").val();
 
-    var InformeA
+    var Capacitaciones ="";
+
+    var DatosCapacitaciones = "Capacitaciones";
     
-    var anios
+    var anios = "";
 
+        $('#nuevoTipoCapacitaciones').change(function (){
+          Capacitaciones = $('#nuevoTipoCapacitaciones').val();
+          //function concatenar(nombre,apellido);
+          //$('#nombreUsuario').val(nombreUsuario); //FUNCIONA
+        $('#InformeAnios').val(perfiCodigo+' '+Capacitaciones+' '+DatosCapacitaciones+' '+anios);
 
+      });
 
+      $('#nuevoAnioCapacitaciones').keyup(function (){
+        anios = $('#nuevoAnioCapacitaciones').val();
+
+          //function concatenar2(nombre,apellido);
+          $('#InformeAnios').val(perfiCodigo+' '+Capacitaciones+' '+DatosCapacitaciones+' '+anios);
+
+      });
 
   });
   

@@ -565,63 +565,66 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
 
   /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 
-  $(document).ready(function (){
+  $("#nuevoCodeInformeSIAnios").change(function() {
 
-      
+      $(".alert").remove();
 
+      var CodigoInformeSIAnios = $(this).val();
 
+      var datos = new FormData();
 
+      datos.append("validarCodigoInformeSIAniosios", CodigoInformeSIAnios)
+      console.log("validarCodigoInformeSIAniosios", CodigoInformeSIAnios)
+        $.ajax({
+          url:"ajax/SolicitudesInformacion.ajax.php",
+          method:"POST",
+          data: datos,
+          cache: false,
+          contentType: false,
+          processData: false,
+          dataType: "json",
+          success:function(respuesta){
+            
+            if(respuesta){
 
-  });
+              $("#nuevoCodeInformeSIAnios").parent().after('<div class="alert alert-warning">Codigo ya Existente</div>');
+
+              $("#nuevoCodeInformeSIAnios").val("");
+
+            }
+
+          }
+
+      })
+  
+})
 
   /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 
-$("#nuevoTipoInformeSI").add("#nuevoAnioSI").change(function() {
+  $(document).ready(function (){
 
-  $(".alert").remove();
+    var perfiCodigo = $("#perfiCodigo").val();
 
-  var informe = $(this).val();
+    var Capacitaciones ="";
 
-  var anios = $(this).val();
+    var DatosSI = "Solicitudes Informacion";
+    
+    var anios = "";
 
-  var datos = new FormData();
+        $('#nuevoTipoInformeSI').change(function (){
+          Capacitaciones = $('#nuevoTipoInformeSI').val();
+          //function concatenar(nombre,apellido);
+          //$('#nombreUsuario').val(nombreUsuario); //FUNCIONA
+        $('#nuevoCodeInformeSIAnios').val(perfiCodigo+' '+Capacitaciones+' '+DatosSI+' '+anios);
 
-  var informeanios = informe;
+      });
 
-  var informeanios2 = informe + " " + anios;
+      $('#nuevoAnioSI').keyup(function (){
+        anios = $('#nuevoAnioSI').val();
 
-  datos.append("validarinformeanios", informeanios2)
+          //function concatenar2(nombre,apellido);
+          $('#nuevoCodeInformeSIAnios').val(perfiCodigo+' '+Capacitaciones+' '+DatosSI+' '+anios);
 
-    $.ajax({
-      url:"ajax/SolicitudesInformacion.ajax.php",
-      method:"POST",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-      dataType: "json",
-      success:function(respuesta){
-        
-        if(respuesta){
+      });
 
-          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").parent().after('<div class="alert alert-warning">Codigo ya Existente</div>');
-
-          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").val("");
-
-         // $("#nuevoAnioSI").parent().after('<div class="alert alert-warning">Codigo ya Existente</div>');
-          
-          //$("#nuevoAnioSI").val("");
-
-        } else {
-
-          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").parent().after('<div class="alert alert-warning"> Todo bien, mal :( </div>');
-
-          $("#nuevoTipoInformeSI").add("#nuevoAnioSI").val("");
-
-        }
-
-      }
-
-  })
-  
-})
+  });

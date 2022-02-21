@@ -1089,11 +1089,11 @@
         /* ============ AQUI VALIDAMOS TODA LA INFORMACION QUE PUDIERA ESTA EXISTENTE  ================= */
        // 1.- VALIDAR CODIGO 
        
-       static public function ctrValidarSolicitudInformacionExitente($item1, $valor1, $item2, $valor2,  $item3, $valor3){
+       static public function ctrValidarSolicitudInformacionExitente($item1, $valor1){
 
         $tabla = "solicitudes_informacion";
     
-        $respuesta = ModeloSolicitudesInformacion::mdlValidarSolicitudesInformacionExitente($tabla, $item1, $valor1, $item2, $valor2,  $item3, $valor3);
+        $respuesta = ModeloSolicitudesInformacion::mdlValidarSolicitudesInformacionExitente($tabla, $item1, $valor1);
     
         return $respuesta;
       }

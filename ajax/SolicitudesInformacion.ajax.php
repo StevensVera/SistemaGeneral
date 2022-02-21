@@ -26,27 +26,15 @@
         }
          /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 
-        public $validarAnios;
-
-        public $validarInforme;
-
-        //public $validarinformeanios;
+        public $validarCodigoInformeSIAniosios;
 
         public function ajaxValidarIP(){
 
-        $item1 = "SI_Anios";
+        $item1 = "SI_Codigo_UnicoInforme_Anios";
 
-        $valor1 = $this -> validarAnios;
+        $valor1 = $this -> validarCodigoInformeSIAniosios;
 
-        $item2 = "SI_Informe_Presentado";
-        
-        $valor2 = $this -> validarInforme;
-
-        $item3 = "Si_Codigo_Informe_Anios";
-
-        $valor3 = $this -> validarinformeanios;
-
-        $respuesta = ControladorSolicitudesInformes::ctrValidarSolicitudInformacionExitente($item1, $valor1, $item2, $valor2, $item3, $valor3);
+        $respuesta = ControladorSolicitudesInformes::ctrValidarSolicitudInformacionExitente($item1, $valor1);
 
         echo json_encode($respuesta);
 
@@ -58,10 +46,10 @@
 
     /* =================== REVISAR SI EL CODIGO DE S.O ESTA REPETIDO ==================== */
 
-    if(isset( $_POST["validarinformeanios"])){
+    if(isset( $_POST["validarCodigoInformeSIAniosios"])){
 
 	    $valida = new AjaxSolicitudesInformacion();
-	    $valida -> validarinformeanios = $_POST["validarinformeanios"];
+	    $valida -> validarCodigoInformeSIAniosios = $_POST["validarCodigoInformeSIAniosios"];
 	    $valida -> ajaxValidarIP();
 
     }

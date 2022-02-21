@@ -211,6 +211,22 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
           <hr>
 
+           <!-- ===================== ENTRADA HIDDEN PARA CODIGO - INFORME - SOLICITUDES INFORMACIÓN - AÑO ==================== -->
+
+           <div class="form-group" style="width: 60%; margin: 0 auto; padding-bottom: 15px">
+                
+              <div class="input-group">
+
+                 <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
+
+                    <input type="text" class="form-control input-lg" id="nuevoCodeInformeSIAnios" name="nuevoCodeInformeSIAnios" placeholder="Total de Solicitudes">
+
+              </div>
+    
+          </div>
+
+          <hr>
+
           <!-- =================================================================================================== 
                ================================= BOTÓN DE "Medio de Presentación" ================================
                =================================================================================================== -->

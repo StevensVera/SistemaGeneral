@@ -359,7 +359,7 @@ $("#nuevoCodigoSO").change(function() {
   var datos = new FormData();
 
   datos.append("validarCodigo", Codigo);
- 
+   console.log("validarCodigo", Codigo)
     $.ajax({
       url:"ajax/usuarios.ajax.php",
       method:"POST",

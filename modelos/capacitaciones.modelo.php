@@ -38,6 +38,7 @@
 
             static public function mdlagregarCA($tablaCA, $datos){
 
+              try {
                 $stmt = Conexion::conectar()->prepare(
                     "INSERT INTO $tablaCA(
                         CA_Estatus, 
@@ -93,10 +94,36 @@
                     
                           }else {
                     
-                            return "error";
+                            return "error";	
                 
                         } // else
-                
+                    
+                      } catch(PDOException $e) {
+                    
+                        echo '<script>
+
+                        swal({
+
+                          swal({
+                            title: "Error",
+                            text: "¡Ya existe el Informe en el Sistema!",
+                            type: "error",
+                            confirmButtonText: "¡Cerrar!"
+                          }).then(function(result){
+
+                            if(result.value){
+                            
+                                window.location = "capacitaciones";
+
+                            }
+
+                        });
+                    
+
+                        </script>'.$e->getMessage();
+                        
+                    }        
+
             } // End Funcion mdlagregarCA
                 
           /* =========== FUNCIÓN - SOLICITUDES DE INFORMACION - MOSTRAR DATOS - EDITAR - DESDE LA UNIDAD DE TRANSPARENCIA ================ */   //

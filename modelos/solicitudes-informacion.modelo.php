@@ -849,23 +849,19 @@
              /* ============ AQUI VALIDAMOS TODA LA INFORMACION QUE PUDIERA ESTA EXISTENTE  ================= */
        // 1.- VALIDAR CODIGO 
 
-       static public function mdlValidarSolicitudesInformacionExitente($tabla, $item1, $valor1, $item2, $valor2, $item3, $valor3){
+       static public function mdlValidarSolicitudesInformacionExitente($tabla, $item1, $valor1){
 
-          $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item1, $valor1 and $item2, $valor2 and $item3, $valor3");
+          $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item1 = :$item1");
 
           $stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
-
-          $stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
-
-          $stmt -> bindParam(":".$item3, $valor3, PDO::PARAM_STR);
 
           $stmt -> execute();
 
           return $stmt -> fetch();
 
-      $stmt -> close();
+          $stmt -> close();
 
-      $stmt = null;
+          $stmt = null;
 
     }
 

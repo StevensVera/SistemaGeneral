@@ -161,7 +161,31 @@
 
                                 </script>';
 
-                        } // if
+                        } elseif ($respuesta == "error") {
+
+                           echo '<script>
+
+                                swal({
+
+                                  swal({
+                                    title: "Error",
+                                    text: "¡Ya existe el Informe en el Sistema!",
+                                    type: "error",
+                                    confirmButtonText: "¡Cerrar!"
+                                  }).then(function(result){
+
+                                    if(result.value){
+                                    
+                                        window.location = "capacitaciones";
+
+                                    }
+
+                                });
+                            
+
+                                </script>';
+
+                        }
               } else{
 
                   echo '<script>
