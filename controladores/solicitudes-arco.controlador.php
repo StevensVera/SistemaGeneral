@@ -90,6 +90,31 @@
 
                                 $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["nuevoTipoInformeSA"].$espacio.$CarpataAdicionalSA.$espacio.$_POST["nuevoAnioSA"];
 
+                                
+                                /* =========== VARIABLES CAMBIANTES ============================== */
+
+                                // Agregamos Tabla
+
+                                $tablaSA_r = "solicitudes_arco_r";
+
+                                $datos = array (
+                                              "SA_Estatus" => 0,
+                                              "SA_Codigo_SO" => $Codigo,
+                                              "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
+                                              "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSA,
+                                              "SA_Codigo_Informe_Anios" => $CodigoIPA,
+                                              "SA_Nombre_Sujeto_Obligado" => $SObligado,
+                                              "SA_Informe_Presentado" => $_POST["nuevoTipoInformeSA"],
+                                              "SA_Anios" => $_POST["nuevoAnioSA"], 
+                                              "SA_TOTAL_SOLICITUDES" => $_POST["nuevoSA_Total"]
+                                              
+                                            
+                                            );
+
+                              $respuesta = ModeloSolicitudesArco::MdlAgregarSA_r($tablaSA_r, $datos);
+
+                              if($respuesta == "ok"){
+
                               /* ================= VALIDAR ARCHIVO PDF =================*/
                                       
                                       $rutaSA = "";
@@ -149,7 +174,7 @@
 
                                 /* datos - Array */
 
-                              $datos = array (
+                                 $datos = array (
                                               "SA_Estatus" => 0,
                                               "SA_Codigo_SO" => $Codigo,
                                               "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
@@ -215,33 +240,39 @@
                                             
                                             );
 
-                              $respuesta = ModeloSolicitudesArco::MdlAgregarSA($tablaSA, $datos);
+                                  $respuesta = ModeloSolicitudesArco::MdlAgregarSA($tablaSA, $datos);
 
-                              if($respuesta == "ok"){
+                                  if($respuesta == "ok"){
 
-                                        echo '<script>
+                                            echo '<script>
 
-                                        swal({
+                                            swal({
 
-                                            type: "success",
-                                            title: "¡La Solicitud de Informes ARCO, ha sido guardado correctamente!",
-                                            showConfirmButton: true,
-                                            confirmButtonText: "Cerrar"
+                                                type: "success",
+                                                title: "¡La Solicitud de Informes ARCO, ha sido guardado correctamente!",
+                                                showConfirmButton: true,
+                                                confirmButtonText: "Cerrar"
 
-                                        }).then(function(result){
+                                            }).then(function(result){
 
-                                            if(result.value){
-                                            
-                                                window.location = "solicitudes-arco";
+                                                if(result.value){
+                                                
+                                                    window.location = "solicitudes-arco";
 
-                                            }
+                                                }
 
-                                        });
-                                    
+                                            });
+                                        
 
-                                        </script>';
+                                            </script>';
 
-                                } // if
+                                    } // if
+
+
+
+                                  } // if
+
+
 
                             }else{
 
@@ -910,6 +941,22 @@
             } // if 
             
           }// function
+
+            /* =========== MOSTRAR DATOS TABLA - SOLICITUDES ARCO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+
+        static public function ctrBorrarRegistroSolicitudArco_r(){
+
+            if(isset($_GET["idSAR"])){
+      
+              $tabla ="solicitudes_arco_r";
+
+              $datos = $_GET["idSAR"];
+
+              $respuesta = ModeloSolicitudesArco::mdlBorrarRegistroArco($tabla, $datos);
+    
+            } // if 
+            
+          }// function      
 
     /* =================== METODO PDF - MOSTRAR DATOS INDIVUDALES REGISTRADOS POR USUARIO =============== */
 

@@ -17,6 +17,8 @@
                 return $stmt -> fetchAll();
 
            }  // ctrMostraTablaAR
+           
+      /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA PRINCIPAL ================ */ 
 
            static public function MdlAgregarSA($tablaSA, $datos){
 
@@ -227,6 +229,83 @@
 
 
            }// End Funciom Agregar SA
+
+            /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA SECUNDARIA ================ */ 
+
+           static public function MdlAgregarSA_r($tablaSA_r, $datos){
+
+               try{  
+
+                  $stmt = Conexion::conectar()->prepare(
+                     "INSERT INTO $tablaSA_r (
+                        SA_Estatus,
+                        SA_Codigo_SO, 
+                        SA_Codigo_UnicoInforme_Anios,
+                        SA_Codigo_Tipo_Informe_Anios,
+                        SA_Codigo_Informe_Anios,
+                        SA_Nombre_Sujeto_Obligado,
+                        SA_Informe_Presentado,
+                        SA_Anios,
+                        SA_TOTAL_SOLICITUDES
+                        
+                        )VALUES (
+                        :SA_Estatus,   
+                        :SA_Codigo_SO,
+                        :SA_Codigo_UnicoInforme_Anios,
+                        :SA_Codigo_Tipo_Informe_Anios,
+                        :SA_Codigo_Informe_Anios,
+                        :SA_Nombre_Sujeto_Obligado,
+                        :SA_Informe_Presentado,
+                        :SA_Anios,
+                        :SA_TOTAL_SOLICITUDES
+                        
+                        )");
+                  
+                  $stmt -> bindParam(":SA_Estatus", $datos["SA_Estatus"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_SO", $datos["SA_Codigo_SO"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_UnicoInforme_Anios", $datos["SA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_Tipo_Informe_Anios", $datos["SA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_Informe_Anios", $datos["SA_Codigo_Informe_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Nombre_Sujeto_Obligado", $datos["SA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Informe_Presentado", $datos["SA_Informe_Presentado"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Anios", $datos["SA_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_TOTAL_SOLICITUDES", $datos["SA_TOTAL_SOLICITUDES"], PDO::PARAM_STR);
+               
+                  if ($stmt -> execute()) {
+      
+                     return "ok";
+               
+                  }else {
+               
+                     return "error";
+         
+                  } // else
+
+               } catch(PDOException $e) {
+                    
+                  echo '<script>
+      
+                      swal({
+                        title: "ERROR, AL INSERTAR.",
+                        text: "¡LA SOLICITUD DE ARCO QUE DESEA INSERTAR, YA EXISTE EN EL SISTEMA. VERIFIQUÉ SUS DATOS NUEVAMENTE!",
+                        type: "error",
+                        confirmButtonText: "¡Cerrar!"
+                      }).then(function(result){
+      
+                         if(result.value){
+                            
+                            window.location = "solicitudes-arco";
+      
+                          }
+      
+                      });
+      
+                      </script>';
+                
+              }          
+
+           }// End Funciom Agregar SA
+
 
         
       /* =========== FUNCIÓN - SOLICITUDES DE INFORMACION - MOSTRAR DATOS - EDITAR - DESDE LA UNIDAD DE TRANSPARENCIA ================ */  

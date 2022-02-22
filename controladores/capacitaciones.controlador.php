@@ -67,57 +67,14 @@
 
                     $CarpetaCA = "Capacitaciones";
 
-                    /* ================= VALIDAR ARCHIVO PDF =================*/
 
-                    if (isset($_FILES["nuevoArchivoCA"]["tmp_name"])) {
+                    /* =========== VARIABLES CAMBIANTES ============================== */
 
-                      /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
-                    
-                
-                      $directorioArchivoCA = "vistas/pdfs/informes/".$Codigo;
+                    // Agregamos Tabla
+                    $tablaCA_r = "capacitaciones_r";
 
-                      mkdir($directorioArchivoCA, 0755);
 
-                      $directorioArchivoCA2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
-
-                      mkdir($directorioArchivoCA2, 0755);
-
-                      $directorioArchivoCA3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA;
-
-                      mkdir($directorioArchivoCA3, 0755);
-
-                      /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
-
-                      $aletorio = mt_rand(100,999);
-
-                      if ($_FILES["nuevoArchivoCA"]["type"] == "application/pdf") {
-                            
-                        $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".pdf";
-
-                        move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
-
-                        }
-
-                      if ($_FILES["nuevoArchivoCA"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
-                            
-                        $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".xlsx";
-
-                        move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
-
-                        }
-
-                        
-                      if ($_FILES["nuevoArchivoCA"]["type"] == "application/vnd.ms-excel") {
-                            
-                        $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".xls";
-
-                        move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
-
-                        }
-
-                        
-                    }
-                                    /* Datos - Array */
+                     /* Datos - Array */
                     $datos = array( "CA_Estatus" => 0,
                                     "CA_Codigo_SO" => $Codigo, 
                                     "CA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioCA,
@@ -127,45 +84,112 @@
                                     "CA_Informe_Presentado" => $_POST["nuevoTipoCapacitaciones"],
                                     "CA_Anios" => $_POST["nuevoAnioCapacitaciones"], 
                                     "CA_Total_Capacitacion" => $_POST["nuevoCapacitaciones_Total"],
-                                    //"** Capacitaciones **",
-                                    "CA_Capacitaciones_Recibidas" => $_POST["nuevoCapacitaciones_Recibidas"],
-                                    "CA_Capacitaciones_Ortogadas" => $_POST["nuevoCapacitaciones_Ortogadas"],
-                                    "CA_Total_Servidores_Publicos" => $_POST["nuevoCapacitaciones_Total_Servidores_Publicos"],
-                                    "CA_Suma_Total" => $_POST["nuevoCapacitaciones_Suma_Total"],
-                                    "CA_Archivo" => $rutaCA
                                 );
 
-                        $respuesta = ModeloCapacitacion::mdlagregarCA($tablaCA, $datos);
+                        $respuesta = ModeloCapacitacion::mdlagregarCA_R($tablaCA_r, $datos);
 
                         if($respuesta == "ok"){
 
-                                echo '<script>
+                            /* ================= VALIDAR ARCHIVO PDF =================*/
 
-                                swal({
+                            if (isset($_FILES["nuevoArchivoCA"]["tmp_name"])) {
 
-                                    type: "success",
-                                    title: "¡La Capacitación, ha sido guardado correctamente!",
-                                    showConfirmButton: true,
-                                    confirmButtonText: "Cerrar"
-
-                                }).then(function(result){
-
-                                    if(result.value){
-                                    
-                                        window.location = "capacitaciones";
-
-                                    }
-
-                                });
+                              /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SI ==========================*/
                             
+                        
+                              $directorioArchivoCA = "vistas/pdfs/informes/".$Codigo;
 
-                                </script>';
+                              mkdir($directorioArchivoCA, 0755);
 
-                        } elseif ($respuesta == "error") {
+                              $directorioArchivoCA2 = "vistas/pdfs/informes/".$Codigo."/".$Anios;
 
-                           echo '<script>
+                              mkdir($directorioArchivoCA2, 0755);
 
-                                swal({
+                              $directorioArchivoCA3 = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA;
+
+                              mkdir($directorioArchivoCA3, 0755);
+
+                              /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                              $aletorio = mt_rand(100,999);
+
+                              if ($_FILES["nuevoArchivoCA"]["type"] == "application/pdf") {
+                                    
+                                $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".pdf";
+
+                                move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
+
+                                }
+
+                              if ($_FILES["nuevoArchivoCA"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                    
+                                $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".xlsx";
+
+                                move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
+
+                                }
+
+                                
+                              if ($_FILES["nuevoArchivoCA"]["type"] == "application/vnd.ms-excel") {
+                                    
+                                $rutaCA = "vistas/pdfs/informes/".$Codigo."/".$Anios."/".$CarpetaCA."/".$CodigoIPACA.$espacio.$SObligado.".xls";
+
+                                move_uploaded_file ($_FILES["nuevoArchivoCA"]["tmp_name"], $rutaCA);
+
+                                }
+
+                                
+                            }
+
+                            /* Datos - Array */
+                            $datos = array( "CA_Estatus" => 0,
+                                            "CA_Codigo_SO" => $Codigo, 
+                                            "CA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioCA,
+                                            "CA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosCA,
+                                            "CA_Codigo_Informe_Anios" => $CodigoIPACA,
+                                            "CA_Nombre_Sujeto_Obligado" => $SObligado,
+                                            "CA_Informe_Presentado" => $_POST["nuevoTipoCapacitaciones"],
+                                            "CA_Anios" => $_POST["nuevoAnioCapacitaciones"], 
+                                            "CA_Total_Capacitacion" => $_POST["nuevoCapacitaciones_Total"],
+                                            //"** Capacitaciones **",
+                                            "CA_Capacitaciones_Recibidas" => $_POST["nuevoCapacitaciones_Recibidas"],
+                                            "CA_Capacitaciones_Ortogadas" => $_POST["nuevoCapacitaciones_Ortogadas"],
+                                            "CA_Total_Servidores_Publicos" => $_POST["nuevoCapacitaciones_Total_Servidores_Publicos"],
+                                            "CA_Suma_Total" => $_POST["nuevoCapacitaciones_Suma_Total"],
+                                            "CA_Archivo" => $rutaCA
+                                        );
+
+                                $respuesta = ModeloCapacitacion::mdlagregarCA($tablaCA, $datos);
+
+                                if($respuesta == "ok"){
+
+                                        echo '<script>
+
+                                        swal({
+
+                                            type: "success",
+                                            title: "¡La Capacitación, ha sido guardado correctamente!",
+                                            showConfirmButton: true,
+                                            confirmButtonText: "Cerrar"
+
+                                        }).then(function(result){
+
+                                            if(result.value){
+                                            
+                                                window.location = "capacitaciones";
+
+                                            }
+
+                                        });
+                                    
+
+                                        </script>';
+
+                                } // IF 1ER TABLA 
+
+                         } elseif ($respuesta == "error") {
+
+                          echo '<script>
 
                                   swal({
                                     title: "Error",
@@ -185,7 +209,7 @@
 
                                 </script>';
 
-                        }
+                        } // END ELSE IF 2DA TABLA
               } else{
 
                   echo '<script>
@@ -380,17 +404,21 @@
 
       }// End CtrActualizar
 
-      /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+      /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA CAPACITACIONES - ================ */
 
         static public function ctrBorrarRegistroCapacitacion(){
 
           if (isset($_GET["idCA"])) {
 
-            $tabla = "Capacitaciones";
-
             $CarpetaSA = "capacitaciones";
 
+            $tabla = "capacitaciones";
+
             $datos = $_GET["idCA"];
+
+            //$tabla_r = "Capacitaciones_r";
+
+            //$datos_r = $_GET["idCA"];
 
             if($_GET["archivoCA"] != ""){
 
@@ -428,6 +456,22 @@
           } // End Function
 
         }// End Function
+
+        /* =========== ELIMINAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA CAPACITACIONES_R - ================ */
+
+        static public function ctrBorrarRegistroCapacitacion_r(){
+
+          if (isset($_GET["idCA"])) {
+
+            $tabla = "capacitaciones_r";
+
+            $datos = $_GET["idCA"];
+
+            $respuesta = ModeloCapacitacion::mdlBorrarRegistroInformacion($tabla, $datos);
+    
+            } // if 
+
+          } // End Function
 
       /* =================== METODO PDF - MOSTRAR DATOS INDIVUDALES REGISTRADOS POR USUARIO =============== */
 

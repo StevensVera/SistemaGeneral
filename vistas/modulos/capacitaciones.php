@@ -61,9 +61,9 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                         <th style="width: 300px">Sujeto Obligado</th>
                         <th style="width: 150px">Informe Presentado</th>
                         <th style="width: 80px">Año</th>
-                        <th style="width: 160px">Total de Capacitaciones</th>
+                        <th style="width: 100px">Total de Capacitaciones</th>
                         <th style="width: 110px">Fecha de Entrega</th>
-                        <th style="width: 150px">Acciones</th>
+                        <th style="width: 210px">Acciones</th>
   
                     </tr>
 
@@ -384,6 +384,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
  
    $EliminarSolicitudInformacion = new ControladorCapacitaciones();
    $EliminarSolicitudInformacion -> ctrBorrarRegistroCapacitacion();
+   $EliminarSolicitudInformacion -> ctrBorrarRegistroCapacitacion_r();
 
 ?>
 

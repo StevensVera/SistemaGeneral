@@ -58,12 +58,12 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                     <tr>
 
                         <th>#</th>
-                        <th style="width: 300px">Sujeto Obligado</th>
+                        <th style="width: 275px">Sujeto Obligado</th>
                         <th style="width: 150px">Informe Presentado</th>
                         <th style="width: 80px">Año</th>
-                        <th style="width: 160px">Total de Solicitudes Información</th>
+                        <th style="width: 100px">Total de Solicitudes Información</th>
                         <th style="width: 110px">Fecha de Entrega</th>
-                        <th style="width: 150px">Acciones</th>
+                        <th style="width: 210px">Acciones</th>
   
                     </tr>
 
@@ -72,44 +72,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                 <input type="hidden" value="<?php echo $_SESSION["perfil_Informe"]; ?>" id="perfilOcultoUsuario">
 
                 <input type="hidden" value="<?php echo $_SESSION["codigo"]; ?>" id="perfiCodigo">
-
-            </table>
-          
-        </div>
-       
-      </div>
-
-      <div class="box">
-
-        <div class="box-header with-border">
-
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarSolicitudesInformacionDetalles"> 
-
-            Agregar Detalles de la Solicitudes Información
-
-            </button>
-          
-        </div>
-
-        <div class="box-body">
-
-             <table class="table table-bordered table-striped dt-responsive tablasDetallesinformacionsolicitudes" with="100%">
-
-                <thead>
-
-                    <tr>
-
-                        <th>#</th>
-                        <th >Sujeto Obligado</th>
-                        <th>Titular SO</th>
-                        <th>Informe Presentado</th>
-                        <th>Total de Solicitudes</th>
-                        <th>Fecha de Entrega</th>
-                        <th>Acciones</th>
-  
-                    </tr>
-
-                </thead>
 
             </table>
           
@@ -204,22 +166,6 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                  <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
 
                     <input type="number" class="form-control input-lg" id="nuevoSI_Total" name="nuevoSI_Total" placeholder="Total de Solicitudes" required>
-
-              </div>
-    
-          </div>
-
-          <hr>
-
-           <!-- ===================== ENTRADA HIDDEN PARA CODIGO - INFORME - SOLICITUDES INFORMACIÓN - AÑO ==================== -->
-
-           <div class="form-group" style="width: 60%; margin: 0 auto; padding-bottom: 15px">
-                
-              <div class="input-group">
-
-                 <span class="input-group-addon"><i class="fa fa-hashtag" aria-hidden="true"></i></span>
-
-                    <input type="text" class="form-control input-lg" id="nuevoCodeInformeSIAnios" name="nuevoCodeInformeSIAnios" placeholder="Total de Solicitudes">
 
               </div>
     
@@ -2775,6 +2721,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
  
  $EliminarSolicitudInformacion = new ControladorSolicitudesInformes();
  $EliminarSolicitudInformacion -> ctrBorrarRegistroSolicitudInformacion();
+ $EliminarSolicitudInformacion -> ctrBorrarRegistroSolicitudInformacion_r();
 
 
 
