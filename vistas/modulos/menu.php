@@ -31,7 +31,7 @@
             
             <?php
              
-             if ($_SESSION["perfil_Informe"] == "Administrador" || $_SESSION["perfil_Informe"] == "Sujeto Obligado"){
+             if ($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                 echo  '<li class="active">
             
@@ -77,7 +77,7 @@
 
             <?php
              
-                if ($_SESSION["perfil_Informe"] == "Administrador" || $_SESSION["perfil_Informe"] == "Sujeto Obligado"){
+                if ($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
 
                 echo  '<li>

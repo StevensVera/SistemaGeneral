@@ -1,9 +1,6 @@
 
 var perfilOcultoUsuario = $("#perfilOcultoUsuario").val();
 
-console.log("perfilOcultoUsuario", perfilOcultoUsuario);
-
-
 /* ============== MOSTRAR DATOS DE USUARIOS EN EL DATATABLE ================ */
 
 var table = $(".tablasUsuariosSO").DataTable({

@@ -24,20 +24,19 @@
 
     /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
         
-        static public function ctrMostrarTablaAdministracionSO($valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA){
+    static public function ctrMostrarTablaAdministracionSO($valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA){
 
-          $tablaSI = "solicitudes_informacion";
+      $tablaSI = "solicitudes_informacion";
 
-          $tablaSA = "solicitudes_arco";
+      $tablaSA = "solicitudes_arco";
 
-          $TablaCA = "Capacitaciones";
+      $TablaCA = "Capacitaciones";
 
-          $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA);
+      $respuesta = ModeloSolicitudesInformacion::MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA);
 
-          return $respuesta;
+      return $respuesta;
 
-        }
-
+    }
         static public function ctrMostrarTablaSINOUSABLE($item,$valor){
 
           /* Tabla Solicitudes de Informacion */

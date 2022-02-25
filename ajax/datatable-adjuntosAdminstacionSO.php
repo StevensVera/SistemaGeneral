@@ -13,7 +13,7 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
     class TablaAjuntosAdministracionSO{
 
         static public function MostrarTablaAdmnistracionSO(){
-
+        
             // Mandamos el codigo de la Sesión Inicializada           
             $valor = $_SESSION["codigo"]; 
             // Mandamos el codigo de la Sesión Inicializada           

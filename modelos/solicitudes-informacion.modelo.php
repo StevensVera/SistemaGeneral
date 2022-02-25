@@ -50,46 +50,46 @@
 
       } // End Funcion MdlMostrarTablaSI
 
-      /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+     /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
-      static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA,$valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA){
+    static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA,$valor, $valor2, $ObtenerCodigoInformeSI, $ObtenerCodigoInformeSA,$ObtenerCodigoInformeCA, $ObtenerCodigoSI, $ObtenerCodigoSA, $ObtenerCodigoCA, $ObtenerEstatusSI, $ObtenerEstatusSA, $ObtenerEstatusCA){
 
-        $stmt = Conexion::conectar()->prepare("SELECT DISTINCT *
-                                                FROM $tablaSI SI
-                                                INNER JOIN $tablaSA SA
-                                                ON SI.$ObtenerCodigoInformeSI = SA.$ObtenerCodigoInformeSA
-                                                INNER JOIN $TablaCA CA
-                                                ON SI.$ObtenerCodigoInformeSI = CA.$ObtenerCodigoInformeCA
-                                                WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SI.$ObtenerEstatusSI = :$ObtenerEstatusSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND SA.$ObtenerEstatusSA = :$ObtenerEstatusSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA AND CA.$ObtenerEstatusCA = :$ObtenerEstatusCA" );
+      $stmt = Conexion::conectar()->prepare("SELECT DISTINCT *
+                                              FROM $tablaSI SI
+                                              INNER JOIN $tablaSA SA
+                                              ON SI.$ObtenerCodigoInformeSI = SA.$ObtenerCodigoInformeSA
+                                              INNER JOIN $TablaCA CA
+                                              ON SI.$ObtenerCodigoInformeSI = CA.$ObtenerCodigoInformeCA
+                                              WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SI.$ObtenerEstatusSI = :$ObtenerEstatusSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND SA.$ObtenerEstatusSA = :$ObtenerEstatusSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA AND CA.$ObtenerEstatusCA = :$ObtenerEstatusCA" );
 
-         $stmt -> bindParam(":".$ObtenerCodigoSI, $valor, PDO::PARAM_STR);
-         $stmt -> bindParam(":".$ObtenerCodigoSA, $valor, PDO::PARAM_STR);
-         $stmt -> bindParam(":".$ObtenerCodigoCA, $valor, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$ObtenerCodigoSI, $valor, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$ObtenerCodigoSA, $valor, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$ObtenerCodigoCA, $valor, PDO::PARAM_STR);
 
-         $stmt -> bindParam(":".$ObtenerEstatusSI, $valor2, PDO::PARAM_STR);
-         $stmt -> bindParam(":".$ObtenerEstatusSA, $valor2, PDO::PARAM_STR);
-         $stmt -> bindParam(":".$ObtenerEstatusCA, $valor2, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$ObtenerEstatusSI, $valor2, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$ObtenerEstatusSA, $valor2, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$ObtenerEstatusCA, $valor2, PDO::PARAM_STR);
 
-         $stmt -> execute();
+       $stmt -> execute();
 
-         return $stmt -> fetchAll();
+       return $stmt -> fetchAll();
 
-       /*
-       $stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
-                                                FROM $tabla 
-                                                INNER JOIN $tablaDSI ON $tablaDSI.idSI = $tabla.idSI 
-                                                INNER JOIN $tablaU ON $tablaU.id = $tablaDSI.idusuario 
-                                                WHERE $tablaU.$item = :$item" );
+     /*
+     $stmt = Conexion::conectar()->prepare("SELECT $tabla.$so, $tabla.$ip, $tabla.$ipa, $tabla.$tsi, $tabla.$fe 
+                                              FROM $tabla 
+                                              INNER JOIN $tablaDSI ON $tablaDSI.idSI = $tabla.idSI 
+                                              INNER JOIN $tablaU ON $tablaU.id = $tablaDSI.idusuario 
+                                              WHERE $tablaU.$item = :$item" );
 
-         $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+       $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
-         $stmt -> execute();
+       $stmt -> execute();
 
-         return $stmt -> fetchAll();
+       return $stmt -> fetchAll();
 
-       */
+     */
 
-   } // End Funcion MdlMostrarTablaSI
+ } // End Funcion MdlMostrarTablaSI
 
    /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA PRINCIPAL ================ */ 
 

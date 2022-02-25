@@ -53,6 +53,7 @@
   
 <!-- jQuery 3 -->
 <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -61,6 +62,9 @@
 <script src="vistas/dist/js/adminlte.min.js"></script>
 </head>
 <!-- DataTables -->
+
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
 <script src="vistas/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 
 <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -170,6 +174,7 @@
     <script src="vistas/js/solicitudes_arco.js"></script>
     <script src="vistas/js/administracionSO.js"></script>
     <script src="vistas/js/capacitaciones.js"></script>
+    <script src="vistas/js/administracionGeneral.js"></script>
 
 </body>
 </html>
