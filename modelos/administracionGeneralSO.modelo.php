@@ -47,22 +47,16 @@ require_once "conexion.php";
 
    /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
-   static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $Obtener_Nombre_Sujeto_Obligado, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Informe_Presentado, $Obtener_SI_Anios, $Obtener_SI_TOTAL_SOLICITUDES, $Obtener_SI_Fecha, $Obtener_SI_Estatus, $Obtener_SA_Nombre_Sujeto_Obligado, $Obtener_SA_Codigo_UnicoInforme_Anios, $Obtener_SA_Informe_Presentado, $Obtener_SA_Anios, $Obtener_SA_TOTAL_SOLICITUDES, $Obtener_SA_Fecha, $Obtener_SA_Estatus, $Obtener_CA_Nombre_Sujeto_Obligado, $Obtener_CA_Codigo_UnicoInforme_Anios, $Obtener_CA_Informe_Presentado, $Obtener_CA_Anios, $Obtener_CA_Total_Capacitacion ,$Obtener_CA_Fecha, $Obtener_CA_Estatus, $ValorSI_Informe_Presentado1, $ValorSI_Informe_Presentado6){
+   static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Estatus, $Obtener_SA_Estatus,  $Obtener_CA_Estatus){
 
     $stmt = Conexion::conectar()->prepare(
-     "SELECT $Obtener_Nombre_Sujeto_Obligado, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Informe_Presentado, 
-              $Obtener_SI_Anios, $Obtener_SI_TOTAL_SOLICITUDES, $Obtener_SI_Fecha 
-              FROM $tablaSI 
-              WHERE $Obtener_SI_Informe_Presentado BETWEEN '1er Informe Bimestral' AND '6to Informe Bimestral' AND $Obtener_SI_Estatus = 1
-              UNION 
-      SELECT $Obtener_SA_Nombre_Sujeto_Obligado, $Obtener_SA_Codigo_UnicoInforme_Anios, $Obtener_SA_Informe_Presentado, 
-              $Obtener_SA_Anios, $Obtener_SA_TOTAL_SOLICITUDES, $Obtener_SA_Fecha 
-              FROM $tablaSA
-              WHERE $Obtener_SA_Informe_Presentado BETWEEN '1er Informe Bimestral' AND '6to Informe Bimestral' AND $Obtener_SA_Estatus = 1
-              UNION
-      SELECT $Obtener_CA_Nombre_Sujeto_Obligado, $Obtener_CA_Codigo_UnicoInforme_Anios, $Obtener_CA_Informe_Presentado, $Obtener_CA_Anios, $Obtener_CA_Total_Capacitacion ,$Obtener_CA_Fecha
-              FROM $TablaCA  
-              WHERE $Obtener_CA_Informe_Presentado BETWEEN '1er Informe Bimestral' AND '6to Informe Bimestral' AND $Obtener_CA_Estatus = 1  " );
+     "SELECT DISTINCT * FROM $tablaSI
+        INNER JOIN $tablaSA
+        ON $tablaSI.$Obtener_SI_Estatus = $tablaSA.$Obtener_SA_Estatus
+        INNER JOIN $TablaCA
+        ON $tablaSI.$Obtener_SI_Estatus = $TablaCA.$Obtener_CA_Estatus
+        WHERE $tablaSI.$Obtener_SI_Estatus = 1 AND $tablaSA.$Obtener_SA_Estatus = 1 AND $TablaCA.$Obtener_CA_Estatus = 1
+        GROUP BY $Obtener_SI_Codigo_UnicoInforme_Anios " );
 
      $stmt -> execute();
 

@@ -53,7 +53,7 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
             $TipoEstado = "EN REVISIÓN";
 
             
-            $adjunto = ControladorAdministracionGeneralSO::ctrMostrarTablaAdministracionGeneralSO($Obtener_Nombre_Sujeto_Obligado, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Informe_Presentado, $Obtener_SI_Anios, $Obtener_SI_TOTAL_SOLICITUDES, $Obtener_SI_Fecha, $Obtener_SI_Estatus, $Obtener_SA_Nombre_Sujeto_Obligado, $Obtener_SA_Codigo_UnicoInforme_Anios, $Obtener_SA_Informe_Presentado, $Obtener_SA_Anios, $Obtener_SA_TOTAL_SOLICITUDES, $Obtener_SA_Fecha, $Obtener_SA_Estatus, $Obtener_CA_Nombre_Sujeto_Obligado, $Obtener_CA_Codigo_UnicoInforme_Anios, $Obtener_CA_Informe_Presentado, $Obtener_CA_Anios, $Obtener_CA_Total_Capacitacion ,$Obtener_CA_Fecha, $Obtener_CA_Estatus, $ValorSI_Informe_Presentado1, $ValorSI_Informe_Presentado6 );
+            $adjunto = ControladorAdministracionGeneralSO::ctrMostrarTablaAdministracionGeneralSO($Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Estatus, $Obtener_SA_Estatus,  $Obtener_CA_Estatus);
 
             if (count($adjunto) == 0) {
                 
