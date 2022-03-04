@@ -16,6 +16,27 @@ var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
     "processing": true,
     "scrollY": 450,
     "scrollX": true,
+
+    initComplete: function () {
+      this.api().columns([1, 2, 3, 4, 5]).every( function () {
+          var column = this;
+          var select = $('<select style="width:120px"><option value=""></option></select>')
+              .appendTo( $(column.footer()).empty() )
+              .on( 'change', function () {
+                  var val = $.fn.dataTable.util.escapeRegex(
+                      $(this).val()
+                  );
+
+                  column
+                      .search( val ? '^'+val+'$' : '', true, false )
+                      .draw();
+              } );
+
+          column.data().unique().sort().each( function ( d, j ) {
+              select.append( '<option value="'+d+'">'+d+'</option>' )
+          } );
+      } );
+  },
        
      "language": {
   
@@ -46,6 +67,254 @@ var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
   
   });
 
+  
+
+
+/* ============== MOSTRAR LOS DATOS DE SOLICITUDES DE INFORMACIÓN ================ */ 
+
+$(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdministracionSO", function() {
+  
+  var idSolicitudesInformacion = $(this).attr("idSolicitudesInformacion");
+
+  var datos = new FormData();
+
+  datos.append("idSolicitudesInformacion", idSolicitudesInformacion);
+  console.log("idSolicitudesInformacion",idSolicitudesInformacion);
+
+    $.ajax({
+      url:"ajax/adjuntosSolicitudesInformacion.ajax.php",
+      method: "POST",  
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success: function(respuesta) {
+
+        console.log("respuesta", respuesta);
+
+        $("#EditarSONSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
+
+        $("#EditarSOSI").val(respuesta["SI_Informe_Presentado"]);
+        $("#EditarSOANIOSI").val(respuesta["SI_Anios"]);
+        $("#EditarSOFSI").val(respuesta["SI_Fecha"]);
+        $("#EditarSOTSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
+        
+
+
+
+        /*
+
+        if (respuesta["foto_Informe"] != "") {
+          
+          $(".previsualizarEditar").attr("src", respuesta["foto_Informe"]);
+
+        }else{
+
+          $(".previsualizarEditar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+  
+        }
+
+        if (respuesta["archivo_Informe"] != "") {
+          
+          $(".nuevoArchivo").attr("src", respuesta["archivo_Informe"]);
+
+        }        
+
+        */
+        
+      }
+
+    })
+
+  }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR 
+
+
+  /* ============== MOSTRAR LOS DATOS DE SOLICITUDES ARCO ================ */ 
+
+$(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdministracionSO", function() {
+  
+  var idSolicitudesArco = $(this).attr("idSolicitudesArco");
+   
+  var datos = new FormData();
+
+  datos.append("idSolicitudesArco", idSolicitudesArco);
+  console.log("idSolicitudesArco",idSolicitudesArco);
+
+    $.ajax({
+      url:"ajax/adjuntosSolicitudesArco.ajax.php",
+      method: "POST",  
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success: function(respuesta) {
+
+        console.log("respuesta", respuesta);
+
+        $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+
+        $("#EditarSOSA").val(respuesta["SA_Informe_Presentado"]);
+        $("#EditarSOANIOSA").val(respuesta["SA_Anios"]);
+        $("#EditarSOFSA").val(respuesta["SA_Fecha"]);
+        $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+        
+
+
+        /*
+
+        if (respuesta["foto_Informe"] != "") {
+          
+          $(".previsualizarEditar").attr("src", respuesta["foto_Informe"]);
+
+        }else{
+
+          $(".previsualizarEditar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+  
+        }
+
+        if (respuesta["archivo_Informe"] != "") {
+          
+          $(".nuevoArchivo").attr("src", respuesta["archivo_Informe"]);
+
+        }        
+
+        */
+        
+      }
+
+    })
+
+  }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR 
+
+
+
+/* ============== MOSTRAR LOS DATOS DE CAPACITACIONES ================ */ 
+
+$(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdministracionSO", function() {
+  
+  var idCapacitaciones = $(this).attr("idCapacitaciones");
+
+  var datos = new FormData();
+
+  datos.append("idCapacitaciones", idCapacitaciones);
+  console.log("idCapacitaciones",idCapacitaciones);
+
+    $.ajax({
+      url:"ajax/adjuntosCapacitaciones.ajax.php",
+      method: "POST",  
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success: function(respuesta) {
+
+        console.log("respuesta", respuesta);
+
+        $("#EditarSOCA").val(respuesta["CA_Informe_Presentado"]);
+        $("#EditarSOANIOCA").val(respuesta["CA_Anios"]);
+        $("#EditarSOFCA").val(respuesta["CA_Fecha"]);
+        $("#EditarSOTCA").val(respuesta["CA_Total_Capacitacion"]);
+        
+
+        /*
+
+        if (respuesta["foto_Informe"] != "") {
+          
+          $(".previsualizarEditar").attr("src", respuesta["foto_Informe"]);
+
+        }else{
+
+          $(".previsualizarEditar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+  
+        }
+
+        if (respuesta["archivo_Informe"] != "") {
+          
+          $(".nuevoArchivo").attr("src", respuesta["archivo_Informe"]);
+
+        }        
+
+        */
+        
+      }
+
+    })
+
+  }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR 
+
+
+
+
+  
+
+/* =========== MOSTRAR - EDITAR - ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS MOSTRAR SOLAMENTE POR GRUPOS DE 3 ================= */
+
+/*
+
+$(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnImprimerReporteAdministacionSO", function() {
+
+  var idAdminstracionSOSI = $(this).attr("idAdminstracionSOSI");
+
+  var idAdminstracionSOSA = $(this).attr("idAdminstracionSOSA");
+
+  var idAdminstracionSOCA = $(this).attr("idAdminstracionSOCA");
+   
+
+  var datos = new FormData();
+
+  datos.append("idAdminstracionSOSI", idAdminstracionSOSI);
+  console.log("idAdminstracionSOSI",idAdminstracionSOSI);
+
+  datos.append("idAdminstracionSOSA", idAdminstracionSOSA);
+  console.log("idAdminstracionSOSA",idAdminstracionSOSA);
+
+  datos.append("idAdminstracionSOCA", idAdminstracionSOCA);
+  console.log("idAdminstracionSOCA",idAdminstracionSOCA);
+
+
+  $.ajax({
+
+    url: "ajax/adjuntosCapacitaciones.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType:"json",
+      success: function(respuesta){
+
+        console.log("respuesta",respuesta);
+        $("#EditarTipoCapacitaciones").html(respuesta["CA_Informe_Presentado"]);
+        $("#EditarTipoCapacitaciones").val(respuesta["CA_Informe_Presentado"]);
+        $("#EditarAnioCapacitaciones").val(respuesta["CA_Anios"]);
+        $("#EditarCapacitaciones_Total").val(respuesta["CA_Total_Capacitacion"]);
+        $("#EditarCapacitaciones_Recibidas").val(respuesta["CA_Capacitaciones_Recibidas"]);
+        $("#EditarCapacitaciones_Ortogadas").val(respuesta["CA_Capacitaciones_Ortogadas"]);
+        $("#EditarCapacitaciones_Total_Servidores_Publicos").val(respuesta["CA_Total_Servidores_Publicos"]);
+        $("#EditarCapacitaciones_Suma_Total").val(respuesta["CA_Suma_Total"]);
+        $("#EditarCapacitaciones_Suma_Total").val(respuesta["CA_Suma_Total"]);
+        $("#archivoActualCA").val(respuesta["CA_Archivo"]);
+
+
+        }
+
+  })
+  
+}) // End Evento
+
+*/
+
+/*
+  $('#nuevoAnioAdministracionSO').on( 'keyup', function () {
+
+    table.search( this.value ).draw();
+
+} );
+
+*/
 
 /*
 var perfilOcultoUsuario = $("#perfilOcultoUsuario").val();

@@ -175,6 +175,7 @@
     <script src="vistas/js/administracionSO.js"></script>
     <script src="vistas/js/capacitaciones.js"></script>
     <script src="vistas/js/administracionGeneral.js"></script>
+    <script src="vistas/js/administracionGeneralxSO.js"></script>
 
 </body>
 </html>

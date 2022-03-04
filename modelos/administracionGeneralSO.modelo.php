@@ -47,16 +47,16 @@ require_once "conexion.php";
 
    /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
-   static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Estatus, $Obtener_SA_Estatus,  $Obtener_CA_Estatus){
+   static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_Si_Codigo_SO, $Obtener_SA_Codigo_Tipo_Informe_Anios,  $Obtener_SI_Estatus, $Obtener_SA_Estatus, $Obtener_CA_Codigo_Tipo_Informe_Anios,  $Obtener_CA_Estatus){
 
     $stmt = Conexion::conectar()->prepare(
      "SELECT DISTINCT * FROM $tablaSI
         INNER JOIN $tablaSA
-        ON $tablaSI.$Obtener_SI_Estatus = $tablaSA.$Obtener_SA_Estatus
+        ON $tablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $tablaSA.$Obtener_SA_Codigo_Tipo_Informe_Anios
         INNER JOIN $TablaCA
-        ON $tablaSI.$Obtener_SI_Estatus = $TablaCA.$Obtener_CA_Estatus
+        ON $tablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaCA.$Obtener_CA_Codigo_Tipo_Informe_Anios
         WHERE $tablaSI.$Obtener_SI_Estatus = 1 AND $tablaSA.$Obtener_SA_Estatus = 1 AND $TablaCA.$Obtener_CA_Estatus = 1
-        GROUP BY $Obtener_SI_Codigo_UnicoInforme_Anios " );
+        GROUP BY $Obtener_Si_Codigo_SO , $Obtener_SI_Codigo_UnicoInforme_Anios " );
 
      $stmt -> execute();
 
@@ -64,6 +64,60 @@ require_once "conexion.php";
 
 
 } // End Funcion MdlMostrarTablaSI
+
+ /* =========== MOSTRAR DATOS ____ 3 REGISTROS ____  TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA  ________ VERSION 1 ________ ================ */
+
+   static public function MdlMostrarAdministracionGeneralSO($tablaSI, $tablaSA, $TablaCA, $itemSI, $valorSI, $Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_Si_Codigo_SO, $Obtener_SA_Codigo_Tipo_Informe_Anios,  $Obtener_SI_Estatus, $Obtener_SA_Estatus, $Obtener_CA_Codigo_Tipo_Informe_Anios,  $Obtener_CA_Estatus){
+
+    $stmt = Conexion::conectar()->prepare(
+     "SELECT DISTINCT * FROM $tablaSI
+        INNER JOIN $tablaSA
+        ON $tablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $tablaSA.$Obtener_SA_Codigo_Tipo_Informe_Anios
+        INNER JOIN $TablaCA
+        ON $tablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaCA.$Obtener_CA_Codigo_Tipo_Informe_Anios
+        WHERE $tablaSI.$Obtener_SI_Estatus = 1 AND $itemSI = :$itemSI AND $tablaSA.$Obtener_SA_Estatus = 1  AND $TablaCA.$Obtener_CA_Estatus = 1 
+        GROUP BY $Obtener_Si_Codigo_SO , $Obtener_SI_Codigo_UnicoInforme_Anios " );
+
+     $stmt -> bindParam(":".$itemSI, $valorSI, PDO::PARAM_STR);
+
+
+     $stmt -> execute();
+
+     return $stmt -> fetchAll();
+
+
+} // End Funcion MdlMostrarTablaSI
+
+
+   /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
+
+   static public function MdlMostrarTablaAdministracionxSO($tablaSI, $tablaSA, $TablaCA, $Obtener_SI_Nombre_Sujeto_Obligado, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_TOTAL_SOLICITUDES, $Obtener_SI_Fecha, $Obtener_SA_Nombre_Sujeto_Obligado, $Obtener_SA_Codigo_UnicoInforme_Anios, $Obtener_SA_TOTAL_SOLICITUDES, $Obtener_SA_Fecha, $Obtener_CA_Nombre_Sujeto_Obligado,
+   $Obtener_CA_Codigo_UnicoInforme_Anios, $Obtener_CA_Total_Capacitacion, $Obtener_CA_Fecha, $IdSI, $valorSI, $IdSA, $valorSA, $IdCA, $valorCA){
+
+    $stmt = Conexion::conectar()->prepare(
+     "SELECT $Obtener_SI_Nombre_Sujeto_Obligado, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_TOTAL_SOLICITUDES, $Obtener_SI_Fecha 
+      FROM $tablaSI
+      WHERE $tablaSI.$IdSI = :$IdSI
+      UNION
+      SELECT $Obtener_SA_Nombre_Sujeto_Obligado, $Obtener_SA_Codigo_UnicoInforme_Anios, $Obtener_SA_TOTAL_SOLICITUDES, $Obtener_SA_Fecha 
+      FROM $tablaSA
+      WHERE $tablaSA.$IdSA = :$IdSA
+      UNION  
+      SELECT $Obtener_CA_Nombre_Sujeto_Obligado, $Obtener_CA_Codigo_UnicoInforme_Anios, $Obtener_CA_Total_Capacitacion, $Obtener_CA_Fecha 
+      FROM $TablaCA
+      WHERE $TablaCA.$IdCA = :$IdCA " );
+
+     $stmt -> bindParam(":".$IdSI, $valorSI, PDO::PARAM_STR);
+     $stmt -> bindParam(":".$IdSA, $valorSA, PDO::PARAM_STR);
+     $stmt -> bindParam(":".$IdCA, $valorCA, PDO::PARAM_STR);
+
+     $stmt -> execute();
+
+     return $stmt -> fetchAll();
+
+
+} // End Funcion MdlMostrarTablaSI
+
 
 
   }

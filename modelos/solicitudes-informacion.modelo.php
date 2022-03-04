@@ -60,7 +60,8 @@
                                               ON SI.$ObtenerCodigoInformeSI = SA.$ObtenerCodigoInformeSA
                                               INNER JOIN $TablaCA CA
                                               ON SI.$ObtenerCodigoInformeSI = CA.$ObtenerCodigoInformeCA
-                                              WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SI.$ObtenerEstatusSI = :$ObtenerEstatusSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND SA.$ObtenerEstatusSA = :$ObtenerEstatusSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA AND CA.$ObtenerEstatusCA = :$ObtenerEstatusCA" );
+                                              WHERE SI.$ObtenerCodigoSI = :$ObtenerCodigoSI AND SI.$ObtenerEstatusSI = :$ObtenerEstatusSI AND SA.$ObtenerCodigoSA = :$ObtenerCodigoSA AND SA.$ObtenerEstatusSA = :$ObtenerEstatusSA AND CA.$ObtenerCodigoCA = :$ObtenerCodigoCA AND CA.$ObtenerEstatusCA = :$ObtenerEstatusCA
+                                              " );
 
        $stmt -> bindParam(":".$ObtenerCodigoSI, $valor, PDO::PARAM_STR);
        $stmt -> bindParam(":".$ObtenerCodigoSA, $valor, PDO::PARAM_STR);

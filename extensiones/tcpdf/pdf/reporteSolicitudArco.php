@@ -86,7 +86,7 @@ $valorSolicitudArco = $this->idSAR;
 $respuestaSolicitudesArco = ControladorSolicitudesArco::ctrMostrarPDFSolicitudesArco($itemSolicitudArco,$valorSolicitudArco);
 
 /* =============================== PARTE SUPERIOR ==================================== */
-$sujetoObligado = substr($respuestaSolicitudesArco["SA_Nombre_Sujeto_Obligado"],0,150);
+$sujetoObligado = substr($respuestaSolicitudesArco["SA_Nombre_Sujeto_Obligado"],0,160);
 $InformeEntrega = substr($respuestaSolicitudesArco["SA_Informe_Presentado"],0,50);
 $Año = substr($respuestaSolicitudesArco["SA_Anios"],0,50);
 $TotalSolicitudes = substr($respuestaSolicitudesArco["SA_TOTAL_SOLICITUDES"],0,50);

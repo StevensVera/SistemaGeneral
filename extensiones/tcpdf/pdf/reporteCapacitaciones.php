@@ -86,7 +86,7 @@ $valorCapacitaciones = $this->idCA;
 $respuestaCapacitaciones = ControladorCapacitaciones::ctrMostrarPDFCapacitaciones($itemCapacitaciones,$valorCapacitaciones);
 
 /* =============================== PARTE SUPERIOR ==================================== */
-$sujetoObligado = substr($respuestaCapacitaciones["CA_Nombre_Sujeto_Obligado"],0,150);
+$sujetoObligado = substr($respuestaCapacitaciones["CA_Nombre_Sujeto_Obligado"],0,160);
 $InformeEntrega = substr($respuestaCapacitaciones["CA_Informe_Presentado"],0,50);
 $Año = substr($respuestaCapacitaciones["CA_Anios"],0,50);
 $Capacitaciones = substr($respuestaCapacitaciones["CA_Total_Capacitacion"],0,50);

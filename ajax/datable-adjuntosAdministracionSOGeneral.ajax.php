@@ -12,52 +12,26 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
     class TablaAjuntosAdministracionSO{
 
         static public function MostrarTablaAdmnistracionSO(){
-        
-            // TABLA DE SOLICITUDES DE INFORMACIÓN 
-            //$IDSI = "idSI";
-            $Obtener_Nombre_Sujeto_Obligado = "SI_Nombre_Sujeto_Obligado";
-            $Obtener_SI_Codigo_UnicoInforme_Anios = "SI_Codigo_UnicoInforme_Anios";
-            $Obtener_SI_Informe_Presentado = "SI_Informe_Presentado";
-            $Obtener_SI_Anios = "SI_Anios";
-            $Obtener_SI_TOTAL_SOLICITUDES = "SI_TOTAL_SOLICITUDES";
-            $Obtener_SI_Fecha = "SI_Fecha";
+            // SOLICITUDES DE INFORMACIÓN
+            $Obtener_SI_Codigo_Tipo_Informe_Anios = "SI_Codigo_Tipo_Informe_Anios";
             $Obtener_SI_Estatus = "SI_Estatus";
-
-            // TABLA DE SOLICITUDES ARCO
-            //$IDSA = "idSAR";
-            $Obtener_SA_Nombre_Sujeto_Obligado = "SA_Nombre_Sujeto_Obligado";
-            $Obtener_SA_Codigo_UnicoInforme_Anios = "SA_Codigo_UnicoInforme_Anios";
-            $Obtener_SA_Informe_Presentado = "SA_Informe_Presentado";
-            $Obtener_SA_Anios = "SA_Anios";
-            $Obtener_SA_TOTAL_SOLICITUDES = "SA_TOTAL_SOLICITUDES";
-            $Obtener_SA_Fecha = "SA_Fecha";
+            $Obtener_SI_Codigo_UnicoInforme_Anios = "SI_Codigo_UnicoInforme_Anios";
+            $Obtener_Si_Codigo_SO = "Si_Codigo_SO";
+            // SOLICITUDES DE ARCO
+            $Obtener_SA_Codigo_Tipo_Informe_Anios = "SA_Codigo_Tipo_Informe_Anios";
             $Obtener_SA_Estatus = "SA_Estatus";
-
-            // TABLA DE SOLICITUDES ARCO
-            //$IDCA = "idCA";
-            $Obtener_CA_Nombre_Sujeto_Obligado = "CA_Nombre_Sujeto_Obligado";
-            $Obtener_CA_Codigo_UnicoInforme_Anios = "CA_Codigo_UnicoInforme_Anios";
-            $Obtener_CA_Informe_Presentado = "CA_Informe_Presentado";
-            $Obtener_CA_Anios = "CA_Anios";
-            $Obtener_CA_Total_Capacitacion = "CA_Total_Capacitacion";
-            $Obtener_CA_Fecha = "CA_Fecha";
+            // SOLICITUDES DE CAPACITACIONES
+            $Obtener_CA_Codigo_Tipo_Informe_Anios = "CA_Codigo_Tipo_Informe_Anios";
             $Obtener_CA_Estatus = "CA_Estatus";
-
-            // TABLA DE SOLICITUDES ARCO
-            $ValorSI_Informe_Presentado1 = "1er Informe Bimestral";
-            $ValorSI_Informe_Presentado6 = "6to Informe Bimestral";
-
 
             // Dato para Establecer el tipo de datos. 
 
             $TipoEstado = "EN REVISIÓN";
 
-            
-            $adjunto = ControladorAdministracionGeneralSO::ctrMostrarTablaAdministracionGeneralSO($Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_Estatus, $Obtener_SA_Estatus,  $Obtener_CA_Estatus);
+            $adjunto = ControladorAdministracionGeneralSO::ctrMostrarTablaAdministracionGeneralSO($Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_Si_Codigo_SO, $Obtener_SA_Codigo_Tipo_Informe_Anios,  $Obtener_SI_Estatus, $Obtener_SA_Estatus, $Obtener_CA_Codigo_Tipo_Informe_Anios,  $Obtener_CA_Estatus);
 
             if (count($adjunto) == 0) {
                 
-
                 echo '{"data": []}';
 
                 return;
@@ -70,16 +44,14 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
             for ($i=0; $i < count($adjunto) ; $i++) { 
 
-                $botones = "<button class='btn btn-primary btnImprimerReporteAdministaciónSO'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button>";
+                $botones = "<button class='btn btn-primary btnEditarAdministracionSO ' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  idCapacitaciones='".$adjunto[$i]["idCA"]."' data-toggle='modal' data-target='#modalActualizarAdministracionSOGeneral' title='CALIFICAR INFORMES' ><i class='fa fa-flag' aria-hidden='true'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-danger ' title='GENERAR ARCHIVO SOLICITUD DE INFORMACIÓN'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-danger ' title='GENERAR ARCHIVO SOLICITUD DE ARCO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-danger ' title='GENERAR ARCHIVO DE CAPACITACIONES'><i class='fa fa-file-text' aria-hidden='true'></i></button></a>";
 
                 $datosJson .= '[
 
                     "'.($i+1).'",
                     "'.$adjunto[$i]["SI_Nombre_Sujeto_Obligado"].'",
-                    "'.$adjunto[$i]["SI_Codigo_UnicoInforme_Anios"].'",
                     "'.$adjunto[$i]["SI_Informe_Presentado"].'",
                     "'.$adjunto[$i]["SI_Anios"].'",
-                    "'.$adjunto[$i]["SI_TOTAL_SOLICITUDES"].'",
                     "'.$adjunto[$i]["SI_Fecha"].'",
                     "'.$TipoEstado.'",
                     "'.$botones.'"

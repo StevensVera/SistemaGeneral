@@ -70,7 +70,7 @@ $valorSolicitudInformacion = $this->idSI;
 $respuestaSolicitudInformacion = ControladorSolicitudesInformes::ctrMostrarPDFSolicitudInformacion($itemSolicitudInformacion,$valorSolicitudInformacion);
 
 /* =============================== PARTE SUPERIOR ==================================== */
-$sujetoObligado = substr($respuestaSolicitudInformacion["SI_Nombre_Sujeto_Obligado"],0,50);
+$sujetoObligado = substr($respuestaSolicitudInformacion["SI_Nombre_Sujeto_Obligado"],0,160);
 $InformeEntrega = substr($respuestaSolicitudInformacion["SI_Informe_Presentado"],0,50);
 $Año = substr($respuestaSolicitudInformacion["SI_Anios"],0,50);
 $TotalSolicitudes = substr($respuestaSolicitudInformacion["SI_TOTAL_SOLICITUDES"],0,50);
