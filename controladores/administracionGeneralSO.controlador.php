@@ -34,6 +34,19 @@
     
           }    
 
+          /*=============================================
+	        MOSTRAR USUARIO
+	        =============================================*/
+
+	        static public function ctrMostrarBotonesAdministracionSOSI($item, $valor){
+
+		        $tabla = "solicitudes_informacion";
+
+		        $respuesta = ModeloAdministracionGeneralSO::mdlMostrarAdministracionBSOSI($tabla, $item, $valor);
+
+		        return $respuesta;
+	        }
+
           // FUNCION PARA MOSTRAR SOLAMENTE 3 SUJETOS OBLIGADOS QUE ENVARIOS SU REPORTE Y SE MUESTRAN EN EL ADMINISTRADOR ________ VERSION 2 _____________
 
           static public function ctrMostrarTablaAdministracionGeneralxSO($Obtener_SI_Nombre_Sujeto_Obligado, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_SI_TOTAL_SOLICITUDES, $Obtener_SI_Fecha, $Obtener_SA_Nombre_Sujeto_Obligado, $Obtener_SA_Codigo_UnicoInforme_Anios, $Obtener_SA_TOTAL_SOLICITUDES, $Obtener_SA_Fecha, $Obtener_CA_Nombre_Sujeto_Obligado,

@@ -67,7 +67,65 @@ var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
   
   });
 
-  
+  $(".tablaAdministrativa3xSO").on("click", ".btnActivar", function() {
+
+    var valueSI = $(this).attr("value");
+    console.log("valueSI", valueSI)
+
+    var estadoAdministracionxSOSI = $(this).attr("estadoAdministracionxSOSI");
+    console.log("estadoAdministracionxSOSI", estadoAdministracionxSOSI);
+ 
+    var datos = new FormData();
+
+    datos.append("activarIdSI", valueSI);
+    datos.append("activarAdministracionxSOSI", estadoAdministracionxSOSI);
+
+    //console.log("activarId",idUsuario);
+  	//console.log("activarUsuario",estadoUsuario);
+
+    $.ajax({
+
+      url:"ajax/administracionxSO.ajax.php",
+      method:"POST",
+      data:datos,
+      cache:false,
+      contentType:false,
+      processData: false,
+      success: function (respuesta) {
+
+        console.log("respuesta", respuesta);
+        
+       } // End Success
+       
+    }) // End Ajax
+
+
+    if(estadoAdministracionxSOSI == 0){
+
+  		$(this).removeClass('btn-warning');
+  		$(this).addClass('btn-danger');
+  		$(this).html('NO COMPLETADO');
+  		$(this).attr('estadoAdministracionxSOSI',2);
+
+  	}else{
+
+  		$(this).addClass('btn-success');
+  		$(this).removeClass('btn-danger');
+  		$(this).html('COMPLETADO');
+  		$(this).attr('estadoAdministracionxSOSI',1);
+
+  	} 
+
+    if(estadoAdministracionxSOSI == 1){
+
+  		$(this).removeClass('btn-success');
+  		$(this).addClass('btn-warning');
+  		$(this).html('SIN ACCIONES');
+  		$(this).attr('estadoAdministracionxSOSI',0);
+
+  	}
+    
+  }) // End Function
 
 
 /* ============== MOSTRAR LOS DATOS DE SOLICITUDES DE INFORMACIÓN ================ */ 
@@ -93,42 +151,37 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
         console.log("respuesta", respuesta);
 
+        $("#EditarSOBSI").val(respuesta["idSI"]);
+        $("#EditarSORSI").val(respuesta["SI_Recepcion"]);
         $("#EditarSONSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
-
         $("#EditarSOSI").val(respuesta["SI_Informe_Presentado"]);
         $("#EditarSOANIOSI").val(respuesta["SI_Anios"]);
         $("#EditarSOFSI").val(respuesta["SI_Fecha"]);
         $("#EditarSOTSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
-        
-
-
-
+       
         /*
-
-        if (respuesta["foto_Informe"] != "") {
+        if (respuesta["SI_Calificacion"] == 2) {
           
-          $(".previsualizarEditar").attr("src", respuesta["foto_Informe"]);
+          $(".btnActivar").attr("<button id='EditarSOBSI' name='EditarSOBSI'  type='button' class='btn btn-ls btnActivar btn-danger' estadoAdministracionxSOSI='2'>NO COMPLETADO</button>", respuesta["SI_Calificacion"]);
 
         }else{
 
-          $(".previsualizarEditar").attr("src", "vistas/img/usuarios/default/anonymous.png");
+          $(".btnActivar").attr("<button id='EditarSOBSI' name='EditarSOBSI'  type='button' class='btn btn-ls btnActivar btn-success' estadoAdministracionxSOSI='1'>COMPLETADO</button>", respuesta["SI_Calificacion"]);
   
         }
 
-        if (respuesta["archivo_Informe"] != "") {
+        if (respuesta["SI_Calificacion"] == 0) {
           
-          $(".nuevoArchivo").attr("src", respuesta["archivo_Informe"]);
+          $(".btnActivar").attr("<button id='EditarSOBSI' name='EditarSOBSI'  type='button' class='btn btn-ls btnActivar btn-warning' estadoAdministracionxSOSI='0'>SIN ACCIONES</button>", respuesta["SI_Calificacion"]);
 
-        }        
-
+        }
         */
-        
+   
       }
 
     })
 
   }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR 
-
 
   /* ============== MOSTRAR LOS DATOS DE SOLICITUDES ARCO ================ */ 
 
@@ -153,6 +206,7 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
         console.log("respuesta", respuesta);
 
+        $("#EditarSORSA").val(respuesta["SA_Recepcion"]);
         $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
 
         $("#EditarSOSA").val(respuesta["SA_Informe_Presentado"]);
@@ -160,8 +214,6 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOFSA").val(respuesta["SA_Fecha"]);
         $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
         
-
-
         /*
 
         if (respuesta["foto_Informe"] != "") {
@@ -213,6 +265,7 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
         console.log("respuesta", respuesta);
 
+        $("#EditarSORCA").val(respuesta["CA_Recepcion"]);
         $("#EditarSOCA").val(respuesta["CA_Informe_Presentado"]);
         $("#EditarSOANIOCA").val(respuesta["CA_Anios"]);
         $("#EditarSOFCA").val(respuesta["CA_Fecha"]);

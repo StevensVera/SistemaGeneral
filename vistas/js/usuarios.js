@@ -75,7 +75,7 @@ var table = $(".tablasUsuariosSO").DataTable({
       processData: false,
       success: function (respuesta) {
 
-        //console.log("respuesta", respuesta);
+        console.log("respuesta", respuesta);
         
 	        if(window.matchMedia("(max-width:767px)").matches){
 

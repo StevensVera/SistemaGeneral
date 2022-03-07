@@ -55,7 +55,7 @@ require_once "conexion.php";
         ON $tablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $tablaSA.$Obtener_SA_Codigo_Tipo_Informe_Anios
         INNER JOIN $TablaCA
         ON $tablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaCA.$Obtener_CA_Codigo_Tipo_Informe_Anios
-        WHERE $tablaSI.$Obtener_SI_Estatus = 1 AND $tablaSA.$Obtener_SA_Estatus = 1 AND $TablaCA.$Obtener_CA_Estatus = 1
+        WHERE $tablaSI.$Obtener_SI_Estatus = 1 AND $tablaSA.$Obtener_SA_Estatus = 1 AND $TablaCA.$Obtener_CA_Estatus = 1 OR $tablaSI.$Obtener_SI_Estatus = 0 OR $tablaSA.$Obtener_SA_Estatus = 0 OR $TablaCA.$Obtener_CA_Estatus = 0
         GROUP BY $Obtener_Si_Codigo_SO , $Obtener_SI_Codigo_UnicoInforme_Anios " );
 
      $stmt -> execute();
@@ -88,6 +88,39 @@ require_once "conexion.php";
 
 } // End Funcion MdlMostrarTablaSI
 
+  /*=============================================
+	MOSTRAR ESTADO DE LOS BOTONES
+	=============================================*/
+
+	static public function mdlMostrarAdministracionBSOSI($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+		
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 
    /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
@@ -117,6 +150,33 @@ require_once "conexion.php";
 
 
 } // End Funcion MdlMostrarTablaSI
+
+
+/* ===========================  ACTIVAR EL ESTADO DEL USUARIO  ================================== */
+
+static public function mdlActualizarEstadoAdministradorxSO($tabla,$item1,$valor1,$item2,$valor2){
+            
+   $statement = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2" );
+
+   $statement -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+
+   $statement ->bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+   if ($statement ->execute()) {
+       
+       return "ok";
+
+   }else {
+
+       return "error";
+
+   }
+
+   $statement -> close();
+   $statement = null;
+
+
+} // End function mdlActualizarEstadoUsuario
 
 
 

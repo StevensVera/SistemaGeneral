@@ -189,7 +189,7 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                     <br>
 
-                    <table border="1" style="width:100%;">
+                    <table class=" tablaAdministrativa3xSO " border="1" style="width:100%;">
              
                        <thead>
                 
@@ -224,9 +224,23 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                             <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSI" name="EditarSOTSI" disabled> </td>
 
-                            <td style="text-align: center;"> EN REVISIÓN </td>
+                            <td style="text-align: center;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSORSI" name="EditarSORSI" disabled> </td>
 
-                            <td rowspan="2" style="text-align: center;"> <button  type='button' class='btn btn-warning btn-ls btnActivar' estadoUsuario='1'>SIN ACCIONES</button></td>
+                             <?php 
+
+                                $item = null;
+                                $valor = null;
+
+                                $botones = ControladorAdministracionGeneralSO::ctrMostrarBotonesAdministracionSOSI($item, $valor);
+
+                                if($botones["SI_Calificacion"] == 0 ){
+
+                                  echo '<td rowspan="2" style="text-align: center;"> <button id="EditarSOBSI" name="EditarSOBSI"  type="button" class="btn btn-warning btn-ls btnActivar" estadoAdministracionxSOSI="0">SIN ACCIONES</button></td>';
+
+
+                                }
+
+                            ?>
 
                           </tr>
 
@@ -251,7 +265,7 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                             <td style="background-color:#E5E5E5;color:#000000;"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSA" name="EditarSOTSA" disabled> </td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;text-align: center;"> EN REVISIÓN </td>
+                            <td style="background-color:#E5E5E5;color:#000000;text-align: center;"><input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSORSA" name="EditarSORSA" disabled> </td>
 
                             <td rowspan="2" style="background-color:#E5E5E5;color:#000000;text-align: center;"> <button  type='button' class='btn btn-warning btn-ls btnActivar' estadoUsuario='1'>SIN ACCIONES</button></td>
 
@@ -276,7 +290,7 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                             <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTCA" name="EditarSOTCA" disabled> </td>
 
-                            <td style="text-align: center;"> EN REVISIÓN </td>
+                            <td style="text-align: center;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSORCA" name="EditarSORCA" disabled></td>
                             
                             <td rowspan="2" style="text-align: center;"> <button  type='button' class='btn btn-warning btn-ls btnActivar' estadoUsuario='1'>SIN ACCIONES</button></td>
 
