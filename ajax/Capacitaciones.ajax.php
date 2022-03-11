@@ -9,6 +9,7 @@
         
         /* ===================== ACTIVAR SOLICITUD DE INFORMACION  ========================= */
 
+        public $activaroRecepcionCapacitaciones;
         public $activarCapacitaciones;
         public $activarId;
 
@@ -22,7 +23,10 @@
             $item2 = "idCA";
             $valor2 = $this->activarId;
 
-            $respuesta = ModeloCapacitacion::mdlActualizarEstadoCapacitaciones($tabla, $item1, $valor1, $item2, $valor2);
+            $item3 = "CA_Recepcion";
+            $valor3 = $this->activaroRecepcionCapacitaciones;
+
+            $respuesta = ModeloCapacitacion::mdlActualizarEstadoCapacitaciones($tabla, $item1, $valor1, $item2, $valor2, $item3, $valor3);
 
         }
 
@@ -30,10 +34,11 @@
 
 /* ============================ ACTIVAR SOLICITUD DE INFORMACION ============================ */
 
-if (isset($_POST["activarCapacitaciones"])) {
+if (isset($_POST["activarId"])) {
     
     $activarCapacitaciones = new AjaxCapacitaciones();
     $activarCapacitaciones -> activarCapacitaciones = $_POST["activarCapacitaciones"];
+    $activarCapacitaciones -> activaroRecepcionCapacitaciones = $_POST["activaroRecepcionCapacitaciones"];
     $activarCapacitaciones -> activarId = $_POST["activarId"];
     $activarCapacitaciones -> AjaxActivarSolicitudesInformacion();
 }    

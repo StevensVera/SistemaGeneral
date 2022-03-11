@@ -41,7 +41,8 @@
               try {
                 $stmt = Conexion::conectar()->prepare(
                     "INSERT INTO $tablaCA(
-                        CA_Estatus, 
+                        CA_Estatus,
+                        CA_Recepcion,
                         CA_Codigo_SO,
                         CA_Codigo_UnicoInforme_Anios,
                         CA_Codigo_Tipo_Informe_Anios,
@@ -57,7 +58,8 @@
                         CA_Archivo
                         )
                         VALUES(
-                        :CA_Estatus,  
+                        :CA_Estatus,
+                        :CA_Recepcion,  
                         :CA_Codigo_SO,
                         :CA_Codigo_UnicoInforme_Anios,
                         :CA_Codigo_Tipo_Informe_Anios,
@@ -74,6 +76,7 @@
 
                         )");
                         $stmt -> bindParam(":CA_Estatus", $datos["CA_Estatus"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Recepcion", $datos["CA_Recepcion"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_SO", $datos["CA_Codigo_SO"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_UnicoInforme_Anios", $datos["CA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_Tipo_Informe_Anios", $datos["CA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
@@ -134,7 +137,7 @@
 
                 $stmt = Conexion::conectar()->prepare(
                     "INSERT INTO $tablaCA_r(
-                        CA_Estatus, 
+                        CA_Estatus,
                         CA_Codigo_SO,
                         CA_Codigo_UnicoInforme_Anios,
                         CA_Codigo_Tipo_Informe_Anios,
@@ -145,7 +148,7 @@
                         CA_Total_Capacitacion
                         )
                         VALUES(
-                        :CA_Estatus,  
+                        :CA_Estatus,
                         :CA_Codigo_SO,
                         :CA_Codigo_UnicoInforme_Anios,
                         :CA_Codigo_Tipo_Informe_Anios,
@@ -333,13 +336,15 @@
 
           /* ===========================  ACTIVAR EL ESTADO DEL USUARIO  ================================== */
 
-          static public function mdlActualizarEstadoCapacitaciones($tabla,$item1,$valor1,$item2,$valor2){
+          static public function mdlActualizarEstadoCapacitaciones($tabla,$item1,$valor1,$item2,$valor2, $item3, $valor3){
             
-            $statement = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2" );
+            $statement = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1,  $item3 = :$item3  WHERE $item2 = :$item2" );
 
             $statement -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
 
             $statement ->bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+            $statement ->bindParam(":".$item3, $valor3, PDO::PARAM_STR);
 
             if ($statement ->execute()) {
             

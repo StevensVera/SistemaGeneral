@@ -32,22 +32,50 @@ require_once "../modelos/solicitudes-arco.modelo.php";
 
         for ($i=0; $i < count($adjunto); $i++){
 
-            if ($adjunto[$i]["SA_Estatus"] != 0) {
+            if($adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" ){  
 
-                $botones = "<button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a>";
+                if ($adjunto[$i]["SA_Estatus"] != 0) {
 
-            } else {
+                    $botones = "<button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a>";
 
-                $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."' data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnEliminarSolicitudArco' idSAR='".$adjunto[$i]["idSAR"]."' archivoSA='".$adjunto[$i]["SA_Archivo"]."' codigo = '".$adjunto[$i]["SA_Codigo_SO"]."' anios ='".$adjunto[$i]["SA_Anios"]."' InformeAnios = '".$adjunto[$i]["SA_Codigo_Informe_Anios"]."' sujetoObligado = '".$adjunto[$i]["SA_Nombre_Sujeto_Obligado"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarSolicitudesArco' idSAR='".$adjunto[$i]["idSAR"]."' estadoSolicitudesArco='1'  title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+                } else {
+
+                    $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."' data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnEliminarSolicitudArco' idSAR='".$adjunto[$i]["idSAR"]."' archivoSA='".$adjunto[$i]["SA_Archivo"]."' codigo = '".$adjunto[$i]["SA_Codigo_SO"]."' anios ='".$adjunto[$i]["SA_Anios"]."' InformeAnios = '".$adjunto[$i]["SA_Codigo_Informe_Anios"]."' sujetoObligado = '".$adjunto[$i]["SA_Nombre_Sujeto_Obligado"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarSolicitudesArco' idSAR='".$adjunto[$i]["idSAR"]."' estadoSolicitudesArco='1'  RecepcionSolicitudesArco='' title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+                }
+
+             } else if($adjunto[$i]["SA_Recepcion"] == "NO COMPLETADO" ){
+
+                if ($adjunto[$i]["SA_Estatus"] == 1) {
+
+                    $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."' data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-success btnActivarSolicitudesArco' idSAR='".$adjunto[$i]["idSAR"]."' estadoSolicitudesArco='1'  RecepcionSolicitudesArco='EN REVISIÓN' title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+
+
+                }
+
+            } else if($adjunto[$i]["SA_Recepcion"] == "COMPLETADO") {
+
+                if ($adjunto[$i]["SA_Estatus"] == 1) {
+                    
+                    $botones = "<button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a>";
+
+                }
+
+            } else if($adjunto[$i]["SA_Recepcion"] == "NO ENVIADO") {
+
+                $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."' data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnEliminarSolicitudArco' idSAR='".$adjunto[$i]["idSAR"]."' archivoSA='".$adjunto[$i]["SA_Archivo"]."' codigo = '".$adjunto[$i]["SA_Codigo_SO"]."' anios ='".$adjunto[$i]["SA_Anios"]."' InformeAnios = '".$adjunto[$i]["SA_Codigo_Informe_Anios"]."' sujetoObligado = '".$adjunto[$i]["SA_Nombre_Sujeto_Obligado"]."' ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarSolicitudesArco' idSAR='".$adjunto[$i]["idSAR"]."' estadoSolicitudesArco='1' RecepcionSolicitudesArco='EN REVISIÓN' title='ENVIAR REPORTE'><i class='fa fa-check'></i></button> ";
+
+
             }
-        
+
+
+
             $datosJson .= '[
 
                 "'.($i+1).'",
                 "'.$adjunto[$i]["SA_Nombre_Sujeto_Obligado"].'",
-                "'.$adjunto[$i]["SA_Informe_Presentado"].'",
-                "'.$adjunto[$i]["SA_Anios"].'",
+                "'.$adjunto[$i]["SA_Codigo_Informe_Anios"].'",
                 "'.$adjunto[$i]["SA_TOTAL_SOLICITUDES"].'",
+                "'.$adjunto[$i]["SA_Recepcion"].'",
                 "'.$adjunto[$i]["SA_Fecha"].'",
                 "'.$botones.'"
                 

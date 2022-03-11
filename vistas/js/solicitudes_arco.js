@@ -278,10 +278,13 @@ $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function()
 
   var estadoSolicitudesArco = $(this).attr("estadoSolicitudesArco");
 
+  var RecepcionSolicitudesArco = $(this).attr("RecepcionSolicitudesArco");
+
   var datos = new FormData();
 
   datos.append("activarId", idSAR);
   datos.append("activarSolicitudesArco", estadoSolicitudesArco);
+  datos.append("activaroRecepcionSolicitudesArco", RecepcionSolicitudesArco);
 
   $.ajax({
 

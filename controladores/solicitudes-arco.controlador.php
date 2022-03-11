@@ -176,6 +176,7 @@
 
                                  $datos = array (
                                               "SA_Estatus" => 0,
+                                              "SA_Recepcion" => "NO ENVIADO",
                                               "SA_Codigo_SO" => $Codigo,
                                               "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
                                               "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSA,

@@ -143,6 +143,7 @@
 
                             /* Datos - Array */
                             $datos = array( "CA_Estatus" => 0,
+                                            "CA_Recepcion" => "NO ENVIADO",
                                             "CA_Codigo_SO" => $Codigo, 
                                             "CA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioCA,
                                             "CA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosCA,

@@ -260,16 +260,20 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
   $(".tablasSolicitudesInformacion").on("click", ".btnActivarSolicitudInformacion", function() {
 
     var idSI = $(this).attr("idSI");
-
+    
     var estadoSolicitudesInformacion = $(this).attr("estadoSolicitudesInformacion");
+
+    var RecepcionSolicitudesInformacion = $(this).attr("RecepcionSolicitudesInformacion");
 
     var datos = new FormData();
 
     datos.append("activarId", idSI);
     datos.append("activaroSolicitudesInformacion", estadoSolicitudesInformacion);
+    datos.append("activaroRecepcionSolicitudesInformacion", RecepcionSolicitudesInformacion);
 
     //console.log("activarId",idSI);
-  	//console.log("activarolicitudesInformacion",estadoSolicitudesInformacion);
+  	//console.log("activarolicitudesInformacion",RecepcionSolicitudesInformacion);
+    //console.log("activaroRecepcionSolicitudesInformacion",activaroRecepcionSolicitudesInformacion);
 
     $.ajax({
 

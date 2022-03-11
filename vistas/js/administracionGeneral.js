@@ -69,7 +69,7 @@ var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
 
   $(".tablaAdministrativa3xSO").on("click", ".btnActivar", function() {
 
-    var valueSI = $(this).attr("value");
+    var valueSI = $(this).attr("idUsuario");
     console.log("valueSI", valueSI)
 
     var estadoAdministracionxSOSI = $(this).attr("estadoAdministracionxSOSI");
@@ -151,13 +151,16 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
         console.log("respuesta", respuesta);
 
-        $("#EditarSOBSI").val(respuesta["idSI"]);
+        $("#EditaridSI").val(respuesta["idSI"]);
+        $("#EditarSORSI").html(respuesta["SI_Recepcion"]);
         $("#EditarSORSI").val(respuesta["SI_Recepcion"]);
         $("#EditarSONSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
         $("#EditarSOSI").val(respuesta["SI_Informe_Presentado"]);
         $("#EditarSOANIOSI").val(respuesta["SI_Anios"]);
         $("#EditarSOFSI").val(respuesta["SI_Fecha"]);
         $("#EditarSOTSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
+
+        $("#EditarSOOSI").val(respuesta["SI_Observaciones"]);
        
         /*
         if (respuesta["SI_Calificacion"] == 2) {
@@ -206,13 +209,16 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
         console.log("respuesta", respuesta);
 
+        $("#EditaridSA").val(respuesta["idSAR"]);
+        $("#EditarSORSA").html(respuesta["SA_Recepcion"]);
         $("#EditarSORSA").val(respuesta["SA_Recepcion"]);
         $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
-
         $("#EditarSOSA").val(respuesta["SA_Informe_Presentado"]);
         $("#EditarSOANIOSA").val(respuesta["SA_Anios"]);
         $("#EditarSOFSA").val(respuesta["SA_Fecha"]);
         $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+
+        $("#EditarSOOSA").val(respuesta["SA_Observaciones"]);
         
         /*
 
@@ -265,11 +271,16 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
         console.log("respuesta", respuesta);
 
+        $("#EditaridCA").val(respuesta["idCA"]);
+        $("#EditarSORCA").html(respuesta["CA_Recepcion"]);
+        $("#EditarSORCA").val(respuesta["CA_Recepcion"]);
         $("#EditarSORCA").val(respuesta["CA_Recepcion"]);
         $("#EditarSOCA").val(respuesta["CA_Informe_Presentado"]);
         $("#EditarSOANIOCA").val(respuesta["CA_Anios"]);
         $("#EditarSOFCA").val(respuesta["CA_Fecha"]);
         $("#EditarSOTCA").val(respuesta["CA_Total_Capacitacion"]);
+
+        $("#EditarSOOCA").val(respuesta["CA_Observaciones"]);
         
 
         /*

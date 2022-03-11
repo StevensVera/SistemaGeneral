@@ -221,6 +221,7 @@
                                       /* Datos - Array */
                                       $datos = array( 
                                                       "SI_Estatus" => 0,
+                                                      "SI_Recepcion" => "NO ENVIADO",
                                                       "Si_Codigo_SO" => $Codigo,
                                                       "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
                                                       "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSI,

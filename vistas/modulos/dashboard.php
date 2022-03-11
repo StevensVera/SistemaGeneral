@@ -45,6 +45,7 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
            <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
 
                 <!-- ========================== ENTRADA PARA EL NOMBRE DEl SUJETO OBLIGADO ========================= -->
+              <!--
 
                <div class="col-xs-8">
 
@@ -76,7 +77,11 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                </div>
 
+              -->
+
                <!-- ==================== ENTRADA PARA EL AÑO DEL INFORME =========================== -->
+
+              <!-- 
 
                <div class="col-xs-4"> 
      
@@ -89,6 +94,8 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
                     </div>
 
                  </div>
+              
+              -->  
 
            </div>
           
@@ -102,13 +109,13 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                     <tr>
 
-                        <th>#</th>
-                        <th style="width: 400px">Sujeto Obligado</th>
-                        <th style="width: 150px">Informe Presentado</th>
-                        <th style="width: 80px">AÑO</th>
-                        <th style="width: 110px">Fecha de Entrega</th>
-                        <th style="width: 110px">Estatus</th>
-                        <th style="width: 160px">Acciones</th>
+                    <th style="width:3%">#</th>
+                        <th style="width:35%">Sujeto Obligado</th>
+                        <th style="width:15%">Informe Presentado</th>
+                        <th style="width:3%">AÑO</th>
+                        <th style="width:15%">Fecha de Entrega</th>
+                        <th style="width:10%">Estatus</th>
+                        <th style="width:19%">Acciones</th>
   
                     </tr>
 
@@ -117,13 +124,13 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
                 <tfoot>
 
                   <tr>
-                        <th>#</th>
-                        <th style="width: 400px">Sujeto Obligado</th>
-                        <th style="width: 150px">Informe Presentado</th>
-                        <th style="width: 80px">AÑO</th>
-                        <th style="width: 110px">Fecha de Entrega</th>
-                        <th style="width: 110px">Estatus</th>
-                        <th style="width: 160px">Acciones</th>
+                        <th style="width:3%">#</th>
+                        <th style="width:35%">Sujeto Obligado</th>
+                        <th style="width:15%">Informe Presentado</th>
+                        <th style="width:3%">AÑO</th>
+                        <th style="width:15%">Fecha de Entrega</th>
+                        <th style="width:10%">Estatus</th>
+                        <th style="width:19%">Acciones</th>
                   </tr>
 
                 </tfoot>  
@@ -196,12 +203,11 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
                           <tr>
 
                             <th style="width: 30px; text-align: center;">#</th>
-                            <th style="width: 200.00px;text-align: center;">BIMESTRE</th>
-                            <th style="width: 217.17pxpx;text-align: center;">INFORME PRESENTADO</th>
-                            <th style="width: 109.91px;text-align: center;">AÑO</th>
-                            <th style="width: 192.36px;text-align: center;">FECHA DE ENTREGA</th>
-                            <th style="width: 102.43px;text-align: center;">TOTAL</th>
-                            <th style="width: 151.15px;text-align: center;">ESTATUS</th>
+                            <th style="width: 250.00px;text-align: center;">BIMESTRE</th>
+                            <th style="width: 270.39px;text-align: center;">INFORME PRESENTADO</th>
+                            <th style="width: 124.91px;text-align: center;">AÑO</th>
+                            <th style="width: 210.36px;text-align: center;">FECHA DE ENTREGA</th>
+                            <th style="width: 117.43px;text-align: center;">TOTAL</th>
                             <th style="width: 219.91px;text-align: center;">ACCIONES</th>
   
                            </tr>
@@ -210,13 +216,17 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                         <tbody>
 
+                             <!-- ==================================  APARTADO PARA SOLICITUDES DE INFORMACION ======================================= -->
+
                           <tr>
                             
-                            <td rowspan="2" style="text-align: center;">1</td>
+                            <td rowspan="3" style="text-align: center;">1</td>
 
-                            <td style="background-color:#FFFFFF;color:#000000;" rowspan="2"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOSI" name="EditarSOSI" disabled > </td>
+                               <input type="hidden" id="EditaridSI" name="EditaridSI">
 
-                            <td style="text-align: center;"> SOLICITUDES DE INFORMACIÓN </td>
+                            <td style="background-color:#FFFFFF; color:#000000;" rowspan="3"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOSI" name="EditarSOSI" disabled > </td>
+
+                            <td style="text-align: center;" rowspan="3"> SOLICITUDES DE INFORMACIÓN </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOSI" name="EditarSOANIOSI" disabled> </td>
 
@@ -224,40 +234,49 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                             <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSI" name="EditarSOTSI" disabled> </td>
 
-                            <td style="text-align: center;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSORSI" name="EditarSORSI" disabled> </td>
+                            <td rowspan="3" style="text-align: center;"> 
 
-                             <?php 
+                               <select style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" class="form-control input-lg" name="EditarSORSI">
+             
+                                  <option value="" id="EditarSORSI"></option>
 
-                                $item = null;
-                                $valor = null;
+                                  <!-- <option value="NO ENVIADO">NO ENVIADO</option> -->
 
-                                $botones = ControladorAdministracionGeneralSO::ctrMostrarBotonesAdministracionSOSI($item, $valor);
+                                  <option value="EN REVISIÓN">EN REVISIÓN</option>
 
-                                if($botones["SI_Calificacion"] == 0 ){
+                                  <option value="NO COMPLETADO" >NO COMPLETADO</option>
 
-                                  echo '<td rowspan="2" style="text-align: center;"> <button id="EditarSOBSI" name="EditarSOBSI"  type="button" class="btn btn-warning btn-ls btnActivar" estadoAdministracionxSOSI="0">SIN ACCIONES</button></td>';
+                                  <option value="COMPLETADO">COMPLETADO</option>
 
-
-                                }
-
-                            ?>
+                               </select>
+                          
+                            </td>
 
                           </tr>
 
                           <tr>
-                            <td  style="text-align: center;" disabled> OBSERVACIÓNES </td>
-                            <td  style="text-align: center;" colspan="4"> <input style="text-align: center;" type="text" class="form-control input-lg" placeholder="INSERTE SUS OBSERVACIONES" id="" name=""> </td>
+
+                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                            
                           </tr>
 
                           <tr>
+                              
+                              <td  style="text-align: center;" colspan="3"> <textarea id="EditarSOOSI" name="EditarSOOSI" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+
+                          </tr>
+
+                              <!-- ==================================  APARTADO PARA SOLICITUDES DE ARCO ======================================= -->
                             
                           <tr>
 
-                            <td rowspan="2" style="background-color:#E5E5E5;color:#000000;text-align: center;">2</td>
+                            <td rowspan="3" style="background-color:#E5E5E5;color:#000000;text-align: center;">2</td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;" rowspan="2"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;"  type="text" class="form-control input-lg" id="EditarSOSA" name="EditarSOSA" disabled> </td>
+                            <input type="hidden" id="EditaridSA" name="EditaridSA">
 
-                            <td style="background-color:#E5E5E5;color:#000000;text-align: center;"> SOLICITUDES ARCO</td>
+                            <td style="background-color:#E5E5E5;color:#000000;" rowspan="3"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;"  type="text" class="form-control input-lg" id="EditarSOSA" name="EditarSOSA" disabled> </td>
+
+                            <td style="background-color:#E5E5E5;color:#000000;text-align: center;" rowspan="3" > SOLICITUDES ARCO</td>
 
                             <td style="background-color:#E5E5E5;color:#000000;"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOSA" name="EditarSOANIOSA" disabled>  </td>
 
@@ -265,42 +284,85 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                             <td style="background-color:#E5E5E5;color:#000000;"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSA" name="EditarSOTSA" disabled> </td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;text-align: center;"><input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSORSA" name="EditarSORSA" disabled> </td>
+                            <td rowspan="3" style="background-color:#E5E5E5;color:#000000;text-align: center;"> 
 
-                            <td rowspan="2" style="background-color:#E5E5E5;color:#000000;text-align: center;"> <button  type='button' class='btn btn-warning btn-ls btnActivar' estadoUsuario='1'>SIN ACCIONES</button></td>
+                                <select style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" class="form-control input-lg" name="EditarSORSA">
+             
+                                  <option value="" id="EditarSORSA"></option>
+
+                                <!--  <option value="NO ENVIADO">NO ENVIADO</option> -->
+
+                                  <option value="EN REVISIÓN">EN REVISIÓN</option>
+
+                                  <option value="NO COMPLETADO">NO COMPLETADO</option>
+
+                                  <option value="COMPLETADO">COMPLETADO</option>
+
+                                </select>
+                          
+                            </td>
 
                           </tr>
 
                           <tr>
-                            <td  style="background-color:#E5E5E5;color:#000000;text-align: center;" disabled> OBSERVACIÓNES </td>
-                            <td  style="background-color:#E5E5E5;color:#000000;text-align: center;" colspan="4"> <input style="background-color:#E5E5E5;color:#000000; text-align: center;" type="text" class="form-control input-lg" placeholder="INSERTE SUS OBSERVACIONES" id="" name=""> </td>
+
+                             <td  style="background-color:#E5E5E5;color:#000000;text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+
                           </tr>
 
                           <tr>
 
-                            <td rowspan="2" style="text-align: center;">3</td>
+                             <td  style="background-color:#E5E5E5;color:#000000;text-align: center;" colspan="3"> <textarea id="EditarSOOSA" name="EditarSOOSA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="background-color:#E5E5E5;color:#000000; text-align: center;" type="text" class="form-control input-lg"  id="EditarSOOSA" name="EditarSOOSA"> --> </td>
 
-                            <td style="background-color:#FFFFFF;color:#000000;" rowspan="2"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOCA" name="EditarSOCA" disabled> </td>
+                          </tr>
 
-                            <td style="text-align: center;"> CAPACITACIONES </td>
+                              <!-- ==================================  APARTADO PARA SOLICITUDES DE ARCO ======================================= -->
+
+                          <tr>
+
+                            <td rowspan="3" style="text-align: center;">3</td>
+
+                            <input type="hidden" id="EditaridCA" name="EditaridCA">
+
+                            <td style="background-color:#FFFFFF;color:#000000;" rowspan="3"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOCA" name="EditarSOCA" disabled> </td>
+
+                            <td style="text-align: center;" rowspan="3"> CAPACITACIONES </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOCA" name="EditarSOANIOCA" disabled> </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOFCA" name="EditarSOFCA" disabled> </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTCA" name="EditarSOTCA" disabled> </td>
-
-                            <td style="text-align: center;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSORCA" name="EditarSORCA" disabled></td>
                             
-                            <td rowspan="2" style="text-align: center;"> <button  type='button' class='btn btn-warning btn-ls btnActivar' estadoUsuario='1'>SIN ACCIONES</button></td>
+                            <td rowspan="3" style="text-align: center;"> 
+
+                                <select style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" class="form-control input-lg" name="EditarSORCA">
+             
+                                  <option value="" id="EditarSORCA"></option>
+
+                                 <!-- <option value="NO ENVIADO">NO ENVIADO</option> -->
+
+                                  <option value="EN REVISIÓN">EN REVISIÓN</option>
+
+                                  <option value="NO COMPLETADO">NO COMPLETADO</option>
+
+                                  <option value="COMPLETADO">COMPLETADO</option>
+
+                                </select>
+                          
+                            </td>
 
                           </tr>
 
                           <tr>
 
-                            <td  style="text-align: center;" disabled> OBSERVACIÓNES </td>
+                             <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
 
-                            <td colspan="4"> <input style="text-align: center;" type="text" class="form-control input-lg" placeholder="INSERTE SUS OBSERVACIONES" id="" name=""> </td>
+                          </tr>
+
+                          <tr>
+
+                             <td colspan="3"> <textarea id="EditarSOOCA" name="EditarSOOCA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!--<input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOCA" name="EditarSOOCA"> --> </td>
 
                           </tr>
 
@@ -318,16 +380,14 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-                <button type="submit" class="btn btn-primary">ACTUALIZAR REVISIÓN</button>
+            <button type="submit" class="btn btn-primary">ACTUALIZAR REVISIÓN</button>
 
             </div>
 
             <?php
             
-            /*
-              $editarUsuarios = new ControladorUsuariosInformes();
-              $editarUsuarios -> ctrEditarUsuario();
-            */
+              $editarAdministradorSO = new ControladorAdministracionGeneralSO();
+              $editarAdministradorSO -> ctrAdministracionGeneralSOModal();
 
             ?>
 
@@ -338,7 +398,6 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
       </div>
 
     </div>
-
 
  <!--=========================== ================================== ===================================================================
   =============================== FORMULARIO PARA ACTUALIZAR ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS ==============================

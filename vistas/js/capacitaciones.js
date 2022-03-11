@@ -138,10 +138,13 @@ $(".tablasCapacitaciones").on("click", ".btnActivarCapacitaciones", function() {
 
   var estadoCapacitaciones = $(this).attr("estadoCapacitaciones");
 
+  var RecepcionCapacitaciones = $(this).attr("RecepcionCapacitaciones");
+
   var datos = new FormData();
 
   datos.append("activarId", idCA);
   datos.append("activarCapacitaciones", estadoCapacitaciones);
+  datos.append("activaroRecepcionCapacitaciones", RecepcionCapacitaciones);
 
   //console.log("activarId",idSI);
   //console.log("activarolicitudesInformacion",estadoSolicitudesInformacion);

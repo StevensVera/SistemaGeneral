@@ -26,7 +26,7 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
             // Dato para Establecer el tipo de datos. 
 
-            $TipoEstado = "EN REVISIÓN";
+
 
             $adjunto = ControladorAdministracionGeneralSO::ctrMostrarTablaAdministracionGeneralSO($Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_Si_Codigo_SO, $Obtener_SA_Codigo_Tipo_Informe_Anios,  $Obtener_SI_Estatus, $Obtener_SA_Estatus, $Obtener_CA_Codigo_Tipo_Informe_Anios,  $Obtener_CA_Estatus);
 
@@ -43,6 +43,99 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
 
             for ($i=0; $i < count($adjunto) ; $i++) { 
+
+                if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                   $TipoEstado = "COMPLETADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+                
+                //// ============================================================ REVISIÓN - NO ENVIADO ===============================================================
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "EN REVISIÓN";
+ 
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                    $TipoEstado = "NO ENVIADO";
+
+                //// ============================================================ REVISIÓN - COMPLETADO ===============================================================
+ 
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                    $TipoEstado = "EN REVISIÓN";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "EN REVISIÓN";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "EN REVISIÓN";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+
+                    $TipoEstado = "EN REVISIÓN";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "COMPLETADO" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                    $TipoEstado = "EN REVISIÓN";
+
+                }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "COMPLETADO" && $adjunto[$i]["CA_Recepcion"] == "COMPLETADO"){
+
+                    $TipoEstado = "EN REVISIÓN";
+
+                }else{
+
+                    $TipoEstado = "NO COMPLETADO";
+                }
 
                 $botones = "<button class='btn btn-primary btnEditarAdministracionSO ' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  idCapacitaciones='".$adjunto[$i]["idCA"]."' data-toggle='modal' data-target='#modalActualizarAdministracionSOGeneral' title='CALIFICAR INFORMES' ><i class='fa fa-flag' aria-hidden='true'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-danger ' title='GENERAR ARCHIVO SOLICITUD DE INFORMACIÓN'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-danger ' title='GENERAR ARCHIVO SOLICITUD DE ARCO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-danger ' title='GENERAR ARCHIVO DE CAPACITACIONES'><i class='fa fa-file-text' aria-hidden='true'></i></button></a>";
 

@@ -10,6 +10,7 @@
     /* ===================== ACTIVAR SOLICITUD DE INFORMACION  ========================= */
 
         public $activarSolicitudesArco;
+        public $activaroRecepcionSolicitudesArco;
         public $activarId;
 
         public function AjaxActivarSolicitudesArco(){
@@ -22,7 +23,10 @@
             $item2 = "idSAR";
             $valor2 = $this->activarId;
 
-            $respuesta = ModeloSolicitudesArco::mdlActualizarEstadoSolicitudesArco($tabla, $item1, $valor1, $item2, $valor2);
+            $item3 = "SA_Recepcion";
+            $valor3 = $this->activaroRecepcionSolicitudesArco;
+
+            $respuesta = ModeloSolicitudesArco::mdlActualizarEstadoSolicitudesArco($tabla, $item1, $valor1, $item2, $valor2, $item3, $valor3);
 
         }
 
@@ -30,10 +34,11 @@
 
     /* ============================ ACTIVAR SOLICITUD DE INFORMACION ============================ */
 
-    if (isset($_POST["activarSolicitudesArco"])) {
+    if (isset($_POST["activarId"])) {
     
         $activarSolicitudesArco = new AjaxSolcitudesArco();
         $activarSolicitudesArco -> activarSolicitudesArco = $_POST["activarSolicitudesArco"];
+        $activarSolicitudesArco -> activaroRecepcionSolicitudesArco = $_POST["activaroRecepcionSolicitudesArco"];
         $activarSolicitudesArco -> activarId = $_POST["activarId"];
         $activarSolicitudesArco -> AjaxActivarSolicitudesArco();
     }

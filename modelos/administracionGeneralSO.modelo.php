@@ -45,6 +45,50 @@ require_once "conexion.php";
 
    } // End Funcion MdlMostrarTablaSI
 
+
+    /*=============================================
+    EDITAR ADMINISTRACION MODAL SO
+    =============================================*/
+
+    static public function mdlAdministracionGeneralSOModal($TablaSI, $TablaSA, $TablaCA , $datos, $Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SA_Codigo_Tipo_Informe_Anios, $Obtener_CA_Codigo_Tipo_Informe_Anios){
+
+      $stmt = Conexion::conectar()->prepare("UPDATE $TablaSI
+                                             INNER JOIN $TablaSA
+                                             ON $TablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaSA.$Obtener_SA_Codigo_Tipo_Informe_Anios
+                                             INNER JOIN $TablaCA
+                                             ON $TablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaCA.$Obtener_CA_Codigo_Tipo_Informe_Anios
+                                             SET SI_Recepcion = :SI_Recepcion, SI_Observaciones = :SI_Observaciones, SA_Recepcion = :SA_Recepcion, SA_Observaciones = :SA_Observaciones, CA_Recepcion = :CA_Recepcion, CA_Observaciones = :CA_Observaciones WHERE idSI = :idSI AND idSAR = :idSAR AND idCA = :idCA");
+
+      $stmt->bindParam(":idSI", $datos["idSI"], PDO::PARAM_INT);
+      $stmt->bindParam(":SI_Recepcion", $datos["SI_Recepcion"], PDO::PARAM_STR);
+      $stmt->bindParam(":SI_Observaciones", $datos["SI_Observaciones"], PDO::PARAM_STR);
+
+      $stmt->bindParam(":idSAR", $datos["idSAR"], PDO::PARAM_INT);
+      $stmt->bindParam(":SA_Recepcion", $datos["SA_Recepcion"], PDO::PARAM_STR);
+      $stmt->bindParam(":SA_Observaciones", $datos["SA_Observaciones"], PDO::PARAM_STR);
+
+      $stmt->bindParam(":idCA", $datos["idCA"], PDO::PARAM_INT);
+      $stmt->bindParam(":CA_Recepcion", $datos["CA_Recepcion"], PDO::PARAM_STR);
+      $stmt->bindParam(":CA_Observaciones", $datos["CA_Observaciones"], PDO::PARAM_STR);
+
+      if($stmt->execute()){
+
+        return "ok";
+
+      }else{
+
+        return "error";
+      
+      }
+
+      $stmt->close();
+      $stmt = null;
+
+    }
+
+
+
+
    /* =========== MOSTRAR DATOS TABLA - ADMINISTRACION SO - DESDE LA UNIDAD DE TRANSPARENCIA ================ */
 
    static public function MdlMostrarTablaAdministracionSO($tablaSI, $tablaSA, $TablaCA, $Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SI_Codigo_UnicoInforme_Anios, $Obtener_Si_Codigo_SO, $Obtener_SA_Codigo_Tipo_Informe_Anios,  $Obtener_SI_Estatus, $Obtener_SA_Estatus, $Obtener_CA_Codigo_Tipo_Informe_Anios,  $Obtener_CA_Estatus){

@@ -100,6 +100,7 @@
             "INSERT INTO $tablaSI
             (
              SI_Estatus,
+             SI_Recepcion,
              Si_Codigo_SO,
              SI_Codigo_UnicoInforme_Anios,
              SI_Codigo_Tipo_Informe_Anios,
@@ -223,7 +224,8 @@
              ) 
              
             VALUES(
-             :SI_Estatus, 
+             :SI_Estatus,
+             :SI_Recepcion,
              :Si_Codigo_SO,
              :SI_Codigo_UnicoInforme_Anios,
              :SI_Codigo_Tipo_Informe_Anios,
@@ -343,10 +345,10 @@
              :SI_Sentido_Respuesta_No_Disponible,
              :SI_Sentido_Respuesta_Suma_Total,
              :SI_Archivo
-            
 
              )");
           $stmt -> bindParam(":SI_Estatus", $datos["SI_Estatus"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Recepcion", $datos["SI_Recepcion"], PDO::PARAM_STR);
           $stmt -> bindParam(":Si_Codigo_SO", $datos["Si_Codigo_SO"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Codigo_UnicoInforme_Anios", $datos["SI_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Codigo_Tipo_Informe_Anios", $datos["SI_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
@@ -952,13 +954,15 @@
 
       /* ===========================  ACTIVAR EL ESTADO DEL USUARIO  ================================== */
 
-      static public function mdlActualizarEstadoSolicitudesInformacion($tabla,$item1,$valor1,$item2,$valor2){
+      static public function mdlActualizarEstadoSolicitudesInformacion($tabla, $item1, $valor1, $item2, $valor2, $item3, $valor3){
             
-        $statement = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE $item2 = :$item2" );
+        $statement = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1, $item3 = :$item3  WHERE $item2 = :$item2" );
 
         $statement -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
 
         $statement ->bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+        $statement ->bindParam(":".$item3, $valor3, PDO::PARAM_STR);
 
         if ($statement ->execute()) {
             
