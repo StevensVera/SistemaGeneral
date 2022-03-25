@@ -270,6 +270,49 @@ $(".tablasSolicitudesArco").on("click", ".btnEditarSolicitudesArco", function(){
 
 }) // Evento
 
+
+/*==============================================================================================
+                         = MOSTRAR - EDITAR SOLICITUDES INFORMACION = FUNCIONAL 
+================================================================================================ */ 
+
+$(".tablasSolicitudesArco").on("click", ".btnInformativoSA", function(){
+
+  var idSolicitudesArco = $(this).attr("idSolicitudesArco");
+
+  var datos = new FormData();
+
+  datos.append("idSolicitudesArco", idSolicitudesArco);
+  console.log("idSolicitudesArco",idSolicitudesArco);
+  
+  $.ajax({
+    url: "ajax/adjuntosSolicitudesArco.ajax.php",
+    method: "POST",
+        data: datos,
+        cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json", 
+      success: function(respuesta){
+        
+        console.log("respuesta",respuesta);
+
+        $("#MostrarNombreSOSA").val(respuesta["SA_Nombre_Sujeto_Obligado"]);
+        $("#MostrarBimestreSOSA").val(respuesta["SA_Informe_Presentado"]);
+
+        $("#MostrarANIOSOSA").val(respuesta["SA_Anios"]);
+        $("#MostrarFechaSOSA").val(respuesta["SA_Fecha"]);
+        $("#MostrarTotalSOSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+
+        $("#MostrarObservacionesSOSA").val(respuesta["SA_Observaciones"]);
+        $("#MostrarArchivoSOSA").attr("src", respuesta["SA_Requerimiento_Amonestacion_Privada"]);
+        //$("#MostrarArchivoSOSI").val(respuesta["SI_Archivo"]);
+
+      } // if
+
+  }) //then
+
+}) // Evento
+
 /* =========================== ACTIVAR ESTADO DE LA SOLICTUD ARCO ==================== */
 
 $(".tablasSolicitudesArco").on("click", ".btnActivarSolicitudesArco", function(){

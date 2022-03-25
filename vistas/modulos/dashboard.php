@@ -20,7 +20,7 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
       <h1>
 
-        Administración General de Sujeto Obligado
+        Administración General de Sujeto Obligado ( ENTREGA )
 
         <small>Panel de Control</small>
 
@@ -30,7 +30,7 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
         <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
 
-        <li class="active">Administración General de Sujeto Obligado </li>
+        <li class="active">Administración General de Sujeto Obligado ( ENTREGA ) </li>
         
       </ol>
       
@@ -42,9 +42,15 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
         <div class="box-header with-border">
 
+           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarSolicitudesInformacionLlenado"> 
+
+              Agregar Nuevo Requemiento
+
+          </button>
+
            <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
 
-                <!-- ========================== ENTRADA PARA EL NOMBRE DEl SUJETO OBLIGADO ========================= -->
+              <!-- ========================== ENTRADA PARA EL NOMBRE DEl SUJETO OBLIGADO ========================= -->
               <!--
 
                <div class="col-xs-8">
@@ -101,6 +107,10 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
           
         </div>
 
+        <style>
+
+</style>
+
         <div class="box-body">
 
              <table id="example" class="table table-bordered table-striped dt-responsive tablasAdministracionSujetosObligadosGeneral " style="width:100%">
@@ -109,31 +119,19 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                     <tr>
 
-                    <th style="width:3%">#</th>
-                        <th style="width:35%">Sujeto Obligado</th>
-                        <th style="width:15%">Informe Presentado</th>
-                        <th style="width:3%">AÑO</th>
-                        <th style="width:15%">Fecha de Entrega</th>
-                        <th style="width:10%">Estatus</th>
-                        <th style="width:19%">Acciones</th>
+                        <th style="width:3%; background-color: #3c8dbc; color: black;">#</th>
+                        <th style="width:35%; background-color: #3c8dbc; color: black;">Sujeto Obligado</th>
+                        <th style="width:15%; background-color: #3c8dbc; color: black;">Informe Presentado</th>
+                        <th style="width:3%; background-color: #3c8dbc; color: black;">AÑO</th>
+                        <th style="width:15%; background-color: #3c8dbc; color: black;">Fecha de Entrega</th>
+                        <th style="width:10%; background-color: #3c8dbc; color: black;">Estatus</th>
+                        <th style="width:19%; background-color: #3c8dbc; color: black;">Acciones</th>
   
                     </tr>
 
                 </thead>
 
-                <tfoot>
 
-                  <tr>
-                        <th style="width:3%">#</th>
-                        <th style="width:35%">Sujeto Obligado</th>
-                        <th style="width:15%">Informe Presentado</th>
-                        <th style="width:3%">AÑO</th>
-                        <th style="width:15%">Fecha de Entrega</th>
-                        <th style="width:10%">Estatus</th>
-                        <th style="width:19%">Acciones</th>
-                  </tr>
-
-                </tfoot>  
                                 
                 <input type="hidden" value="<?php echo $_SESSION["perfil_Informe"]; ?>" id="perfilOcultoUsuario">
 
@@ -141,6 +139,10 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
 
             </table>
+
+            <button id="btn1">clon</button>
+
+            
           
         </div>
 
@@ -203,11 +205,11 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
                           <tr>
 
                             <th style="width: 30px; text-align: center;">#</th>
-                            <th style="width: 250.00px;text-align: center;">BIMESTRE</th>
-                            <th style="width: 270.39px;text-align: center;">INFORME PRESENTADO</th>
-                            <th style="width: 124.91px;text-align: center;">AÑO</th>
-                            <th style="width: 210.36px;text-align: center;">FECHA DE ENTREGA</th>
-                            <th style="width: 117.43px;text-align: center;">TOTAL</th>
+                            <th style="width: 225.00px;text-align: center;">BIMESTRE</th>
+                            <th style="width: 225.39px;text-align: center;">INFORME PRESENTADO</th>
+                            <th style="width: 149.91px;text-align: center;">AÑO</th>
+                            <th style="width: 230.36px;text-align: center;">FECHA DE ENTREGA</th>
+                            <th style="width: 142.43px;text-align: center;">TOTAL</th>
                             <th style="width: 219.91px;text-align: center;">ACCIONES</th>
   
                            </tr>
@@ -216,137 +218,238 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                         <tbody>
 
-                             <!-- ==================================  APARTADO PARA SOLICITUDES DE INFORMACION ======================================= -->
+                        <!-- ==============================================================================================================================
+                             ============================================= APARTADO PARA SOLICITUDES DE INFORMACION =======================================
+                             ============================================================================================================================== -->
 
                           <tr>
                             
-                            <td rowspan="3" style="text-align: center;">1</td>
-
+                            <td rowspan="5" style="text-align: center;">1</td>
+                              
+                               <!-- SE USA ID PARA ACTUALIZAR EL REGISTRO DEL SI -->
                                <input type="hidden" id="EditaridSI" name="EditaridSI">
+                               <!-- SE USA EL NOMBRE DEL SUJETO OBLIGADO PARA ALTA DEL ARCHIVO DE REQUERIMIENTOS -->
+                               <input type="hidden" id="EditarNombreSujetoObligadoRSI" name="EditarNombreSujetoObligadoRSI">
+                               <!-- SE USA EL CODIGO DEL SUJETO OBLIGADO PARA ALTA DEL ARCHIVO DE REQUERIMIENTOS -->
+                               <input type="hidden" id="EditarCodigoSujetoObligadoRSI" name="EditarCodigoSujetoObligadoRSI">
 
-                            <td style="background-color:#FFFFFF; color:#000000;" rowspan="3"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOSI" name="EditarSOSI" disabled > </td>
+                            <td style="background-color:#FFFFFF; color:#000000;" rowspan="5"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOSI" name="EditarSOSI" readonly > </td>
 
-                            <td style="text-align: center;" rowspan="3"> SOLICITUDES DE INFORMACIÓN </td>
+                            <td style="text-align: center;" rowspan="5"> SOLICITUDES DE INFORMACIÓN </td>
 
-                            <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOSI" name="EditarSOANIOSI" disabled> </td>
+                            <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOSI" name="EditarSOANIOSI" readonly> </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOFSI" name="EditarSOFSI" disabled>  </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSI" name="EditarSOTSI" disabled> </td>
 
-                            <td rowspan="3" style="text-align: center;"> 
+                            <td  style="text-align: center;"> 
 
                                <select style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" class="form-control input-lg" name="EditarSORSI">
              
                                   <option value="" id="EditarSORSI"></option>
 
-                                  <!-- <option value="NO ENVIADO">NO ENVIADO</option> -->
+                                  <option value="NO ENVIADO">NO ENVIADO</option>
 
                                   <option value="EN REVISIÓN">EN REVISIÓN</option>
 
-                                  <option value="NO COMPLETADO" >NO COMPLETADO</option>
+                                  <option value="AMONESTACIÓN PRIVADA">AMONESTACIÓN PRIVADA</option>
 
-                                  <option value="COMPLETADO">COMPLETADO</option>
+                                  <option value="AMONESTACIÓN PÚBLICA">AMONESTACIÓN PÚBLICA</option>
+
+                                  <option value="PROCESO DE SANCIÓN">PROCESO DE SANCION</option>
+
+                                  <option value="FINALIZADO">FINALIZADO</option>
 
                                </select>
                           
                             </td>
 
                           </tr>
-
+                          <!-- ============================================================================================================================== -->
                           <tr>
 
-                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES ( GENERALES O REQUERIMIENTO DE AMONESTACIÓN PRIVADA ) </td>
+                              <td  style="text-align: center;"  disabled>  REQUERIMIENTO - AMONESTACIÓN PRIVADA </td>
                             
                           </tr>
-
+                          <!-- ============================================================================================================================== -->
                           <tr>
                               
                               <td  style="text-align: center;" colspan="3"> <textarea id="EditarSOOSI" name="EditarSOOSI" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+                              <td  style="text-align: center;"> 
+                                  
+                                  <div class="panel">ANEXAR REQUERIMIENTO - AMONESTACIÓN PRIVADA</div>
 
+                                      <input type="file" class="nuevoArchivoRequerimientoSI"  name="editarArchivoRequerimientoSI">
+
+                                          <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                                          <input type="hidden" id="archivoActualRequerimientoSI" name="archivoActualRequerimientoSI" >
+                              </td>
+                              
+                          </tr>
+                          <!-- ============================================================================================================================== -->
+                          <tr>
+
+                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES ( GENERALES O REQUERIMIENTO DE AMONESTACIÓN PÚBLICA ) </td>
+                              <td  style="text-align: center;"  disabled>  REQUERIMIENTO - AMONESTACIÓN PÚBLICA </td>
+                            
+                          </tr>
+                          <!-- ============================================================================================================================== -->
+                          <tr>
+                              
+                              <td  style="text-align: center;" colspan="3"> <textarea id="EditarSOOPSI" name="EditarSOOPSI" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+                              <td  style="text-align: center;"> 
+                                  
+                                  <div class="panel">ANEXAR REQUERIMIENTO - AMONESTACIÓN PÚBLICA</div>
+
+                                      <input type="file" class="nuevoArchivoRequerimientoPublicaSI"  name="editarArchivoRequerimientoPublicaSI">
+
+                                          <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                                          <input type="hidden" id="archivoActualRequerimientoPublicaSI" name="archivoActualRequerimientoPublicaSI" >
+                              </td>
+                              
                           </tr>
 
-                              <!-- ==================================  APARTADO PARA SOLICITUDES DE ARCO ======================================= -->
+                          <!-- ========================================================================================================================
+                               ============================================== APARTADO PARA SOLICITUDES DE ARCO =======================================
+                               ======================================================================================================================== -->
                             
                           <tr>
 
-                            <td rowspan="3" style="background-color:#E5E5E5;color:#000000;text-align: center;">2</td>
+                            <td rowspan="5" style="background-color:#FFFFFF;color:#000000;text-align: center;">2</td>
 
-                            <input type="hidden" id="EditaridSA" name="EditaridSA">
+                                <!-- SE USA ID PARA ACTUALIZAR EL REGISTRO DEL SA -->
+                                <input type="hidden" id="EditaridSA" name="EditaridSA">
+                                <!-- SE USA EL NOMBRE DEL SUJETO OBLIGADO PARA ALTA DEL ARCHIVO DE REQUERIMIENTOS -->
+                                <input type="hidden" id="EditarNombreSujetoObligadoRSA" name="EditarNombreSujetoObligadoRSA">
+                                <!-- SE USA EL CODIGO DEL SUJETO OBLIGADO PARA ALTA DEL ARCHIVO DE REQUERIMIENTOS -->
+                                <input type="hidden" id="EditarCodigoSujetoObligadoRSA" name="EditarCodigoSujetoObligadoRSA">  
 
-                            <td style="background-color:#E5E5E5;color:#000000;" rowspan="3"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;"  type="text" class="form-control input-lg" id="EditarSOSA" name="EditarSOSA" disabled> </td>
+                            <td style="background-color:#FFFFFF;color:#000000;" rowspan="5"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;"  type="text" class="form-control input-lg" id="EditarSOSA" name="EditarSOSA" readonly> </td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;text-align: center;" rowspan="3" > SOLICITUDES ARCO</td>
+                            <td style="background-color:#FFFFFF;color:#000000;text-align: center;" rowspan="5" > SOLICITUDES ARCO</td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOSA" name="EditarSOANIOSA" disabled>  </td>
+                            <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOSA" name="EditarSOANIOSA" readonly>  </td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSOFSA" name="EditarSOFSA" disabled> </td>
+                            <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOFSA" name="EditarSOFSA" disabled> </td>
 
-                            <td style="background-color:#E5E5E5;color:#000000;"> <input style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSA" name="EditarSOTSA" disabled> </td>
+                            <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTSA" name="EditarSOTSA" disabled> </td>
 
-                            <td rowspan="3" style="background-color:#E5E5E5;color:#000000;text-align: center;"> 
+                            <td style="background-color:#FFFFFF;color:#000000;text-align: center;"> 
 
-                                <select style="background-color:#E5E5E5;border-color:#E5E5E5;text-align: center;" class="form-control input-lg" name="EditarSORSA">
+                                <select style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" class="form-control input-lg" name="EditarSORSA">
              
                                   <option value="" id="EditarSORSA"></option>
 
-                                <!--  <option value="NO ENVIADO">NO ENVIADO</option> -->
+                                  <option value="NO ENVIADO">NO ENVIADO</option>
 
                                   <option value="EN REVISIÓN">EN REVISIÓN</option>
 
-                                  <option value="NO COMPLETADO">NO COMPLETADO</option>
+                                  <option value="AMONESTACIÓN PRIVADA">AMONESTACIÓN PRIVADA</option>
 
-                                  <option value="COMPLETADO">COMPLETADO</option>
+                                  <option value="AMONESTACIÓN PÚBLICA">AMONESTACIÓN PÚBLICA</option>
+
+                                  <option value="PROCESO DE SANCIÓN">PROCESO DE SANCION</option>
+
+                                  <option value="FINALIZADO">FINALIZADO</option>
 
                                 </select>
                           
                             </td>
 
                           </tr>
-
+                          <!-- ============================================================================================================================== -->
                           <tr>
 
-                             <td  style="background-color:#E5E5E5;color:#000000;text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                             <td  style="background-color:#FFFFFF;color:#000000;text-align: center;" colspan="3" disabled> OBSERVACIÓNES REQUERIMIENTO - AMONESTACIÓN PRIVADA </td>
+                             <td  style="text-align: center;"  disabled>  REQUERIMIENTO - AMONESTACIÓN PRIVADA </td>
+                          </tr>
+                          <!-- ============================================================================================================================== -->
+                          <tr>
+
+                             <td  style="background-color:#FFFFFF;color:#000000;text-align: center;" colspan="3"> <textarea id="EditarSOOSA" name="EditarSOOSA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="background-color:#E5E5E5;color:#000000; text-align: center;" type="text" class="form-control input-lg"  id="EditarSOOSA" name="EditarSOOSA"> --> </td>
+                             <td  style="text-align: center;"> 
+                                  
+                                  <div class="panel">ANEXAR REQUERIMIENTO - AMONESTACIÓN PRIVADA</div>
+
+                                      <input type="file" class="nuevoArchivoRequerimientoSA"  name="editarArchivoRequerimientoSA">
+
+                                          <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                                          <input type="hidden" id="archivoActualRequerimientoSA" name="archivoActualRequerimientoSA" >
+                              </td>
 
                           </tr>
-
+                          <!-- ============================================================================================================================== -->
                           <tr>
 
-                             <td  style="background-color:#E5E5E5;color:#000000;text-align: center;" colspan="3"> <textarea id="EditarSOOSA" name="EditarSOOSA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="background-color:#E5E5E5;color:#000000; text-align: center;" type="text" class="form-control input-lg"  id="EditarSOOSA" name="EditarSOOSA"> --> </td>
-
+                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES REQUERIMIENTO - AMONESTACIÓN PÚBLICA </td>
+                              <td  style="text-align: center;"  disabled>  REQUERIMIENTO - AMONESTACIÓN PÚBLICA </td>
+                            
                           </tr>
+                          <!-- ============================================================================================================================== -->
+                          <tr>
+                              
+                              <td  style="text-align: center;" colspan="3"> <textarea id="EditarSOOPSA" name="EditarSOOPSA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+                              <td  style="text-align: center;"> 
+                                  
+                                  <div class="panel">ANEXAR REQUERIMIENTO - AMONESTACIÓN PÚBLICA</div>
 
-                              <!-- ==================================  APARTADO PARA SOLICITUDES DE ARCO ======================================= -->
+                                      <input type="file" class="nuevoArchivoRequerimientoPublicaSA"  name="editarArchivoRequerimientoPublicaSA">
 
+                                          <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                                          <input type="hidden" id="archivoActualRequerimientoPublicaSA" name="archivoActualRequerimientoPublicaSA" >
+                              </td>
+                              
+                          </tr>
+                          
+                         <!-- ========================================================================================================================
+                              ========================================== APARTADO PARA SOLICITUDES DE ARCO ===========================================
+                              ======================================================================================================================== -->
+
+                          
                           <tr>
 
-                            <td rowspan="3" style="text-align: center;">3</td>
+                            <td rowspan="5" style="text-align: center;">3</td>
 
-                            <input type="hidden" id="EditaridCA" name="EditaridCA">
+                                <!-- SE USA ID PARA ACTUALIZAR EL REGISTRO DEL CA -->
+                                <input type="hidden" id="EditaridCA" name="EditaridCA">
+                                <!-- SE USA EL NOMBRE DEL SUJETO OBLIGADO PARA ALTA DEL ARCHIVO DE REQUERIMIENTOS -->
+                                <input type="hidden" id="EditarNombreSujetoObligadoRCA" name="EditarNombreSujetoObligadoRCA">
+                                <!-- SE USA EL CODIGO DEL SUJETO OBLIGADO PARA ALTA DEL ARCHIVO DE REQUERIMIENTOS -->
+                                <input type="hidden" id="EditarCodigoSujetoObligadoRCA" name="EditarCodigoSujetoObligadoRCA">  
 
-                            <td style="background-color:#FFFFFF;color:#000000;" rowspan="3"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOCA" name="EditarSOCA" disabled> </td>
+                            <td style="background-color:#FFFFFF;color:#000000;" rowspan="5"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOCA" name="EditarSOCA" readonly> </td>
 
-                            <td style="text-align: center;" rowspan="3"> CAPACITACIONES </td>
+                            <td style="text-align: center;" rowspan="5"> CAPACITACIONES </td>
 
-                            <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOCA" name="EditarSOANIOCA" disabled> </td>
+                            <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOANIOCA" name="EditarSOANIOCA" readonly> </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOFCA" name="EditarSOFCA" disabled> </td>
 
                             <td style="background-color:#FFFFFF;color:#000000;"> <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="EditarSOTCA" name="EditarSOTCA" disabled> </td>
                             
-                            <td rowspan="3" style="text-align: center;"> 
+                            <td style="text-align: center;"> 
 
                                 <select style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" class="form-control input-lg" name="EditarSORCA">
              
                                   <option value="" id="EditarSORCA"></option>
 
-                                 <!-- <option value="NO ENVIADO">NO ENVIADO</option> -->
+                                  <option value="NO ENVIADO">NO ENVIADO</option>
 
                                   <option value="EN REVISIÓN">EN REVISIÓN</option>
 
-                                  <option value="NO COMPLETADO">NO COMPLETADO</option>
+                                  <option value="AMONESTACIÓN PRIVADA">AMONESTACIÓN PRIVADA</option>
 
-                                  <option value="COMPLETADO">COMPLETADO</option>
+                                  <option value="AMONESTACIÓN PÚBLICA">AMONESTACIÓN PÚBLICA</option>
+
+                                  <option value="PROCESO DE SANCIÓN">PROCESO DE SANCIÓN</option>
+
+                                  <option value="FINALIZADO">FINALIZADO</option>
 
                                 </select>
                           
@@ -356,16 +459,49 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
                           <tr>
 
-                             <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                             <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES REQUERIMIENTO - AMONESTACIÓN PRIVADA </td>
+                             <td  style="text-align: center;"  disabled>  REQUERIMIENTO - AMONESTACIÓN PRIVADA </td>
 
                           </tr>
 
                           <tr>
 
                              <td colspan="3"> <textarea id="EditarSOOCA" name="EditarSOOCA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!--<input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOCA" name="EditarSOOCA"> --> </td>
+                             <td  style="text-align: center;"> 
+                                  
+                                  <div class="panel">ANEXAR REQUERIMIENTO - AMONESTACIÓN PRIVADA</div>
+
+                                      <input type="file" class="nuevoArchivoRequerimientoCA"  name="editarArchivoRequerimientoCA">
+
+                                          <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                                          <input type="hidden" id="archivoActualRequerimientoCA" name="archivoActualRequerimientoCA" >
+                              </td>
 
                           </tr>
+                          <tr>
 
+                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES REQUERIMIENTO - AMONESTACIÓN PÚBLICA </td>
+                              <td  style="text-align: center;"  disabled>  REQUERIMIENTO - AMONESTACIÓN PÚBLICA </td>
+                            
+                          </tr>
+
+                          <tr>
+                              
+                              <td  style="text-align: center;" colspan="3"> <textarea id="EditarSOOPCA" name="EditarSOOPCA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+                              <td  style="text-align: center;"> 
+                                  
+                                  <div class="panel">ANEXAR REQUERIMIENTO - AMONESTACIÓN PÚBLICA</div>
+
+                                      <input type="file" class="nuevoArchivoRequerimientoPublicaCA"  name="editarArchivoRequerimientoPublicaCA">
+
+                                          <p class="help-block">Peso máximo de la foto 20 MB</p>
+
+                                          <input type="hidden" id="archivoActualRequerimientoPublicaCA" name="archivoActualRequerimientoPublicaCA" >
+                              </td>
+                              
+                          </tr>
+                          
                         </tbody>
 
                      </table>
@@ -398,6 +534,8 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
       </div>
 
     </div>
+
+
 
  <!--=========================== ================================== ===================================================================
   =============================== FORMULARIO PARA ACTUALIZAR ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS ==============================

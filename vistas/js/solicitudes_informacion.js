@@ -255,6 +255,54 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
 
 }) // Evento
 
+/*==============================================================================================
+                         = MOSTRAR - EDITAR SOLICITUDES INFORMACION =
+================================================================================================ */ 
+
+$(".tablasSolicitudesInformacion").on("click", ".btnInformativoSI", function(){
+
+  var idSolicitudesInformacion = $(this).attr("idSolicitudesInformacion");
+
+  var datos = new FormData();
+  datos.append("idSolicitudesInformacion", idSolicitudesInformacion);
+  console.log("idSolicitudesInformacion",idSolicitudesInformacion);
+  $.ajax({
+    url: "ajax/adjuntosSolicitudesInformacion.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType:"json", 
+     success: function(respuesta){
+        console.log("respuesta",respuesta);
+      
+        $("#MostrarNombreSOSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
+        $("#MostrarBimestreSOSI").val(respuesta["SI_Informe_Presentado"]);
+
+        $("#MostrarANIOSOSI").val(respuesta["SI_Anios"]);
+        $("#MostrarFechaSOSI").val(respuesta["SI_Fecha"]);
+        $("#MostrarTotalSOSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
+
+        $("#MostrarObservacionesSOSI").val(respuesta["SI_Observaciones"]);
+        $("#MostrarArchivoSOSI").attr("src", respuesta["SI_Requerimiento_Amonestacion_Privada"]);
+        //$("#MostrarArchivoSOSI").val(respuesta["SI_Archivo"]);
+
+        /*
+        if (respuesta["SI_Archivo"] != "") {
+          
+          $(".previsualizarEditar").attr("src", respuesta["SI_Archivo"]);
+
+        }
+
+        */
+        
+      } // if
+
+  }) //then
+
+}) // Evento
+
   /* =========================== ACTIVAR ESTADO DEL SOLICITUD DE INFORMACION ==================== */
 
   $(".tablasSolicitudesInformacion").on("click", ".btnActivarSolicitudInformacion", function() {
@@ -632,3 +680,5 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
       });
 
   });
+
+

@@ -8,6 +8,13 @@ var perfiCodigo = $("#perfiCodigo").val();
 
 //console.log("perfiCodigo", perfiCodigo);
 
+let temp = $("#btn1").clone();
+$("#btn1").click(function(){
+    $("#btn1").after(temp);
+});
+
+$(document).ready(function(){
+
 var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
    
     "ajax":"ajax/datable-adjuntosAdministracionSOGeneral.ajax.php?perfilOcultoUsuario="+perfilOcultoUsuario+"perfiCodigo"+perfiCodigo,
@@ -16,6 +23,8 @@ var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
     "processing": true,
     "scrollY": 450,
     "scrollX": true,
+    "orderCellsTop": true,
+    "fixedHeader": true ,
 
     initComplete: function () {
       this.api().columns([1, 2, 3, 4, 5]).every( function () {
@@ -66,6 +75,27 @@ var table = $(".tablasAdministracionSujetosObligadosGeneral").DataTable({
     }
   
   });
+
+   //Creamos una fila en el head de la tabla y lo clonamos para cada columna
+   $('.tablasAdministracionSujetosObligadosGeneral thead tr').clone(true).appendTo( '.tablasAdministracionSujetosObligadosGeneral thead' );
+
+   $('.tablasAdministracionSujetosObligadosGeneral thead tr:eq(1) th').each( function (i) {
+       var title = $(this).text(); //es el nombre de la columna
+       $(this).html( '<input style="width:120px" type="text" placeholder="'+title+'" />' );
+
+       $( 'input', this ).on( 'keyup change', function () {
+           if ( table.column(i).search() !== this.value ) {
+               table
+                   .column(i)
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+   } );   
+
+});
+  
+
 
   $(".tablaAdministrativa3xSO").on("click", ".btnActivar", function() {
 
@@ -159,8 +189,15 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOANIOSI").val(respuesta["SI_Anios"]);
         $("#EditarSOFSI").val(respuesta["SI_Fecha"]);
         $("#EditarSOTSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
-
         $("#EditarSOOSI").val(respuesta["SI_Observaciones"]);
+        $("#EditarSOOPSI").val(respuesta["SI_Observaciones_Publica"]);
+
+        $("#archivoActualRequerimientoSI").val(respuesta["SI_Requerimiento_Amonestacion_Privada"]);
+        $("#archivoActualRequerimientoPublicaSI").val(respuesta["SI_Requerimiento_Amonestacion_Publica"]);
+
+
+        $("#EditarNombreSujetoObligadoRSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
+        $("#EditarCodigoSujetoObligadoRSI").val(respuesta["Si_Codigo_SO"]);
        
         /*
         if (respuesta["SI_Calificacion"] == 2) {
@@ -185,6 +222,10 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
     })
 
   }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR 
+
+
+
+
 
   /* ============== MOSTRAR LOS DATOS DE SOLICITUDES ARCO ================ */ 
 
@@ -217,8 +258,21 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOANIOSA").val(respuesta["SA_Anios"]);
         $("#EditarSOFSA").val(respuesta["SA_Fecha"]);
         $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
-
         $("#EditarSOOSA").val(respuesta["SA_Observaciones"]);
+        $("#EditarSOOPSA").val(respuesta["SA_Observaciones_Publica"]);
+
+
+
+        $("#archivoActualRequerimientoSA").val(respuesta["SA_Requerimiento_Amonestacion_Privada"]);
+        $("#archivoActualRequerimientoPublicaSA").val(respuesta["SA_Requerimiento_Amonestacion_Publica"]);
+       
+
+        $("#EditarNombreSujetoObligadoRSA").val(respuesta["SA_Nombre_Sujeto_Obligado"]);
+        $("#EditarCodigoSujetoObligadoRSA").val(respuesta["SA_Codigo_SO"]);
+
+    
+
+
         
         /*
 
@@ -279,35 +333,119 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOANIOCA").val(respuesta["CA_Anios"]);
         $("#EditarSOFCA").val(respuesta["CA_Fecha"]);
         $("#EditarSOTCA").val(respuesta["CA_Total_Capacitacion"]);
-
         $("#EditarSOOCA").val(respuesta["CA_Observaciones"]);
+        $("#EditarSOOPCA").val(respuesta["CA_Observaciones_Publica"]);
+
+        $("#archivoActualRequerimientoCA").val(respuesta["CA_Requerimiento_Amonestacion_Privada"]);
+        $("#archivoActualRequerimientoPublicaCA").val(respuesta["CA_Requerimiento_Amonestacion_Publica"]);
         
-
-        /*
-
-        if (respuesta["foto_Informe"] != "") {
-          
-          $(".previsualizarEditar").attr("src", respuesta["foto_Informe"]);
-
-        }else{
-
-          $(".previsualizarEditar").attr("src", "vistas/img/usuarios/default/anonymous.png");
-  
-        }
-
-        if (respuesta["archivo_Informe"] != "") {
-          
-          $(".nuevoArchivo").attr("src", respuesta["archivo_Informe"]);
-
-        }        
-
-        */
+        $("#EditarNombreSujetoObligadoRCA").val(respuesta["CA_Nombre_Sujeto_Obligado"]);
+        $("#EditarCodigoSujetoObligadoRCA").val(respuesta["CA_Codigo_SO"]);
         
       }
 
     })
 
   }) // EVENTO MOSTRAR LOS DATOS DE USUARIOS HA ACTUALIZAR 
+
+  /* =================== VALIDAR ARCHIVO SOLICITUD DE INFORMACION ==================== */
+
+  $(".nuevoArchivoRequerimientoSI").change(function() {
+
+    var archivo = this.files[0];
+
+
+    /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
+
+      if (archivo["type"] != "application/pdf") {
+        
+        $(".nuevoArchivoRequerimientoSI").val("");
+
+        swal({
+          title: "Error al subir el archivo",
+          text: "¡La archivo debe estar en formato PDF",
+          type: "error",
+          confirmButtonText: "¡Cerrar!"
+        });
+
+      } else if(archivo["size"] > 50000000 ){
+   
+        swal({
+          title: "Error al subir el archivo",
+          text: "¡El archivo no debe pesar más de 20MB!",
+           type: "error",
+           confirmButtonText: "¡Cerrar!"
+      });
+
+    }
+      
+  })
+
+    /* =================== VALIDAR ARCHIVO SOLICITUD ARCO ==================== */
+
+    $(".nuevoArchivoRequerimientoSA").change(function() {
+
+      var archivo = this.files[0];
+  
+      /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
+  
+        if (archivo["type"] != "application/pdf") {
+          
+          $(".nuevoArchivoRequerimientoSA").val("");
+  
+          swal({
+            title: "Error al subir el archivo",
+            text: "¡La archivo debe estar en formato PDF",
+            type: "error",
+            confirmButtonText: "¡Cerrar!"
+          });
+  
+        } else if(archivo["size"] > 50000000 ){
+     
+          swal({
+            title: "Error al subir el archivo",
+            text: "¡El archivo no debe pesar más de 20MB!",
+             type: "error",
+             confirmButtonText: "¡Cerrar!"
+        });
+  
+      }
+        
+    })
+
+    /* =================== VALIDAR ARCHIVO CAPACITACIONES ==================== */
+
+    $(".nuevoArchivoRequerimientoCA").change(function() {
+
+      var archivo = this.files[0];
+  
+      /* === VALIDAMOS EL FORMATO DEL ARCHIVO SEA EN PDF EN SOLICITUD DE INFORMACIÓN === */
+  
+        if (archivo["type"] != "application/pdf") {
+          
+          $(".nuevoArchivoRequerimientoCA").val("");
+  
+          swal({
+            title: "Error al subir el archivo",
+            text: "¡La archivo debe estar en formato PDF",
+            type: "error",
+            confirmButtonText: "¡Cerrar!"
+          });
+  
+        } else if(archivo["size"] > 50000000 ){
+     
+          swal({
+            title: "Error al subir el archivo",
+            text: "¡El archivo no debe pesar más de 20MB!",
+             type: "error",
+             confirmButtonText: "¡Cerrar!"
+        });
+  
+      }
+        
+    })
+  
+
 
 
 

@@ -44,15 +44,31 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
                         $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnEliminarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' archivoSI='".$adjunto[$i]["SI_Archivo"]."' codigo = '".$adjunto[$i]["Si_Codigo_SO"]."' anios ='".$adjunto[$i]["SI_Anios"]."' InformeAnios = '".$adjunto[$i]["Si_Codigo_Informe_Anios"]."' sujetoObligado = '".$adjunto[$i]["SI_Nombre_Sujeto_Obligado"]."'  ><i class='fa fa-times'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1' RecepcionSolicitudesInformacion='EN REVISIÓN'><i class='fa fa-check'></i></button>";
                     }
 
-                } else if($adjunto[$i]["SI_Recepcion"] == "NO COMPLETADO" ){
+                } else if($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" ){
 
                     if ($adjunto[$i]["SI_Estatus"] == 1) {
 
-                        $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativo' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalInformativo'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1' RecepcionSolicitudesInformacion='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+                        $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoSI' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalInformativo' title='AMONESTACIÓN PRIVADA'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1' RecepcionSolicitudesInformacion='EN REVISIÓN'><i class='fa fa-check'></i></button>";
 
                     }
 
-                } else if($adjunto[$i]["SI_Recepcion"] == "COMPLETADO") {
+                } else if($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" ){
+
+                    if ($adjunto[$i]["SI_Estatus"] == 1) {
+
+                        $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoSI' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalInformativo' title='AMONESTACIÓN PÚBLICA'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1' RecepcionSolicitudesInformacion='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+
+                    }
+
+                } else if($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" ){
+
+                    if ($adjunto[$i]["SI_Estatus"] == 1) {
+
+                        $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnInformativoSI' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalInformativo' title='PROCESO DE SANCION' ><i class='fa fa-user-circle-o' aria-hidden='true'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1' RecepcionSolicitudesInformacion='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+
+                    }
+
+                } else if($adjunto[$i]["SI_Recepcion"] == "FINALIZADO") {
 
                     if ($adjunto[$i]["SI_Estatus"] == 1) {
 
