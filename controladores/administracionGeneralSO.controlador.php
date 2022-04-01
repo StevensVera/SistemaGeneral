@@ -20,7 +20,7 @@
 
        // FUNCION PARA ACTUALIZAR TABLA MODAL 
 
-          static public function ctrAdministracionGeneralSOModal(){
+          static public function  ctrAdministracionGeneralSOModal(){
             
             if(isset($_POST["EditarSORSI"]) && isset($_POST["EditarSORSA"]) && isset($_POST["EditarSORSA"]) ){
 
@@ -214,6 +214,92 @@
 
            /* ==================================================================================================================
               ==================================================================================================================
+              ================================= OBSERVACIONES - SOLICITUDES DE INFORMACIÓN ====================================
+              ==================================================================================================================
+              ================================================================================================================== */
+              
+              $CarpetaObservacionesSI = "Observaciones";
+
+              $ObservacionesSI = "Observaciones";
+
+              $rutaSIObservaciones = "";
+
+              $aniosObservacionesSI = $_POST["EditarSOANIOSI"];
+
+              $SujetoObligadoObservacionesSI = $_POST["EditarNombreSujetoObligadoRSI"];
+
+              $codigoObservacionesSISO = $_POST["EditarCodigoSujetoObligadoRSI"];
+
+              $InformeObservacionesSI = $_POST["EditarSOSI"];
+
+
+
+              if ($_FILES["editarArchivoObservacionesSI"] != "") {
+
+                /*================ VALIDAR REQUERIMIENTO SOLICITUD DE INFORMACION - ARCHIVO PDF PARA ACTUALIZAR ===================== */
+
+                $rutaSIObservaciones = $_POST["archivoActualObservacionesSI"];
+
+                if (isset($_FILES["editarArchivoObservacionesSI"]["tmp_name"]) && !empty($_FILES["editarArchivoObservacionesSI"]["tmp_name"])){
+
+                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+                    
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSI;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSI."/".$CarpetaObservacionesSI;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSI."/".$CarpetaObservacionesSI."/".$InformeObservacionesSI;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSI."/".$CarpetaObservacionesSI."/".$InformeObservacionesSI."/".$codigoObservacionesSISO;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSI."/".$CarpetaObservacionesSI."/".$InformeObservacionesSI."/".$codigoObservacionesSISO."/".$CarpetaSI;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+
+                    if(!empty($_POST["archivoActualObservacionesSI"])){
+                        
+                        unlink($_POST["archivoActualObservacionesSI"]);
+
+                    } else {
+                        
+                        mkdir($rutaSIObservaciones, 0775);
+
+                    }
+
+                    /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                    $aletorio = mt_rand(100,999);
+
+                    if ($_FILES["editarArchivoObservacionesSI"]["type"] == "application/pdf") {
+                        
+                      $rutaSIObservaciones = "vistas/pdfs/observaciones/".$aniosObservacionesSI."/".$CarpetaObservacionesSI."/".$InformeObservacionesSI."/".$codigoObservacionesSISO."/".$CarpetaSI."/".$ObservacionesSI.$espacio.$InformeObservacionesSI.$espacio.$SujetoObligadoObservacionesSI.$espacio.$aniosObservacionesSI.".pdf";
+
+                        move_uploaded_file ($_FILES["editarArchivoObservacionesSI"]["tmp_name"], $rutaSIObservaciones);
+
+                    }
+
+                }     
+
+              } else{
+
+                $rutaSIObservaciones = $_POST["archivoActualObservacionesSI"];
+
+              } 
+
+
+
+           /* ==================================================================================================================
+              ==================================================================================================================
               ================== REQUERIMIENTO PARA AMONESTACIONES PRIVADA - SOLICITUD ARCO ====================================
               ==================================================================================================================
               ================================================================================================================== */
@@ -379,9 +465,93 @@
             }
 
 
+            /* ==================================================================================================================
+              ==================================================================================================================
+              ================================= OBSERVACIONES - SOLICITUDES ARCO ====================================
+              ==================================================================================================================
+              ================================================================================================================== */
+              
+              $CarpetaObservacionesSA = "Observaciones";
+
+              $ObservacionesSA = "Observaciones";
+
+              $rutaSAObservaciones = "";
+
+              $aniosObservacionesSA = $_POST["EditarSOANIOSA"];
+
+              $SujetoObligadoObservacionesSA = $_POST["EditarNombreSujetoObligadoRSA"];
+
+              $codigoObservacionesSASO = $_POST["EditarCodigoSujetoObligadoRSA"];
+
+              $InformeObservacionesSA = $_POST["EditarSOSA"];
+
+
+              if ($_FILES["editarArchivoObservacionesSA"] != "") {
+
+                /*================ VALIDAR REQUERIMIENTO SOLICITUD DE INFORMACION - ARCHIVO PDF PARA ACTUALIZAR ===================== */
+
+                $rutaSAObservaciones = $_POST["archivoActualObservacionesSA"];
+
+                if (isset($_FILES["editarArchivoObservacionesSA"]["tmp_name"]) && !empty($_FILES["editarArchivoObservacionesSA"]["tmp_name"])){
+
+                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+                    
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSA."/".$CarpetaObservacionesSA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSA."/".$CarpetaObservacionesSA."/".$InformeObservacionesSA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSA."/".$CarpetaObservacionesSA."/".$InformeObservacionesSA."/".$codigoObservacionesSASO;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesSA."/".$CarpetaObservacionesSA."/".$InformeObservacionesSA."/".$codigoObservacionesSASO."/".$CarpetaSA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+
+                    if(!empty($_POST["archivoActualObservacionesSA"])){
+                        
+                        unlink($_POST["archivoActualObservacionesSA"]);
+
+                    } else {
+                        
+                        mkdir($rutaSAObservaciones, 0775);
+
+                    }
+
+                    /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                    $aletorio = mt_rand(100,999);
+
+                    if ($_FILES["editarArchivoObservacionesSA"]["type"] == "application/pdf") {
+                        
+                      $rutaSAObservaciones = "vistas/pdfs/observaciones/".$aniosObservacionesSA."/".$CarpetaObservacionesSA."/".$InformeObservacionesSA."/".$codigoObservacionesSASO."/".$CarpetaSA."/".$ObservacionesSA.$espacio.$InformeObservacionesSA.$espacio.$SujetoObligadoObservacionesSA.$espacio.$aniosObservacionesSA.".pdf";
+
+                        move_uploaded_file ($_FILES["editarArchivoObservacionesSA"]["tmp_name"], $rutaSAObservaciones);
+
+                    }
+
+                }     
+
+              } else{
+
+                $rutaSAObservaciones = $_POST["archivoActualObservacionesSA"];
+
+              }   
+
+
          /* ==================================================================================================================
             ==================================================================================================================
-            ================== REQUERIMIENTO PARA REQUERIMIENTO CAPACITACIONES PRIVADA - SOLICITUD ARCO ======================
+            ================== REQUERIMIENTO PARA REQUERIMIENTO CAPACITACIONES PRIVADA - CAPACITACIONES ======================
             ==================================================================================================================
             ================================================================================================================== */
 
@@ -467,7 +637,7 @@
               
             /* ==================================================================================================================
             ==================================================================================================================
-            ================== REQUERIMIENTO PARA REQUERIMIENTO CAPACITACIONES PRIVADA - SOLICITUD ARCO ======================
+            ================== REQUERIMIENTO PARA REQUERIMIENTO CAPACITACIONES PRIVADA - CAPACITACIONES ======================
             ==================================================================================================================
             ================================================================================================================== */
 
@@ -539,22 +709,112 @@
 
               }
 
+
+           /* ==================================================================================================================
+              ==================================================================================================================
+              ================================= OBSERVACIONES - CAPACITACIONES ====================================
+              ==================================================================================================================
+              ================================================================================================================== */
+              
+              $CarpetaObservacionesCA = "Observaciones";
+
+              $ObservacionesCA = "Observaciones";
+
+              $rutaCAObservaciones = "";
+
+              $aniosObservacionesCA = $_POST["EditarSOANIOCA"];
+
+              $SujetoObligadoObservacionesCA = $_POST["EditarNombreSujetoObligadoRCA"];
+
+              $codigoObservacionesCASO = $_POST["EditarCodigoSujetoObligadoRCA"];
+
+              $InformeObservacionesCA = $_POST["EditarSOCA"];
+
+
+              if ($_FILES["editarArchivoObservacionesCA"] != "") {
+
+                /*================ VALIDAR REQUERIMIENTO SOLICITUD DE INFORMACION - ARCHIVO PDF PARA ACTUALIZAR ===================== */
+
+                $rutaCAObservaciones = $_POST["archivoActualObservacionesCA"];
+
+                if (isset($_FILES["editarArchivoObservacionesCA"]["tmp_name"]) && !empty($_FILES["editarArchivoObservacionesCA"]["tmp_name"])){
+
+                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF ==========================*/
+                    
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesCA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesCA."/".$CarpetaObservacionesCA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesCA."/".$CarpetaObservacionesCA."/".$InformeObservacionesCA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesCA."/".$CarpetaObservacionesCA."/".$InformeObservacionesCA."/".$codigoObservacionesCASO;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    $directorioArchivo = "vistas/pdfs/observaciones/".$aniosObservacionesCA."/".$CarpetaObservacionesCA."/".$InformeObservacionesCA."/".$codigoObservacionesCASO."/".$CarpetaCA;
+
+                    mkdir($directorioArchivo, 0775);
+
+                    /*================== VALIDAMOS EXISTENCIA DE OTRA ARCHIVO PDF EN LA BASE DE DATOS ================== */
+
+                    if(!empty($_POST["archivoActualObservacionesCA"])){
+                        
+                        unlink($_POST["archivoActualObservacionesCA"]);
+
+                    } else {
+                        
+                        mkdir($rutaCAObservaciones, 0775);
+
+                    }
+
+                    /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                    $aletorio = mt_rand(100,999);
+
+                    if ($_FILES["editarArchivoObservacionesCA"]["type"] == "application/pdf") {
+                        
+                      $rutaCAObservaciones = "vistas/pdfs/observaciones/".$aniosObservacionesCA."/".$CarpetaObservacionesCA."/".$InformeObservacionesCA."/".$codigoObservacionesCASO."/".$CarpetaCA."/".$ObservacionesCA.$espacio.$InformeObservacionesCA.$espacio.$SujetoObligadoObservacionesCA.$espacio.$aniosObservacionesCA.".pdf";
+
+                        move_uploaded_file ($_FILES["editarArchivoObservacionesCA"]["tmp_name"], $rutaCAObservaciones);
+
+                    }
+
+                }     
+
+              } else{
+
+                $rutaCAObservaciones = $_POST["archivoActualObservacionesCA"];
+
+              }   
+
               $datos = array("idSI"=>$_POST["EditaridSI"],
                              "SI_Recepcion"=>$_POST["EditarSORSI"],
+                             "SI_Observaciones_General"=>$_POST["EditarSOOGSI"],
                              "SI_Observaciones"=>$_POST["EditarSOOSI"],
                              "SI_Observaciones_Publica"=>$_POST["EditarSOOPSI"],
+                             "SI_Observaciones_Generales" => $rutaSIObservaciones,
                              "SI_Requerimiento_Amonestacion_Privada" => $rutaSIRequerimiento,
                              "SI_Requerimiento_Amonestacion_Publica" => $rutaSIRequerimientoPublico,
                              "idSAR"=>$_POST["EditaridSA"],
                              "SA_Recepcion"=>$_POST["EditarSORSA"],
+                             "SA_Observaciones_General"=>$_POST["EditarSOOGSA"],
                              "SA_Observaciones"=>$_POST["EditarSOOSA"],
                              "SA_Observaciones_Publica"=>$_POST["EditarSOOPSA"],
+                             "SA_Observaciones_Generales" => $rutaSAObservaciones,
                              "SA_Requerimiento_Amonestacion_Privada" => $rutaSARequerimiento,
                              "SA_Requerimiento_Amonestacion_Publica" => $rutaSARequerimientoPublicaSA,
                              "idCA"=>$_POST["EditaridCA"],
                              "CA_Recepcion"=>$_POST["EditarSORCA"],
+                             "CA_Observaciones_General"=>$_POST["EditarSOOGCA"],
                              "CA_Observaciones"=>$_POST["EditarSOOCA"],
                              "CA_Observaciones_Publica"=>$_POST["EditarSOOPCA"],
+                             "CA_Observaciones_Generales" => $rutaCAObservaciones,
                              "CA_Requerimiento_Amonestacion_Privada" => $rutaCARequerimiento,
                              "CA_Requerimiento_Amonestacion_Publica" => $rutaCARequerimientoPublicaCA
                            

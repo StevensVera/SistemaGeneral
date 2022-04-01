@@ -296,15 +296,29 @@ $(".tablasSolicitudesArco").on("click", ".btnInformativoSA", function(){
         
         console.log("respuesta",respuesta);
 
-        $("#MostrarNombreSOSA").val(respuesta["SA_Nombre_Sujeto_Obligado"]);
-        $("#MostrarBimestreSOSA").val(respuesta["SA_Informe_Presentado"]);
+        $(".MostrarNombreSOSA").val(respuesta["SA_Nombre_Sujeto_Obligado"]);
+        $(".MostrarBimestreSOSA").val(respuesta["SA_Informe_Presentado"]);
 
-        $("#MostrarANIOSOSA").val(respuesta["SA_Anios"]);
-        $("#MostrarFechaSOSA").val(respuesta["SA_Fecha"]);
-        $("#MostrarTotalSOSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+        $(".MostrarANIOSOSA").val(respuesta["SA_Anios"]);
+        $(".MostrarFechaSOSA").val(respuesta["SA_Fecha"]);
+        $(".MostrarTotalSOSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
 
-        $("#MostrarObservacionesSOSA").val(respuesta["SA_Observaciones"]);
-        $("#MostrarArchivoSOSA").attr("src", respuesta["SA_Requerimiento_Amonestacion_Privada"]);
+        // OBSERVACIONES
+        $("#MostrarObservacionesSOSA").val(respuesta["SA_Observaciones_General"]);
+        $("#MostrarArchivoObservacionesSOSA").attr("src", respuesta["SA_Observaciones_Generales"]);
+
+        // REQUERIMIENTOS AMONESTACIÓN PRIVADA
+        $("#MostrarAmonestacionPrivadaSOSA").val(respuesta["SA_Observaciones"]);
+        $("#MostrarArchivoAmonestacionPrivadaSOSA").attr("src", respuesta["SA_Requerimiento_Amonestacion_Privada"]);
+
+        // REQUERIMIENTOS AMONESTACIÓN PUBLICA
+        $("#MostrarAmonestacionPublicaSOSA").val(respuesta["SA_Observaciones_Publica"]);
+        $("#MostrarArchivoAmonestacionPublicaSOSA").attr("src", respuesta["SA_Requerimiento_Amonestacion_Publica"]);
+
+
+
+        //$("#MostrarObservacionesSOSA").val(respuesta["SA_Observaciones"]);
+        //$("#MostrarArchivoSOSA").attr("src", respuesta["SA_Requerimiento_Amonestacion_Privada"]);
         //$("#MostrarArchivoSOSI").val(respuesta["SI_Archivo"]);
 
       } // if

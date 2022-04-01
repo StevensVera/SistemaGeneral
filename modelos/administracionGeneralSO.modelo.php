@@ -57,30 +57,54 @@ require_once "conexion.php";
                                              ON $TablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaSA.$Obtener_SA_Codigo_Tipo_Informe_Anios
                                              INNER JOIN $TablaCA
                                              ON $TablaSI.$Obtener_SI_Codigo_Tipo_Informe_Anios = $TablaCA.$Obtener_CA_Codigo_Tipo_Informe_Anios
-                                             SET SI_Recepcion = :SI_Recepcion, SI_Observaciones = :SI_Observaciones, SI_Observaciones_Publica = :SI_Observaciones_Publica, SA_Recepcion = :SA_Recepcion, SA_Observaciones = :SA_Observaciones, SA_Observaciones_Publica = :SA_Observaciones_Publica, CA_Recepcion = :CA_Recepcion, CA_Observaciones = :CA_Observaciones, CA_Observaciones_Publica = :CA_Observaciones_Publica, SI_Requerimiento_Amonestacion_Privada = :SI_Requerimiento_Amonestacion_Privada, SI_Requerimiento_Amonestacion_Publica = :SI_Requerimiento_Amonestacion_Publica, SA_Requerimiento_Amonestacion_Privada = :SA_Requerimiento_Amonestacion_Privada,
+                                             SET 
+                                             SI_Recepcion = :SI_Recepcion, 
+                                             SI_Observaciones_General = :SI_Observaciones_General, 
+                                             SI_Observaciones = :SI_Observaciones, 
+                                             SI_Observaciones_Publica = :SI_Observaciones_Publica, 
+                                             SA_Recepcion = :SA_Recepcion, 
+                                             SA_Observaciones_General = :SA_Observaciones_General,
+                                             SA_Observaciones = :SA_Observaciones, 
+                                             SA_Observaciones_Publica = :SA_Observaciones_Publica, 
+                                             CA_Recepcion = :CA_Recepcion, 
+                                             CA_Observaciones_General = :CA_Observaciones_General,
+                                             CA_Observaciones = :CA_Observaciones,
+                                             CA_Observaciones_Publica = :CA_Observaciones_Publica,
+                                             SI_Observaciones_Generales = :SI_Observaciones_Generales, 
+                                             SI_Requerimiento_Amonestacion_Privada = :SI_Requerimiento_Amonestacion_Privada, 
+                                             SI_Requerimiento_Amonestacion_Publica = :SI_Requerimiento_Amonestacion_Publica,
+                                             SA_Observaciones_Generales = :SA_Observaciones_Generales, 
+                                             SA_Requerimiento_Amonestacion_Privada = :SA_Requerimiento_Amonestacion_Privada,
                                              SA_Requerimiento_Amonestacion_Publica = :SA_Requerimiento_Amonestacion_Publica,
+                                             CA_Observaciones_Generales = :CA_Observaciones_Generales,
                                              CA_Requerimiento_Amonestacion_Privada = :CA_Requerimiento_Amonestacion_Privada,
                                              CA_Requerimiento_Amonestacion_Publica = :CA_Requerimiento_Amonestacion_Publica
                                               WHERE idSI = :idSI AND idSAR = :idSAR AND idCA = :idCA");
 
       $stmt->bindParam(":idSI", $datos["idSI"], PDO::PARAM_INT);
       $stmt->bindParam(":SI_Recepcion", $datos["SI_Recepcion"], PDO::PARAM_STR);
+      $stmt->bindParam(":SI_Observaciones_General", $datos["SI_Observaciones_General"], PDO::PARAM_STR);
       $stmt->bindParam(":SI_Observaciones", $datos["SI_Observaciones"], PDO::PARAM_STR);
       $stmt->bindParam(":SI_Observaciones_Publica", $datos["SI_Observaciones_Publica"], PDO::PARAM_STR);
+      $stmt->bindParam(":SI_Observaciones_Generales", $datos["SI_Observaciones_Generales"], PDO::PARAM_STR);
       $stmt->bindParam(":SI_Requerimiento_Amonestacion_Privada", $datos["SI_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
       $stmt->bindParam(":SI_Requerimiento_Amonestacion_Publica", $datos["SI_Requerimiento_Amonestacion_Publica"], PDO::PARAM_STR);
 
       $stmt->bindParam(":idSAR", $datos["idSAR"], PDO::PARAM_INT);
       $stmt->bindParam(":SA_Recepcion", $datos["SA_Recepcion"], PDO::PARAM_STR);
+      $stmt->bindParam(":SA_Observaciones_General", $datos["SA_Observaciones_General"], PDO::PARAM_STR);
       $stmt->bindParam(":SA_Observaciones", $datos["SA_Observaciones"], PDO::PARAM_STR);
       $stmt->bindParam(":SA_Observaciones_Publica", $datos["SA_Observaciones_Publica"], PDO::PARAM_STR);
+      $stmt->bindParam(":SA_Observaciones_Generales", $datos["SA_Observaciones_Generales"], PDO::PARAM_STR);
       $stmt->bindParam(":SA_Requerimiento_Amonestacion_Privada", $datos["SA_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
       $stmt->bindParam(":SA_Requerimiento_Amonestacion_Publica", $datos["SA_Requerimiento_Amonestacion_Publica"], PDO::PARAM_STR);
 
       $stmt->bindParam(":idCA", $datos["idCA"], PDO::PARAM_INT);
       $stmt->bindParam(":CA_Recepcion", $datos["CA_Recepcion"], PDO::PARAM_STR);
+      $stmt->bindParam(":CA_Observaciones_General", $datos["CA_Observaciones_General"], PDO::PARAM_STR);
       $stmt->bindParam(":CA_Observaciones", $datos["CA_Observaciones"], PDO::PARAM_STR);
       $stmt->bindParam(":CA_Observaciones_Publica", $datos["CA_Observaciones_Publica"], PDO::PARAM_STR);
+      $stmt->bindParam(":CA_Observaciones_Generales", $datos["CA_Observaciones_Generales"], PDO::PARAM_STR);
       $stmt->bindParam(":CA_Requerimiento_Amonestacion_Privada", $datos["CA_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
       $stmt->bindParam(":CA_Requerimiento_Amonestacion_Publica", $datos["CA_Requerimiento_Amonestacion_Publica"], PDO::PARAM_STR);
      

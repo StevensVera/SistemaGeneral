@@ -664,12 +664,11 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
 </div>
 
+  <!--==========================================================================================================================================================================
+      =============================== FORMULARIO NOTIFICACION DE OBSERVACIONES - GENERAL DE SUJETOS OBLIGADOS ==============================
+      ==========================================================================================================================================================================-->
 
-  <!--=========================== ================================== ===================================================================
-  =============================== FORMULARIO NOTIFICACION DE NO COMPLETADO GENERAL DE SUJETOS OBLIGADOS ==============================
-  =============================== ================================== ==================================================================-->
-
-<div id="modalInformativoCA" class="modal fade" role="dialog">
+<div id="modalInformativoO" class="modal fade" role="dialog">
 
     <div class="modal-dialog modal-lg" style="width: 85%">
 
@@ -679,7 +678,7 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
             <div class="modal-header" style="background: #F0BF0C; color:white" >
 
-                <h4 class="modal-title">REQUERIMIENTO CAPACITACION - AMONESTACION PRIVADA</h4>
+                <h4 class="modal-title">REQUERIMIENTO CAPACITACION - AMONESTACION PÚBLICA</h4>
 
             </div>
 
@@ -696,13 +695,13 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                         <tr>
 
                           <th style="width: 230px; text-align: center;">NOMBRE DEL SUJETO OBLIGADO</th>
-                          <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarNombreSOCA" name="MostrarNombreSOCA" readonly></th>
+                          <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control MostrarNombreSOCA" id="MostrarNombreSOCA" name="MostrarNombreSOCA" readonly></th>
 
                         </tr>
                         <tr>
 
                           <th style="width: 115px; text-align: center;">BIMESTRE</th>
-                          <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarBimestreSOCA" name="MostrarBimestreSOCA" readonly></th>
+                          <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control MostrarBimestreSOCA" id="MostrarBimestreSOCA" name="MostrarBimestreSOCA" readonly></th>
                           <th style="width: 115px; text-align: center;">INFORME</th>
                           <th style="width: 495.455px;text-align: center;">SOLICITUDES ARCO</th>
                         
@@ -740,15 +739,15 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                             <input type="hidden" id="EditaridSA" name="EditaridSA">
 
-                          <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarANIOSOCA" name="MostrarANIOSOCA" disabled> </td>
+                          <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarANIOSOCA" id="MostrarANIOSOCA" name="MostrarANIOSOCA" disabled> </td>
 
-                          <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarFechaSOCA" name="MostrarFechaSOCA" disabled>  </td>
+                          <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarFechaSOCA" id="MostrarFechaSOCA" name="MostrarFechaSOCA" disabled>  </td>
 
-                          <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarTotalSOCA" name="MostrarTotalSOCA" disabled> </td>
+                          <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarTotalSOCA" id="MostrarTotalSOCA" name="MostrarTotalSOCA" disabled> </td>
 
                           <td rowspan="3" style="text-align: center;"> 
 
-                            <iframe type="application/pdf" id="MostrarArchivoSOCA" name="MostrarArchivoSOCA" width="565" height="300"  frameborder="0" ></iframe>
+                            <iframe type="application/pdf" id="MostrarArchivoObservacionesSOCA" name="MostrarArchivoObservacionesSOCA" width="565" height="300"  frameborder="0" ></iframe>
                         
                           </td>
 
@@ -788,6 +787,387 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
       </div>
 
-    </div>
+  </div>
 
 </div>
+
+  <!--==========================================================================================================================================================================
+      =============================== FORMULARIO NOTIFICACION DE REQUERIMIENTO CAPACITACION - AMONESTACION PRIVADA - GENERAL DE SUJETOS OBLIGADOS ==============================
+      ==========================================================================================================================================================================-->
+
+<div id="modalInformativo" class="modal fade" role="dialog">
+
+  <div class="modal-dialog modal-lg" style="width: 85%">
+
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+          <div class="modal-header" style="background: #F0BF0C; color:white" >
+
+              <h4 class="modal-title">REQUERIMIENTO CAPACITACION - AMONESTACION PRIVADA</h4>
+
+          </div>
+
+          <div class="modal-body"> 
+
+            <div class="box-body">
+
+              <div class="form-group">
+                    
+                <table border="1" style="width:100%;">
+            
+                  <thead>
+
+                      <tr>
+
+                        <th style="width: 230px; text-align: center;">NOMBRE DEL SUJETO OBLIGADO</th>
+                        <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control MostrarNombreSOCA" id="MostrarNombreSOCA" name="MostrarNombreSOCA" readonly></th>
+
+                      </tr>
+                      <tr>
+
+                        <th style="width: 115px; text-align: center;">BIMESTRE</th>
+                        <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control MostrarBimestreSOCA" id="MostrarBimestreSOCA" name="MostrarBimestreSOCA" readonly></th>
+                        <th style="width: 115px; text-align: center;">INFORME</th>
+                        <th style="width: 495.455px;text-align: center;">SOLICITUDES ARCO</th>
+                      
+                      </tr>
+
+                  </thead>
+
+                </table>
+
+                <br>
+
+                <table class=" tablaAdministrativa3xSO " border="1" style="width:100%;">
+        
+                  <thead>
+            
+                      <tr>
+
+                        <th style="width: 30px; text-align: center;">#</th>
+                        <th style="width: 124.91px;text-align: center;">AÑO</th>
+                        <th style="width: 280.27px;text-align: center;">FECHA DE ENTREGA</th>
+                        <th style="width: 117.43px;text-align: center;">TOTAL</th>
+                        <th style="width: 400px;text-align: center;">REQUERIMIENTO</th>
+
+                      </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <!-- ==================================  APARTADO PARA SOLICITUDES DE INFORMACION ======================================= -->
+
+                      <tr>
+                        
+                        <td rowspan="3" style="text-align: center;">1</td>
+
+                          <input type="hidden" id="EditaridSA" name="EditaridSA">
+
+                        <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarANIOSOCA" id="MostrarANIOSOCA" name="MostrarANIOSOCA" disabled> </td>
+
+                        <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarFechaSOCA" id="MostrarFechaSOCA" name="MostrarFechaSOCA" disabled>  </td>
+
+                        <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarTotalSOCA" id="MostrarTotalSOCA" name="MostrarTotalSOCA" disabled> </td>
+
+                        <td rowspan="3" style="text-align: center;"> 
+
+                          <iframe type="application/pdf" id="MostrarArchivoAmonestacionPrivadaSOCA" name="MostrarArchivoAmonestacionPrivadaSOCA" width="565" height="300"  frameborder="0" ></iframe>
+                      
+                        </td>
+
+                      </tr>
+
+                      <tr>
+
+                          <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                        
+                      </tr>
+
+                      <tr>
+                          
+                          <td  style="text-align: center;" colspan="3"> <textarea id="MostrarAmonestacionPrivadasSOCA" name="MostrarAmonestacionPrivadasSOCA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:240px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+
+                      </tr>
+
+                    </tbody>
+
+                </table>
+
+              </div>
+              
+              
+            </div>
+            
+          </div>
+
+        <div class="modal-footer">
+
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+        </div>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!--=========================== ================================== ==================================================================================================================
+  =============================== FORMULARIO NOTIFICACION DE REQUERIMIENTO CAPACITACIONES - AMONESTACION PÚBLICA - GENERAL DE SUJETOS OBLIGADOS ==============================
+  =============================== ================================== ==================================================================================================================-->
+
+<div id="modalInformativoAP" class="modal fade" role="dialog">
+
+<div class="modal-dialog modal-lg" style="width: 85%">
+
+  <div class="modal-content">
+
+    <form role="form" method="post" enctype="multipart/form-data">
+
+        <div class="modal-header" style="background: #F0BF0C; color:white" >
+
+            <h4 class="modal-title">REQUERIMIENTO CAPACITACION - AMONESTACION PÚBLICA</h4>
+
+        </div>
+
+        <div class="modal-body"> 
+
+          <div class="box-body">
+
+            <div class="form-group">
+                  
+              <table border="1" style="width:100%;">
+          
+                <thead>
+
+                    <tr>
+
+                      <th style="width: 230px; text-align: center;">NOMBRE DEL SUJETO OBLIGADO</th>
+                      <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarNombreSOCA" name="MostrarNombreSOCA" readonly></th>
+
+                    </tr>
+                    <tr>
+
+                      <th style="width: 115px; text-align: center;">BIMESTRE</th>
+                      <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarBimestreSOCA" name="MostrarBimestreSOCA" readonly></th>
+                      <th style="width: 115px; text-align: center;">INFORME</th>
+                      <th style="width: 495.455px;text-align: center;">SOLICITUDES ARCO</th>
+                    
+                    </tr>
+
+                </thead>
+
+              </table>
+
+              <br>
+
+              <table class=" tablaAdministrativa3xSO " border="1" style="width:100%;">
+      
+                <thead>
+          
+                    <tr>
+
+                      <th style="width: 30px; text-align: center;">#</th>
+                      <th style="width: 124.91px;text-align: center;">AÑO</th>
+                      <th style="width: 280.27px;text-align: center;">FECHA DE ENTREGA</th>
+                      <th style="width: 117.43px;text-align: center;">TOTAL</th>
+                      <th style="width: 400px;text-align: center;">REQUERIMIENTO</th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                      <!-- ==================================  APARTADO PARA SOLICITUDES DE INFORMACION ======================================= -->
+
+                    <tr>
+                      
+                      <td rowspan="3" style="text-align: center;">1</td>
+
+                        <input type="hidden" id="EditaridSA" name="EditaridSA">
+
+                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarANIOSOCA" name="MostrarANIOSOCA" disabled> </td>
+
+                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarFechaSOCA" name="MostrarFechaSOCA" disabled>  </td>
+
+                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarTotalSOCA" name="MostrarTotalSOCA" disabled> </td>
+
+                      <td rowspan="3" style="text-align: center;"> 
+
+                        <iframe type="application/pdf" id="MostrarArchivoAmonestacionPublicaSOCA" name="MostrarArchivoAmonestacionPublicaSOCA" width="565" height="300"  frameborder="0" ></iframe>
+                    
+                      </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                      
+                    </tr>
+
+                    <tr>
+                        
+                        <td  style="text-align: center;" colspan="3"> <textarea id="MostrarAmonestacionPublicaSOCA" name="MostrarAmonestacionPublicaSOCA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:240px;text-align: justify; "></textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+
+                    </tr>
+
+                  </tbody>
+
+              </table>
+
+            </div>
+            
+            
+          </div>
+          
+        </div>
+
+      <div class="modal-footer">
+
+      <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+</div>
+
+    <!--=========================== ================================== ======================================================================================================================
+    =============================== FORMULARIO NOTIFICACION DE REQUERIMIENTO CAPACITACIONES - PROCESO DE SANCIÓN - GENERAL DE SUJETOS OBLIGADOS ==============================
+    =============================== ================================== ==================================================================================================================-->
+
+    <div id="modalInformativoPS" class="modal fade" role="dialog">
+
+      <div class="modal-dialog modal-lg" style="width: 85%">
+
+        <div class="modal-content">
+
+          <form role="form" method="post" enctype="multipart/form-data">
+
+              <div class="modal-header" style="background: #FF1700; color:white" >
+
+                  <h4 class="modal-title">REQUERIMIENTO CAPACITACIONES - PROCESO DE SANCIÓN</h4>
+
+              </div>
+
+              <div class="modal-body"> 
+
+                <div class="box-body">
+
+                  <div class="form-group">
+                        
+                    <table border="1" style="width:100%;">
+                
+                      <thead>
+
+                          <tr>
+
+                            <th style="width: 230px; text-align: center;">NOMBRE DEL SUJETO OBLIGADO</th>
+                            <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control " id="MostrarNombreSOSI" name="MostrarNombreSOSI" disabled></th>
+
+                          </tr>
+                          <tr>
+
+                            <th style="width: 115px; text-align: center;">BIMESTRE</th>
+                            <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarBimestreSOSI" name="MostrarBimestreSOSI" disabled></th>
+                            <th style="width: 115px; text-align: center;">INFORME</th>
+                            <th style="width: 495.455px;text-align: center;">SOLICITUDES DE INFORMACIÓN</th>
+                          
+                          </tr>
+
+                      </thead>
+
+                     </table>
+
+                    <br>
+
+                    <table class=" tablaAdministrativa3xSO " border="1" style="width:100%;">
+             
+                       <thead>
+                
+                          <tr>
+
+                            <th style="width: 30px; text-align: center;">#</th>
+                            <th style="width: 124.91px;text-align: center;">AÑO</th>
+                            <th style="width: 280.27px;text-align: center;">FECHA DE ENTREGA</th>
+                            <th style="width: 117.43px;text-align: center;">TOTAL</th>
+                            <th style="width: 400px;text-align: center;">REQUERIMIENTO</th>
+  
+                           </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                             <!-- ==================================  APARTADO PARA SOLICITUDES DE INFORMACION ======================================= -->
+
+                          <tr>
+                            
+                            <td rowspan="3" style="text-align: center;">1</td>
+
+                               <input type="hidden" id="EditaridSI" name="EditaridSI">
+
+                            <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarANIOSOSI" name="MostrarANIOSOSI" disabled> </td>
+
+                            <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarFechaSOSI" name="MostrarFechaSOSI" disabled>  </td>
+
+                            <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarTotalSOSI" name="MostrarTotalSOSI" disabled> </td>
+
+                            <td rowspan="3" style="text-align: center;"> 
+
+                              <iframe type="application/pdf" id="MostrarArchivoSOSI" name="MostrarArchivoSOSI" width="565" height="300"  frameborder="0" ></iframe>
+                          
+                            </td>
+
+                          </tr>
+
+                          <tr>
+
+                              <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
+                            
+                          </tr>
+
+                          <tr>
+                              
+                              <td  style="text-align: center;" colspan="3"> <textarea id="MostrarObservacionesSOSI" name="MostrarObservacionesSOSI" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:240px;text-align: justify; ">PONGASE EN CONTACTO CON LA SECRETARIA EJECUTIVA DEL INSTITUO DE TRANSPARENCIA Y ACCESO A LA INFOMACION PUBLICA DEL ESTADO DE NAYARIT, PARA MAS DETALLES SOBRE EL TEMA DE SANCION</textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
+
+                          </tr>
+
+                        </tbody>
+
+                     </table>
+
+                  </div>
+                  
+                  
+                </div>
+                
+              </div>
+
+            <div class="modal-footer">
+
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+            </div>
+
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>

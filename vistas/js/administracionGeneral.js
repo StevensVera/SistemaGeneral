@@ -189,9 +189,11 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOANIOSI").val(respuesta["SI_Anios"]);
         $("#EditarSOFSI").val(respuesta["SI_Fecha"]);
         $("#EditarSOTSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
+        $("#EditarSOOGSI").val(respuesta["SI_Observaciones_General"]);
         $("#EditarSOOSI").val(respuesta["SI_Observaciones"]);
         $("#EditarSOOPSI").val(respuesta["SI_Observaciones_Publica"]);
 
+        $("#archivoActualObservacionesSI").val(respuesta["SI_Observaciones_Generales"]);
         $("#archivoActualRequerimientoSI").val(respuesta["SI_Requerimiento_Amonestacion_Privada"]);
         $("#archivoActualRequerimientoPublicaSI").val(respuesta["SI_Requerimiento_Amonestacion_Publica"]);
 
@@ -258,11 +260,12 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOANIOSA").val(respuesta["SA_Anios"]);
         $("#EditarSOFSA").val(respuesta["SA_Fecha"]);
         $("#EditarSOTSA").val(respuesta["SA_TOTAL_SOLICITUDES"]);
+        $("#EditarSOOGSA").val(respuesta["SA_Observaciones_General"]);
         $("#EditarSOOSA").val(respuesta["SA_Observaciones"]);
         $("#EditarSOOPSA").val(respuesta["SA_Observaciones_Publica"]);
 
 
-
+        $("#archivoActualObservacionesSA").val(respuesta["SA_Observaciones_Generales"]);
         $("#archivoActualRequerimientoSA").val(respuesta["SA_Requerimiento_Amonestacion_Privada"]);
         $("#archivoActualRequerimientoPublicaSA").val(respuesta["SA_Requerimiento_Amonestacion_Publica"]);
        
@@ -333,9 +336,11 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         $("#EditarSOANIOCA").val(respuesta["CA_Anios"]);
         $("#EditarSOFCA").val(respuesta["CA_Fecha"]);
         $("#EditarSOTCA").val(respuesta["CA_Total_Capacitacion"]);
+        $("#EditarSOOGCA").val(respuesta["CA_Observaciones_General"]);
         $("#EditarSOOCA").val(respuesta["CA_Observaciones"]);
         $("#EditarSOOPCA").val(respuesta["CA_Observaciones_Publica"]);
 
+        $("#archivoActualObservacionesCA").val(respuesta["CA_Observaciones_Generales"]);
         $("#archivoActualRequerimientoCA").val(respuesta["CA_Requerimiento_Amonestacion_Privada"]);
         $("#archivoActualRequerimientoPublicaCA").val(respuesta["CA_Requerimiento_Amonestacion_Publica"]);
         
@@ -445,12 +450,189 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
         
     })
   
+    /* FUNCIONES DE CAMBIOS PARA LOS EFECTOS EN SOLICITUDES DE INFORMACIÓN */
+    
+    $( function() {
+
+      $("#SelectSI").change( function() {
+
+          if ($(this).val() === "OBSERVACIÓNES") {
+
+              $("#EditarSOOGSI").prop("readonly", false);
+              $("#nuevoArchivoObservacionesSI").prop("disabled", false);
+
+          } else {
+
+              $("#EditarSOOGSI").prop("readonly", true);
+              $("#nuevoArchivoObservacionesSI").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    $( function() {
+      
+      $("#SelectSI").change( function() {
+
+          if ($(this).val() === "AMONESTACIÓN PRIVADA") {
+
+              $("#EditarSOOSI").prop("readonly", false);
+              $("#nuevoArchivoRequerimientoSI").prop("disabled", false);
 
 
+          } else {
+
+              $("#EditarSOOSI").prop("readonly", true);
+              $("#nuevoArchivoRequerimientoSI").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    $( function() {
+      
+      $("#SelectSI").change( function() {
+
+          if ($(this).val() === "AMONESTACIÓN PÚBLICA") {
+
+              $("#EditarSOOPSI").prop("readonly", false);
+              $("#nuevoArchivoRequerimientoPublicaSI").prop("disabled", false);
 
 
+          } else {
 
-  
+              $("#EditarSOOPSI").prop("readonly", true);
+              $("#nuevoArchivoRequerimientoPublicaSI").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    /* FUNCIONES DE CAMBIOS PARA LOS EFECTOS EN SOLICITUDES ARCO */
+    
+    $( function() {
+
+      $("#SelectSA").change( function() {
+
+          if ($(this).val() === "OBSERVACIÓNES") {
+
+              $("#EditarSOOGSA").prop("readonly", false);
+              $("#nuevoArchivoObservacionesSA").prop("disabled", false);
+
+          } else {
+
+              $("#EditarSOOGSA").prop("readonly", true);
+              $("#nuevoArchivoObservacionesSA").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    $( function() {
+      
+      $("#SelectSA").change( function() {
+
+          if ($(this).val() === "AMONESTACIÓN PRIVADA") {
+
+              $("#EditarSOOSA").prop("readonly", false);
+              $("#nuevoArchivoRequerimientoSA").prop("disabled", false);
+
+
+          } else {
+
+              $("#EditarSOOSA").prop("readonly", true);
+              $("#nuevoArchivoRequerimientoSA").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    $( function() {
+      
+      $("#SelectSA").change( function() {
+
+          if ($(this).val() === "AMONESTACIÓN PÚBLICA") {
+
+              $("#EditarSOOPSA").prop("readonly", false);
+              $("#nuevoArchivoRequerimientoPublicaSA").prop("disabled", false);
+
+
+          } else {
+
+              $("#EditarSOOPSA").prop("readonly", true);
+              $("#nuevoArchivoRequerimientoPublicaSA").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+      /* FUNCIONES DE CAMBIOS PARA LOS EFECTOS EN CAPACITACIONES */
+    
+    $( function() {
+
+      $("#SelectCA").change( function() {
+
+          if ($(this).val() === "OBSERVACIÓNES") {
+
+              $("#EditarSOOGCA").prop("readonly", false);
+              $("#nuevoArchivoObservacionesCA").prop("disabled", false);
+
+          } else {
+
+              $("#EditarSOOGCA").prop("readonly", true);
+              $("#nuevoArchivoObservacionesCA").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    $( function() {
+      
+      $("#SelectCA").change( function() {
+
+          if ($(this).val() === "AMONESTACIÓN PRIVADA") {
+
+              $("#EditarSOOCA").prop("readonly", false);
+              $("#nuevoArchivoRequerimientoCA").prop("disabled", false);
+
+
+          } else {
+
+              $("#EditarSOOCA").prop("readonly", true);
+              $("#nuevoArchivoRequerimientoCA").prop("disabled", true);
+
+          }
+      });
+
+    });
+
+    $( function() {
+      
+      $("#SelectCA").change( function() {
+
+          if ($(this).val() === "AMONESTACIÓN PÚBLICA") {
+
+              $("#EditarSOOPCA").prop("readonly", false);
+              $("#nuevoArchivoRequerimientoPublicaCA").prop("disabled", false);
+
+
+          } else {
+
+              $("#EditarSOOPCA").prop("readonly", true);
+              $("#nuevoArchivoRequerimientoPublicaCA").prop("disabled", true);
+
+          }
+      });
+
+    });
+
 
 /* =========== MOSTRAR - EDITAR - ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS MOSTRAR SOLAMENTE POR GRUPOS DE 3 ================= */
 

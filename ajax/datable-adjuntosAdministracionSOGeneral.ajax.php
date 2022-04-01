@@ -82,6 +82,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                   
               }
 
+                // - REVISION - OBSERVACIÓNES
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "EN REVISIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+                  
+                $TipoEstado = "EN REVISIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+                  
+                $TipoEstado = "EN REVISIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+                  
+                $TipoEstado = "EN REVISIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "EN REVISIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "EN REVISIÓN";
+                  
+              }
+
                 //  REVISION - AMONESTACION PRIVADA
               
               else if ($adjunto[$i]["SI_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
@@ -230,6 +258,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
               } 
 
+                // AMONESTACION PRIVADA - OBSERVACIÓNES
+      
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              } 
+
               // - AMONESTACION PRIVADA - FINALIZADO
 
               else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACION PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACION PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
@@ -289,6 +345,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                 $TipoEstado = "AMONESTACIÓN PÚBLICA";
                   
               }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }               
+              
+              // AMONESTACIÓN PÚBLICA - OBSERVACIÓNES
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
                   
                 $TipoEstado = "AMONESTACIÓN PÚBLICA";
                   
@@ -387,6 +471,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                   
               }
 
+                // PROCESO MULTA - OBSERVACIÓNES
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }
+
                 //  PROCESO DE SANCIÓN - AMONESTACION PRIVADA
               
               else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
@@ -473,6 +585,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
                //================================================================ PROCESO DE SANCIÓN + COMPLEMENTOS ===============================================================================
 
+                // PROCESO DE SANCIÓN - NO ENVIADO - OBSERVACIÓNES
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+                  
+                $TipoEstado = "PROCESO DE SANCIÓN";
+                  
+              }
+
                // PROCESO DE SANCIÓN - NO ENVIADO - AMONESTACION PRIVADA
                 
               else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
@@ -556,6 +696,7 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                 $TipoEstado = "PROCESO DE SANCIÓN";
                   
               }
+              
 
               //  PROCESO DE SANCIÓN - AMONESTACIÓN PRIVADA -  AMONESTACIÓN PÚBLICA
               
@@ -580,6 +721,90 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                   $TipoEstado = "PROCESO DE SANCIÓN";
 
               }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }
+
+                //  PROCESO DE SANCIÓN - AMONESTACIÓN PRIVADA -  OBSERVACIÓNES
+              
+              else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }
+
+                //  PROCESO DE SANCIÓN - OBSERVACIÓNES -  AMONESTACIÓN PÚBLICA
+              
+              else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }
+
+                //  PROCESO DE SANCIÓN - OBSERVACIÓNES -  FINALIZADO
+              
+              else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "PROCESO DE SANCIÓN" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
+
+                  $TipoEstado = "PROCESO DE SANCIÓN";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "PROCESO DE SANCIÓN"){
 
                   $TipoEstado = "PROCESO DE SANCIÓN";
 
@@ -643,7 +868,35 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
               //================================================================ AMONESTACIÓN PÚBLICA + COMPLEMENTO ===============================================================================
               
-              // AMONESTACIÓN PÚBLICA - NO ENVIADO - AMONESTACIÓN PRIVADA
+                // AMONESTACIÓN PÚBLICA - NO ENVIADO - OBSERVACIÓNES
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }
+
+               // AMONESTACIÓN PÚBLICA - NO ENVIADO - AMONESTACIÓN PRIVADA
                 
               else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
 
@@ -699,6 +952,62 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                   
               }
 
+                // AMONESTACIÓN PÚBLICA - OBSERVACIÓNES - AMONESTACIÓN PRIVADA
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }
+
+                // AMONESTACIÓN PÚBLICA - OBSERVACIÓNES - FINALIZADO
+                
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PÚBLICA"){
+                  
+                $TipoEstado = "AMONESTACIÓN PÚBLICA";
+                  
+              }
+
                 // AMONESTACIÓN PÚBLICA - AMONESTACIÓN PRIVADA - FINALIZADO
                 
               else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PÚBLICA" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
@@ -729,6 +1038,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
 
               //================================================================ AMONESTACIÓN PRIVADA + COMPLEMENTO ===============================================================================
 
+                // AMONESTACION PRIVADA - NO ENVIADO -  OBSERVACIÓNES
+      
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }   
+              
                 // AMONESTACION PRIVADA - NO ENVIADO -  FINALIZADO
       
               else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
@@ -752,6 +1089,34 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
               $TipoEstado = "AMONESTACIÓN PRIVADA";
 
               }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              } 
+
+                // AMONESTACION PRIVADA - OBSERVACIÓNES -  FINALIZADO
+      
+              else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
+
+              $TipoEstado = "AMONESTACIÓN PRIVADA";
+
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA"){
 
               $TipoEstado = "AMONESTACIÓN PRIVADA";
 
@@ -793,13 +1158,137 @@ require_once "../modelos/administracionGeneralSO.modelo.php";
                   
               }
 
+                // NO ENVIADO -  OBSERVACIÓNES
+
+              else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }
+
+                // NO ENVIADO - OBSERVACIÓNES
+
+              else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" && $adjunto[$i]["CA_Recepcion"] == "EN REVISIÓN"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }
+
+              //================================================================ NO ENVIADO + COMPLEMENTO ===============================================================================
+
+                // NO ENVIADO -  FINALIZADO - OBSERVACIÓNES
+
+              else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "NO ENVIADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "NO ENVIADO"){
+                  
+                $TipoEstado = "NO ENVIADO";
+                  
+              }
+
               //================================================================ FINALIZADO ===============================================================================
 
               else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
 
                 $TipoEstado = "FINALIZADO";
   
-              } else {
+              } 
+              
+              //================================================================ OBSERVACIÓNES ===============================================================================
+
+              else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+
+                $TipoEstado = "OBSERVACIÓNES";
+  
+              }                 
+              
+              // OBSERVACIÓNES -  FINALIZADO
+
+              else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+
+                $TipoEstado = "OBSERVACIÓNES";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "OBSERVACIÓNES";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "OBSERVACIÓNES";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES"){
+                  
+                $TipoEstado = "OBSERVACIÓNES";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "FINALIZADO" && $adjunto[$i]["SA_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+                  
+                $TipoEstado = "OBSERVACIÓNES";
+                  
+              }else if ($adjunto[$i]["SI_Recepcion"] == "OBSERVACIÓNES" && $adjunto[$i]["SA_Recepcion"] == "FINALIZADO" && $adjunto[$i]["CA_Recepcion"] == "FINALIZADO"){
+                  
+                $TipoEstado = "OBSERVACIÓNES";
+                  
+              }
+
+              else {
 
                 $TipoEstado = "EN REVISIÓN";
 

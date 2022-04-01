@@ -256,7 +256,7 @@ $(".tablasSolicitudesInformacion").on("click", ".btnEditarSolicitudesInformacion
 }) // Evento
 
 /*==============================================================================================
-                         = MOSTRAR - EDITAR SOLICITUDES INFORMACION =
+                         = MOSTRAR - EDITAR SOLICITUDES INFORMACION  =
 ================================================================================================ */ 
 
 $(".tablasSolicitudesInformacion").on("click", ".btnInformativoSI", function(){
@@ -276,16 +276,30 @@ $(".tablasSolicitudesInformacion").on("click", ".btnInformativoSI", function(){
     dataType:"json", 
      success: function(respuesta){
         console.log("respuesta",respuesta);
-      
-        $("#MostrarNombreSOSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
-        $("#MostrarBimestreSOSI").val(respuesta["SI_Informe_Presentado"]);
 
-        $("#MostrarANIOSOSI").val(respuesta["SI_Anios"]);
-        $("#MostrarFechaSOSI").val(respuesta["SI_Fecha"]);
-        $("#MostrarTotalSOSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
 
-        $("#MostrarObservacionesSOSI").val(respuesta["SI_Observaciones"]);
-        $("#MostrarArchivoSOSI").attr("src", respuesta["SI_Requerimiento_Amonestacion_Privada"]);
+        $(".MostrarNombreSOSI").val(respuesta["SI_Nombre_Sujeto_Obligado"]);
+        $(".MostrarBimestreSOSI").val(respuesta["SI_Informe_Presentado"]);
+
+        $(".MostrarANIOSOSI").val(respuesta["SI_Anios"]);
+        $(".MostrarFechaSOSI").val(respuesta["SI_Fecha"]);
+        $(".MostrarTotalSOSI").val(respuesta["SI_TOTAL_SOLICITUDES"]);
+
+        // OBSERVACIONES
+        $("#MostrarObservacionesSOSI").val(respuesta["SI_Observaciones_General"]);
+        $("#MostrarArchivoObservacionesSOSI").attr("src", respuesta["SI_Observaciones_Generales"]);
+
+        // REQUERIMIENTOS AMONESTACIÓN PRIVADA
+        $("#MostrarAmonestacionPrivadasSOSI").val(respuesta["SI_Observaciones"]);
+        $("#MostrarArchivoAmonestacionPrivadaSOSI").attr("src", respuesta["SI_Requerimiento_Amonestacion_Privada"]);
+
+        // REQUERIMIENTOS AMONESTACIÓN PUBLICA
+        $("#MostrarAmonestacionPublicaSOSI").val(respuesta["SI_Observaciones_Publica"]);
+        $("#MostrarArchivoAmonestacionPublicaSOSI").attr("src", respuesta["SI_Requerimiento_Amonestacion_Publica"]);
+
+
+        //$("#MostrarObservacionesSOSI").val(respuesta["SI_Observaciones"]);
+        //$("#MostrarArchivoSOSI").attr("src", respuesta["SI_Requerimiento_Amonestacion_Privada"]);
         //$("#MostrarArchivoSOSI").val(respuesta["SI_Archivo"]);
 
         /*

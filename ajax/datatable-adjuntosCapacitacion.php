@@ -45,11 +45,20 @@
 
                     } 
 
-                } else if($adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA" ){
+                } else if($adjunto[$i]["CA_Recepcion"] == "OBSERVACIÓNES" ){
 
                     if ($adjunto[$i]["CA_Estatus"] == 1) {
     
-                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativoCA' title='AMONESTACIÓN PRIVADA'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativoO' title='OBSERVACIÓNES'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+    
+    
+                    }
+    
+                }else if($adjunto[$i]["CA_Recepcion"] == "AMONESTACIÓN PRIVADA" ){
+
+                    if ($adjunto[$i]["CA_Estatus"] == 1) {
+    
+                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativo' title='AMONESTACIÓN PRIVADA'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
     
     
                     }
@@ -58,7 +67,7 @@
 
                     if ($adjunto[$i]["CA_Estatus"] == 1) {
     
-                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativoCA' title='AMONESTACIÓN PÚBLICA'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativoAP' title='AMONESTACIÓN PÚBLICA'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
     
     
                     }
@@ -67,7 +76,7 @@
 
                     if ($adjunto[$i]["CA_Estatus"] == 1) {
     
-                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativoCA' title='PROCESO DE SANCIÓN'><i class='fa fa-user-circle-o' aria-hidden='true'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
+                        $botones = "<button class='btn btn-warning btnEditarCapacitaciones' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalAgregarCapacitacionesEditar'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimirReportexCapacitaciones' idCapacitaciones='".$adjunto[$i]["idCA"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["CA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-danger btnInformativoCA' data-toggle='modal' idCapacitaciones='".$adjunto[$i]["idCA"]."' data-target='#modalInformativoPS' title='PROCESO DE SANCIÓN'><i class='fa fa-user-circle-o' aria-hidden='true'></i></button> <button class='btn btn-success btnActivarCapacitaciones'  idCA='".$adjunto[$i]["idCA"]."' estadoCapacitaciones='1' RecepcionCapacitaciones='EN REVISIÓN'><i class='fa fa-check'></i></button>";
     
     
                     }
