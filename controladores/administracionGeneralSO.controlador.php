@@ -822,6 +822,49 @@
 
               $respuesta = ModeloAdministracionGeneralSO::mdlAdministracionGeneralSOModal($TablaSI, $TablaSA, $TablaCA , $datos, $Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SA_Codigo_Tipo_Informe_Anios, $Obtener_CA_Codigo_Tipo_Informe_Anios );                               
 
+              $tablaRequerimiemto = "requererimientos";   
+
+              $datos2 = array(
+                             "SI_Recepcion"=>$_POST["EditarSORSI"],
+                             "SI_Codigo_SO"=>$_POST["EditarCodigoSujetoObligadoRSI"],
+                             "SI_Nombre_Sujeto_Obligado"=>$_POST["EditarNombreSujetoObligadoRSI"],
+                             "SI_Informe_Presentado"=>$_POST["EditarSOSI"],
+                             "SI_Anios"=>$_POST["EditarSOANIOSI"],
+                             "SI_Observaciones_General"=>$_POST["EditarSOOGSI"],
+                             "SI_Observaciones"=>$_POST["EditarSOOSI"],
+                             "SI_Observaciones_Publica"=>$_POST["EditarSOOPSI"],
+                             "SI_Observaciones_Generales" => $rutaSIObservaciones,
+                             "SI_Requerimiento_Amonestacion_Privada" => $rutaSIRequerimiento,
+                             "SI_Requerimiento_Amonestacion_Publica" => $rutaSIRequerimientoPublico,
+
+                             "SA_Recepcion"=>$_POST["EditarSORSA"],
+                             "SA_Codigo_SO"=>$_POST["EditarNombreSujetoObligadoRSA"],
+                             "SA_Nombre_Sujeto_Obligado"=>$_POST["EditarNombreSujetoObligadoRSA"],
+                             "SA_Informe_Presentado"=>$_POST["EditarSOSA"],
+                             "SA_Anios"=>$_POST["EditarSOANIOSA"],
+                             "SA_Observaciones_General"=>$_POST["EditarSOOGSA"],
+                             "SA_Observaciones"=>$_POST["EditarSOOSA"],
+                             "SA_Observaciones_Publica"=>$_POST["EditarSOOPSA"],
+                             "SA_Observaciones_Generales" => $rutaSAObservaciones,
+                             "SA_Requerimiento_Amonestacion_Privada" => $rutaSARequerimiento,
+                             "SA_Requerimiento_Amonestacion_Publica" => $rutaSARequerimientoPublicaSA,
+
+                             "CA_Recepcion"=>$_POST["EditarSORCA"],
+                             "CA_Codigo_SO"=>$_POST["EditarCodigoSujetoObligadoRCA"],
+                             "CA_Nombre_Sujeto_Obligado"=>$_POST["EditarNombreSujetoObligadoRCA"],
+                             "CA_Informe_Presentado"=>$_POST["EditarSOCA"],
+                             "CA_Anios"=>$_POST["EditarSOANIOCA"],
+                             "CA_Observaciones_General"=>$_POST["EditarSOOGCA"],
+                             "CA_Observaciones"=>$_POST["EditarSOOCA"],
+                             "CA_Observaciones_Publica"=>$_POST["EditarSOOPCA"],
+                             "CA_Observaciones_Generales" => $rutaCAObservaciones,
+                             "CA_Requerimiento_Amonestacion_Privada" => $rutaCARequerimiento,
+                             "CA_Requerimiento_Amonestacion_Publica" => $rutaCARequerimientoPublicaCA
+                           
+                            );
+
+              $respuesta = ModeloAdministracionGeneralSO::mdlAdministracionGeneralRequerimientoSO($tablaRequerimiemto, $datos2);              
+
                    if ($respuesta == "ok") {
                        
                        echo'<script>

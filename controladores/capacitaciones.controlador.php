@@ -57,6 +57,8 @@
 
                     $CarpetaAdcionalCA = "Capacitaciones";
 
+                  
+
                     // Se insert EJEMPLO A.1 Informe Bimestral SolicitudesInformacion 2022
 
                     $CodigoUnicoInformeAnioCA = $Codigo.$espacio.$_POST["nuevoTipoCapacitaciones"].$espacio.$CarpetaAdcionalCA.$espacio.$_POST["nuevoAnioCapacitaciones"];
@@ -141,6 +143,8 @@
                                 
                             }
 
+                            $UnidadTransparencia = $_SESSION["titular_Informe"];
+
                             /* Datos - Array */
                             $datos = array( "CA_Estatus" => 0,
                                             "CA_Recepcion" => "NO ENVIADO",
@@ -149,6 +153,7 @@
                                             "CA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosCA,
                                             "CA_Codigo_Informe_Anios" => $CodigoIPACA,
                                             "CA_Nombre_Sujeto_Obligado" => $SObligado,
+                                            "CA_Titular_Informe" => $UnidadTransparencia, 
                                             "CA_Informe_Presentado" => $_POST["nuevoTipoCapacitaciones"],
                                             "CA_Anios" => $_POST["nuevoAnioCapacitaciones"], 
                                             "CA_Total_Capacitacion" => $_POST["nuevoCapacitaciones_Total"],

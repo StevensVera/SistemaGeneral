@@ -3231,13 +3231,13 @@ if($_SESSION["perfil_Informe"] == "Observador"){
                     <tr>
 
                       <th style="width: 230px; text-align: center;">NOMBRE DEL SUJETO OBLIGADO</th>
-                      <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarNombreSOSA" name="MostrarNombreSOSA" readonly></th>
+                      <th colspan="3" style="width: 990.93px;text-align: center;"><input style="text-align: center;" type="text" class="form-control MostrarNombreSOSA" id="MostrarNombreSOSA" name="MostrarNombreSOSA" readonly></th>
 
                     </tr>
                     <tr>
 
                       <th style="width: 115px; text-align: center;">BIMESTRE</th>
-                      <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control" id="MostrarBimestreSOSA" name="MostrarBimestreSOSA" readonly></th>
+                      <th style="width: 495.455px;text-align: center;"><input style="text-align: center;" type="text" class="form-control MostrarBimestreSOSA" id="MostrarBimestreSOSA" name="MostrarBimestreSOSA" readonly></th>
                       <th style="width: 115px; text-align: center;">INFORME</th>
                       <th style="width: 495.455px;text-align: center;">SOLICITUDES ARCO</th>
                     
@@ -3249,61 +3249,18 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
               <br>
 
-              <table class=" tablaAdministrativa3xSO " border="1" style="width:100%;">
-      
-                <thead>
-          
-                    <tr>
+                <h1>PÓNGASE EN CONTACTO CON LA SECRETARIA EJECUTIVA DEL INSTITUTO DE TRANSPARENCIA Y ACCESO A LA INFOMACIÓN PÚBLICA DEL ESTADO DE NAYARIT, PARA MÁS DETALLES SOBRE EL TEMA DE SANCIÓN</h1>
 
-                      <th style="width: 30px; text-align: center;">#</th>
-                      <th style="width: 124.91px;text-align: center;">AÑO</th>
-                      <th style="width: 280.27px;text-align: center;">FECHA DE ENTREGA</th>
-                      <th style="width: 117.43px;text-align: center;">TOTAL</th>
-                      <th style="width: 400px;text-align: center;">REQUERIMIENTO</th>
+              <br>
 
-                    </tr>
+                <h1>DATOS DE CONTACTO</h1>
+                <h1>TELEFONOS: (311) 217-72-14  y  (311) 217-74-14 </h1>
+                <h1>CORREOS: contacto@itainayarit.org.mx, secretariaejecutiva@itainayarit.org.mx   </h1>
 
-                  </thead>
 
-                  <tbody>
+              <br>
 
-                      <!-- ==================================  APARTADO PARA SOLICITUDES DE INFORMACION ======================================= -->
-
-                    <tr>
-                      
-                      <td rowspan="3" style="text-align: center;">1</td>
-
-                        <input type="hidden" id="EditaridSA" name="EditaridSA">
-
-                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarANIOSOSA" name="MostrarANIOSOSA" disabled> </td>
-
-                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarFechaSOSA" name="MostrarFechaSOSA" disabled>  </td>
-
-                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarTotalSOSA" name="MostrarTotalSOSA" disabled> </td>
-
-                      <td rowspan="3" style="text-align: center;"> 
-
-                        <iframe type="application/pdf" id="MostrarArchivoSOSA" name="MostrarArchivoSOSA" width="565" height="300"  frameborder="0" ></iframe>
-                    
-                      </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td  style="text-align: center;" colspan="3" disabled> OBSERVACIÓNES </td>
-                      
-                    </tr>
-
-                    <tr>
-                        
-                        <td  style="text-align: center;" colspan="3"> <textarea id="MostrarObservacionesSOSA" name="MostrarObservacionesSOSA" class="form-control input-lg"  style="resize:none; font-size:14px; width:100%;height:240px;text-align: justify; ">PONGASE EN CONTACTO CON LA SECRETARIA EJECUTIVA DEL INSTITUO DE TRANSPARENCIA Y ACCESO A LA INFOMACION PUBLICA DEL ESTADO DE NAYARIT, PARA MAS DETALLAES SOBRE EL TEMA DE SANCION </textarea> <!-- <input style="text-align: center;" type="text" class="form-control input-lg" id="EditarSOOSI" name="EditarSOOSI" id="" name=""> --> </td>
-
-                    </tr>
-
-                  </tbody>
-
-              </table>
+             
 
             </div>
             

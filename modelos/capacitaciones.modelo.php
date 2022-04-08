@@ -48,6 +48,7 @@
                         CA_Codigo_Tipo_Informe_Anios,
                         CA_Codigo_Informe_Anios,
                         CA_Nombre_Sujeto_Obligado,
+                        CA_Titular_Informe,
                         CA_Informe_Presentado,
                         CA_Anios,
                         CA_Total_Capacitacion,
@@ -65,6 +66,7 @@
                         :CA_Codigo_Tipo_Informe_Anios,
                         :CA_Codigo_Informe_Anios,
                         :CA_Nombre_Sujeto_Obligado,
+                        :CA_Titular_Informe,
                         :CA_Informe_Presentado,
                         :CA_Anios,
                         :CA_Total_Capacitacion,
@@ -82,6 +84,7 @@
                         $stmt -> bindParam(":CA_Codigo_Tipo_Informe_Anios", $datos["CA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Codigo_Informe_Anios", $datos["CA_Codigo_Informe_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Nombre_Sujeto_Obligado", $datos["CA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Titular_Informe", $datos["CA_Titular_Informe"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Informe_Presentado", $datos["CA_Informe_Presentado"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Anios", $datos["CA_Anios"], PDO::PARAM_STR);
                         $stmt -> bindParam(":CA_Total_Capacitacion", $datos["CA_Total_Capacitacion"], PDO::PARAM_STR);

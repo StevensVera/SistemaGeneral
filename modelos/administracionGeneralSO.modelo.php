@@ -260,5 +260,139 @@ static public function mdlActualizarEstadoAdministradorxSO($tabla,$item1,$valor1
 } // End function mdlActualizarEstadoUsuario
 
 
+static public function mdlAdministracionGeneralRequerimientoSO($tablaRequerimiemto, $datos2){
+
+    $stmt = Conexion::conectar()->prepare(
+        "INSERT INTO $tablaRequerimiemto(
+            SI_Recepcion,
+            SI_Codigo_SO,
+            SI_Nombre_Sujeto_Obligado,
+            SI_Informe_Presentado,
+            SI_Anios,     
+            SI_Observaciones_General,
+            SI_Observaciones,
+            SI_Observaciones_Publica,
+            SI_Observaciones_Generales,
+            SI_Requerimiento_Amonestacion_Privada,
+            SI_Requerimiento_Amonestacion_Publica,
+
+            SA_Recepcion,
+            SA_Codigo_SO,
+            SA_Nombre_Sujeto_Obligado,
+            SA_Informe_Presentado,
+            SA_Anios, 
+            SA_Observaciones_General,
+            SA_Observaciones,
+            SA_Observaciones_Publica,
+            SA_Observaciones_Generales,
+            SA_Requerimiento_Amonestacion_Privada,
+            SA_Requerimiento_Amonestacion_Publica,
+
+            CA_Recepcion,
+            CA_Codigo_SO,
+            CA_Nombre_Sujeto_Obligado,
+            CA_Informe_Presentado,
+            CA_Anios, 
+            CA_Observaciones_General,
+            CA_Observaciones,
+            CA_Observaciones_Publica,
+            CA_Observaciones_Generales,
+            CA_Requerimiento_Amonestacion_Privada,
+            CA_Requerimiento_Amonestacion_Publica
+            
+
+            )
+            VALUES(
+            :SI_Recepcion,
+            :SI_Codigo_SO,  
+            :SI_Nombre_Sujeto_Obligado,
+            :SI_Informe_Presentado,
+            :SI_Anios,
+            :SI_Observaciones_General,
+            :SI_Observaciones,
+            :SI_Observaciones_Publica,
+            :SI_Observaciones_Generales,
+            :SI_Requerimiento_Amonestacion_Privada,
+            :SI_Requerimiento_Amonestacion_Publica,
+
+            :SA_Recepcion,
+            :SA_Codigo_SO,
+            :SA_Nombre_Sujeto_Obligado,
+            :SA_Informe_Presentado,
+            :SA_Anios,
+            :SA_Observaciones_General,
+            :SA_Observaciones,
+            :SA_Observaciones_Publica,
+            :SA_Observaciones_Generales,
+            :SA_Requerimiento_Amonestacion_Privada,
+            :SA_Requerimiento_Amonestacion_Publica,
+
+            :CA_Recepcion,
+            :CA_Codigo_SO,
+            :CA_Nombre_Sujeto_Obligado,
+            :CA_Informe_Presentado,
+            :CA_Anios,
+            :CA_Observaciones_General,
+            :CA_Observaciones,
+            :CA_Observaciones_Publica,
+            :CA_Observaciones_Generales,
+            :CA_Requerimiento_Amonestacion_Privada,
+            :CA_Requerimiento_Amonestacion_Publica
+
+            )");
+
+            $stmt -> bindParam(":SI_Recepcion", $datos2["SI_Recepcion"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Codigo_SO", $datos2["SI_Codigo_SO"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Nombre_Sujeto_Obligado", $datos2["SI_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Informe_Presentado", $datos2["SI_Informe_Presentado"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Anios", $datos2["SI_Anios"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Observaciones_General", $datos2["SI_Observaciones_General"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Observaciones", $datos2["SI_Observaciones"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Observaciones_Publica", $datos2["SI_Observaciones_Publica"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Observaciones_Generales", $datos2["SI_Observaciones_Generales"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Requerimiento_Amonestacion_Privada", $datos2["SI_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SI_Requerimiento_Amonestacion_Publica", $datos2["SI_Requerimiento_Amonestacion_Publica"], PDO::PARAM_STR);
+
+            $stmt -> bindParam(":SA_Recepcion", $datos2["SA_Recepcion"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Codigo_SO", $datos2["SA_Codigo_SO"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Nombre_Sujeto_Obligado", $datos2["SA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Informe_Presentado", $datos2["SA_Informe_Presentado"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Anios", $datos2["SA_Anios"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Observaciones_General", $datos2["SA_Observaciones_General"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Observaciones", $datos2["SA_Observaciones"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Observaciones_Publica", $datos2["SA_Observaciones_Publica"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Observaciones_Generales", $datos2["SA_Observaciones_Generales"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Requerimiento_Amonestacion_Privada", $datos2["SA_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
+            $stmt -> bindParam(":SA_Requerimiento_Amonestacion_Publica", $datos2["SA_Requerimiento_Amonestacion_Publica"], PDO::PARAM_STR);
+
+            $stmt -> bindParam(":CA_Recepcion", $datos2["CA_Recepcion"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Codigo_SO", $datos2["CA_Codigo_SO"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Nombre_Sujeto_Obligado", $datos2["CA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Informe_Presentado", $datos2["CA_Informe_Presentado"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Anios", $datos2["CA_Anios"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Observaciones_General", $datos2["CA_Observaciones_General"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Observaciones", $datos2["CA_Observaciones"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Observaciones_Publica", $datos2["CA_Observaciones_Publica"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Observaciones_Generales", $datos2["CA_Observaciones_Generales"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Requerimiento_Amonestacion_Privada", $datos2["CA_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
+            $stmt -> bindParam(":CA_Requerimiento_Amonestacion_Publica", $datos2["CA_Requerimiento_Amonestacion_Publica"], PDO::PARAM_STR);
+            
+            
+
+
+
+            if ($stmt -> execute()) {
+
+                return "ok";
+        
+              }else {
+        
+                return "error";	
+    
+            } // else
+        
+} // End Funcion mdlagregarCA  
+
+
 
   }

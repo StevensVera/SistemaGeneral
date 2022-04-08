@@ -106,6 +106,7 @@
              SI_Codigo_Tipo_Informe_Anios,
              Si_Codigo_Informe_Anios, 
              SI_Nombre_Sujeto_Obligado,
+             SI_Titular_Informe,
              SI_Informe_Presentado,
              SI_Anios,
              SI_TOTAL_SOLICITUDES,
@@ -231,6 +232,7 @@
              :SI_Codigo_Tipo_Informe_Anios,
              :Si_Codigo_Informe_Anios, 
              :SI_Nombre_Sujeto_Obligado,
+             :SI_Titular_Informe,
              :SI_Informe_Presentado,
              :SI_Anios,
              :SI_TOTAL_SOLICITUDES,
@@ -354,6 +356,7 @@
           $stmt -> bindParam(":SI_Codigo_Tipo_Informe_Anios", $datos["SI_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":Si_Codigo_Informe_Anios", $datos["Si_Codigo_Informe_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Nombre_Sujeto_Obligado", $datos["SI_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Titular_Informe", $datos["SI_Titular_Informe"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Informe_Presentado", $datos["SI_Informe_Presentado"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_Anios", $datos["SI_Anios"], PDO::PARAM_STR);
           $stmt -> bindParam(":SI_TOTAL_SOLICITUDES", $datos["SI_TOTAL_SOLICITUDES"], PDO::PARAM_STR);

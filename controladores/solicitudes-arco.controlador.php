@@ -74,6 +74,8 @@
 
                                 $Codigo = $_SESSION["codigo"];
 
+                                $UnidadTransparencia = $_SESSION["titular_Informe"];
+
                                 // Ingresamos carpeta de Solicitudes Arco
 
                                 $CarpataSA = "SolicitudesArco";
@@ -182,6 +184,7 @@
                                               "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAniosSA,
                                               "SA_Codigo_Informe_Anios" => $CodigoIPA,
                                               "SA_Nombre_Sujeto_Obligado" => $SObligado,
+                                              "SA_Titular_Informe" => $UnidadTransparencia,
                                               "SA_Informe_Presentado" => $_POST["nuevoTipoInformeSA"],
                                               "SA_Anios" => $_POST["nuevoAnioSA"], 
                                               "SA_TOTAL_SOLICITUDES" => $_POST["nuevoSA_Total"],

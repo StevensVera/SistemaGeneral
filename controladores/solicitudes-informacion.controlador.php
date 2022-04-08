@@ -119,6 +119,10 @@
 
                                 $Codigo = $_SESSION["codigo"];
 
+                                //$Codigo = "A.1";
+
+                                $UnidadTransparencia = $_SESSION["titular_Informe"];
+
                                 // Se inserta EJEMPLO A.1 1er Informe Bimestral 2022
 
                                 $CodigoTipoInformeAniosSI = $Codigo.$espacio.$CodigoIPA;
@@ -228,6 +232,7 @@
                                                       "Si_Codigo_Informe_Anios" => $CodigoIPA,
                                                       "SI_Nombre_Sujeto_Obligado" => $SObligado,
                                                       "SI_Informe_Presentado" => $_POST["nuevoTipoInformeSI"],
+                                                      "SI_Titular_Informe" => $UnidadTransparencia,
                                                       "SI_Anios" => $_POST["nuevoAnioSI"], 
                                                       "SI_TOTAL_SOLICITUDES" => $_POST["nuevoSI_Total"],
                                                       //"** Medio de Presentación **",
@@ -1120,6 +1125,8 @@
         $datos = $_GET["idSI"];
 
         $respuesta = ModeloSolicitudesInformacion::mdlBorrarRegistroInformacion($tabla, $datos);
+
+        return $respuesta;
 
       } // if 
       
