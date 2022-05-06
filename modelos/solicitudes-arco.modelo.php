@@ -236,6 +236,65 @@
 
            }// End Funciom Agregar SA
 
+                 /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE ARCO - DESDE EL ADMINISTRADOR - REQUEREMIENTO PRIVADA ================ */ 
+
+                 static public function MdlAgregarSASoloRequerimientoPrivada($tablaSA, $datos){
+
+                  $stmt = Conexion::conectar()->prepare(
+                     "INSERT INTO $tablaSA (
+                        SA_Estatus,
+                        SA_Recepcion,
+                        SA_Observaciones,
+                        SA_Codigo_SO, 
+                        SA_Codigo_UnicoInforme_Anios,
+                        SA_Codigo_Tipo_Informe_Anios,
+                        SA_Codigo_Informe_Anios,
+                        SA_Nombre_Sujeto_Obligado,
+                        SA_Informe_Presentado,
+                        SA_Anios,
+                        SA_Requerimiento_Amonestacion_Privada
+                        
+                        )VALUES (
+                       :SA_Estatus,
+                       :SA_Recepcion,
+                       :SA_Observaciones,   
+                       :SA_Codigo_SO,
+                       :SA_Codigo_UnicoInforme_Anios,
+                       :SA_Codigo_Tipo_Informe_Anios,
+                       :SA_Codigo_Informe_Anios,
+                       :SA_Nombre_Sujeto_Obligado,
+                       :SA_Informe_Presentado,
+                       :SA_Anios,
+                       :SA_Requerimiento_Amonestacion_Privada
+                       
+                       )");
+                  
+                  $stmt -> bindParam(":SA_Estatus", $datos["SA_Estatus"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Recepcion", $datos["SA_Recepcion"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Observaciones", $datos["SA_Observaciones"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_SO", $datos["SA_Codigo_SO"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_UnicoInforme_Anios", $datos["SA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_Tipo_Informe_Anios", $datos["SA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_Informe_Anios", $datos["SA_Codigo_Informe_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Nombre_Sujeto_Obligado", $datos["SA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Informe_Presentado", $datos["SA_Informe_Presentado"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Anios", $datos["SA_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Requerimiento_Amonestacion_Privada", $datos["SA_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
+  
+  
+                  if ($stmt -> execute()) {
+      
+                      return "ok";
+              
+                   }else {
+              
+                      return "error";
+          
+                   } // else
+  
+  
+             }// End Funciom Agregar SA
+
             /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA SECUNDARIA ================ */ 
 
            static public function MdlAgregarSA_r($tablaSA_r, $datos){
@@ -312,7 +371,81 @@
 
            }// End Funciom Agregar SA
 
+            /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA SECUNDARIA ================ */ 
 
+           static public function MdlAgregarSA_r_Administrador($tablaSA_r, $datos){
+
+               try{  
+
+                  $stmt = Conexion::conectar()->prepare(
+                     "INSERT INTO $tablaSA_r (
+                        SA_Estatus,
+                        SA_Codigo_SO, 
+                        SA_Codigo_UnicoInforme_Anios,
+                        SA_Codigo_Tipo_Informe_Anios,
+                        SA_Codigo_Informe_Anios,
+                        SA_Nombre_Sujeto_Obligado,
+                        SA_Informe_Presentado,
+                        SA_Anios,
+                        SA_TOTAL_SOLICITUDES
+                        
+                        )VALUES (
+                        :SA_Estatus,   
+                        :SA_Codigo_SO,
+                        :SA_Codigo_UnicoInforme_Anios,
+                        :SA_Codigo_Tipo_Informe_Anios,
+                        :SA_Codigo_Informe_Anios,
+                        :SA_Nombre_Sujeto_Obligado,
+                        :SA_Informe_Presentado,
+                        :SA_Anios,
+                        :SA_TOTAL_SOLICITUDES
+                        
+                        )");
+                  
+                  $stmt -> bindParam(":SA_Estatus", $datos["SA_Estatus"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_SO", $datos["SA_Codigo_SO"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_UnicoInforme_Anios", $datos["SA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_Tipo_Informe_Anios", $datos["SA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Codigo_Informe_Anios", $datos["SA_Codigo_Informe_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Nombre_Sujeto_Obligado", $datos["SA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Informe_Presentado", $datos["SA_Informe_Presentado"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_Anios", $datos["SA_Anios"], PDO::PARAM_STR);
+                  $stmt -> bindParam(":SA_TOTAL_SOLICITUDES", $datos["SA_TOTAL_SOLICITUDES"], PDO::PARAM_STR);
+               
+                  if ($stmt -> execute()) {
+      
+                     return "ok";
+               
+                  }else {
+               
+                     return "error";
+         
+                  } // else
+
+               } catch(PDOException $e) {
+                    
+                  echo '<script>
+      
+                      swal({
+                        title: "ERROR, AL INSERTAR.",
+                        text: "¡LA INFORMACIÓN QUE DESEA INSERTAR, YA EXISTE EN EL SISTEMA. VERIFIQUÉ SUS DATOS NUEVAMENTE!",
+                        type: "error",
+                        confirmButtonText: "¡Cerrar!"
+                      }).then(function(result){
+      
+                         if(result.value){
+                            
+                            window.location = "dashboard";
+      
+                          }
+      
+                      });
+      
+                      </script>';
+                
+              }          
+
+           }// End Funciom Agregar SA
         
       /* =========== FUNCIÓN - SOLICITUDES DE INFORMACION - MOSTRAR DATOS - EDITAR - DESDE LA UNIDAD DE TRANSPARENCIA ================ */  
     

@@ -193,7 +193,7 @@
 
                                 } // IF 1ER TABLA 
 
-                         } elseif ($respuesta == "error") {
+                         } else if ($respuesta == "error") {
 
                           echo '<script>
 

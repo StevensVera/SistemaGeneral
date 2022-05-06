@@ -496,6 +496,69 @@
         } // End Funcion MdlAgregarSI
 
 
+         /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE EL ADMINISTRADOR - REQUEREMIENTO PRIVADA   ================ */ 
+
+         static public function MdlAgregarSISoloRequerimientoPrivada($tablaSI, $datos){
+            
+          $stmt = Conexion::conectar()->prepare(
+            "INSERT INTO $tablaSI
+            (
+             SI_Estatus,
+             SI_Recepcion,
+             SI_Observaciones,
+             Si_Codigo_SO,
+             SI_Codigo_UnicoInforme_Anios,
+             SI_Codigo_Tipo_Informe_Anios,
+             Si_Codigo_Informe_Anios, 
+             SI_Nombre_Sujeto_Obligado,
+             SI_Informe_Presentado,
+             SI_Anios,
+             SI_Requerimiento_Amonestacion_Privada
+
+             ) 
+             
+            VALUES(
+             :SI_Estatus,
+             :SI_Recepcion,
+             :SI_Observaciones,
+             :Si_Codigo_SO,
+             :SI_Codigo_UnicoInforme_Anios,
+             :SI_Codigo_Tipo_Informe_Anios,
+             :Si_Codigo_Informe_Anios, 
+             :SI_Nombre_Sujeto_Obligado,
+             :SI_Informe_Presentado,
+             :SI_Anios,
+             :SI_Requerimiento_Amonestacion_Privada
+
+             )");
+          $stmt -> bindParam(":SI_Estatus", $datos["SI_Estatus"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Recepcion", $datos["SI_Recepcion"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Observaciones", $datos["SI_Observaciones"], PDO::PARAM_STR);
+          $stmt -> bindParam(":Si_Codigo_SO", $datos["Si_Codigo_SO"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Codigo_UnicoInforme_Anios", $datos["SI_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Codigo_Tipo_Informe_Anios", $datos["SI_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+          $stmt -> bindParam(":Si_Codigo_Informe_Anios", $datos["Si_Codigo_Informe_Anios"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Nombre_Sujeto_Obligado", $datos["SI_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Informe_Presentado", $datos["SI_Informe_Presentado"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Anios", $datos["SI_Anios"], PDO::PARAM_STR);
+          $stmt -> bindParam(":SI_Requerimiento_Amonestacion_Privada", $datos["SI_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
+
+          if ($stmt -> execute()) {
+	 
+            return "ok";
+    
+          }else {
+    
+            return "error";
+
+          } // else
+
+          $stmt->close();
+          $stmt = null;
+
+        } // End Funcion MdlAgregarSI  
+
+
       /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA SECUNDARIA R ================ */ 
 
       static public function MdlAgregarSI_r($tablaSI_r, $datos){
@@ -530,6 +593,7 @@
                 
 
                 )");
+                
               $stmt -> bindParam(":SI_Estatus", $datos["SI_Estatus"], PDO::PARAM_STR);
               $stmt -> bindParam(":Si_Codigo_SO", $datos["Si_Codigo_SO"], PDO::PARAM_STR);
               $stmt -> bindParam(":SI_Codigo_UnicoInforme_Anios", $datos["SI_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
@@ -567,6 +631,89 @@
                    if(result.value){
                       
                       window.location = "solicitudes-informacion";
+
+                    }
+
+                });
+
+                </script>';
+          
+        }           
+
+      } // End Funcion MdlAgregarSI
+
+      /* =========== FUNCIÓN - AGREGAR - SOLICITUDES DE INFORMACION - DESDE LA UNIDAD DE TRANSPARENCIA - TABLA SECUNDARIA R ================ */ 
+
+      static public function MdlAgregarSI_r_Administrador($tablaSI_r, $datos){
+            
+        try{  
+
+          $stmt = Conexion::conectar()->prepare(
+                "INSERT INTO $tablaSI_r
+                (
+                SI_Estatus,
+                Si_Codigo_SO,
+                SI_Codigo_UnicoInforme_Anios,
+                SI_Codigo_Tipo_Informe_Anios,
+                Si_Codigo_Informe_Anios, 
+                SI_Nombre_Sujeto_Obligado,
+                SI_Informe_Presentado,
+                SI_Anios,
+                SI_TOTAL_SOLICITUDES
+
+                ) 
+                
+                VALUES(
+                :SI_Estatus, 
+                :Si_Codigo_SO,
+                :SI_Codigo_UnicoInforme_Anios,
+                :SI_Codigo_Tipo_Informe_Anios,
+                :Si_Codigo_Informe_Anios, 
+                :SI_Nombre_Sujeto_Obligado,
+                :SI_Informe_Presentado,
+                :SI_Anios,
+                :SI_TOTAL_SOLICITUDES
+                
+
+                )");
+                
+              $stmt -> bindParam(":SI_Estatus", $datos["SI_Estatus"], PDO::PARAM_STR);
+              $stmt -> bindParam(":Si_Codigo_SO", $datos["Si_Codigo_SO"], PDO::PARAM_STR);
+              $stmt -> bindParam(":SI_Codigo_UnicoInforme_Anios", $datos["SI_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+              $stmt -> bindParam(":SI_Codigo_Tipo_Informe_Anios", $datos["SI_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+              $stmt -> bindParam(":Si_Codigo_Informe_Anios", $datos["Si_Codigo_Informe_Anios"], PDO::PARAM_STR);
+              $stmt -> bindParam(":SI_Nombre_Sujeto_Obligado", $datos["SI_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+              $stmt -> bindParam(":SI_Informe_Presentado", $datos["SI_Informe_Presentado"], PDO::PARAM_STR);
+              $stmt -> bindParam(":SI_Anios", $datos["SI_Anios"], PDO::PARAM_STR);
+              $stmt -> bindParam(":SI_TOTAL_SOLICITUDES", $datos["SI_TOTAL_SOLICITUDES"], PDO::PARAM_STR);
+
+              if ($stmt -> execute()) {
+      
+                return "ok";
+        
+              }else {
+        
+                return "error";
+
+              } // else
+
+              $stmt->close();
+              $stmt = null;
+
+        } catch(PDOException $e) {
+                    
+            echo '<script>
+
+                swal({
+                  title: "ERROR, AL INSERTAR.",
+                  text: "¡LA INFORMACIÓN QUE DESEA INSERTAR, YA EXISTE EN EL SISTEMA. VERIFIQUÉ SUS DATOS NUEVAMENTE!",
+                  type: "error",
+                  confirmButtonText: "¡Cerrar!"
+                }).then(function(result){
+
+                   if(result.value){
+                      
+                      window.location = "dashboard";
 
                     }
 

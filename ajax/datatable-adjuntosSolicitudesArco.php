@@ -32,6 +32,8 @@ require_once "../modelos/solicitudes-arco.modelo.php";
 
         for ($i=0; $i < count($adjunto); $i++){
 
+            $botones = " ";
+
             if($adjunto[$i]["SA_Recepcion"] == "EN REVISIÓN" ){  
 
                 if ($adjunto[$i]["SA_Estatus"] != 0) {
@@ -54,7 +56,7 @@ require_once "../modelos/solicitudes-arco.modelo.php";
 
             } else if($adjunto[$i]["SA_Recepcion"] == "AMONESTACIÓN PRIVADA" ){
 
-                if ($adjunto[$i]["SA_Estatus"] == 1) {
+                if ($adjunto[$i]["SA_Estatus"] == 1 || $adjunto[$i]["SA_Estatus"] == 0) {
 
                     $botones = "<button class='btn btn-warning btnEditarSolicitudesArco' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."' data-target='#modalActualizareSolicitudesArco'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesArco' idSolicitudesArco='".$adjunto[$i]["idSAR"]."'  title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SA_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoSA' data-toggle='modal' idSolicitudesArco='".$adjunto[$i]["idSAR"]."' data-target='#modalInformativo' title='AMONESTACIÓN PRIVADA'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarSolicitudesArco' idSAR='".$adjunto[$i]["idSAR"]."' estadoSolicitudesArco='1'  RecepcionSolicitudesArco='EN REVISIÓN' title='ENVIAR REPORTE'><i class='fa fa-check'></i></button>";
 

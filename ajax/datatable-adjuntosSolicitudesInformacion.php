@@ -55,7 +55,7 @@ require_once "../modelos/solicitudes-informacion.modelo.php";
                 }
                  else if($adjunto[$i]["SI_Recepcion"] == "AMONESTACIÓN PRIVADA" ){
 
-                    if ($adjunto[$i]["SI_Estatus"] == 1) {
+                    if ($adjunto[$i]["SI_Estatus"] == 1 || $adjunto[$i]["SI_Estatus"] == 0) {
 
                         $botones = "<button class='btn btn-warning btnEditarSolicitudesInformacion' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalActualizareSolicitudesInformacion'><i class='fa fa-pencil'></i></button> <button class='btn btn-primary btnImprimerReportexSolicitudesInformacion' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' title='GENERAR ARCHIVO'><i class='fa fa-file-pdf-o'></i></button> <a href='".$adjunto[$i]["SI_Archivo"]."' target='_blank'><button class='btn btn-primary ' title='GENERAR ARCHIVO ADJUNTO'><i class='fa fa-file-text' aria-hidden='true'></i></button></a> <button class='btn btn-warning btnInformativoSI' data-toggle='modal' idSolicitudesInformacion='".$adjunto[$i]["idSI"]."' data-target='#modalInformativo' title='AMONESTACIÓN PRIVADA'><i class='fa fa-bell'></i></button> <button class='btn btn-success btnActivarSolicitudInformacion'  idSI='".$adjunto[$i]["idSI"]."' estadoSolicitudesInformacion='1' RecepcionSolicitudesInformacion='EN REVISIÓN'><i class='fa fa-check'></i></button>";
 

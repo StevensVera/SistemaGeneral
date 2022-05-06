@@ -993,11 +993,11 @@ if($_SESSION["perfil_Informe"] == "Observador"){
 
                         <input type="hidden" id="EditaridSA" name="EditaridSA">
 
-                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarANIOSOCA" name="MostrarANIOSOCA" disabled> </td>
+                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarANIOSOCA" id="MostrarANIOSOCA" name="MostrarANIOSOCA" disabled> </td>
 
-                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarFechaSOCA" name="MostrarFechaSOCA" disabled>  </td>
+                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarFechaSOCA" id="MostrarFechaSOCA" name="MostrarFechaSOCA" disabled>  </td>
 
-                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg" id="MostrarTotalSOCA" name="MostrarTotalSOCA" disabled> </td>
+                      <td style="background-color:#FFFFFF;color:#000000;" > <input style="background-color:#FFFFFF;border-color:#FFFFFF;text-align: center;" type="text" class="form-control input-lg MostrarTotalSOCA" id="MostrarTotalSOCA" name="MostrarTotalSOCA" disabled> </td>
 
                       <td rowspan="3" style="text-align: center;"> 
 

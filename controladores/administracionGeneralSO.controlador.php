@@ -822,7 +822,7 @@
 
               $respuesta = ModeloAdministracionGeneralSO::mdlAdministracionGeneralSOModal($TablaSI, $TablaSA, $TablaCA , $datos, $Obtener_SI_Codigo_Tipo_Informe_Anios, $Obtener_SA_Codigo_Tipo_Informe_Anios, $Obtener_CA_Codigo_Tipo_Informe_Anios );                               
 
-              $tablaRequerimiemto = "requererimientos";   
+              $tablaRequerimiemto = "requerimientos";   
 
               $datos2 = array(
                              "SI_Recepcion"=>$_POST["EditarSORSI"],
@@ -938,6 +938,471 @@
             return $respuesta;
   
           }
+
+               /* =========== AGREGAR - REQUERIMIENTO - DESDE EL ADMINISTRADOR GENERAL ================ */     
+
+          static public function ctrAgregarAGSolicitudInformacion(){
+
+            if (isset($_POST["agregarRequerimientoAGAnio"])) {
+                                
+              //Agregado el SO a la Tabla, mediante su Sesión.
+              //$SObligado = "H. Ayuntamiento de Acaponeta";
+              $SObligado = $_POST["agregarRequerimientoAGSujetoObligadoSolo"];
+
+              // Agregamos Tabla
+              $tablaSI = "solicitudes_informacion";
+                                
+              // Cocatenacion Codigo "InformePresentado + Año"
+              $espacio = " ";
+
+              $CodigoIPA = $_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+              // Ingresamos el Codigo Unico del Sujeto Obligado
+
+              $Codigo = $_POST["agregarRequerimientoAGCodigoSO"];
+
+              //$Codigo = "A.1";
+
+              // Se inserta EJEMPLO A.1 1er Informe Bimestral 2022
+
+              $CodigoTipoInformeAnios = $Codigo.$espacio.$CodigoIPA;
+
+              // Carpeta Solicitudes de Informacion
+
+              $CarpetaAdicionalSI = "SolicitudesInformacion";
+
+              // Carpeta Solicitudes de Informacion
+
+              $CarpetaAdicionalSA = "SolicitudesArco";
+
+              // Carpeta Solicitudes de Informacion
+
+              $CarpetaAdicionalCA = "Capacitaciones";
+
+              
+              // Ejemplo de 1er Informe Bimestral
+
+              $InformeRequerimientoSI = $_POST["agregarRequerimientoAGInformeBimestral"];
+
+              // Se insert EJEMPLO A.1 Informe Bimestral SolicitudesInformacion 2022
+
+              $CodigoUnicoInformeAnioSI = $Codigo.$espacio.$_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$CarpetaAdicionalSI.$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+              // Se insert EJEMPLO A.1 Informe Bimestral Solicitudes Arco 2022
+
+              $CodigoUnicoInformeAnioSA = $Codigo.$espacio.$_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$CarpetaAdicionalSA.$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+              // Se insert EJEMPLO A.1 Informe Bimestral Solicitudes Arco 2022
+
+              $CodigoUnicoInformeAnioCA = $Codigo.$espacio.$_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$CarpetaAdicionalCA.$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+              $espacio = " ";
+
+              /* ======================== Agregamos Tabla -   ========================================= */
+
+              $tablaSI_r = "solicitudes_informacion_r";
+
+              $datos = array( 
+                              "SI_Estatus" => 0,
+                              "Si_Codigo_SO" => $Codigo,
+                              "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
+                              "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAnios,
+                              "Si_Codigo_Informe_Anios" => $CodigoIPA,
+                              "SI_Nombre_Sujeto_Obligado" => $SObligado,
+                              "SI_Informe_Presentado" => $_POST["agregarRequerimientoAGInformeBimestral"],
+                              "SI_Anios" => $_POST["agregarRequerimientoAGAnio"]
+                            );
+                                                
+              $respuesta = ModeloSolicitudesInformacion::MdlAgregarSI_r_Administrador($tablaSI_r, $datos);
+
+               if($respuesta == "ok"){
+
+                /* ================= VALIDAR ARCHIVO PDF =================*/
+
+                $rutaSI = "";
+
+                $Codigo2 = $_POST["agregarRequerimientoAGCodigoSO"];
+ 
+                $SObligado2 = $_POST["agregarRequerimientoAGSujetoObligadoSolo"];
+
+                $Anios = $_POST["agregarRequerimientoAGAnio"];
+
+                $CodigoIPA2 = $_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+                $CarpetaSI = "SolicitudesInformacion";
+
+                $CarpetaPrivadaSI = "Privada";
+                                      
+                  if (isset($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"])) {
+
+                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SOLICITUD DE INFORMACIÓN ==========================*/
+                                      
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSI;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                      /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                      if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/pdf") {
+                                              
+                        $rutaSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSI."/".$CodigoIPA2.$espacio.$SObligado2.".pdf";
+
+                        move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaSI);
+
+                      }
+
+                      if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                              
+                        $rutaSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSI."/".$CodigoIPA2.$espacio.$SObligado2.".xlsx";
+
+                        move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaSI);
+
+                      }
+
+                      if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/vnd.ms-excel") {
+                                              
+                        $rutaSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSI."/".$CodigoIPA2.$espacio.$SObligado2.".xls";
+
+                        move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaSI);
+
+                      }
+
+                  }
+                      /* Datos - Array */
+                      $datos = array( 
+                                     "SI_Estatus" => 0,
+                                     "SI_Recepcion" => "AMONESTACIÓN PRIVADA",
+                                     "SI_Observaciones" => $_POST["agregarRequerimientoAGObservacionesPrivada"],
+                                     "Si_Codigo_SO" => $Codigo,
+                                     "SI_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSI,
+                                     "SI_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAnios,
+                                     "Si_Codigo_Informe_Anios" => $CodigoIPA,
+                                     "SI_Nombre_Sujeto_Obligado" => $SObligado,
+                                     "SI_Informe_Presentado" => $_POST["agregarRequerimientoAGInformeBimestral"],
+                                     "SI_Anios" => $_POST["agregarRequerimientoAGAnio"],
+                                     "SI_Requerimiento_Amonestacion_Privada" => $rutaSI 
+                                    );
+                                                      
+                                        $respuesta = ModeloSolicitudesInformacion::MdlAgregarSISoloRequerimientoPrivada($tablaSI, $datos);
+
+                                          if($respuesta == "ok"){
+
+                                                  echo '<script>
+
+                                                  swal({
+
+                                                      type: "success",
+                                                      title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
+                                                      showConfirmButton: true,
+                                                      confirmButtonText: "Cerrar"
+
+                                                  }).then(function(result){
+
+                                                      if(result.value){
+                                                      
+                                                          window.location = "dashboard";
+
+                                                      }
+
+                                                  });
+                                              
+                                                  </script>';
+
+                                          } // if respuesta
+                             
+              } // if
+
+              /* =========== VARIABLES CAMBIANTES ============================== */
+
+              // Agregamos Tabla
+
+              $tablaSA_r = "solicitudes_arco_r";
+
+              $datos = array( 
+                              "SA_Estatus" => 0,
+                              "SA_Codigo_SO" => $Codigo,
+                              "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSA,
+                              "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAnios,
+                              "SA_Codigo_Informe_Anios" => $CodigoIPA,
+                              "SA_Nombre_Sujeto_Obligado" => $SObligado,
+                              "SA_Informe_Presentado" => $_POST["agregarRequerimientoAGInformeBimestral"],
+                              "SA_Anios" => $_POST["agregarRequerimientoAGAnio"]
+                            );
+                                                
+              $respuesta = ModeloSolicitudesArco::MdlAgregarSA_r_Administrador($tablaSA_r, $datos);
+
+              if($respuesta == "ok"){
+
+                /* ================= VALIDAR ARCHIVO PDF =================*/
+
+                $rutaSA = "";
+
+                $Codigo2 = $_POST["agregarRequerimientoAGCodigoSO"];
+ 
+                $SObligado2 = $_POST["agregarRequerimientoAGSujetoObligadoSolo"];
+
+                $Anios = $_POST["agregarRequerimientoAGAnio"];
+
+                $CodigoIPA2 = $_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+                $CarpetaSA = "SolicitudesArco";
+
+                $CarpetaCA = "Capacitaciones";
+
+                $CarpetaPrivadaSI = "Privada";
+                                      
+                  if (isset($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"])) {
+
+                    /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SOLICITUD DE INFORMACIÓN ==========================*/
+                                      
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                    $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSA;
+
+                    mkdir($directorioArchivoSI, 0755);
+
+                      /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                      if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/pdf") {
+                                              
+                        $rutaSA = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSA."/".$CodigoIPA2.$espacio.$SObligado2.".pdf";
+
+                        move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaSA);
+
+                      }
+
+                      if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                              
+                        $rutaSA = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSA."/".$CodigoIPA2.$espacio.$SObligado2.".xlsx";
+
+                        move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaSA);
+
+                      }
+
+                      if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/vnd.ms-excel") {
+                                              
+                        $rutaSA = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaSA."/".$CodigoIPA2.$espacio.$SObligado2.".xls";
+
+                        move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaSA);
+
+                      }
+
+                  }
+                      /* Datos - Array */
+
+                      $tablaSA = "solicitudes_arco";                    
+
+                      $datos = array( 
+                                      "SA_Estatus" => 0,
+                                      "SA_Recepcion" => "AMONESTACIÓN PRIVADA",
+                                      "SA_Observaciones" => $_POST["agregarRequerimientoAGObservacionesPrivada"],
+                                      "SA_Codigo_SO" => $Codigo,
+                                      "SA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioSA,
+                                      "SA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAnios,
+                                      "SA_Codigo_Informe_Anios" => $CodigoIPA,
+                                      "SA_Nombre_Sujeto_Obligado" => $SObligado,
+                                      "SA_Informe_Presentado" => $_POST["agregarRequerimientoAGInformeBimestral"],
+                                      "SA_Anios" => $_POST["agregarRequerimientoAGAnio"],
+                                      "SA_Requerimiento_Amonestacion_Privada" => $rutaSA
+                                    );
+                                         
+                                    $respuesta = ModeloSolicitudesArco::MdlAgregarSASoloRequerimientoPrivada($tablaSA, $datos);
+
+                                      if($respuesta == "ok"){
+
+                                              echo '<script>
+
+                                              swal({
+
+                                                  type: "success",
+                                                  title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
+                                                  showConfirmButton: true,
+                                                  confirmButtonText: "Cerrar"
+
+                                              }).then(function(result){
+
+                                                  if(result.value){
+                                                  
+                                                      window.location = "dashboard";
+
+                                                  }
+
+                                              });
+                                          
+                                              </script>';
+
+                                      } // if respuesta       
+                             
+              } // if
+
+              /* =========== VARIABLES CAMBIANTES ============================== */
+
+              // Agregamos Tabla
+
+              $tablaCA_r = "capacitaciones_r";
+
+              $datos = array( 
+                              "CA_Estatus" => 0,
+                              "CA_Codigo_SO" => $Codigo,
+                              "CA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioCA,
+                              "CA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAnios,
+                              "CA_Codigo_Informe_Anios" => $CodigoIPA,
+                              "CA_Nombre_Sujeto_Obligado" => $SObligado,
+                              "CA_Informe_Presentado" => $_POST["agregarRequerimientoAGInformeBimestral"],
+                              "CA_Anios" => $_POST["agregarRequerimientoAGAnio"]
+                            );
+                                                
+              $respuesta = ModeloCapacitacion::mdlagregarCA_r_Administrador($tablaCA_r, $datos);
+
+                if($respuesta == "ok"){
+
+                  /* ================= VALIDAR ARCHIVO PDF =================*/
+
+                  $rutaCA = "";
+
+                  $Codigo2 = $_POST["agregarRequerimientoAGCodigoSO"];
+  
+                  $SObligado2 = $_POST["agregarRequerimientoAGSujetoObligadoSolo"];
+
+                  $Anios = $_POST["agregarRequerimientoAGAnio"];
+
+                  $CodigoIPA2 = $_POST["agregarRequerimientoAGInformeBimestral"].$espacio.$_POST["agregarRequerimientoAGAnio"];
+
+                  $CarpetaCA = "Capacitaciones";
+
+                  $CarpetaPrivadaSI = "Privada";
+                                        
+                    if (isset($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"])) {
+
+                      /*==================== CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR EL ARCHIVO PDF SOLICITUD DE INFORMACIÓN ==========================*/
+                                        
+                      $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios;
+
+                      mkdir($directorioArchivoSI, 0755);
+
+                      $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI;
+
+                      mkdir($directorioArchivoSI, 0755);
+
+                      $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI;
+
+                      mkdir($directorioArchivoSI, 0755);
+
+                      $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2;
+
+                      mkdir($directorioArchivoSI, 0755);
+
+                      $directorioArchivoSI = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaCA;
+
+                      mkdir($directorioArchivoSI, 0755);
+
+                        /*==================== APLICAMOS LAS FUNCIONES AL ARCHIVO ============================ */
+
+                        if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/pdf") {
+                                              
+                          $rutaCA = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaCA."/".$CodigoIPA2.$espacio.$SObligado2.".pdf";
+  
+                          move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaCA);
+  
+                        }
+
+                        if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+                                                
+                          $rutaCA = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaCA."/".$CodigoIPA2.$espacio.$SObligado2.".xlsx";
+
+                          move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaCA);
+
+                        }
+
+                        if ($_FILES["nuevoArchivoRequerimientoPrivado"]["type"] == "application/vnd.ms-excel") {
+                                                
+                          $rutaCA = "vistas/pdfs/requerimientos/".$Anios."/".$CarpetaPrivadaSI."/".$InformeRequerimientoSI."/".$Codigo2."/".$CarpetaCA."/".$CodigoIPA2.$espacio.$SObligado2.".xls";
+
+                          move_uploaded_file ($_FILES["nuevoArchivoRequerimientoPrivado"]["tmp_name"], $rutaCA);
+
+                        }
+
+                    }
+                        /* Datos - Array */
+                        
+                        $tablaCA = "capacitaciones";
+                                        
+                        $datos = array( 
+                                        "CA_Estatus" => 0,
+                                        "CA_Recepcion" => "AMONESTACIÓN PRIVADA",
+                                        "CA_Observaciones" => $_POST["agregarRequerimientoAGObservacionesPrivada"],
+                                        "CA_Codigo_SO" => $Codigo,
+                                        "CA_Codigo_UnicoInforme_Anios" => $CodigoUnicoInformeAnioCA,
+                                        "CA_Codigo_Tipo_Informe_Anios" => $CodigoTipoInformeAnios,
+                                        "CA_Codigo_Informe_Anios" => $CodigoIPA,
+                                        "CA_Nombre_Sujeto_Obligado" => $SObligado,
+                                        "CA_Informe_Presentado" => $_POST["agregarRequerimientoAGInformeBimestral"],
+                                        "CA_Anios" => $_POST["agregarRequerimientoAGAnio"],
+                                        "CA_Requerimiento_Amonestacion_Privada" => $rutaCA
+                                      );
+                                          
+                                        $respuesta = ModeloCapacitacion::MdlAgregarCASoloRequerimientoPrivada($tablaCA, $datos);
+
+                                          if($respuesta == "ok"){
+
+                                                  echo '<script>
+
+                                                  swal({
+
+                                                      type: "success",
+                                                      title: "¡La Solicitud de Informes Bimestrales, ha sido guardado correctamente!",
+                                                      showConfirmButton: true,
+                                                      confirmButtonText: "Cerrar"
+
+                                                  }).then(function(result){
+
+                                                      if(result.value){
+                                                      
+                                                          window.location = "dashboard";
+
+                                                      }
+
+                                                  });
+                                              
+                                                  </script>';
+
+                                          } // if respuesta          
+                             
+              } // if
+                            
+            }// if isset
+
+          } // Funcion Agregar Requerimiento Privado
 
 
      }

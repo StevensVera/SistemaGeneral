@@ -633,6 +633,26 @@ $(".tablasAdministracionSujetosObligadosGeneral").on("click", ".btnEditarAdminis
 
     });
 
+    $(document).ready(function(){
+
+      $("#agregarRequerimientoAGSujetoObligado").on('change', function () {
+  
+          $("#agregarRequerimientoAGSujetoObligado option:selected").each(function () {
+  
+              var id = $(this).val();
+
+              console.log(id);
+  
+              $.post("vistas/modulos/codigo.php", { id: id }, function(data) {
+                  
+                  $("#agregarRequerimientoAGCodigoSO").html(data);
+              });         
+          });
+     });
+  });
+  
+
+
 
 /* =========== MOSTRAR - EDITAR - ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS MOSTRAR SOLAMENTE POR GRUPOS DE 3 ================= */
 

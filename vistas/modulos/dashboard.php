@@ -1,15 +1,15 @@
+
+
 <?php
+$conexion = new mysqli('localhost', 'root', 'itai12345', 'sistemaitaiinformes');
 
-if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
+if ($conexion->connect_error) {
+    die("la conexión ha fallado: " . $conexion->connect_error);
+}
 
-  echo '<script>
-
-    window.location = "inicio";
-
-  </script>';
-
-  return;
-
+if (!$conexion->set_charset("utf8")) {
+    printf("Error al cargar el conjunto de caracteres utf8: %s\n", $conexion->error);
+    exit();
 }
 
 ?>
@@ -40,76 +40,19 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
       <div class="box">
 
-        <div class="box-header with-border">
+          <div class="box-header with-border">
 
-           <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarSolicitudesInformacionLlenado"> 
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarSOIBNoEntega"> 
 
-              Agregar Nuevo Requemiento
+                  Agregar Requerimiento Privado
 
-          </button>
+              </button>
 
-           <div class="form-group row" style="width: 80%; margin: 0 auto; padding-bottom: 15px"> 
-
-              <!-- ========================== ENTRADA PARA EL NOMBRE DEl SUJETO OBLIGADO ========================= -->
-              <!--
-
-               <div class="col-xs-8">
-
-                      <div class="input-group">
-         
-                         <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span> 
-
-                               <select class="form-control input-lg" id="nuevoTipoInformeAdministracionSO" name="nuevoTipoInformeAdministracionSO">
-             
-                                  <option value="">Selecionar el Infome a Entregar</option>
-
-                                  <option value="Informe Anual">Informe Anual</option>
-
-                                  <option value="1er Informe Bimestral">1er Informe Bimestral</option>
-
-                                  <option value="2do Informe Bimestral">2do Informe Bimestral</option>
-
-                                  <option value="3er Informe Bimestral">3er Informe Bimestral</option>
-
-                                  <option value="4to Informe Bimestral">4to Informe Bimestral</option>
-
-                                  <option value="5to Informe Bimestral">5to Informe Bimestral</option>
-
-                                  <option value="6to Informe Bimestral">6to Informe Bimestral</option>
-
-                               </select>
-
-                       </div>
-
-               </div>
-
-              -->
-
-               <!-- ==================== ENTRADA PARA EL AÑO DEL INFORME =========================== -->
-
-              <!-- 
-
-               <div class="col-xs-4"> 
-     
-                   <div class="input-group">
-
-                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
-
-                          <input type="number" class="form-control input-lg" id="nuevoAnioAdministracionSO" name="nuevoAnioAdministracionSO" placeholder="AÑO" required>
-
-                    </div>
-
-                 </div>
-              
-              -->  
-
-           </div>
-          
         </div>
 
         <style>
 
-</style>
+    </style>
 
         <div class="box-body">
 
@@ -152,6 +95,224 @@ if($_SESSION["perfil_Informe"] == "Sujeto Obligado"){
 
   </div>
 
+   <!--=============================== ====================================== =============================================================================
+       =============================== FORMULARIO PARA AGREGAR ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS = NO ENTREGARON ===============================
+       =============================== ====================================== =============================================================================-->
+
+  <div id="modalAgregarSOIBNoEntega" class="modal fade" role="dialog">
+
+    <div class="modal-dialog modal-lg" style="width: 85%">
+
+      <div class="modal-content">
+
+        <form role="form" method="post" enctype="multipart/form-data">
+
+          <div class="modal-header" style="background: #3c8dbc; color:white" >
+
+            <h4 class="modal-title">AGREGAR SUJETO OBLIGADO - MODALIDAD DE AMONESTACIÓN PRIVADA</h4>
+
+              </div>
+
+                <div class="modal-body"> 
+
+                   <div class="box-body">
+
+                    <div class="form-group"> 
+
+                    <div class="form-group" style="width: 80%; margin: 0 auto; padding-bottom: 15px">
+                        
+                        <div class="input-group">
+              
+                          <span class="input-group-addon">Sujetos Obligados</span>
+
+                            <select  id="agregarRequerimientoAGSujetoObligadoSolo" class="form-control input-lg agregarRequerimientoAGSujetoObligadoSolo" name="agregarRequerimientoAGSujetoObligadoSolo" >
+
+                              <?php
+
+                                $result = $conexion->query(
+
+                                 "SELECT id, nombre_informe FROM usuarios ORDER BY nombre_Informe;"
+
+                                  );
+
+                                    if ($result->num_rows > 0) {
+
+                                      while ($row = $result->fetch_assoc()) {     
+
+                                         echo '<option  value="'.$row['nombre_informe'].'">'.$row['nombre_informe'].'</option>';
+                                      }
+                                    }
+                              ?>
+
+                            </select>
+
+                        </div>
+            
+                      </div>
+
+                      <div class="form-group" style="width: 80%; margin: 0 auto; padding-bottom: 15px">
+                        
+                        <div class="input-group">
+              
+                          <span class="input-group-addon">Confirme Sujetos Obligados</span>
+
+                            <select  id="agregarRequerimientoAGSujetoObligado" class="form-control input-lg agregarRequerimientoAGSujetoObligado" name="agregarRequerimientoAGSujetoObligado" >
+
+                              <?php
+
+                                $result = $conexion->query(
+
+                                 "SELECT id, nombre_informe FROM usuarios ORDER BY nombre_Informe;"
+
+                                  );
+
+                                    if ($result->num_rows > 0) {
+
+                                      while ($row = $result->fetch_assoc()) {     
+
+                                         echo '<option  value="'.$row['id'].'">'.$row['nombre_informe'].'</option>';
+                                      }
+                                    }
+                              ?>
+
+                            </select>
+
+                        </div>
+            
+                      </div>
+
+                      <div class="form-group row" style="width: 100%; margin: 0 auto; padding-bottom: 15px">
+
+                        <div class="col-xs-3"> 
+
+                            <div class="input-group">
+
+                              <span class="input-group-addon">Codigo SO</span>
+
+                              <select id="agregarRequerimientoAGCodigoSO" class="form-control input-lg agregarRequerimientoAGCodigoSO" name="agregarRequerimientoAGCodigoSO"></select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-6">
+
+                          <div class="input-group">
+
+                              <span class="input-group-addon">Informe</span>
+
+                              <select id="agregarRequerimientoAGInformeBimestral" class="form-control input-lg agregarRequerimientoAGInformeBimestral" name="agregarRequerimientoAGInformeBimestral">
+                 
+                                  <option value="">Seleccione Informe Bimestral</option>
+
+                                  <option value="1er Informe Bimestral">1er Informe Bimestral</option>
+                  
+                                  <option value="2do Informe Bimestral">2do Informe Bimestral</option>
+
+                                  <option value="3er Informe Bimestral">3er Informe Bimestral</option>
+
+                                  <option value="4to Informe Bimestral">4to Informe Bimestral</option>
+
+                                  <option value="5to Informe Bimestral">5to Informe Bimestral</option>
+
+                                  <option value="Informe Anual">Informe Anual</option>
+
+
+                              </select>
+
+                          </div>
+
+                        </div>
+
+                        <div class="col-xs-3">
+
+                          <div class="input-group">
+
+                              <span class="input-group-addon">Año</span>
+
+                              <input type="text" id="agregarRequerimientoAGAnio" class="form-control input-lg agregarRequerimientoAGAnio" name="agregarRequerimientoAGAnio" required>
+
+                          </div>
+
+                        </div>   
+   
+
+                      </div>
+                     
+                      <br>
+
+                     <table class=" tablaAdministrativa3xSO " border="1" style="width: 80%; margin: 0 auto; padding-bottom: 15px">
+             
+                       <thead>
+                
+                          <tr>
+
+                            <th style="width: 230.36px;text-align: center;">OBSERVACIÓNES</th>
+  
+                          </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        <!-- ==============================================================================================================================
+                             ============================================= APARTADO PARA SOLICITUDES DE INFORMACION =======================================
+                             ============================================================================================================================== -->
+                          <!-- ============================================================================================================================== -->
+                          <tr>
+
+                              <td  style="text-align: center;" disabled> OBSERVACIÓNES REQUERIMIENTO DE AMONESTACIÓN PRIVADA </td>
+                            
+                          </tr>
+                          <!-- ============================================================================================================================== -->
+                          <tr>
+                              
+                              <td  style="text-align: center;" > <textarea id="agregarRequerimientoAGObservacionesPrivada" name="agregarRequerimientoAGObservacionesPrivada" class="form-control input-lg agregarRequerimientoAGObservacionesPrivada"  style="resize:none; font-size:14px; width:100%;height:150px;text-align: justify;"></textarea> </td>
+                              
+                          </tr>
+
+                        </tbody>
+
+                     </table>
+
+                  </div>
+
+                  <div class="form-group ">
+
+                    <div class="panel">SUBIR ARCHIVO</div>
+
+                    <input type="file" class="nuevoArchivoRequerimientoPrivado"  name="nuevoArchivoRequerimientoPrivado">
+
+                    <p class="help-block">Peso máximo de la foto 200 MB</p>
+
+                  </div>   
+
+                </div>
+                
+              </div>
+
+            <div class="modal-footer">
+
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+            <button type="submit" class="btn btn-primary">Enviar Requerimiento</button>
+
+            </div>
+
+               <?php    
+
+                   $AdministradorSO = new ControladorAdministracionGeneralSO();
+                   $AdministradorSO -> ctrAgregarAGSolicitudInformacion(); 
+
+              ?>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
 
    <!--=========================== ================================== ===================================================================
   =============================== FORMULARIO PARA ACTUALIZAR ADMINISTRACIÓN GENERAL DE SUJETOS OBLIGADOS ==============================

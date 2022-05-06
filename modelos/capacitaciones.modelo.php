@@ -132,6 +132,89 @@
 
             } // End Funcion mdlagregarCA
 
+            /* =========== FUNCIÓN - AGREGAR - CAPACITACIONES - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
+
+            static public function MdlAgregarCASoloRequerimientoPrivada($tablaCA, $datos){
+
+              try {
+                $stmt = Conexion::conectar()->prepare(
+                    "INSERT INTO $tablaCA(
+                        CA_Estatus,
+                        CA_Recepcion,
+                        CA_Observaciones,
+                        CA_Codigo_SO,
+                        CA_Codigo_UnicoInforme_Anios,
+                        CA_Codigo_Tipo_Informe_Anios,
+                        CA_Codigo_Informe_Anios,
+                        CA_Nombre_Sujeto_Obligado,
+                        CA_Informe_Presentado,
+                        CA_Anios,
+                        CA_Requerimiento_Amonestacion_Privada
+                        )
+                        VALUES(
+                        :CA_Estatus,
+                        :CA_Recepcion,
+                        :CA_Observaciones,  
+                        :CA_Codigo_SO,
+                        :CA_Codigo_UnicoInforme_Anios,
+                        :CA_Codigo_Tipo_Informe_Anios,
+                        :CA_Codigo_Informe_Anios,
+                        :CA_Nombre_Sujeto_Obligado,
+                        :CA_Informe_Presentado,
+                        :CA_Anios,
+                        :CA_Requerimiento_Amonestacion_Privada
+
+                        )");
+                        $stmt -> bindParam(":CA_Estatus", $datos["CA_Estatus"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Recepcion", $datos["CA_Recepcion"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Observaciones", $datos["CA_Observaciones"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_SO", $datos["CA_Codigo_SO"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_UnicoInforme_Anios", $datos["CA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_Tipo_Informe_Anios", $datos["CA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_Informe_Anios", $datos["CA_Codigo_Informe_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Nombre_Sujeto_Obligado", $datos["CA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Informe_Presentado", $datos["CA_Informe_Presentado"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Anios", $datos["CA_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Requerimiento_Amonestacion_Privada", $datos["CA_Requerimiento_Amonestacion_Privada"], PDO::PARAM_STR);
+
+                        if ($stmt -> execute()) {
+	 
+                            return "ok";
+                    
+                          }else {
+                    
+                            return "error";	
+                
+                        } // else
+                    
+                      } catch(PDOException $e) {
+                    
+                        echo '<script>
+
+                        swal({
+
+                          swal({
+                            title: "Error",
+                            text: "¡Ya existe el Informe en el Sistema!",
+                            type: "error",
+                            confirmButtonText: "¡Cerrar!"
+                          }).then(function(result){
+
+                            if(result.value){
+                            
+                                window.location = "capacitaciones";
+
+                            }
+
+                        });
+                    
+
+                        </script>'.$e->getMessage();
+                        
+                    }        
+
+            } // End Funcion mdlagregarCA
+
            /* =========== FUNCIÓN - AGREGAR - CAPACITACIONES - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
 
             static public function mdlagregarCA_R($tablaCA_r, $datos){
@@ -204,7 +287,81 @@
                         
                     }        
 
-            } // End Funcion mdlagregarCA  
+            } // End Funcion mdlagregarCA 
+
+                     /* =========== FUNCIÓN - AGREGAR - CAPACITACIONES - DESDE LA UNIDAD DE TRANSPARENCIA ================ */ 
+
+            static public function mdlagregarCA_r_Administrador($tablaCA_r, $datos){
+
+              try {
+
+                $stmt = Conexion::conectar()->prepare(
+                    "INSERT INTO $tablaCA_r(
+                        CA_Estatus,
+                        CA_Codigo_SO,
+                        CA_Codigo_UnicoInforme_Anios,
+                        CA_Codigo_Tipo_Informe_Anios,
+                        CA_Codigo_Informe_Anios,
+                        CA_Nombre_Sujeto_Obligado,
+                        CA_Informe_Presentado,
+                        CA_Anios,
+                        CA_Total_Capacitacion
+                        )
+                        VALUES(
+                        :CA_Estatus,
+                        :CA_Codigo_SO,
+                        :CA_Codigo_UnicoInforme_Anios,
+                        :CA_Codigo_Tipo_Informe_Anios,
+                        :CA_Codigo_Informe_Anios,
+                        :CA_Nombre_Sujeto_Obligado,
+                        :CA_Informe_Presentado,
+                        :CA_Anios,
+                        :CA_Total_Capacitacion
+
+                        )");
+                        $stmt -> bindParam(":CA_Estatus", $datos["CA_Estatus"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_SO", $datos["CA_Codigo_SO"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_UnicoInforme_Anios", $datos["CA_Codigo_UnicoInforme_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_Tipo_Informe_Anios", $datos["CA_Codigo_Tipo_Informe_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Codigo_Informe_Anios", $datos["CA_Codigo_Informe_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Nombre_Sujeto_Obligado", $datos["CA_Nombre_Sujeto_Obligado"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Informe_Presentado", $datos["CA_Informe_Presentado"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Anios", $datos["CA_Anios"], PDO::PARAM_STR);
+                        $stmt -> bindParam(":CA_Total_Capacitacion", $datos["CA_Total_Capacitacion"], PDO::PARAM_STR);
+                        if ($stmt -> execute()) {
+	 
+                            return "ok";
+                    
+                          }else {
+                    
+                            return "error";	
+                
+                        } // else
+                    
+                      } catch(PDOException $e) {
+                    
+                        echo '<script>
+
+                            swal({
+                              title: "ERROR, AL INSERTAR.",
+                              text: "¡LA INFORMACIÓN QUE DESEA INSERTAR, YA EXISTE EN EL SISTEMA. VERIFIQUÉ SUS DATOS NUEVAMENTE!",
+                              type: "error",
+                              confirmButtonText: "¡Cerrar!"
+                            }).then(function(result){
+
+                               if(result.value){
+                                  
+                                  window.location = "dashboard";
+
+                                }
+
+                            });
+
+                            </script>';
+                        
+                    }        
+
+            } // End Funcion mdlagregarCA    
                 
           /* =========== FUNCIÓN - SOLICITUDES DE INFORMACION - MOSTRAR DATOS - EDITAR - DESDE LA UNIDAD DE TRANSPARENCIA ================ */   //
     
